@@ -1,0 +1,151 @@
+sku,category,unit_cost,annual_units,supplier_id
+SKU-001,Packaging,5.16,7197,1
+SKU-002,Home & Garden,13.41,2838,20
+SKU-003,Industrial,55.76,2714,6
+SKU-004,Apparel,9.46,4035,15
+SKU-005,Electronics,74.62,2358,9
+SKU-006,Electronics,20.4,8372,16
+SKU-007,Home & Garden,46.92,5247,11
+SKU-008,Home & Garden,10.99,2607,6
+SKU-009,Packaging,11.09,2380,20
+SKU-010,Packaging,2.54,3011,2
+SKU-011,Home & Garden,39.18,2562,4
+SKU-012,Home & Garden,16.12,2180,8
+SKU-013,Packaging,3.65,2952,23
+SKU-014,Electronics,42.37,10762,7
+SKU-015,Industrial,53.9,4259,3
+SKU-016,Apparel,13.32,20209,2
+SKU-017,Packaging,3.71,9218,2
+SKU-018,Industrial,64.35,4615,17
+SKU-019,Packaging,3.07,7957,8
+SKU-020,Apparel,8.67,3468,22
+SKU-021,Industrial,57.43,4448,2
+SKU-022,Home & Garden,36.54,2703,6
+SKU-023,Packaging,2.13,2411,10
+SKU-024,Electronics,50.61,9928,9
+SKU-025,Packaging,5.13,2281,3
+SKU-026,Electronics,55.85,2359,2
+SKU-027,Apparel,18.22,2572,3
+SKU-028,Packaging,1.82,4132,22
+SKU-029,Home & Garden,20.27,2768,20
+SKU-030,Apparel,10.52,3363,16
+SKU-031,Apparel,10.71,10040,4
+SKU-032,Home & Garden,34.9,6316,13
+SKU-033,Packaging,2.7,4800,12
+SKU-034,Apparel,13.71,2331,16
+SKU-035,Electronics,20.41,4864,4
+SKU-036,Electronics,97.9,2850,11
+SKU-037,Home & Garden,26.55,2255,9
+SKU-038,Apparel,11.67,2740,8
+SKU-039,Electronics,38.71,2172,17
+SKU-040,Apparel,15.6,3977,23
+SKU-041,Packaging,5.1,4145,12
+SKU-042,Industrial,131.51,2543,13
+SKU-043,Industrial,87.09,2135,16
+SKU-044,Industrial,61.82,15450,13
+SKU-045,Electronics,70.24,3678,7
+SKU-046,Electronics,63.99,6069,5
+SKU-047,Industrial,61.93,2651,21
+SKU-048,Packaging,4.21,6984,15
+SKU-049,Apparel,16.67,6803,18
+SKU-050,Industrial,58.22,2207,23
+SKU-051,Packaging,2.38,122109,24
+SKU-052,Industrial,79.94,3337,15
+SKU-053,Packaging,1.9,5675,20
+SKU-054,Electronics,26.03,2453,7
+SKU-055,Electronics,51.78,4182,3
+SKU-056,Electronics,59.18,2528,14
+SKU-057,Industrial,68.81,6666,12
+SKU-058,Apparel,14.46,2868,19
+SKU-059,Industrial,23.71,3602,12
+SKU-060,Electronics,58.71,3004,23
+SKU-061,Apparel,23.31,3535,3
+SKU-062,Industrial,87.82,2887,16
+SKU-063,Packaging,4.33,3194,19
+SKU-064,Apparel,13.33,2110,9
+SKU-065,Packaging,3.39,6536,19
+SKU-066,Apparel,11.23,13079,9
+SKU-067,Home & Garden,21.39,3121,4
+SKU-068,Electronics,27.95,25827,23
+SKU-069,Apparel,23.37,2326,10
+SKU-070,Electronics,31.08,16113,14
+SKU-071,Home & Garden,26.32,2672,19
+SKU-072,Electronics,81.83,3325,10
+SKU-073,Electronics,65.73,12379,18
+SKU-074,Industrial,171.02,2260,3
+SKU-075,Packaging,1.22,2364,16
+SKU-076,Industrial,48.83,5448,15
+SKU-077,Industrial,108.16,4178,1
+SKU-078,Apparel,6.83,2531,20
+SKU-079,Packaging,2.1,2827,12
+SKU-080,Electronics,56.97,3526,8
+SKU-081,Apparel,6.35,8256,19
+SKU-082,Home & Garden,18.45,2661,24
+SKU-083,Apparel,14.76,3565,7
+SKU-084,Electronics,47.89,2653,3
+SKU-085,Apparel,13.3,2561,3
+SKU-086,Packaging,2.18,9843,1
+SKU-087,Industrial,65.56,3067,4
+SKU-088,Packaging,2.51,5435,5
+SKU-089,Home & Garden,15.97,2558,16
+SKU-090,Electronics,65.36,2355,1
+SKU-091,Packaging,1.67,4699,15
+SKU-092,Packaging,1.05,5759,6
+SKU-093,Home & Garden,25.22,4082,2
+SKU-094,Packaging,3.28,4857,23
+SKU-095,Packaging,5.45,4291,17
+SKU-096,Industrial,42.44,4527,1
+SKU-097,Electronics,43.06,10785,3
+SKU-098,Industrial,62.54,16595,18
+SKU-099,Electronics,34.44,3310,21
+SKU-100,Packaging,2.01,2203,18
+SKU-101,Electronics,64.6,5700,7
+SKU-102,Industrial,32.21,3782,24
+SKU-103,Industrial,37.57,12411,2
+SKU-104,Electronics,42.42,4372,2
+SKU-105,Industrial,91.11,2281,18
+SKU-106,Home & Garden,14.16,4387,3
+SKU-107,Home & Garden,13.41,3102,24
+SKU-108,Industrial,55.1,2241,19
+SKU-109,Packaging,3.53,2506,14
+SKU-110,Home & Garden,15.43,27285,23
+SKU-111,Industrial,96.99,2747,14
+SKU-112,Home & Garden,29.72,2478,16
+SKU-113,Electronics,42.42,2829,4
+SKU-114,Apparel,28.87,9365,10
+SKU-115,Electronics,46.43,4517,3
+SKU-116,Packaging,4.87,2375,7
+SKU-117,Apparel,13.94,2080,11
+SKU-118,Industrial,69.1,2817,16
+SKU-119,Electronics,22.01,2298,10
+SKU-120,Packaging,1.81,9365,15
+SKU-121,Packaging,2.63,2228,1
+SKU-122,Industrial,98.7,3362,12
+SKU-123,Electronics,52.62,4287,14
+SKU-124,Industrial,52.79,17193,17
+SKU-125,Industrial,79.28,2536,16
+SKU-126,Home & Garden,29.05,7301,19
+SKU-127,Electronics,45.13,3562,11
+SKU-128,Industrial,66.34,7270,9
+SKU-129,Packaging,3.13,2661,18
+SKU-130,Electronics,43.86,2613,23
+SKU-131,Apparel,8.45,2469,13
+SKU-132,Home & Garden,12.27,4370,8
+SKU-133,Home & Garden,23.71,3279,12
+SKU-134,Electronics,73.34,3837,2
+SKU-135,Packaging,2.64,5212,2
+SKU-136,Industrial,52.22,4739,9
+SKU-137,Apparel,5.26,4375,8
+SKU-138,Packaging,1.22,5679,1
+SKU-139,Apparel,22.17,2118,21
+SKU-140,Apparel,8.68,6146,4
+SKU-141,Apparel,3.16,5280,3
+SKU-142,Industrial,178.31,2818,24
+SKU-143,Industrial,46.64,2446,19
+SKU-144,Apparel,5.94,3427,17
+SKU-145,Apparel,12.55,9076,10
+SKU-146,Home & Garden,25.69,2600,1
+SKU-147,Apparel,16.21,5827,13
+SKU-148,Apparel,17.97,18538,4
+SKU-149,Packaging,1.94,2739,24
+SKU-150,Home & Garden,32.83,51359,21

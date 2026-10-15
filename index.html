@@ -1,0 +1,541 @@
+<title>Supply Chain and Finance Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one left-aligned column. Each project reads finding -> chart, then recommendations and limits. */
+:root{
+  --bg:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#6c6a65;
+  --line:#e1e0d9; --axis:#c3c2b7; --link:#1c5cab; --accent:#2a78d6; --code:#f1f0ec;
+  --c1:#2a78d6; --c2:#eb6834; --c3:#1baf7a; --c4:#eda100;
+  --good:#0ca30c; --bad:#d03b3b; --best:#e8f0fb;
+  --font-sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#a09e97;
+    --line:#2c2c2a; --axis:#383835; --link:#6da7ec; --accent:#3987e5; --code:#141413;
+    --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --best:#16263a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#a09e97;
+  --line:#2c2c2a; --axis:#383835; --link:#6da7ec; --accent:#3987e5; --code:#141413;
+  --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --best:#16263a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+a{color:var(--link)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:14px;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));
+  padding-inline:max(16px,env(safe-area-inset-left,0px))}
+nav .brand{font-weight:600;white-space:nowrap}
+nav .links{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav .links a{color:var(--ink2);text-decoration:none;font-size:.9rem;white-space:nowrap}
+nav .links a:hover{color:var(--ink)}
+.lab,.tag,th,.eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+header.hero{padding-block:72px 56px;max-width:820px}
+.eyebrow{color:var(--muted);margin:0 0 18px}
+h1{font-size:clamp(2.3rem,6vw,3.7rem);line-height:1.05;letter-spacing:-.025em;font-weight:600;margin:0 0 20px;text-wrap:balance}
+.lede{font-size:1.2rem;color:var(--ink2);margin:0 0 32px;max-width:62ch}
+.jump{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border-top:1px solid var(--line)}
+.jump a{display:block;padding:20px 24px 20px 0;color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+.jump a:hover h2{color:var(--link)}
+.jump h2{font-size:1.1rem;margin:0 0 6px}
+.jump p{margin:0;color:var(--ink2);font-size:.95rem}
+section{padding-block:64px;border-top:1px solid var(--line)}
+section.first{border-top:0}
+h2.sec{font-size:clamp(1.6rem,3.6vw,2.2rem);line-height:1.15;letter-spacing:-.02em;margin:0 0 12px;font-weight:600;text-wrap:balance}
+p.intro{font-size:1.08rem;color:var(--ink2);max-width:68ch;margin:0 0 8px}
+p.meta{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin:0 0 32px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px 48px;margin-top:28px}
+.skill h3{font-size:1.05rem;margin:0 0 6px}
+.skill p{margin:0 0 8px;color:var(--ink2);font-size:.95rem;max-width:52ch}
+.tag{color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin:8px 0 48px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpi{display:flex;flex-direction:column;gap:2px;padding:20px 20px 20px 0}
+.kpi+.kpi{padding-left:20px}
+@media (min-width:700px){.kpi+.kpi{border-left:1px solid var(--line)}}
+.kpi .lab{color:var(--muted)}
+.kpi .val{font-size:2rem;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.2}
+.kpi .sub{color:var(--ink2);font-size:.88rem}
+.kpis.three{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:20px 0 0}
+.kpis.three .val{font-size:1.5rem}
+.finding{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;padding-block:36px;border-top:1px solid var(--line)}
+.finding:first-of-type{border-top:0}
+@media (max-width:900px){.finding{grid-template-columns:minmax(0,1fr);gap:20px}}
+.ftext,.ffig{min-width:0}
+.ftext h3{font-size:1.3rem;line-height:1.25;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance}
+.ftext p{margin:0 0 12px;color:var(--ink2);max-width:60ch}
+.ffig{margin:0}
+.chart{position:relative;height:340px}
+.chart.tall{height:600px}
+figcaption{color:var(--muted);font-size:.85rem;margin-top:8px}
+.tbl-wrap{overflow-x:auto;margin-top:16px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--muted);font-weight:500}
+th.n,td.n{text-align:right;padding-right:0;padding-left:12px}
+tr.best td{background:var(--best)}
+details.data-table{margin-top:12px}
+details summary{cursor:pointer;color:var(--link);font-size:.9rem}
+h3.sub{font-size:1.1rem;margin:40px 0 12px}
+.recs{max-width:72ch;padding-left:1.2rem;margin:0}
+.recs li{margin-bottom:12px;color:var(--ink2)}
+.recs strong{color:var(--ink)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;margin-top:20px}
+@media (max-width:900px){.two{grid-template-columns:minmax(0,1fr)}}
+pre{background:var(--code);border:1px solid var(--line);border-radius:4px;padding:16px;margin:0;overflow-x:auto;font-family:var(--font-mono);font-size:.78rem;line-height:1.55;color:var(--ink)}
+.limits{color:var(--ink2);max-width:60ch;margin:0}
+.stack{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin:0 0 4px}
+ul.files{font-family:var(--font-mono);font-size:.85rem;color:var(--ink2);padding-left:1.1rem;margin:8px 0 0}
+footer{border-top:1px solid var(--line);padding-block:48px 72px}
+footer p{margin:0 0 8px;color:var(--ink2)}
+.contact{font-family:var(--font-mono);font-size:.95rem;color:var(--ink);user-select:all}
+.nav-r{display:flex;align-items:center;gap:16px;min-width:0}
+.nav-r .links{min-width:0}
+button,select,input[type=range]{font:inherit}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.tbtn{font-family:var(--font-mono);font-size:.75rem;color:var(--ink);background:transparent;border:1px solid var(--axis);border-radius:4px;padding:6px 10px;cursor:pointer;white-space:nowrap}
+.tbtn:hover{border-color:var(--ink2)}
+.ctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:0 0 10px}
+.ctl label,.ctl-text{font-size:.9rem;color:var(--ink)}
+.ctl input[type=range]{width:min(220px,100%);accent-color:var(--accent)}
+.try{color:var(--link);margin:0}
+output{font-variant-numeric:tabular-nums;font-weight:600}
+.readout{margin:0 0 12px;color:var(--ink2);font-size:.92rem;min-height:3em;max-width:68ch}
+.readout strong{color:var(--ink);font-variant-numeric:tabular-nums}
+.seg{display:inline-flex;border:1px solid var(--axis);border-radius:4px;overflow:hidden}
+.seg button{font-family:var(--font-mono);font-size:.78rem;background:transparent;color:var(--ink);border:0;padding:7px 12px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--axis)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+select{background:var(--surface);color:var(--ink);border:1px solid var(--axis);border-radius:4px;padding:7px 10px;font-size:.9rem}
+.scen{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:10px}
+.sl{display:grid;grid-template-columns:84px minmax(0,1fr) 56px;align-items:center;gap:12px}
+.sl label{font-size:.9rem}
+.sl input{width:100%;accent-color:var(--accent)}
+.sl output{text-align:right;font-size:.9rem}
+.scen-out{display:flex;flex-direction:column;gap:2px;margin-top:6px}
+.scen-out .lab{color:var(--muted)}
+.scen-out .val{font-size:2rem;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.2}
+.scen-out .sub{color:var(--ink2);font-size:.9rem}
+#sc-reset{justify-self:start}
+.hint{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+
+<div class="wrap">
+<nav>
+  <span class="brand">Nischal Malla</span>
+  <div class="nav-r"><div class="links"><a href="#skills">Skills</a><a href="#supply-chain">Supply chain</a><a href="#finance">Finance</a><a href="#contact">Contact</a></div>
+  <button type="button" id="theme-btn" class="tbtn">Dark mode</button></div>
+</nav>
+
+<header class="hero">
+  <p class="eyebrow">Data analyst portfolio</p>
+  <h1>Nischal Malla</h1>
+  <p class="lede">I analyze operational and financial data in SQL and Python, test the result, and write it up as a recommendation a manager can act on.</p>
+  <p class="hint">Every chart responds to hover. Controls marked Interactive let you change the question: move a threshold, pick a service target, filter by business unit, or build a scenario.</p>
+  <div class="jump">
+    <a href="#supply-chain"><h2>Supplier performance and inventory risk</h2><p>3 suppliers miss 60% OTIF. A variability-aware reorder policy lifts simulated service on Class A SKUs from 83.8% to 93.9%.</p></a>
+    <a href="#finance"><h2>Budget vs actual and outlook</h2><p>Revenue is on budget while EBITDA is $2.6M short. A price, volume and cost bridge shows where it went.</p></a>
+  </div>
+</header>
+
+<section id="skills" class="first">
+  <h2 class="sec">What the two projects show</h2>
+  <p class="intro">Each project runs the full workflow: frame the question, model the data in SQL, analyze in Python, backtest the result, and state the limits. Both datasets are synthetic and built to behave like real operating data, so the code and method are the point.</p>
+  <div class="skills"><div class='skill'><h3>SQL</h3><p>CTEs, window functions (RANK, LAG, moving averages), conditional aggregation, multi-table joins. Both projects start from a query file.</p><span class='tag'>Both projects</span></div><div class='skill'><h3>Python</h3><p>pandas, NumPy and scikit-learn in scripts that rebuild every number from the raw tables.</p><span class='tag'>Both projects</span></div><div class='skill'><h3>Forecasting</h3><p>Rolling-origin backtests, WAPE and MAPE, baseline comparison, bootstrap prediction intervals.</p><span class='tag'>Weekly demand, monthly revenue</span></div><div class='skill'><h3>Simulation</h3><p>Monte Carlo test of a reorder policy using bootstrapped lead times and demand.</p><span class='tag'>Supply chain</span></div><div class='skill'><h3>Variance analysis</h3><p>Price, volume, cost and opex bridge that reconciles exactly to the EBITDA variance, checked by an assertion.</p><span class='tag'>Finance</span></div><div class='skill'><h3>Domain metrics</h3><p>OTIF, ABC classification, safety stock, supplier scorecards, DSO, gross margin, EBITDA.</p><span class='tag'>Both projects</span></div><div class='skill'><h3>Scenario work</h3><p>Base, upside and downside cases and a one-driver-at-a-time sensitivity.</p><span class='tag'>Finance</span></div><div class='skill'><h3>Communication</h3><p>Each section leads with the finding, ends with a recommendation and lists the limits of the data.</p><span class='tag'>Both projects</span></div></div>
+</section>
+
+<section id="supply-chain">
+  <p class="eyebrow">Project 1</p>
+  <h2 class="sec">Supplier performance and inventory risk</h2>
+  <p class="intro">Where do late and short deliveries come from, and what would it cost to stop them hurting service?</p>
+  <p class="meta">Synthetic data: 24 suppliers, 150 SKUs, 2,722 purchase orders, 104 weeks of demand (Jan 2024 to Dec 2025)</p>
+  <p class="stack">SQL (CTEs, windows) / Python / pandas / scikit-learn / Monte Carlo</p>
+  
+<div class="kpis">
+  <div class="kpi"><span class="lab">On-time in-full</span><span class="val">73.6%</span><span class="sub">80.7% on time, 91.3% in full</span></div>
+  <div class="kpi"><span class="lab">Purchase spend</span><span class="val">$49.4M</span><span class="sub">2,722 purchase orders, 24 suppliers</span></div>
+  <div class="kpi"><span class="lab">Expedite premium</span><span class="val">$195K</span><span class="sub">paid to rush late orders</span></div>
+  <div class="kpi"><span class="lab">Class A SKUs</span><span class="val">55</span><span class="sub">36.7% of SKUs, 80.5% of value</span></div>
+</div>
+  
+<article class="finding">
+  <div class="ftext"><h3>3 of 24 suppliers fall below 60% OTIF</h3><p>Together they take 12.4% of spend and cause 15.4% of late deliveries. Supplier 18 (Vietnam) is the largest exposure: 8.1% of spend at 53.8% OTIF, with a lead-time standard deviation of 9 days.</p>
+<details class="data-table"><summary>Supplier scorecard as a table</summary>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Supplier</th><th>Country</th><th class="n">POs</th><th class="n">Spend share</th><th class="n">OTIF</th><th class="n">Avg delay (days)</th><th class="n">Lead-time SD (days)</th></tr></thead>
+<tbody><tr><td>Supplier 05</td><td>USA</td><td class='n'>30</td><td class='n'>1.5%</td><td class='n'>36.7%</td><td class='n'>3.97</td><td class='n'>7.9</td></tr><tr><td>Supplier 11</td><td>India</td><td class='n'>65</td><td class='n'>2.9%</td><td class='n'>43.1%</td><td class='n'>3.46</td><td class='n'>6.0</td></tr><tr><td>Supplier 18</td><td>Vietnam</td><td class='n'>104</td><td class='n'>8.1%</td><td class='n'>53.8%</td><td class='n'>4.91</td><td class='n'>9.0</td></tr><tr><td>Supplier 06</td><td>Germany</td><td class='n'>63</td><td class='n'>1.1%</td><td class='n'>66.7%</td><td class='n'>0.44</td><td class='n'>3.2</td></tr><tr><td>Supplier 13</td><td>USA</td><td class='n'>96</td><td class='n'>6.4%</td><td class='n'>68.8%</td><td class='n'>0.24</td><td class='n'>2.8</td></tr><tr><td>Supplier 04</td><td>Mexico</td><td class='n'>132</td><td class='n'>4.2%</td><td class='n'>68.9%</td><td class='n'>0.15</td><td class='n'>3.1</td></tr><tr><td>Supplier 07</td><td>Poland</td><td class='n'>105</td><td class='n'>4.8%</td><td class='n'>69.5%</td><td class='n'>0.42</td><td class='n'>3.1</td></tr><tr><td>Supplier 17</td><td>China</td><td class='n'>72</td><td class='n'>5.3%</td><td class='n'>70.8%</td><td class='n'>-0.15</td><td class='n'>2.5</td></tr><tr><td>Supplier 10</td><td>Vietnam</td><td class='n'>99</td><td class='n'>3.0%</td><td class='n'>71.7%</td><td class='n'>-0.18</td><td class='n'>2.2</td></tr><tr><td>Supplier 03</td><td>India</td><td class='n'>260</td><td class='n'>7.2%</td><td class='n'>71.9%</td><td class='n'>-0.09</td><td class='n'>2.0</td></tr><tr><td>Supplier 12</td><td>Mexico</td><td class='n'>123</td><td class='n'>3.9%</td><td class='n'>72.4%</td><td class='n'>0.86</td><td class='n'>4.5</td></tr><tr><td>Supplier 15</td><td>Poland</td><td class='n'>110</td><td class='n'>2.5%</td><td class='n'>72.7%</td><td class='n'>0.53</td><td class='n'>4.0</td></tr><tr><td>Supplier 19</td><td>India</td><td class='n'>136</td><td class='n'>2.5%</td><td class='n'>72.8%</td><td class='n'>0.33</td><td class='n'>3.0</td></tr><tr><td>Supplier 09</td><td>China</td><td class='n'>115</td><td class='n'>6.4%</td><td class='n'>73.0%</td><td class='n'>0.6</td><td class='n'>4.2</td></tr><tr><td>Supplier 23</td><td>Poland</td><td class='n'>163</td><td class='n'>6.6%</td><td class='n'>74.8%</td><td class='n'>0.21</td><td class='n'>2.6</td></tr><tr><td>Supplier 14</td><td>Germany</td><td class='n'>90</td><td class='n'>4.4%</td><td class='n'>75.6%</td><td class='n'>-0.17</td><td class='n'>2.5</td></tr><tr><td>Supplier 08</td><td>Turkey</td><td class='n'>122</td><td class='n'>1.5%</td><td class='n'>76.2%</td><td class='n'>0.09</td><td class='n'>2.8</td></tr><tr><td>Supplier 22</td><td>Germany</td><td class='n'>36</td><td class='n'>0.1%</td><td class='n'>77.8%</td><td class='n'>0.56</td><td class='n'>3.1</td></tr><tr><td>Supplier 16</td><td>Turkey</td><td class='n'>191</td><td class='n'>4.7%</td><td class='n'>81.2%</td><td class='n'>-0.3</td><td class='n'>2.1</td></tr><tr><td>Supplier 20</td><td>Mexico</td><td class='n'>85</td><td class='n'>0.6%</td><td class='n'>81.2%</td><td class='n'>0.06</td><td class='n'>2.7</td></tr><tr><td>Supplier 01</td><td>China</td><td class='n'>160</td><td class='n'>3.5%</td><td class='n'>81.3%</td><td class='n'>-0.33</td><td class='n'>2.9</td></tr><tr><td>Supplier 21</td><td>USA</td><td class='n'>84</td><td class='n'>8.1%</td><td class='n'>83.3%</td><td class='n'>-0.55</td><td class='n'>1.9</td></tr><tr><td>Supplier 24</td><td>Turkey</td><td class='n'>115</td><td class='n'>3.9%</td><td class='n'>85.2%</td><td class='n'>-0.35</td><td class='n'>2.2</td></tr><tr><td>Supplier 02</td><td>Vietnam</td><td class='n'>166</td><td class='n'>6.8%</td><td class='n'>86.1%</td><td class='n'>-0.7</td><td class='n'>2.1</td></tr></tbody></table></div></details></div>
+  <figure class="ffig">
+<div class="ctl"><span class="lab try">Interactive</span>
+  <label for="thr">Count a supplier as at-risk if OTIF is below <output id="thr-out" for="thr">60%</output></label>
+  <input type="range" id="thr" min="40" max="80" step="1" value="60"></div>
+<p class="readout" id="sup-read" aria-live="polite"></p><div class="chart tall"><canvas id="c-suppliers" role="img" aria-label="Bar chart of on-time in-full percentage for each of 24 suppliers, lowest first"></canvas></div><figcaption>Orange bars fall below the at-risk threshold.</figcaption></figure>
+</article>
+<article class="finding">
+  <div class="ftext"><h3>OTIF has not improved in two years</h3><p>The 3-month average moves between 69.8% and 78.2% from 2024-04 to 2025-12 with no sustained improvement. January 2024 is left out because too few orders had arrived to measure.</p></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-otif" role="img" aria-label="Line chart of monthly OTIF percentage and its 3-month average"></canvas></div></figure>
+</article>
+<article class="finding">
+  <div class="ftext"><h3>55 SKUs make up 80.5% of demand value</h3><p>Ranking by 2025 demand value puts 55 of 150 SKUs (36.7%) in Class A. Class B takes the next 39 SKUs to reach 95% of value. The last 56 SKUs are 4.9% of value, so they get the lightest controls.</p></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-pareto" role="img" aria-label="Pareto curve of cumulative demand value by SKU rank"></canvas></div></figure>
+</article>
+<article class="finding">
+  <div class="ftext"><h3>Planning on promised lead times leaves Class A under-protected</h3><p>I simulated 4,000 replenishment cycles for each of the 55 Class A SKUs, sampling each supplier's real lead-time history. The current rule (demand over the promised lead time plus one week) avoids a stockout in 83.8% of cycles, and in 66.7% for SKUs from at-risk suppliers.</p><p>Safety stock built from lead-time and demand variability lifts service to 93.9%. The cost is 20.3% more Class A inventory value ($336K on $1.65M).</p></div>
+  <figure class="ffig">
+<div class="ctl"><span class="lab try">Interactive</span>
+  <span id="svc-lab" class="ctl-text">Target service level</span>
+  <div class="seg" id="svc-seg" role="group" aria-labelledby="svc-lab"><button type="button" data-t="90" aria-pressed="false">90%</button><button type="button" data-t="95" aria-pressed="true">95%</button><button type="button" data-t="975" aria-pressed="false">97.5%</button><button type="button" data-t="99" aria-pressed="false">99%</button></div></div>
+<p class="readout" id="svc-read" aria-live="polite"></p><div class="chart"><canvas id="c-service" role="img" aria-label="Grouped bar chart comparing simulated cycle service level under the current and proposed policies"></canvas></div><figcaption>Higher targets buy more service for more inventory.</figcaption></figure>
+</article>
+<article class="finding">
+  <div class="ftext"><h3>Trend and seasonality regression cuts forecast error by 30%</h3><p>I tested four methods on three rolling 13-week windows. The regression has a weighted absolute percentage error (WAPE) of 35.3% per SKU-week against 50.6% for the naive baseline. On total weekly demand the gap is wider: 5.5% against 21.5%. SKU-level error stays high because demand is lumpy, which is why safety stock still matters.</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Method</th><th class="n">SKU-week WAPE</th><th class="n">Class A WAPE</th><th class="n">Total demand WAPE</th></tr></thead>
+<tbody><tr><td>Naive (last week)</td><td class='n'>50.6%</td><td class='n'>52.8%</td><td class='n'>21.5%</td></tr><tr><td>4-week moving avg</td><td class='n'>40.7%</td><td class='n'>41.0%</td><td class='n'>22.2%</td></tr><tr><td>Seasonal naive (same week LY)</td><td class='n'>44.0%</td><td class='n'>43.3%</td><td class='n'>7.7%</td></tr><tr class="best"><td>Trend + seasonality regression</td><td class='n'>35.3%</td><td class='n'>34.9%</td><td class='n'>5.5%</td></tr></tbody></table></div></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-forecast" role="img" aria-label="Line chart of actual weekly demand against two forecasts over 13 weeks"></canvas></div><figcaption>Last backtest window, total demand across all SKUs.</figcaption></figure>
+</article>
+  <h3 class="sub">Recommendations</h3>
+  
+<ol class="recs">
+  <li><strong>Put the 3 at-risk suppliers on corrective action.</strong> Start with Supplier 18 (Vietnam), which carries 8.1% of spend at 53.8% OTIF. Qualify a second source for its SKUs while the plan runs.</li>
+  <li><strong>Replace promised-lead-time reorder points on Class A SKUs.</strong> Use safety stock built from actual lead-time and demand variability. Begin with the 6 Class A SKUs sourced from at-risk suppliers, where simulated service rises from 66.7% to 93.7%.</li>
+  <li><strong>Fund the inventory deliberately.</strong> The change adds about $336K (20.3%) of Class A inventory. Weigh it against stockout losses and the $195K already spent on expediting.</li>
+  <li><strong>Run the scorecard every month.</strong> The query is in this project. Track the 3-month OTIF average and each supplier's lead-time spread, since spread drives safety stock.</li>
+</ol>
+  <div class="two">
+    <div><h3 class="sub" style="margin-top:0">The ABC query</h3><pre><code>-- ABC / Pareto on 2025 demand value. Class A = SKUs making up the first 80% of value.
+WITH s AS (
+    SELECT d.sku, p.category, p.supplier_id,
+           SUM(d.units * p.unit_cost) AS value
+    FROM weekly_demand d JOIN products p USING (sku)
+    WHERE d.week_start &gt;= &#x27;2025-01-01&#x27;
+    GROUP BY d.sku, p.category, p.supplier_id
+),
+r AS (
+    SELECT *,
+           SUM(value) OVER (ORDER BY value DESC) / SUM(value) OVER ()  AS cum_share,
+           value / SUM(value) OVER ()                                   AS own_share,
+           ROW_NUMBER() OVER (ORDER BY value DESC)                      AS rnk
+    FROM s
+)
+SELECT sku, category, supplier_id, ROUND(value) AS value, rnk,
+       ROUND(100.0 * cum_share, 1) AS cum_pct,
+       CASE WHEN cum_share - own_share &lt; 0.80 THEN &#x27;A&#x27;
+            WHEN cum_share - own_share &lt; 0.95 THEN &#x27;B&#x27;
+            ELSE &#x27;C&#x27; END AS abc_class
+FROM r
+ORDER BY rnk;</code></pre></div>
+    <div><h3 class="sub" style="margin-top:0">Limits</h3><p class="limits">The dataset is synthetic. It was generated with realistic structure (seasonality, Pareto-shaped demand, a few unreliable suppliers), so the numbers show the method and not real supplier performance. The inventory simulation resamples historical lead times and weekly demand and treats them as independent. Inventory value counts average cycle stock plus safety stock and ignores holding and ordering costs.</p>
+      <ul class="files"><li>supply_chain/01_generate_data.py</li><li>supply_chain/queries.sql</li><li>supply_chain/02_analyze.py</li></ul></div>
+  </div>
+</section>
+
+<section id="finance">
+  <p class="eyebrow">Project 2</p>
+  <h2 class="sec">Budget vs actual and outlook</h2>
+  <p class="intro">Revenue is on plan. Why is EBITDA $2.6M short, and where is the year heading?</p>
+  <p class="meta">Synthetic data: fictional omnichannel company, 4 business units, actuals Jan 2023 to Sep 2026, budget to Dec 2026</p>
+  <p class="stack">SQL (conditional aggregation, LAG) / Python / scikit-learn / bootstrap intervals</p>
+  
+<div class="kpis">
+  <div class="kpi"><span class="lab">Revenue, Jan to Sep 2026</span><span class="val">$59.1M</span><span class="sub">+0.4% vs budget</span></div>
+  <div class="kpi"><span class="lab">Gross profit</span><span class="val">$22.9M</span><span class="sub">-8.7% vs budget</span></div>
+  <div class="kpi"><span class="lab">EBITDA</span><span class="val">$7.3M</span><span class="sub">-26.0% vs budget (-$2.6M)</span></div>
+  <div class="kpi"><span class="lab">Wholesale DSO</span><span class="val">56 days</span><span class="sub">up from 39 days in 2024</span></div>
+</div>
+  
+<article class="finding">
+  <div class="ftext"><h3>Revenue is on budget but EBITDA is $2.6M short</h3><p>Year to date, revenue is +0.4% against budget, gross profit -8.7% and EBITDA -26.0%. Volume beat plan by $0.7M. Price cost $1.3M and unit-cost inflation $1.5M. Marketing overspend added $0.3M and payroll and other costs $0.1M.</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Business unit</th><th class="n">Revenue vs budget</th><th class="n">EBITDA</th><th class="n">EBITDA vs budget</th></tr></thead>
+<tbody><tr><td>Retail</td><td class='n'>-11.8%</td><td class='n'>-$0.75M</td><td class='n'>-$1.76M</td></tr><tr><td>Wholesale</td><td class='n'>-2.7%</td><td class='n'>$0.54M</td><td class='n'>-$0.43M</td></tr><tr><td>Subscriptions</td><td class='n'>-9.8%</td><td class='n'>$1.88M</td><td class='n'>-$0.41M</td></tr><tr><td>E-commerce</td><td class='n'>+12.9%</td><td class='n'>$5.61M</td><td class='n'>+$0.04M</td></tr></tbody></table></div></div>
+  <figure class="ffig">
+<div class="ctl"><span class="lab try">Interactive</span>
+  <label for="bu-sel">Show bridge for</label>
+  <select id="bu-sel"><option value="All">All business units</option><option value="Retail">Retail</option><option value="E-commerce">E-commerce</option><option value="Wholesale">Wholesale</option><option value="Subscriptions">Subscriptions</option></select></div>
+<p class="readout" id="bu-read" aria-live="polite"></p><div class="chart"><canvas id="c-bridge" role="img" aria-label="Waterfall chart bridging budget EBITDA to actual EBITDA for 2026 year to date"></canvas></div><figcaption>Bridge components sum exactly to the variance; the build script asserts it.</figcaption></figure>
+</article>
+<article class="finding">
+  <div class="ftext"><h3>Retail and E-commerce lose margin in different ways</h3><p>Retail gross margin fell from 39.7% in 2023-Q1 to 32.3% in 2026-Q3, against a 38.5% budget. Unit costs rose faster than the planned 2% and prices did not follow. Revenue is also 12% under plan, almost all of it volume.</p><p>E-commerce revenue is 13% over budget, yet EBITDA is only $38K above. Extra volume added $2.0M and discounting took back $1.4M.</p></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-margin" role="img" aria-label="Line chart of quarterly gross margin percentage by business unit"></canvas></div><figcaption>Hover a point to see the budgeted margin for the same quarter.</figcaption></figure>
+</article>
+<article class="finding">
+  <div class="ftext"><h3>Wholesale customers now pay in 56 days, up from 39</h3><p>Days sales outstanding rose from 38.8 days before mid-2024 to 56.2 days over the latest three months. At current Wholesale sales that ties up about $0.73M in receivables. The other three units sit between 3 and 6 days.</p></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-dso" role="img" aria-label="Line chart of 3-month average days sales outstanding for Wholesale and the other units"></canvas></div></figure>
+</article>
+<article class="finding">
+  <div class="ftext"><h3>The revenue model backtests at 1.4% error and points to $12.0M FY2026 EBITDA</h3><p>I trained on data through December 2025 and predicted January to September 2026. Mean absolute percentage error (MAPE) on company revenue was 1.4%, against 11.3% for a same-month-last-year baseline.</p><p>Adding the fourth-quarter forecast to year-to-date actuals puts FY2026 revenue at $86.7M (+1.2% vs budget) and EBITDA at $12.0M against a $15.5M budget (-23.0%).</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Revenue, Jan to Sep 2026</th><th class="n">Model MAPE</th><th class="n">Same month last year</th></tr></thead>
+<tbody><tr><td>E-commerce</td><td class='n'>1.8%</td><td class='n'>18.5%</td></tr><tr><td>Retail</td><td class='n'>3.6%</td><td class='n'>4.8%</td></tr><tr><td>Subscriptions</td><td class='n'>4.1%</td><td class='n'>18.9%</td></tr><tr><td>Wholesale</td><td class='n'>3.6%</td><td class='n'>8.5%</td></tr><tr><td>Total company</td><td class='n'>1.4%</td><td class='n'>11.3%</td></tr></tbody></table></div></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-fan" role="img" aria-label="Line chart of monthly revenue with a 12-month forecast and an 80 percent interval band"></canvas></div><figcaption>Shaded band is the 80% interval from resampled model residuals.</figcaption></figure>
+</article>
+<article class="finding">
+  <div class="ftext"><h3>Price, unit cost and volume move EBITDA the most</h3><p>Holding other drivers fixed, a 2% price move changes next-12-month EBITDA by $1.9M, a 3% unit-cost move by $1.7M, a 5% volume move by $1.5M and a 10% marketing move by $0.8M.</p><p>Combining drivers gives the range below. Downside is price -2%, volume -5% and unit cost +3%. Upside is price +1%, volume +3% and unit cost -1%.</p>
+<div class="kpis three">
+  <div class="kpi"><span class="lab">Downside</span><span class="val">$9.5M</span><span class="sub">-$4.9M vs base</span></div>
+  <div class="kpi"><span class="lab">Base</span><span class="val">$14.4M</span><span class="sub">next 12 months EBITDA</span></div>
+  <div class="kpi"><span class="lab">Upside</span><span class="val">$16.9M</span><span class="sub">+$2.5M vs base</span></div>
+</div>
+<div class="scen">
+  <p class="lab try">Interactive: build your own scenario</p>
+  <div class="sl"><label for="sl-p">Price</label><input type="range" id="sl-p" min="-5" max="5" step="0.5" value="0"><output id="sl-p-out" for="sl-p">0.0%</output></div>
+  <div class="sl"><label for="sl-v">Volume</label><input type="range" id="sl-v" min="-10" max="10" step="1" value="0"><output id="sl-v-out" for="sl-v">0.0%</output></div>
+  <div class="sl"><label for="sl-c">Unit cost</label><input type="range" id="sl-c" min="-5" max="5" step="0.5" value="0"><output id="sl-c-out" for="sl-c">0.0%</output></div>
+  <div class="sl"><label for="sl-m">Marketing</label><input type="range" id="sl-m" min="-20" max="20" step="1" value="0"><output id="sl-m-out" for="sl-m">0.0%</output></div>
+  <div class="scen-out" aria-live="polite"><span class="lab">Next-12-month EBITDA</span><span class="val" id="sc-val"></span><span class="sub" id="sc-delta"></span></div>
+  <button type="button" id="sc-reset" class="tbtn">Reset to base case</button>
+</div></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-tornado" role="img" aria-label="Tornado chart of EBITDA sensitivity to price, unit cost, volume and marketing"></canvas></div><figcaption>Favorable means costs lower, price higher, volume higher or marketing lower.</figcaption></figure>
+</article>
+  <h3 class="sub">Recommendations</h3>
+  
+<ol class="recs">
+  <li><strong>Reprice or re-source Retail.</strong> Unit costs are running well above the 2% plan and prices have not followed. Retail lost $0.9M to cost and $0.8M to volume, and is at -$0.75M EBITDA YTD against $1.01M budgeted.</li>
+  <li><strong>Put a floor under E-commerce discounting.</strong> The unit added $2.0M of volume and gave back $1.4M in price. Test whether the volume still pays at the current discount depth.</li>
+  <li><strong>Tighten Wholesale collections.</strong> Bringing DSO back toward 39 days would release about $0.73M of cash.</li>
+  <li><strong>Reforecast FY2026 now.</strong> EBITDA lands near $12.0M against a $15.5M budget (-23.0%). Leadership should see that gap before Q4 closes.</li>
+</ol>
+  <div class="two">
+    <div><h3 class="sub" style="margin-top:0">The EBITDA bridge query</h3><pre><code>-- Price / volume / cost / opex decomposition of the EBITDA variance, computed at
+-- month x BU grain so the effects sum exactly to the total variance:
+--   volume = (units_a - units_b) * (price_b - cost_b)
+--   price  = (price_a - price_b) * units_a
+--   cost   = -(cost_a - cost_b) * units_a
+WITH a AS (SELECT * FROM pnl WHERE scenario = &#x27;Actual&#x27;),
+     b AS (SELECT * FROM pnl WHERE scenario = &#x27;Budget&#x27;)
+SELECT a.bu,
+       SUM((a.units - b.units) * (b.price - b.unit_cost))                    AS volume_effect,
+       SUM((a.price - b.price) * a.units)                                    AS price_effect,
+       SUM(-(a.unit_cost - b.unit_cost) * a.units)                           AS cost_effect,
+       SUM(-(a.marketing - b.marketing))                                     AS marketing_effect,
+       SUM(-((a.payroll + a.other_opex) - (b.payroll + b.other_opex)))       AS payroll_other_effect,
+       SUM((a.revenue - a.cogs - a.payroll - a.marketing - a.other_opex)
+         - (b.revenue - b.cogs - b.payroll - b.marketing - b.other_opex))    AS total_ebitda_var
+FROM a JOIN b ON a.month = b.month AND a.bu = b.bu
+WHERE a.month BETWEEN &#x27;2026-01-01&#x27; AND &#x27;2026-09-01&#x27;
+GROUP BY a.bu
+ORDER BY a.bu;</code></pre></div>
+    <div><h3 class="sub" style="margin-top:0">Limits</h3><p class="limits">The dataset is synthetic and the company is fictional. The forecast holds gross margin and marketing share at each unit's last six months, runs payroll and other costs at the last three months plus 3% a year, and fits revenue with a trend and yearly seasonality. The 80% interval comes from resampled model residuals, so it covers model error and leaves out shocks such as a lost customer. The tornado moves one driver at a time.</p>
+      <ul class="files"><li>finance/01_generate_data.py</li><li>finance/queries.sql</li><li>finance/02_analyze.py</li></ul></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <h2 class="sec">Contact</h2>
+  <p>Open to mid-level data analyst roles.</p>
+  <p class="contact"><a href="https://www.linkedin.com/in/nischalmalla">linkedin.com/in/nischalmalla</a></p>
+</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const D = {"sc":{"scorecard":[{"supplier_id":5,"supplier_name":"Supplier 05","country":"USA","pos":30,"spend_share_pct":1.5,"otif_pct":36.7,"on_time_pct":60.0,"in_full_pct":66.7,"avg_delay_days":3.97,"spend":735102.0},{"supplier_id":11,"supplier_name":"Supplier 11","country":"India","pos":65,"spend_share_pct":2.9,"otif_pct":43.1,"on_time_pct":55.4,"in_full_pct":78.5,"avg_delay_days":3.46,"spend":1409979.0},{"supplier_id":18,"supplier_name":"Supplier 18","country":"Vietnam","pos":104,"spend_share_pct":8.1,"otif_pct":53.8,"on_time_pct":61.5,"in_full_pct":86.5,"avg_delay_days":4.91,"spend":3974743.0},{"supplier_id":6,"supplier_name":"Supplier 06","country":"Germany","pos":63,"spend_share_pct":1.1,"otif_pct":66.7,"on_time_pct":76.2,"in_full_pct":85.7,"avg_delay_days":0.44,"spend":549419.0},{"supplier_id":13,"supplier_name":"Supplier 13","country":"USA","pos":96,"spend_share_pct":6.4,"otif_pct":68.8,"on_time_pct":77.1,"in_full_pct":89.6,"avg_delay_days":0.24,"spend":3135231.0},{"supplier_id":4,"supplier_name":"Supplier 04","country":"Mexico","pos":132,"spend_share_pct":4.2,"otif_pct":68.9,"on_time_pct":78.0,"in_full_pct":89.4,"avg_delay_days":0.15,"spend":2071646.0},{"supplier_id":7,"supplier_name":"Supplier 07","country":"Poland","pos":105,"spend_share_pct":4.8,"otif_pct":69.5,"on_time_pct":74.3,"in_full_pct":93.3,"avg_delay_days":0.42,"spend":2358223.0},{"supplier_id":17,"supplier_name":"Supplier 17","country":"China","pos":72,"spend_share_pct":5.3,"otif_pct":70.8,"on_time_pct":77.8,"in_full_pct":91.7,"avg_delay_days":-0.15,"spend":2627106.0},{"supplier_id":10,"supplier_name":"Supplier 10","country":"Vietnam","pos":99,"spend_share_pct":3.0,"otif_pct":71.7,"on_time_pct":80.8,"in_full_pct":90.9,"avg_delay_days":-0.18,"spend":1473865.0},{"supplier_id":3,"supplier_name":"Supplier 03","country":"India","pos":260,"spend_share_pct":7.2,"otif_pct":71.9,"on_time_pct":80.0,"in_full_pct":90.0,"avg_delay_days":-0.09,"spend":3542016.0},{"supplier_id":12,"supplier_name":"Supplier 12","country":"Mexico","pos":123,"spend_share_pct":3.9,"otif_pct":72.4,"on_time_pct":77.2,"in_full_pct":93.5,"avg_delay_days":0.86,"spend":1946532.0},{"supplier_id":15,"supplier_name":"Supplier 15","country":"Poland","pos":110,"spend_share_pct":2.5,"otif_pct":72.7,"on_time_pct":80.0,"in_full_pct":92.7,"avg_delay_days":0.53,"spend":1209487.0},{"supplier_id":19,"supplier_name":"Supplier 19","country":"India","pos":136,"spend_share_pct":2.5,"otif_pct":72.8,"on_time_pct":75.7,"in_full_pct":97.1,"avg_delay_days":0.33,"spend":1232235.0},{"supplier_id":9,"supplier_name":"Supplier 09","country":"China","pos":115,"spend_share_pct":6.4,"otif_pct":73.0,"on_time_pct":83.5,"in_full_pct":88.7,"avg_delay_days":0.6,"spend":3176660.0},{"supplier_id":23,"supplier_name":"Supplier 23","country":"Poland","pos":163,"spend_share_pct":6.6,"otif_pct":74.8,"on_time_pct":77.9,"in_full_pct":94.5,"avg_delay_days":0.21,"spend":3238876.0},{"supplier_id":14,"supplier_name":"Supplier 14","country":"Germany","pos":90,"spend_share_pct":4.4,"otif_pct":75.6,"on_time_pct":84.4,"in_full_pct":88.9,"avg_delay_days":-0.17,"spend":2180964.0},{"supplier_id":8,"supplier_name":"Supplier 08","country":"Turkey","pos":122,"spend_share_pct":1.5,"otif_pct":76.2,"on_time_pct":80.3,"in_full_pct":93.4,"avg_delay_days":0.09,"spend":736110.0},{"supplier_id":22,"supplier_name":"Supplier 22","country":"Germany","pos":36,"spend_share_pct":0.1,"otif_pct":77.8,"on_time_pct":80.6,"in_full_pct":97.2,"avg_delay_days":0.56,"spend":71390.0},{"supplier_id":16,"supplier_name":"Supplier 16","country":"Turkey","pos":191,"spend_share_pct":4.7,"otif_pct":81.2,"on_time_pct":85.9,"in_full_pct":94.2,"avg_delay_days":-0.3,"spend":2338119.0},{"supplier_id":20,"supplier_name":"Supplier 20","country":"Mexico","pos":85,"spend_share_pct":0.6,"otif_pct":81.2,"on_time_pct":85.9,"in_full_pct":95.3,"avg_delay_days":0.06,"spend":301000.0},{"supplier_id":1,"supplier_name":"Supplier 01","country":"China","pos":160,"spend_share_pct":3.5,"otif_pct":81.3,"on_time_pct":92.5,"in_full_pct":88.8,"avg_delay_days":-0.33,"spend":1745629.0},{"supplier_id":21,"supplier_name":"Supplier 21","country":"USA","pos":84,"spend_share_pct":8.1,"otif_pct":83.3,"on_time_pct":91.7,"in_full_pct":91.7,"avg_delay_days":-0.55,"spend":4016543.0},{"supplier_id":24,"supplier_name":"Supplier 24","country":"Turkey","pos":115,"spend_share_pct":3.9,"otif_pct":85.2,"on_time_pct":87.8,"in_full_pct":96.5,"avg_delay_days":-0.35,"spend":1946984.0},{"supplier_id":2,"supplier_name":"Supplier 02","country":"Vietnam","pos":166,"spend_share_pct":6.8,"otif_pct":86.1,"on_time_pct":94.0,"in_full_pct":91.6,"avg_delay_days":-0.7,"spend":3341716.0}],"problem":{"ids":[5,11,18],"names":["Supplier 05","Supplier 11","Supplier 18"],"n":3,"of":24,"spend_share_pct":12.4,"late_po_share_pct":15.4,"otif_threshold":60.0},"monthly":[{"month":"2024-02","otif":79.4,"avg3":79.4},{"month":"2024-03","otif":70.9,"avg3":75.2},{"month":"2024-04","otif":75.2,"avg3":75.2},{"month":"2024-05","otif":71.8,"avg3":72.6},{"month":"2024-06","otif":72.9,"avg3":73.3},{"month":"2024-07","otif":69.8,"avg3":71.5},{"month":"2024-08","otif":69.7,"avg3":70.8},{"month":"2024-09","otif":70.0,"avg3":69.8},{"month":"2024-10","otif":76.4,"avg3":72.0},{"month":"2024-11","otif":74.8,"avg3":73.7},{"month":"2024-12","otif":83.5,"avg3":78.2},{"month":"2025-01","otif":72.6,"avg3":77.0},{"month":"2025-02","otif":76.1,"avg3":77.4},{"month":"2025-03","otif":70.2,"avg3":73.0},{"month":"2025-04","otif":67.6,"avg3":71.3},{"month":"2025-05","otif":71.7,"avg3":69.8},{"month":"2025-06","otif":70.2,"avg3":69.8},{"month":"2025-07","otif":74.2,"avg3":72.0},{"month":"2025-08","otif":73.9,"avg3":72.8},{"month":"2025-09","otif":77.3,"avg3":75.1},{"month":"2025-10","otif":71.7,"avg3":74.3},{"month":"2025-11","otif":72.3,"avg3":73.8},{"month":"2025-12","otif":78.2,"avg3":74.1}],"pareto":[{"x":1,"y":6.9},{"x":2,"y":11.0},{"x":3,"y":15.0},{"x":4,"y":18.4},{"x":5,"y":21.6},{"x":6,"y":24.6},{"x":7,"y":26.7},{"x":8,"y":28.8},{"x":9,"y":30.6},{"x":10,"y":32.4},{"x":11,"y":34.2},{"x":12,"y":35.9},{"x":13,"y":37.7},{"x":14,"y":39.4},{"x":15,"y":41.1},{"x":16,"y":42.8},{"x":17,"y":44.3},{"x":18,"y":45.9},{"x":19,"y":47.2},{"x":20,"y":48.5},{"x":21,"y":49.7},{"x":22,"y":50.9},{"x":23,"y":52.1},{"x":24,"y":53.2},{"x":25,"y":54.4},{"x":26,"y":55.5},{"x":27,"y":56.5},{"x":28,"y":57.6},{"x":29,"y":58.7},{"x":30,"y":59.7},{"x":31,"y":60.7},{"x":32,"y":61.7},{"x":33,"y":62.6},{"x":34,"y":63.6},{"x":35,"y":64.5},{"x":36,"y":65.5},{"x":37,"y":66.4},{"x":38,"y":67.3},{"x":39,"y":68.2},{"x":40,"y":69.1},{"x":41,"y":70.0},{"x":42,"y":70.8},{"x":43,"y":71.7},{"x":44,"y":72.5},{"x":45,"y":73.3},{"x":46,"y":74.1},{"x":47,"y":74.8},{"x":48,"y":75.6},{"x":49,"y":76.3},{"x":50,"y":77.1},{"x":51,"y":77.8},{"x":52,"y":78.5},{"x":53,"y":79.2},{"x":54,"y":79.9},{"x":55,"y":80.5},{"x":56,"y":81.2},{"x":57,"y":81.7},{"x":58,"y":82.3},{"x":59,"y":82.9},{"x":60,"y":83.4},{"x":61,"y":83.9},{"x":62,"y":84.4},{"x":63,"y":84.9},{"x":64,"y":85.4},{"x":65,"y":85.8},{"x":66,"y":86.3},{"x":67,"y":86.8},{"x":68,"y":87.2},{"x":69,"y":87.6},{"x":70,"y":88.0},{"x":71,"y":88.4},{"x":72,"y":88.8},{"x":73,"y":89.2},{"x":74,"y":89.6},{"x":75,"y":90.0},{"x":76,"y":90.3},{"x":77,"y":90.7},{"x":78,"y":91.0},{"x":79,"y":91.3},{"x":80,"y":91.6},{"x":81,"y":91.9},{"x":82,"y":92.2},{"x":83,"y":92.5},{"x":84,"y":92.8},{"x":85,"y":93.0},{"x":86,"y":93.3},{"x":87,"y":93.5},{"x":88,"y":93.8},{"x":89,"y":94.0},{"x":90,"y":94.2},{"x":91,"y":94.4},{"x":92,"y":94.6},{"x":93,"y":94.9},{"x":94,"y":95.1},{"x":95,"y":95.3},{"x":96,"y":95.5},{"x":97,"y":95.6},{"x":98,"y":95.8},{"x":99,"y":96.0},{"x":100,"y":96.2},{"x":101,"y":96.4},{"x":102,"y":96.5},{"x":103,"y":96.7},{"x":104,"y":96.8},{"x":105,"y":96.9},{"x":106,"y":97.1},{"x":107,"y":97.2},{"x":108,"y":97.3},{"x":109,"y":97.5},{"x":110,"y":97.6},{"x":111,"y":97.7},{"x":112,"y":97.8},{"x":113,"y":97.9},{"x":114,"y":98.1},{"x":115,"y":98.2},{"x":116,"y":98.3},{"x":117,"y":98.4},{"x":118,"y":98.5},{"x":119,"y":98.6},{"x":120,"y":98.6},{"x":121,"y":98.7},{"x":122,"y":98.8},{"x":123,"y":98.9},{"x":124,"y":99.0},{"x":125,"y":99.0},{"x":126,"y":99.1},{"x":127,"y":99.2},{"x":128,"y":99.2},{"x":129,"y":99.3},{"x":130,"y":99.4},{"x":131,"y":99.4},{"x":132,"y":99.5},{"x":133,"y":99.5},{"x":134,"y":99.6},{"x":135,"y":99.6},{"x":136,"y":99.6},{"x":137,"y":99.7},{"x":138,"y":99.7},{"x":139,"y":99.7},{"x":140,"y":99.8},{"x":141,"y":99.8},{"x":142,"y":99.8},{"x":143,"y":99.9},{"x":144,"y":99.9},{"x":145,"y":99.9},{"x":146,"y":99.9},{"x":147,"y":100.0},{"x":148,"y":100.0},{"x":149,"y":100.0},{"x":150,"y":100.0}],"abcA":55,"abcAB":94,"sim":{"n_a_skus":55,"n_a_problem":6,"n_a_other":49,"service_now_pct":83.8,"service_new_pct":93.9,"service_now_problem_pct":66.7,"service_new_problem_pct":93.7,"service_now_other_pct":85.9,"service_new_other_pct":94.0,"inventory_increase_pct":20.3,"inventory_increase_usd":336438.0,"inventory_now_usd":1654452.0,"targets":[{"key":"90","label":"90%","service_pct":89.9,"service_problem_pct":89.5,"service_other_pct":90.0,"inv_increase_pct":10.7,"inv_increase_usd":177025.0},{"key":"95","label":"95%","service_pct":93.9,"service_problem_pct":93.7,"service_other_pct":94.0,"inv_increase_pct":20.3,"inv_increase_usd":336438.0},{"key":"975","label":"97.5%","service_pct":96.2,"service_problem_pct":95.9,"service_other_pct":96.2,"inv_increase_pct":28.7,"inv_increase_usd":474620.0},{"key":"99","label":"99%","service_pct":97.8,"service_problem_pct":97.5,"service_other_pct":97.9,"inv_increase_pct":38.4,"inv_increase_usd":635306.0}]},"fc":{"series":{"weeks":["2025-09-29","2025-10-06","2025-10-13","2025-10-20","2025-10-27","2025-11-03","2025-11-10","2025-11-17","2025-11-24","2025-12-01","2025-12-08","2025-12-15","2025-12-22"],"actual":[20824,19929,22281,21131,23177,22334,24861,24967,23441,23981,25949,27099,28501],"naive":[17403,17403,17403,17403,17403,17403,17403,17403,17403,17403,17403,17403,17403],"ma4":[17516,17516,17516,17516,17516,17516,17516,17516,17516,17516,17516,17516,17516],"seasonal_naive":[18918,20287,19295,23277,24605,20420,20661,23861,23506,24808,22603,23607,29357],"trend_season":[19807,20533,21252,21953,22621,23244,23811,24312,24737,25082,25340,25509,25588]},"labels":{"naive":"Naive (last week)","ma4":"4-week moving avg","seasonal_naive":"Seasonal naive (same week LY)","trend_season":"Trend + seasonality regression"}}},"fn":{"bridge":{"total":{"volume_effect":709724.0,"price_effect":-1342329.0,"cost_effect":-1548768.0,"marketing_effect":-297567.0,"payroll_other_effect":-80161.0,"total_ebitda_var":-2559101.0},"start":9830152.0,"end":7271051.0},"margin":[{"bu":"E-commerce","qtr":"2023-Q1","a":44.9,"b":45.4},{"bu":"E-commerce","qtr":"2023-Q2","a":45.4,"b":45.4},{"bu":"E-commerce","qtr":"2023-Q3","a":45.7,"b":45.3},{"bu":"E-commerce","qtr":"2023-Q4","a":45.0,"b":45.2},{"bu":"E-commerce","qtr":"2024-Q1","a":45.2,"b":45.2},{"bu":"E-commerce","qtr":"2024-Q2","a":44.0,"b":45.1},{"bu":"E-commerce","qtr":"2024-Q3","a":44.6,"b":45.0},{"bu":"E-commerce","qtr":"2024-Q4","a":44.6,"b":45.0},{"bu":"E-commerce","qtr":"2025-Q1","a":44.3,"b":44.9},{"bu":"E-commerce","qtr":"2025-Q2","a":43.7,"b":44.8},{"bu":"E-commerce","qtr":"2025-Q3","a":42.8,"b":44.8},{"bu":"E-commerce","qtr":"2025-Q4","a":42.4,"b":44.7},{"bu":"E-commerce","qtr":"2026-Q1","a":41.5,"b":44.6},{"bu":"E-commerce","qtr":"2026-Q2","a":41.2,"b":44.6},{"bu":"E-commerce","qtr":"2026-Q3","a":40.0,"b":44.5},{"bu":"Retail","qtr":"2023-Q1","a":39.7,"b":39.6},{"bu":"Retail","qtr":"2023-Q2","a":38.9,"b":39.5},{"bu":"Retail","qtr":"2023-Q3","a":38.9,"b":39.4},{"bu":"Retail","qtr":"2023-Q4","a":38.5,"b":39.3},{"bu":"Retail","qtr":"2024-Q1","a":37.4,"b":39.3},{"bu":"Retail","qtr":"2024-Q2","a":37.2,"b":39.2},{"bu":"Retail","qtr":"2024-Q3","a":36.8,"b":39.1},{"bu":"Retail","qtr":"2024-Q4","a":36.1,"b":39.0},{"bu":"Retail","qtr":"2025-Q1","a":36.1,"b":39.0},{"bu":"Retail","qtr":"2025-Q2","a":35.8,"b":38.9},{"bu":"Retail","qtr":"2025-Q3","a":34.4,"b":38.8},{"bu":"Retail","qtr":"2025-Q4","a":34.0,"b":38.7},{"bu":"Retail","qtr":"2026-Q1","a":33.9,"b":38.7},{"bu":"Retail","qtr":"2026-Q2","a":33.2,"b":38.6},{"bu":"Retail","qtr":"2026-Q3","a":32.3,"b":38.5},{"bu":"Subscriptions","qtr":"2023-Q1","a":79.2,"b":79.3},{"bu":"Subscriptions","qtr":"2023-Q2","a":79.4,"b":79.3},{"bu":"Subscriptions","qtr":"2023-Q3","a":79.2,"b":79.2},{"bu":"Subscriptions","qtr":"2023-Q4","a":78.9,"b":79.2},{"bu":"Subscriptions","qtr":"2024-Q1","a":79.0,"b":79.2},{"bu":"Subscriptions","qtr":"2024-Q2","a":79.3,"b":79.2},{"bu":"Subscriptions","qtr":"2024-Q3","a":79.0,"b":79.1},{"bu":"Subscriptions","qtr":"2024-Q4","a":79.2,"b":79.1},{"bu":"Subscriptions","qtr":"2025-Q1","a":79.0,"b":79.1},{"bu":"Subscriptions","qtr":"2025-Q2","a":79.1,"b":79.1},{"bu":"Subscriptions","qtr":"2025-Q3","a":78.9,"b":79.0},{"bu":"Subscriptions","qtr":"2025-Q4","a":79.1,"b":79.0},{"bu":"Subscriptions","qtr":"2026-Q1","a":78.9,"b":79.0},{"bu":"Subscriptions","qtr":"2026-Q2","a":78.9,"b":79.0},{"bu":"Subscriptions","qtr":"2026-Q3","a":78.9,"b":78.9},{"bu":"Wholesale","qtr":"2023-Q1","a":27.9,"b":27.7},{"bu":"Wholesale","qtr":"2023-Q2","a":27.4,"b":27.7},{"bu":"Wholesale","qtr":"2023-Q3","a":27.6,"b":27.6},{"bu":"Wholesale","qtr":"2023-Q4","a":26.4,"b":27.5},{"bu":"Wholesale","qtr":"2024-Q1","a":26.2,"b":27.4},{"bu":"Wholesale","qtr":"2024-Q2","a":26.1,"b":27.3},{"bu":"Wholesale","qtr":"2024-Q3","a":25.3,"b":27.2},{"bu":"Wholesale","qtr":"2024-Q4","a":25.9,"b":27.1},{"bu":"Wholesale","qtr":"2025-Q1","a":25.0,"b":27.0},{"bu":"Wholesale","qtr":"2025-Q2","a":24.3,"b":26.9},{"bu":"Wholesale","qtr":"2025-Q3","a":24.2,"b":26.9},{"bu":"Wholesale","qtr":"2025-Q4","a":24.1,"b":26.8},{"bu":"Wholesale","qtr":"2026-Q1","a":23.6,"b":26.7},{"bu":"Wholesale","qtr":"2026-Q2","a":22.9,"b":26.6},{"bu":"Wholesale","qtr":"2026-Q3","a":22.7,"b":26.5}],"monthly":[{"month":"2023-01-01","rev":5441268.0},{"month":"2023-02-01","rev":4739841.0},{"month":"2023-03-01","rev":4285528.0},{"month":"2023-04-01","rev":3976071.0},{"month":"2023-05-01","rev":3780718.0},{"month":"2023-06-01","rev":4124858.0},{"month":"2023-07-01","rev":4743536.0},{"month":"2023-08-01","rev":5156479.0},{"month":"2023-09-01","rev":5858880.0},{"month":"2023-10-01","rev":6427865.0},{"month":"2023-11-01","rev":6613611.0},{"month":"2023-12-01","rev":6425265.0},{"month":"2024-01-01","rev":5972762.0},{"month":"2024-02-01","rev":5131369.0},{"month":"2024-03-01","rev":4790791.0},{"month":"2024-04-01","rev":4279014.0},{"month":"2024-05-01","rev":4337452.0},{"month":"2024-06-01","rev":4518837.0},{"month":"2024-07-01","rev":5188167.0},{"month":"2024-08-01","rev":5767867.0},{"month":"2024-09-01","rev":6455052.0},{"month":"2024-10-01","rev":6995687.0},{"month":"2024-11-01","rev":7388811.0},{"month":"2024-12-01","rev":7155291.0},{"month":"2025-01-01","rev":6318815.0},{"month":"2025-02-01","rev":5952910.0},{"month":"2025-03-01","rev":5430075.0},{"month":"2025-04-01","rev":4885486.0},{"month":"2025-05-01","rev":4823164.0},{"month":"2025-06-01","rev":5217319.0},{"month":"2025-07-01","rev":5752221.0},{"month":"2025-08-01","rev":6661827.0},{"month":"2025-09-01","rev":7372907.0},{"month":"2025-10-01","rev":8328287.0},{"month":"2025-11-01","rev":8271823.0},{"month":"2025-12-01","rev":7967435.0},{"month":"2026-01-01","rev":7342352.0},{"month":"2026-02-01","rev":6893112.0},{"month":"2026-03-01","rev":6075894.0},{"month":"2026-04-01","rev":5549455.0},{"month":"2026-05-01","rev":5496046.0},{"month":"2026-06-01","rev":5818152.0},{"month":"2026-07-01","rev":6366339.0},{"month":"2026-08-01","rev":7455081.0},{"month":"2026-09-01","rev":8078453.0}],"dso":[{"bu":"E-commerce","month":"2023-01-01","v":4.0},{"bu":"E-commerce","month":"2023-02-01","v":3.9},{"bu":"E-commerce","month":"2023-03-01","v":4.0},{"bu":"E-commerce","month":"2023-04-01","v":3.9},{"bu":"E-commerce","month":"2023-05-01","v":4.0},{"bu":"E-commerce","month":"2023-06-01","v":4.1},{"bu":"E-commerce","month":"2023-07-01","v":4.1},{"bu":"E-commerce","month":"2023-08-01","v":4.2},{"bu":"E-commerce","month":"2023-09-01","v":4.0},{"bu":"E-commerce","month":"2023-10-01","v":4.0},{"bu":"E-commerce","month":"2023-11-01","v":3.8},{"bu":"E-commerce","month":"2023-12-01","v":3.9},{"bu":"E-commerce","month":"2024-01-01","v":3.9},{"bu":"E-commerce","month":"2024-02-01","v":4.1},{"bu":"E-commerce","month":"2024-03-01","v":4.0},{"bu":"E-commerce","month":"2024-04-01","v":4.0},{"bu":"E-commerce","month":"2024-05-01","v":3.9},{"bu":"E-commerce","month":"2024-06-01","v":3.9},{"bu":"E-commerce","month":"2024-07-01","v":4.0},{"bu":"E-commerce","month":"2024-08-01","v":4.1},{"bu":"E-commerce","month":"2024-09-01","v":4.3},{"bu":"E-commerce","month":"2024-10-01","v":4.2},{"bu":"E-commerce","month":"2024-11-01","v":4.1},{"bu":"E-commerce","month":"2024-12-01","v":3.9},{"bu":"E-commerce","month":"2025-01-01","v":3.9},{"bu":"E-commerce","month":"2025-02-01","v":3.9},{"bu":"E-commerce","month":"2025-03-01","v":3.8},{"bu":"E-commerce","month":"2025-04-01","v":3.9},{"bu":"E-commerce","month":"2025-05-01","v":4.1},{"bu":"E-commerce","month":"2025-06-01","v":4.2},{"bu":"E-commerce","month":"2025-07-01","v":4.1},{"bu":"E-commerce","month":"2025-08-01","v":4.1},{"bu":"E-commerce","month":"2025-09-01","v":4.1},{"bu":"E-commerce","month":"2025-10-01","v":4.1},{"bu":"E-commerce","month":"2025-11-01","v":4.1},{"bu":"E-commerce","month":"2025-12-01","v":4.0},{"bu":"E-commerce","month":"2026-01-01","v":4.0},{"bu":"E-commerce","month":"2026-02-01","v":4.1},{"bu":"E-commerce","month":"2026-03-01","v":4.0},{"bu":"E-commerce","month":"2026-04-01","v":4.1},{"bu":"E-commerce","month":"2026-05-01","v":4.0},{"bu":"E-commerce","month":"2026-06-01","v":4.1},{"bu":"E-commerce","month":"2026-07-01","v":4.1},{"bu":"E-commerce","month":"2026-08-01","v":4.1},{"bu":"E-commerce","month":"2026-09-01","v":4.1},{"bu":"Retail","month":"2023-01-01","v":3.1},{"bu":"Retail","month":"2023-02-01","v":3.0},{"bu":"Retail","month":"2023-03-01","v":3.0},{"bu":"Retail","month":"2023-04-01","v":2.9},{"bu":"Retail","month":"2023-05-01","v":2.9},{"bu":"Retail","month":"2023-06-01","v":3.0},{"bu":"Retail","month":"2023-07-01","v":3.1},{"bu":"Retail","month":"2023-08-01","v":3.0},{"bu":"Retail","month":"2023-09-01","v":3.0},{"bu":"Retail","month":"2023-10-01","v":2.9},{"bu":"Retail","month":"2023-11-01","v":2.9},{"bu":"Retail","month":"2023-12-01","v":2.9},{"bu":"Retail","month":"2024-01-01","v":3.0},{"bu":"Retail","month":"2024-02-01","v":3.1},{"bu":"Retail","month":"2024-03-01","v":3.1},{"bu":"Retail","month":"2024-04-01","v":3.0},{"bu":"Retail","month":"2024-05-01","v":3.0},{"bu":"Retail","month":"2024-06-01","v":3.0},{"bu":"Retail","month":"2024-07-01","v":3.0},{"bu":"Retail","month":"2024-08-01","v":3.1},{"bu":"Retail","month":"2024-09-01","v":3.0},{"bu":"Retail","month":"2024-10-01","v":3.0},{"bu":"Retail","month":"2024-11-01","v":3.0},{"bu":"Retail","month":"2024-12-01","v":3.0},{"bu":"Retail","month":"2025-01-01","v":3.0},{"bu":"Retail","month":"2025-02-01","v":3.0},{"bu":"Retail","month":"2025-03-01","v":3.0},{"bu":"Retail","month":"2025-04-01","v":3.0},{"bu":"Retail","month":"2025-05-01","v":3.0},{"bu":"Retail","month":"2025-06-01","v":3.0},{"bu":"Retail","month":"2025-07-01","v":3.1},{"bu":"Retail","month":"2025-08-01","v":3.0},{"bu":"Retail","month":"2025-09-01","v":3.0},{"bu":"Retail","month":"2025-10-01","v":3.0},{"bu":"Retail","month":"2025-11-01","v":3.0},{"bu":"Retail","month":"2025-12-01","v":3.0},{"bu":"Retail","month":"2026-01-01","v":3.0},{"bu":"Retail","month":"2026-02-01","v":3.1},{"bu":"Retail","month":"2026-03-01","v":2.9},{"bu":"Retail","month":"2026-04-01","v":2.9},{"bu":"Retail","month":"2026-05-01","v":3.0},{"bu":"Retail","month":"2026-06-01","v":3.1},{"bu":"Retail","month":"2026-07-01","v":3.1},{"bu":"Retail","month":"2026-08-01","v":3.0},{"bu":"Retail","month":"2026-09-01","v":3.0},{"bu":"Subscriptions","month":"2023-01-01","v":5.3},{"bu":"Subscriptions","month":"2023-02-01","v":5.3},{"bu":"Subscriptions","month":"2023-03-01","v":5.2},{"bu":"Subscriptions","month":"2023-04-01","v":5.2},{"bu":"Subscriptions","month":"2023-05-01","v":5.1},{"bu":"Subscriptions","month":"2023-06-01","v":5.0},{"bu":"Subscriptions","month":"2023-07-01","v":4.8},{"bu":"Subscriptions","month":"2023-08-01","v":4.8},{"bu":"Subscriptions","month":"2023-09-01","v":4.9},{"bu":"Subscriptions","month":"2023-10-01","v":4.9},{"bu":"Subscriptions","month":"2023-11-01","v":4.9},{"bu":"Subscriptions","month":"2023-12-01","v":5.0},{"bu":"Subscriptions","month":"2024-01-01","v":5.0},{"bu":"Subscriptions","month":"2024-02-01","v":5.0},{"bu":"Subscriptions","month":"2024-03-01","v":4.9},{"bu":"Subscriptions","month":"2024-04-01","v":4.9},{"bu":"Subscriptions","month":"2024-05-01","v":4.8},{"bu":"Subscriptions","month":"2024-06-01","v":4.9},{"bu":"Subscriptions","month":"2024-07-01","v":5.0},{"bu":"Subscriptions","month":"2024-08-01","v":5.1},{"bu":"Subscriptions","month":"2024-09-01","v":5.1},{"bu":"Subscriptions","month":"2024-10-01","v":5.0},{"bu":"Subscriptions","month":"2024-11-01","v":4.9},{"bu":"Subscriptions","month":"2024-12-01","v":4.9},{"bu":"Subscriptions","month":"2025-01-01","v":5.0},{"bu":"Subscriptions","month":"2025-02-01","v":5.1},{"bu":"Subscriptions","month":"2025-03-01","v":5.3},{"bu":"Subscriptions","month":"2025-04-01","v":5.2},{"bu":"Subscriptions","month":"2025-05-01","v":5.1},{"bu":"Subscriptions","month":"2025-06-01","v":4.9},{"bu":"Subscriptions","month":"2025-07-01","v":4.9},{"bu":"Subscriptions","month":"2025-08-01","v":4.9},{"bu":"Subscriptions","month":"2025-09-01","v":4.9},{"bu":"Subscriptions","month":"2025-10-01","v":5.1},{"bu":"Subscriptions","month":"2025-11-01","v":5.1},{"bu":"Subscriptions","month":"2025-12-01","v":5.0},{"bu":"Subscriptions","month":"2026-01-01","v":4.8},{"bu":"Subscriptions","month":"2026-02-01","v":4.8},{"bu":"Subscriptions","month":"2026-03-01","v":4.9},{"bu":"Subscriptions","month":"2026-04-01","v":5.0},{"bu":"Subscriptions","month":"2026-05-01","v":5.0},{"bu":"Subscriptions","month":"2026-06-01","v":5.0},{"bu":"Subscriptions","month":"2026-07-01","v":5.0},{"bu":"Subscriptions","month":"2026-08-01","v":4.9},{"bu":"Subscriptions","month":"2026-09-01","v":5.0},{"bu":"Wholesale","month":"2023-01-01","v":38.4},{"bu":"Wholesale","month":"2023-02-01","v":39.9},{"bu":"Wholesale","month":"2023-03-01","v":39.2},{"bu":"Wholesale","month":"2023-04-01","v":39.6},{"bu":"Wholesale","month":"2023-05-01","v":38.1},{"bu":"Wholesale","month":"2023-06-01","v":38.2},{"bu":"Wholesale","month":"2023-07-01","v":38.0},{"bu":"Wholesale","month":"2023-08-01","v":38.3},{"bu":"Wholesale","month":"2023-09-01","v":38.3},{"bu":"Wholesale","month":"2023-10-01","v":39.2},{"bu":"Wholesale","month":"2023-11-01","v":38.8},{"bu":"Wholesale","month":"2023-12-01","v":39.4},{"bu":"Wholesale","month":"2024-01-01","v":38.1},{"bu":"Wholesale","month":"2024-02-01","v":39.2},{"bu":"Wholesale","month":"2024-03-01","v":39.1},{"bu":"Wholesale","month":"2024-04-01","v":39.6},{"bu":"Wholesale","month":"2024-05-01","v":38.6},{"bu":"Wholesale","month":"2024-06-01","v":38.0},{"bu":"Wholesale","month":"2024-07-01","v":37.9},{"bu":"Wholesale","month":"2024-08-01","v":39.3},{"bu":"Wholesale","month":"2024-09-01","v":39.5},{"bu":"Wholesale","month":"2024-10-01","v":39.0},{"bu":"Wholesale","month":"2024-11-01","v":38.1},{"bu":"Wholesale","month":"2024-12-01","v":38.5},{"bu":"Wholesale","month":"2025-01-01","v":40.6},{"bu":"Wholesale","month":"2025-02-01","v":42.3},{"bu":"Wholesale","month":"2025-03-01","v":43.2},{"bu":"Wholesale","month":"2025-04-01","v":43.8},{"bu":"Wholesale","month":"2025-05-01","v":44.1},{"bu":"Wholesale","month":"2025-06-01","v":45.9},{"bu":"Wholesale","month":"2025-07-01","v":46.5},{"bu":"Wholesale","month":"2025-08-01","v":46.0},{"bu":"Wholesale","month":"2025-09-01","v":46.3},{"bu":"Wholesale","month":"2025-10-01","v":46.3},{"bu":"Wholesale","month":"2025-11-01","v":48.2},{"bu":"Wholesale","month":"2025-12-01","v":48.5},{"bu":"Wholesale","month":"2026-01-01","v":49.9},{"bu":"Wholesale","month":"2026-02-01","v":51.2},{"bu":"Wholesale","month":"2026-03-01","v":53.5},{"bu":"Wholesale","month":"2026-04-01","v":54.0},{"bu":"Wholesale","month":"2026-05-01","v":54.0},{"bu":"Wholesale","month":"2026-06-01","v":53.4},{"bu":"Wholesale","month":"2026-07-01","v":54.5},{"bu":"Wholesale","month":"2026-08-01","v":55.5},{"bu":"Wholesale","month":"2026-09-01","v":56.2}],"forecast":{"months":["2026-10","2026-11","2026-12","2027-01","2027-02","2027-03","2027-04","2027-05","2027-06","2027-07","2027-08","2027-09"],"rev":[9079789.0,9360883.0,9142865.0,8502632.0,7647710.0,6857102.0,6359518.0,6270134.0,6620954.0,7389500.0,8459245.0,9575147.0],"lo":[8867407.0,9138947.0,8917792.0,8308863.0,7469469.0,6694643.0,6212857.0,6117977.0,6473962.0,7216346.0,8254831.0,9335706.0],"hi":[9297651.0,9585439.0,9357214.0,8709852.0,7829056.0,7020613.0,6516696.0,6411869.0,6782734.0,7566132.0,8652295.0,9808186.0],"ntm_rev":95265479.0,"ntm_ebitda":14398201.0,"parts":{"rev":95265479.0,"cogs":58194565.0,"mkt":7527382.0,"fixed":15145330.0,"ebitda":14398201.0},"assumptions":{"E-commerce":{"gm_pct":40.5,"mkt_pct":9.2},"Retail":{"gm_pct":32.7,"mkt_pct":6.9},"Subscriptions":{"gm_pct":78.9,"mkt_pct":13.6},"Wholesale":{"gm_pct":22.8,"mkt_pct":2.0}}},"tornado":[{"driver":"Price +/-2%","up":1905310.0,"down":-1905310.0},{"driver":"Unit cost inflation +/-3%","up":1745837.0,"down":-1745837.0},{"driver":"Volume +/-5%","up":1477177.0,"down":-1477177.0},{"driver":"Marketing spend +/-10%","up":752738.0,"down":-752738.0}],"by_bu":[{"bu":"E-commerce","volume_effect":2037881.0,"price_effect":-1384551.0,"cost_effect":-274074.0,"marketing_effect":-310695.0,"payroll_other_effect":-30493.0,"total_ebitda_var":38069.0},{"bu":"Retail","volume_effect":-848116.0,"price_effect":14563.0,"cost_effect":-895191.0,"marketing_effect":10855.0,"payroll_other_effect":-42312.0,"total_ebitda_var":-1760200.0},{"bu":"Subscriptions","volume_effect":-399041.0,"price_effect":-1596.0,"cost_effect":-1885.0,"marketing_effect":1334.0,"payroll_other_effect":-4420.0,"total_ebitda_var":-405609.0},{"bu":"Wholesale","volume_effect":-81000.0,"price_effect":29255.0,"cost_effect":-377618.0,"marketing_effect":938.0,"payroll_other_effect":-2936.0,"total_ebitda_var":-431361.0}],"ytd":[{"bu":"E-commerce","ebitda_bud":5569278.0,"ebitda_act":5607347.0},{"bu":"Retail","ebitda_bud":1008674.0,"ebitda_act":-751526.0},{"bu":"Subscriptions","ebitda_bud":2281012.0,"ebitda_act":1875403.0},{"bu":"Wholesale","ebitda_bud":971188.0,"ebitda_act":539828.0}]}};
+(function(){
+var font='"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
+var BU={'Retail':'--c1','E-commerce':'--c2','Wholesale':'--c3','Subscriptions':'--c4'};
+var reg={};
+var state={thr:60,target:'95',bu:'All',p:0,v:0,c:0,m:0};
+var S=D.sc,F=D.fn;
+function $(id){return document.getElementById(id);}
+function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
+function rgba(hex,a){var n=parseInt(hex.replace('#',''),16);return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')';}
+function mk(id,cfg){var el=$(id);if(!el||!window.Chart)return;if(reg[id]){reg[id].destroy();}reg[id]=new Chart(el,cfg);}
+function tip(cb,extra){return Object.assign({backgroundColor:css('--surface'),titleColor:css('--ink'),bodyColor:css('--ink2'),borderColor:css('--axis'),borderWidth:1,padding:10,cornerRadius:4,boxPadding:4,callbacks:cb||{}},extra||{});}
+function ax(title,o,extra){o=o||{};var a={grid:Object.assign({color:css('--line'),drawTicks:false},o.grid||{}),border:{color:css('--axis')},ticks:Object.assign({color:css('--ink2'),padding:6},o.ticks||{}),title:{display:!!title,text:title||'',color:css('--ink2')}};return Object.assign(a,extra||{});}
+function legend(filter){return {position:'top',align:'start',labels:{usePointStyle:true,boxWidth:8,boxHeight:8,color:css('--ink2'),filter:filter}};}
+function base(){return {maintainAspectRatio:false,animation:false,layout:{padding:{top:4,right:4}}};}
+function pct(v){return v+'%';}
+function mm(v,d){return (v<0?'-':'')+'$'+Math.abs(v).toFixed(d==null?2:d)+'M';}
+function sgn(v,d){return (v>=0?'+':'-')+'$'+Math.abs(v).toFixed(d==null?2:d)+'M';}
+
+/* ---------- chart plugins ---------- */
+var refLines={id:'refLines',afterDatasetsDraw:function(chart,args,opts){
+  var L=(opts&&opts.lines)||[],ctx=chart.ctx,a=chart.chartArea,x=chart.scales.x,y=chart.scales.y;
+  L.forEach(function(l){ctx.save();ctx.strokeStyle=css('--ink2');ctx.fillStyle=css('--ink2');ctx.lineWidth=1;ctx.setLineDash([5,4]);ctx.font='11px '+font;ctx.beginPath();
+    if(l.axis==='y'){var py=y.getPixelForValue(l.value);ctx.moveTo(a.left,py);ctx.lineTo(a.right,py);ctx.stroke();ctx.setLineDash([]);ctx.textAlign='left';ctx.textBaseline='bottom';ctx.fillText(l.label,a.left+6,py-4);}
+    else{var px=x.getPixelForValue(l.value);ctx.moveTo(px,a.top);ctx.lineTo(px,a.bottom);ctx.stroke();ctx.setLineDash([]);ctx.textAlign='left';
+      if(l.pos==='bottom'){ctx.textBaseline='bottom';ctx.fillText(l.label,px+6,a.bottom-6);}else{ctx.textBaseline='bottom';ctx.fillText(l.label,px+4,a.top-4);}}
+    ctx.restore();});}};
+
+function valueLabels(fmt,horizontal){return {id:'valueLabels',afterDatasetsDraw:function(chart){
+  var ctx=chart.ctx;chart.data.datasets.forEach(function(ds,di){var meta=chart.getDatasetMeta(di);if(meta.hidden)return;
+    meta.data.forEach(function(el,i){var v=ds.data[i];if(v==null)return;var t=fmt(v,i,di);if(!t)return;
+      ctx.save();ctx.fillStyle=css('--ink');ctx.font='600 12px '+font;
+      if(horizontal){var neg=(Array.isArray(v)?0:v)<0;ctx.textBaseline='middle';ctx.textAlign=neg?'right':'left';ctx.fillText(t,el.x+(neg?-6:6),el.y);}
+      else{ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText(t,el.x,Math.min(el.y,el.base)-5);}
+      ctx.restore();});});}};}
+
+var endLabels={id:'endLabels',afterDatasetsDraw:function(chart){var ctx=chart.ctx;
+  chart.data.datasets.forEach(function(ds,i){var meta=chart.getDatasetMeta(i);if(meta.hidden)return;var j=-1;
+    for(var k=ds.data.length-1;k>=0;k--){if(ds.data[k]!=null){j=k;break;}}if(j<0)return;var p=meta.data[j];
+    ctx.save();ctx.fillStyle=css('--ink');ctx.font='500 12px '+font;ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(ds.endLabel||ds.label,p.x+8,p.y);ctx.restore();});}};
+
+/* ---------- Project 1: supplier chart + threshold slider ---------- */
+var supRows=S.scorecard.slice().sort(function(a,b){return a.otif_pct-b.otif_pct;});
+function buildSup(){
+  var rows=supRows;
+  mk('c-suppliers',{type:'bar',data:{labels:rows.map(function(r){return r.supplier_name+' ('+r.country+')';}),
+    datasets:[{data:rows.map(function(r){return r.otif_pct;}),backgroundColor:rows.map(function(r){return css(r.otif_pct<state.thr?'--c2':'--c1');}),borderRadius:{topRight:3,bottomRight:3},barPercentage:.72}]},
+    options:Object.assign(base(),{indexAxis:'y',layout:{padding:{top:20,right:12}},
+      plugins:{legend:{display:false},tooltip:tip({label:function(c){var r=rows[c.dataIndex];return ['OTIF '+r.otif_pct+'% (on time '+r.on_time_pct+'%, in full '+r.in_full_pct+'%)',r.pos+' POs, '+r.spend_share_pct+'% of spend','Average delay '+r.avg_delay_days+' days'];}}),
+        refLines:{lines:[{axis:'x',value:state.thr,label:state.thr+'% threshold'}]}},
+      scales:{x:ax('OTIF %',{ticks:{callback:pct}},{min:0,max:100}),y:ax(null,{grid:{display:false},ticks:{autoSkip:false,font:{size:11}}})}}),plugins:[refLines]});
+}
+function supRead(){
+  var tot=0,tl=0,rs=0,rl=0,n=0;
+  S.scorecard.forEach(function(r){var late=r.pos*(100-r.on_time_pct)/100;tot+=r.spend;tl+=late;if(r.otif_pct<state.thr){n++;rs+=r.spend;rl+=late;}});
+  $('sup-read').innerHTML='<strong>'+n+' of '+S.scorecard.length+'</strong> suppliers fall below '+state.thr+'% OTIF. They hold <strong>'+(100*rs/tot).toFixed(1)+'%</strong> of spend and cause <strong>'+(tl?(100*rl/tl).toFixed(1):'0.0')+'%</strong> of late deliveries.';
+}
+
+/* ---------- Project 1: service-level chart + target selector ---------- */
+function tgt(){return S.sim.targets.filter(function(t){return t.key===state.target;})[0];}
+function buildSvc(){
+  var s=S.sim,t=tgt();
+  mk('c-service',{type:'bar',data:{labels:[['All Class A','('+s.n_a_skus+' SKUs)'],['From at-risk suppliers','('+s.n_a_problem+' SKUs)'],['From other suppliers','('+s.n_a_other+' SKUs)']],datasets:[
+    {label:'Current rule',data:[s.service_now_pct,s.service_now_problem_pct,s.service_now_other_pct],backgroundColor:css('--c1'),borderRadius:{topLeft:3,topRight:3}},
+    {label:'Safety stock for '+t.label+' target',data:[t.service_pct,t.service_problem_pct,t.service_other_pct],backgroundColor:css('--c2'),borderRadius:{topLeft:3,topRight:3}}]},
+    options:Object.assign(base(),{layout:{padding:{top:20,right:4}},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+c.parsed.y+'% of cycles without a stockout';}})},
+      scales:{x:ax(null,{grid:{display:false}}),y:ax('Cycle service level',{ticks:{callback:pct}},{min:0,max:100})}}),plugins:[valueLabels(function(v){return v+'%';})]});
+}
+function svcRead(){
+  var s=S.sim,t=tgt();
+  $('svc-read').innerHTML='At a <strong>'+t.label+'</strong> target, simulated service on Class A rises from '+s.service_now_pct+'% to <strong>'+t.service_pct+'%</strong>. It costs <strong>+'+t.inv_increase_pct+'%</strong> Class A inventory (<strong>+$'+Math.round(t.inv_increase_usd/1000)+'K</strong> on $'+(s.inventory_now_usd/1e6).toFixed(2)+'M).';
+  Array.prototype.forEach.call(document.querySelectorAll('#svc-seg button'),function(b){b.setAttribute('aria-pressed',b.getAttribute('data-t')===state.target?'true':'false');});
+}
+
+/* ---------- Project 2: EBITDA bridge + business-unit filter ---------- */
+function bridgeParts(){
+  var t,start,end;
+  if(state.bu==='All'){t=F.bridge.total;start=F.bridge.start;end=F.bridge.end;}
+  else{t=F.by_bu.filter(function(r){return r.bu===state.bu;})[0];var y=F.ytd.filter(function(r){return r.bu===state.bu;})[0];start=y.ebitda_bud;end=y.ebitda_act;}
+  return {t:t,start:start,end:end};
+}
+function buildBridge(){
+  var bp=bridgeParts(),t=bp.t;
+  var steps=[['Volume',t.volume_effect],['Price',t.price_effect],['Unit cost',t.cost_effect],['Marketing',t.marketing_effect],['Payroll & other',t.payroll_other_effect]];
+  var run=bp.start/1e6,data=[[0,run]],colors=[css('--c1')],labels=['Budget EBITDA'],vals=[run];
+  steps.forEach(function(st){var nxt=run+st[1]/1e6;data.push([Math.min(run,nxt),Math.max(run,nxt)]);colors.push(css(st[1]>=0?'--good':'--bad'));labels.push(st[0]);vals.push(st[1]/1e6);run=nxt;});
+  data.push([0,bp.end/1e6]);colors.push(css('--c1'));labels.push('Actual EBITDA');vals.push(bp.end/1e6);
+  function sg(v,i){return (i===0||i===vals.length-1)?mm(v):sgn(v);}
+  mk('c-bridge',{type:'bar',data:{labels:labels,datasets:[{data:data,backgroundColor:colors,borderRadius:3,barPercentage:.7}]},
+    options:Object.assign(base(),{layout:{padding:{top:22,right:4}},plugins:{legend:{display:false},tooltip:tip({label:function(c){return sg(vals[c.dataIndex],c.dataIndex);}})},
+      scales:{x:ax(null,{grid:{display:false},ticks:{autoSkip:false,maxRotation:0,font:{size:11}}}),y:ax('EBITDA, Jan to Sep 2026',{ticks:{callback:function(v){return '$'+v+'M';}}},{beginAtZero:true})}}),
+    plugins:[{id:'bl',afterDatasetsDraw:function(chart){var ctx=chart.ctx,meta=chart.getDatasetMeta(0);meta.data.forEach(function(el,i){ctx.save();ctx.fillStyle=css('--ink');ctx.font='600 12px '+font;ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText(sg(vals[i],i),el.x,Math.min(el.y,el.base)-5);ctx.restore();});}}]});
+}
+function bridgeRead(){
+  var bp=bridgeParts(),name=state.bu==='All'?'All business units':state.bu;
+  $('bu-read').innerHTML='<strong>'+name+'</strong>: budget '+mm(bp.start/1e6)+', actual <strong>'+mm(bp.end/1e6)+'</strong>, variance <strong>'+sgn((bp.end-bp.start)/1e6)+'</strong>.';
+}
+
+/* ---------- Project 2: live scenario ---------- */
+function scenEbitda(p,v,c,m){var P=F.forecast.parts;
+  var rev=P.rev*(1+v/100),cogs=P.cogs*(1+v/100)*(1+c/100),mkt=P.mkt*(1+v/100)*(1+m/100);
+  return rev*(1+p/100)-cogs-mkt-P.fixed;}
+function scenRead(){
+  var P=F.forecast.parts,e=scenEbitda(state.p,state.v,state.c,state.m),d=e-P.ebitda;
+  $('sc-val').textContent=mm(e/1e6,1);
+  $('sc-delta').textContent=Math.abs(d)<5000?'Same as the base case':sgn(d/1e6,2)+' vs base ('+(d>0?'+':'')+(100*d/P.ebitda).toFixed(1)+'%)';
+}
+function fmtPct(v){return (v>0?'+':'')+Number(v).toFixed(1)+'%';}
+
+/* ---------- remaining charts ---------- */
+function buildRest(){
+  mk('c-otif',{type:'line',data:{labels:S.monthly.map(function(m){return m.month;}),datasets:[
+    {label:'Monthly OTIF',data:S.monthly.map(function(m){return m.otif;}),borderColor:css('--c1'),backgroundColor:css('--c1'),borderWidth:1.5,pointRadius:3,pointHoverRadius:5},
+    {label:'3-month average',data:S.monthly.map(function(m,i){return i<2?null:m.avg3;}),borderColor:css('--c2'),backgroundColor:css('--c2'),borderWidth:3,pointRadius:0,pointHoverRadius:4,tension:.2}]},
+    options:Object.assign(base(),{interaction:{mode:'index',intersect:false},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+c.parsed.y+'%';}})},
+      scales:{x:ax(null,{grid:{display:false},ticks:{maxTicksLimit:8}}),y:ax('OTIF %',{ticks:{callback:pct}},{min:60,max:90})}})});
+
+  mk('c-pareto',{type:'line',data:{datasets:[{label:'Cumulative share of demand value',data:S.pareto,borderColor:css('--c1'),backgroundColor:css('--c1'),borderWidth:2.5,pointRadius:0,pointHoverRadius:4}]},
+    options:Object.assign(base(),{layout:{padding:{top:20,right:12}},interaction:{mode:'nearest',axis:'x',intersect:false},
+      plugins:{legend:{display:false},tooltip:tip({title:function(i){return 'Top '+i[0].parsed.x+' SKUs';},label:function(c){return c.parsed.y+'% of demand value';}}),
+        refLines:{lines:[{axis:'y',value:80,label:'80% of value'},{axis:'y',value:95,label:'95% of value'},
+          {axis:'x',value:S.abcA,label:'Class A: '+S.abcA+' SKUs',pos:'bottom'},{axis:'x',value:S.abcAB,label:'A+B: '+S.abcAB+' SKUs',pos:'bottom'}]}},
+      scales:{x:ax('SKUs ranked by 2025 demand value',{ticks:{stepSize:25}},{type:'linear',min:0,max:150}),y:ax('Cumulative share of value',{ticks:{callback:pct}},{min:0,max:100})}}),plugins:[refLines]});
+
+  var fs=S.fc.series;
+  mk('c-forecast',{type:'line',data:{labels:fs.weeks.map(function(w){return w.slice(5);}),datasets:[
+    {label:'Actual',data:fs.actual,borderColor:css('--c1'),backgroundColor:css('--c1'),borderWidth:2.5,pointRadius:3,pointHoverRadius:5},
+    {label:S.fc.labels.trend_season,data:fs.trend_season,borderColor:css('--c2'),backgroundColor:css('--c2'),borderWidth:2.5,pointRadius:3,pointHoverRadius:5},
+    {label:S.fc.labels.naive,data:fs.naive,borderColor:css('--ink2'),backgroundColor:css('--ink2'),borderWidth:1.5,borderDash:[6,4],pointRadius:0,pointHoverRadius:4}]},
+    options:Object.assign(base(),{interaction:{mode:'index',intersect:false},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+c.parsed.y.toLocaleString()+' units';}})},
+      scales:{x:ax('Week starting (2025, MM-DD)',{grid:{display:false}}),y:ax('Units per week',{ticks:{callback:function(v){return (v/1000).toFixed(0)+'k';}}})}})});
+
+  var qs=[];F.margin.forEach(function(r){if(qs.indexOf(r.qtr)<0)qs.push(r.qtr);});
+  var bus=['Retail','E-commerce','Wholesale','Subscriptions'];
+  mk('c-margin',{type:'line',data:{labels:qs,datasets:bus.map(function(bu){var rr=F.margin.filter(function(r){return r.bu===bu;});
+    return {label:bu,data:rr.map(function(r){return r.a;}),budget:rr.map(function(r){return r.b;}),borderColor:css(BU[bu]),backgroundColor:css(BU[bu]),borderWidth:2.5,pointRadius:0,pointHoverRadius:4,tension:.15};})},
+    options:Object.assign(base(),{layout:{padding:{top:4,right:96}},interaction:{mode:'index',intersect:false},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+c.parsed.y+'% (budget '+c.dataset.budget[c.dataIndex]+'%)';}})},
+      scales:{x:ax(null,{grid:{display:false},ticks:{maxTicksLimit:8}}),y:ax('Gross margin',{ticks:{callback:pct}},{min:0,max:100})}}),plugins:[endLabels]});
+
+  var wh=F.dso.filter(function(r){return r.bu==='Wholesale';});
+  var ms=wh.map(function(r){return r.month.slice(0,7);});
+  var oth=ms.map(function(m){var v=F.dso.filter(function(r){return r.bu!=='Wholesale'&&r.month.slice(0,7)===m;}).map(function(r){return r.v;});return +(v.reduce(function(a,c){return a+c;},0)/v.length).toFixed(1);});
+  mk('c-dso',{type:'line',data:{labels:ms,datasets:[
+    {label:'Wholesale',data:wh.map(function(r){return r.v;}),borderColor:css('--c3'),backgroundColor:css('--c3'),borderWidth:3,pointRadius:0,pointHoverRadius:4},
+    {label:'Other three units (average)',endLabel:'Other units',data:oth,borderColor:css('--c1'),backgroundColor:css('--c1'),borderWidth:2,pointRadius:0,pointHoverRadius:4}]},
+    options:Object.assign(base(),{layout:{padding:{top:4,right:84}},interaction:{mode:'index',intersect:false},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+c.parsed.y+' days';}})},
+      scales:{x:ax(null,{grid:{display:false},ticks:{maxTicksLimit:8}}),y:ax('Days sales outstanding (3-month average)',{},{min:0,max:70})}}),plugins:[endLabels]});
+
+  var h=F.monthly,fm=F.forecast,n=h.length;
+  var lbl=h.map(function(r){return r.month.slice(0,7);}).concat(fm.months);
+  var act=h.map(function(r){return r.rev/1e6;}).concat(fm.months.map(function(){return null;}));
+  var last=act[n-1],pad=function(arr){return Array(n-1).fill(null).concat([last]).concat(arr.map(function(v){return v/1e6;}));};
+  var names=['Actual','Forecast','80% low','80% high'];
+  mk('c-fan',{type:'line',data:{labels:lbl,datasets:[
+    {label:'Actual',data:act,borderColor:css('--c1'),backgroundColor:css('--c1'),borderWidth:2.5,pointRadius:0,pointHoverRadius:4},
+    {label:'Forecast',data:pad(fm.rev),borderColor:css('--c2'),backgroundColor:css('--c2'),borderWidth:2.5,borderDash:[6,4],pointRadius:0,pointHoverRadius:4},
+    {label:'80% low',data:pad(fm.lo),borderWidth:0,pointRadius:0,pointHoverRadius:0,fill:false},
+    {label:'80% interval',data:pad(fm.hi),borderWidth:0,pointRadius:0,pointHoverRadius:0,fill:'-1',backgroundColor:rgba(css('--c2'),.2)}]},
+    options:Object.assign(base(),{interaction:{mode:'index',intersect:false},plugins:{legend:legend(function(i){return i.text!=='80% low';}),tooltip:tip({label:function(c){return names[c.datasetIndex]+': '+mm(c.parsed.y);}})},
+      scales:{x:ax(null,{grid:{display:false},ticks:{maxTicksLimit:9}}),y:ax('Monthly revenue',{ticks:{callback:function(v){return '$'+v+'M';}}},{min:0})}})});
+
+  var tr=F.tornado;
+  mk('c-tornado',{type:'bar',data:{labels:tr.map(function(r){return r.driver;}),datasets:[
+    {label:'Favorable',data:tr.map(function(r){return r.up/1e6;}),backgroundColor:css('--c1'),barPercentage:.7},
+    {label:'Unfavorable',data:tr.map(function(r){return r.down/1e6;}),backgroundColor:css('--c2'),barPercentage:.7}]},
+    options:Object.assign(base(),{indexAxis:'y',layout:{padding:{top:4,right:16}},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+sgn(c.parsed.x)+' EBITDA';}})},
+      scales:{x:ax('Change in next-12-month EBITDA, $M',{ticks:{callback:function(v){return (v>0?'+':'')+v;}}},{stacked:true,min:-2.8,max:2.8}),y:ax(null,{grid:{display:false},ticks:{autoSkip:false}},{stacked:true})}}),
+    plugins:[valueLabels(function(v){return (v>=0?'+':'-')+'$'+Math.abs(v).toFixed(1)+'M';},true)]});
+}
+
+function build(){
+  Chart.defaults.font.family=font;Chart.defaults.font.size=12;Chart.defaults.color=css('--ink2');Chart.defaults.borderColor=css('--line');
+  Object.keys(reg).forEach(function(k){reg[k].destroy();delete reg[k];});
+  buildSup();buildSvc();buildBridge();buildRest();
+}
+
+/* ---------- controls ---------- */
+function on(id,ev,fn){var el=$(id);if(el)el.addEventListener(ev,fn);}
+function wire(){
+  on('thr','input',function(){state.thr=+$('thr').value;$('thr-out').textContent=state.thr+'%';supRead();buildSup();});
+  Array.prototype.forEach.call(document.querySelectorAll('#svc-seg button'),function(b){
+    b.addEventListener('click',function(){state.target=b.getAttribute('data-t');svcRead();buildSvc();});});
+  on('bu-sel','change',function(){state.bu=$('bu-sel').value;bridgeRead();buildBridge();});
+  [['sl-p','p'],['sl-v','v'],['sl-c','c'],['sl-m','m']].forEach(function(pair){
+    on(pair[0],'input',function(){state[pair[1]]=+$(pair[0]).value;$(pair[0]+'-out').textContent=fmtPct(state[pair[1]]);scenRead();});});
+  on('sc-reset','click',function(){[['sl-p','p'],['sl-v','v'],['sl-c','c'],['sl-m','m']].forEach(function(pair){state[pair[1]]=0;$(pair[0]).value=0;$(pair[0]+'-out').textContent=fmtPct(0);});scenRead();});
+  /* theme toggle */
+  var tb=$('theme-btn');
+  function effective(){var t=document.documentElement.getAttribute('data-theme');if(t)return t;return (window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}
+  function label(){if(tb)tb.textContent=effective()==='dark'?'Light mode':'Dark mode';}
+  if(tb){tb.addEventListener('click',function(){document.documentElement.setAttribute('data-theme',effective()==='dark'?'light':'dark');label();});}
+  label();
+  try{window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){label();if(window.Chart)build();});}catch(e){}
+  new MutationObserver(function(){label();if(window.Chart)build();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+}
+
+supRead();svcRead();bridgeRead();scenRead();wire();
+function boot(){if(!window.Chart){setTimeout(boot,100);return;}build();}
+boot();
+})();
+
+</script>

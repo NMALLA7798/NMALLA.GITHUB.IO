@@ -1,0 +1,25 @@
+supplier_id,supplier_name,country,region,promised_lead_days
+1,Supplier 01,China,Asia,32
+2,Supplier 02,Vietnam,Asia,40
+3,Supplier 03,India,Asia,42
+4,Supplier 04,Mexico,North America,12
+5,Supplier 05,USA,North America,7
+6,Supplier 06,Germany,Europe,21
+7,Supplier 07,Poland,Europe,19
+8,Supplier 08,Turkey,Europe,23
+9,Supplier 09,China,Asia,35
+10,Supplier 10,Vietnam,Asia,36
+11,Supplier 11,India,Asia,42
+12,Supplier 12,Mexico,North America,8
+13,Supplier 13,USA,North America,9
+14,Supplier 14,Germany,Europe,23
+15,Supplier 15,Poland,Europe,20
+16,Supplier 16,Turkey,Europe,21
+17,Supplier 17,China,Asia,32
+18,Supplier 18,Vietnam,Asia,35
+19,Supplier 19,India,Asia,40
+20,Supplier 20,Mexico,North America,10
+21,Supplier 21,USA,North America,10
+22,Supplier 22,Germany,Europe,23
+23,Supplier 23,Poland,Europe,18
+24,Supplier 24,Turkey,Europe,26
