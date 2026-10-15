@@ -11,6 +11,10 @@ import re
 HERE = os.path.dirname(os.path.abspath(__file__))
 SC = json.load(open(os.path.join(HERE, "supply_chain", "results.json")))
 FN = json.load(open(os.path.join(HERE, "finance", "results.json")))
+BA = json.load(open(os.path.join(HERE, "business_analysis", "results.json")))
+import sys
+sys.path.insert(0, HERE)
+import ba_content
 
 
 def sql_block(path, name):
@@ -158,14 +162,18 @@ fn_limits = (
     "The tornado moves one driver at a time.")
 
 skills = [
-    ("SQL", "CTEs, window functions (RANK, LAG, moving averages), conditional aggregation, multi-table joins. Both projects start from a query file.", "Both projects"),
-    ("Python", "pandas, NumPy and scikit-learn in scripts that rebuild every number from the raw tables.", "Both projects"),
+    ("SQL", "CTEs, window functions (RANK, LAG, moving averages), conditional aggregation, multi-table joins. All three projects start from a query file.", "All three projects"),
+    ("Python", "pandas, NumPy and scikit-learn in scripts that rebuild every number from the raw tables.", "All three projects"),
     ("Forecasting", "Rolling-origin backtests, WAPE and MAPE, baseline comparison, bootstrap prediction intervals.", "Weekly demand, monthly revenue"),
     ("Simulation", "Monte Carlo test of a reorder policy using bootstrapped lead times and demand.", "Supply chain"),
     ("Variance analysis", "Price, volume, cost and opex bridge that reconciles exactly to the EBITDA variance, checked by an assertion.", "Finance"),
-    ("Domain metrics", "OTIF, ABC classification, safety stock, supplier scorecards, DSO, gross margin, EBITDA.", "Both projects"),
+    ("Domain metrics", "OTIF, ABC classification, safety stock, supplier scorecards, DSO, gross margin, EBITDA.", "All three projects"),
     ("Scenario work", "Base, upside and downside cases and a one-driver-at-a-time sensitivity.", "Finance"),
-    ("Communication", "Each section leads with the finding, ends with a recommendation and lists the limits of the data.", "Both projects"),
+    ("Business analysis", "Stakeholder framing, testable hypotheses, a KPI dictionary and a prioritized business case with stated assumptions.", "Project 3"),
+    ("Experimentation", "A/B test checks (split balance, detectable effect), z-tests, confidence intervals and guardrail metrics.", "Project 3"),
+    ("Cohort and funnel analysis", "Recursive-CTE cohorts, funnel by channel, churn segmentation and a mix-shift decomposition.", "Project 3"),
+    ("Data visualization", "Sixteen chart types, one color system, uncertainty shown, light and dark themes, interactive controls.", "All three projects"),
+    ("Communication", "Each section leads with the finding, ends with a recommendation and lists the limits of the data.", "All three projects"),
 ]
 skills_html = "".join(
     f"<div class='skill'><h3>{n}</h3><p>{d}</p><span class='tag'>{w}</span></div>" for n, d, w in skills)
@@ -209,13 +217,14 @@ scen_panel = """
 </div>"""
 
 
-def finding(title, body, cid, aria, caption="", tall=False, controls=""):
+def finding(title, body, cid, aria, caption="", tall=False, controls="", custom=""):
     cls = "chart tall" if tall else "chart"
     cap = f"<figcaption>{caption}</figcaption>" if caption else ""
+    inner = custom if custom else f'<div class="{cls}"><canvas id="{cid}" role="img" aria-label="{aria}"></canvas></div>'
     return f"""
-<article class="finding">
+<article class="finding" id="f-{cid or 'c-heat'}">
   <div class="ftext"><h3>{title}</h3>{body}</div>
-  <figure class="ffig">{controls}<div class="{cls}"><canvas id="{cid}" role="img" aria-label="{aria}"></canvas></div>{cap}</figure>
+  <figure class="ffig">{controls}{inner}{cap}</figure>
 </article>"""
 
 
@@ -295,6 +304,59 @@ fn_findings = "".join([
 ])
 
 # ------------------------------------------------------------------ chart data
+def summary(text, results):
+    items = "".join(f"<li>{r}</li>" for r in results)
+    return f'<div class="summary"><div><h3>What I analyzed</h3><p>{text}</p></div><div><h3>Results</h3><ul>{items}</ul></div></div>'
+
+
+summary1 = summary(
+    f"Delivery records for 24 suppliers and 150 SKUs across {int(k['purchase_orders']):,} purchase orders and two years of demand. I looked for who delivers late or short, which SKUs matter most, and what a better reorder policy would cost.",
+    [f"{k['otif_pct']}% of purchase orders arrive on time and in full. {prob['n']} of {prob['of']} suppliers fall below 60% and cause {prob['late_po_share_pct']}% of late deliveries.",
+     f"{abc['A']['skus']} of {n_sku} SKUs ({abc['A']['sku_pct']}%) carry {abc['A']['value_pct']}% of demand value, so they get the tightest inventory controls.",
+     f"A reorder rule that allows for lead-time variability lifts simulated service on those SKUs from {sim['service_now_pct']}% to {sim['service_new_pct']}% for {sim['inventory_increase_pct']}% more inventory ({K(sim['inventory_increase_usd'])}).",
+     f"A trend and seasonality forecast has {fc['improvement_vs_naive_pct']:.0f}% less error than a naive forecast."])
+summary2 = summary(
+    "Budget and actual results for four business units from January 2023 to September 2026, focused on the 2026 year-to-date EBITDA shortfall and the outlook for the rest of the year.",
+    [f"Revenue is {M(tot['rev_act'])} ({P(rev_var, 1, True)} vs budget) but EBITDA is {M(tot['ebitda_act'])} ({P(eb_var, 1, True)}), a {M(abs(eb_gap))} shortfall.",
+     f"Price ({M(br['price_effect'], 1, True)}) and unit-cost inflation ({M(br['cost_effect'], 1, True)}) outweigh {M(br['volume_effect'], 1, True)} of extra volume. Retail and E-commerce carry the gap.",
+     f"Wholesale customers pay in {dso_story['end']:.0f} days instead of {dso_story['start']:.0f}, tying up about {M(dso_story['cash_trapped'], 2)} of cash.",
+     f"FY2026 EBITDA is heading for {M(fy['ebitda_outlook'])} against a {M(fy['ebitda_budget'])} budget. The revenue model backtests at {bt['Total company']['reg']}% error."])
+ba = ba_content.make(BA, finding, K, None)
+summary3 = summary(ba["summary_text"], ba["summary_results"])
+ba_sql = sql_block(os.path.join(HERE, "business_analysis", "queries.sql"), "cohort_retention")
+
+viz_rows = [
+    ("Ranked bar with threshold", "Who fails the standard?", "Project 1", "c-suppliers"),
+    ("Line with moving average", "Is performance trending?", "Project 1", "c-otif"),
+    ("Pareto curve", "Where is value concentrated?", "Project 1", "c-pareto"),
+    ("Grouped bars with selector", "What does each policy option buy?", "Project 1", "c-service"),
+    ("Forecast comparison lines", "Which method predicts best?", "Project 1", "c-forecast"),
+    ("Waterfall with filter", "Where did the variance come from?", "Project 2", "c-bridge"),
+    ("Multi-line, direct labels", "Which unit is losing margin?", "Project 2", "c-margin"),
+    ("Two-line comparison", "Is one group behaving differently?", "Project 2", "c-dso"),
+    ("Fan chart with interval", "How uncertain is the outlook?", "Project 2", "c-fan"),
+    ("Tornado with live sliders", "Which driver matters most?", "Project 2", "c-tornado"),
+    ("Cohort heatmap", "Does retention change by cohort?", "Project 3", "c-heat"),
+    ("Two-series trend", "Are two measures moving together?", "Project 3", "c-trend"),
+    ("Grouped funnel bars", "Where does each channel lose people?", "Project 3", "c-funnel"),
+    ("Segment bars with selector", "Which segment churns most?", "Project 3", "c-churn"),
+    ("Bars with confidence whiskers", "Is the test result real?", "Project 3", "c-ab"),
+    ("Bubble matrix", "What should we do first?", "Project 3", "c-prio"),
+]
+assert len(viz_rows) == 16
+viz_table = ("<div class=\"tbl-wrap\"><table><thead><tr><th>Chart</th><th>Question it answers</th><th>See it in</th></tr></thead><tbody>"
+             + "".join(f"<tr><td>{a}</td><td class=\"wrap\">{b}</td><td><a href=\"#f-{d}\">{c}</a></td></tr>" for a, b, c, d in viz_rows)
+             + "</tbody></table></div>")
+principles = [
+    ("The title states the finding.", "Each chart sits under a headline such as \"OTIF has not improved in two years\", so the reader gets the point before reading the axes."),
+    ("One color means one thing.", "Each business unit keeps its color across the charts that compare units. Orange marks the option or segment that needs attention."),
+    ("Uncertainty stays visible.", "Forecasts carry an 80% interval, the A/B test carries confidence whiskers, and the business case shows a range."),
+    ("Labels, a legend and a readout.", "Multi-series charts have direct labels and a legend, tooltips give exact values, and the controls print the numbers they change."),
+    ("Honest axes.", "Bars start at zero. Lines may start higher, and the axis says so."),
+    ("Built for any screen.", "Charts redraw for light and dark themes, fit a phone width, and the controls work with a keyboard."),
+]
+principles_html = "".join(f"<div class=\"principle\"><h3>{a}</h3><p>{b}</p></div>" for a, b in principles)
+
 D = {
     "sc": {
         "scorecard": [{k_: r[k_] for k_ in ("supplier_id", "supplier_name", "country", "pos", "spend_share_pct",
@@ -315,6 +377,9 @@ D = {
         "tornado": FN["tornado"],
     },
 }
+D["ba"] = {"funnel": BA["funnel"], "heat": BA["heat"], "segments": BA["segments"], "overall_churn6": BA["overall_churn6"],
+           "trend": BA["trend"], "experiment": BA["experiment"],
+           "initiatives": [dict(i, short=ba_content.SHORT[n]) for n, i in enumerate(BA["initiatives"])]}
 for _row in D["sc"]["scorecard"]:
     _row["spend"] = next(r["spend"] for r in card if r["supplier_id"] == _row["supplier_id"])
 D["fn"]["by_bu"] = FN["bridge"]["by_bu"]
@@ -445,6 +510,29 @@ select{background:var(--surface);color:var(--ink);border:1px solid var(--axis);b
 .scen-out .sub{color:var(--ink2);font-size:.9rem}
 #sc-reset{justify-self:start}
 .hint{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+td.wrap{white-space:normal;min-width:180px}
+.summary{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:32px;padding:24px 0;margin:0 0 8px;border-top:1px solid var(--line)}
+@media (max-width:900px){.summary{grid-template-columns:minmax(0,1fr);gap:16px}}
+.summary h3{font-size:.78rem;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:500}
+.summary p{margin:0;color:var(--ink2);max-width:46ch}
+.summary ul{margin:0;padding-left:1.1rem;color:var(--ink2)}
+.summary li{margin-bottom:6px}
+.brief{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:32px;margin:0 0 32px}
+@media (max-width:900px){.brief{grid-template-columns:minmax(0,1fr);gap:16px}}
+.brief .quote{font-size:1.1rem;color:var(--ink);margin:6px 0 12px;max-width:34ch}
+#heat table{border-collapse:separate;border-spacing:2px;font-size:.72rem;width:auto;font-variant-numeric:tabular-nums}
+#heat th,#heat td{padding:0;border:0;text-align:center;white-space:nowrap}
+#heat thead th{color:var(--muted);height:22px;min-width:34px;font-weight:500}
+#heat th.hc{text-align:left;color:var(--ink2);padding-right:8px;font-family:var(--font-mono);letter-spacing:0;text-transform:none;font-size:.72rem}
+#heat td.hn{color:var(--muted);padding-right:8px;min-width:48px}
+#heat td{height:22px;min-width:34px;border-radius:2px}
+.heat-wrap{overflow-x:auto;padding-bottom:4px}
+.heat-legend{display:flex;align-items:center;gap:10px;font-size:.78rem;color:var(--muted);margin-top:10px}
+.heat-legend .bar{display:inline-block;height:10px;width:160px;border-radius:2px;flex:0 0 160px}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px 44px;margin:28px 0 8px}
+.principle h3{font-size:1.05rem;margin:0 0 6px}
+.principle p{margin:0;color:var(--ink2);font-size:.95rem;max-width:46ch}
+.email-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 8px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 """
 
@@ -452,7 +540,7 @@ select{background:var(--surface);color:var(--ink);border:1px solid var(--axis);b
 JS = open(os.path.join(HERE, "page.js")).read()
 
 # ----------------------------------------------------------------------- page
-page = f"""<title>Supply Chain and Finance Portfolio</title>
+page = f"""<title>Nischal Malla Analytics Portfolio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>{CSS}</style>
@@ -460,7 +548,7 @@ page = f"""<title>Supply Chain and Finance Portfolio</title>
 <div class="wrap">
 <nav>
   <span class="brand">Nischal Malla</span>
-  <div class="nav-r"><div class="links"><a href="#skills">Skills</a><a href="#supply-chain">Supply chain</a><a href="#finance">Finance</a><a href="#contact">Contact</a></div>
+  <div class="nav-r"><div class="links"><a href="#skills">Skills</a><a href="#supply-chain">Supply chain</a><a href="#finance">Finance</a><a href="#business-analysis">Business analysis</a><a href="#visualization">Visualization</a><a href="#contact">Contact</a></div>
   <button type="button" id="theme-btn" class="tbtn">Dark mode</button></div>
 </nav>
 
@@ -472,12 +560,13 @@ page = f"""<title>Supply Chain and Finance Portfolio</title>
   <div class="jump">
     <a href="#supply-chain"><h2>Supplier performance and inventory risk</h2><p>{prob['n']} suppliers miss 60% OTIF. A variability-aware reorder policy lifts simulated service on Class A SKUs from {sim['service_now_pct']}% to {sim['service_new_pct']}%.</p></a>
     <a href="#finance"><h2>Budget vs actual and outlook</h2><p>Revenue is on budget while EBITDA is {M(abs(eb_gap))} short. A price, volume and cost bridge shows where it went.</p></a>
+    <a href="#business-analysis"><h2>Subscription growth and onboarding</h2><p>Retention is stable, so the leak is upstream. A tested onboarding checklist lifts activation {BA['experiment']['lift_pts']} points.</p></a>
   </div>
 </header>
 
 <section id="skills" class="first">
-  <h2 class="sec">What the two projects show</h2>
-  <p class="intro">Each project runs the full workflow: frame the question, model the data in SQL, analyze in Python, backtest the result, and state the limits. Both datasets are synthetic and built to behave like real operating data, so the code and method are the point.</p>
+  <h2 class="sec">What the three projects show</h2>
+  <p class="intro">Each of the three projects runs the full workflow: frame the question, model the data in SQL, analyze in Python, test the result, and state the limits. All datasets are synthetic and built to behave like real operating data, so the code and method are the point.</p>
   <div class="skills">{skills_html}</div>
 </section>
 
@@ -487,6 +576,7 @@ page = f"""<title>Supply Chain and Finance Portfolio</title>
   <p class="intro">Where do late and short deliveries come from, and what would it cost to stop them hurting service?</p>
   <p class="meta">Synthetic data: 24 suppliers, 150 SKUs, {int(k['purchase_orders']):,} purchase orders, 104 weeks of demand (Jan 2024 to Dec 2025)</p>
   <p class="stack">SQL (CTEs, windows) / Python / pandas / scikit-learn / Monte Carlo</p>
+  {summary1}
   {sc_kpis}
   {sc_findings}
   <h3 class="sub">Recommendations</h3>
@@ -504,6 +594,7 @@ page = f"""<title>Supply Chain and Finance Portfolio</title>
   <p class="intro">Revenue is on plan. Why is EBITDA {M(abs(eb_gap))} short, and where is the year heading?</p>
   <p class="meta">Synthetic data: fictional omnichannel company, 4 business units, actuals Jan 2023 to Sep 2026, budget to Dec 2026</p>
   <p class="stack">SQL (conditional aggregation, LAG) / Python / scikit-learn / bootstrap intervals</p>
+  {summary2}
   {fn_kpis}
   {fn_findings}
   <h3 class="sub">Recommendations</h3>
@@ -515,9 +606,39 @@ page = f"""<title>Supply Chain and Finance Portfolio</title>
   </div>
 </section>
 
+<section id="business-analysis">
+  <p class="eyebrow">Project 3</p>
+  <h2 class="sec">Subscription growth, churn and onboarding</h2>
+  <p class="intro">Retention looks weak and paid social keeps growing. Where should the business invest next quarter?</p>
+  <p class="meta">Synthetic data: fictional fitness app, {BA['totals']['signups']:,} signups (Jan 2024 to Dec 2025), 14-day trial, three plans, one A/B test</p>
+  <p class="stack">SQL (recursive CTE, set operations) / Python / A/B testing / cohort and funnel analysis</p>
+  {summary3}
+  {ba['kpis']}
+  {ba['brief']}
+  {ba['kpi_table']}
+  {ba['findings']}
+  <h3 class="sub">Recommendations</h3>
+  {ba['recs']}
+  <div class="two">
+    <div><h3 class="sub" style="margin-top:0">The cohort retention query</h3><pre><code>{ba_sql}</code></pre></div>
+    <div><h3 class="sub" style="margin-top:0">Limits</h3><p class="limits">{ba['limits']}</p>
+      <ul class="files"><li>business_analysis/01_generate_data.py</li><li>business_analysis/queries.sql</li><li>business_analysis/02_analyze.py</li></ul></div>
+  </div>
+</section>
+
+<section id="visualization">
+  <p class="eyebrow">Visualization</p>
+  <h2 class="sec">How I design charts</h2>
+  <p class="intro">The three projects use {len(viz_rows)} chart types, each picked for the question it answers. Six rules apply to all of them.</p>
+  <div class="principles">{principles_html}</div>
+  <h3 class="sub">Chart index</h3>
+  {viz_table}
+</section>
+
 <footer id="contact">
   <h2 class="sec">Contact</h2>
   <p>Open to mid-level data analyst roles.</p>
+  <div class="email-row"><span class="contact" id="email-text">nischalmalla28@gmail.com</span><button type="button" id="copy-email" class="tbtn">Copy email</button></div>
   <p class="contact"><a href="https://www.linkedin.com/in/nischalmalla">linkedin.com/in/nischalmalla</a></p>
 </footer>
 </div>

@@ -1,2296 +1,883 @@
 {
- "ytd": {
-  "rows": [
+ "kpis": {
+  "signups": 6950.0,
+  "activation_pct": 37.7,
+  "conversion_pct": 30.0,
+  "retained_90d_pct": 86.2,
+  "arpu": 15.51
+ },
+ "totals": {
+  "signups": 18283,
+  "paying": 5545
+ },
+ "funnel": [
+  {
+   "channel": "Paid social",
+   "signups": 2293,
+   "activation_pct": 23.3,
+   "paid_pct": 23.6,
+   "retained_pct_of_signups": 19.0,
+   "retained_pct_of_paid": 80.4
+  },
+  {
+   "channel": "Paid search",
+   "signups": 1402,
+   "activation_pct": 37.4,
+   "paid_pct": 29.0,
+   "retained_pct_of_signups": 25.3,
+   "retained_pct_of_paid": 87.4
+  },
+  {
+   "channel": "Partner",
+   "signups": 819,
+   "activation_pct": 42.7,
+   "paid_pct": 33.7,
+   "retained_pct_of_signups": 28.6,
+   "retained_pct_of_paid": 84.8
+  },
+  {
+   "channel": "Organic",
+   "signups": 1593,
+   "activation_pct": 47.5,
+   "paid_pct": 34.9,
+   "retained_pct_of_signups": 31.2,
+   "retained_pct_of_paid": 89.4
+  },
+  {
+   "channel": "Referral",
+   "signups": 843,
+   "activation_pct": 54.1,
+   "paid_pct": 36.2,
+   "retained_pct_of_signups": 32.6,
+   "retained_pct_of_paid": 90.2
+  }
+ ],
+ "heat": [
+  {
+   "cohort": "2024-01",
+   "size": 110,
+   "ret": [
+    100.0,
+    92.7,
+    86.4,
+    82.7,
+    79.1,
+    78.2,
+    77.3,
+    75.5,
+    73.6,
+    71.8,
+    70.0,
+    67.3,
+    65.5
+   ]
+  },
+  {
+   "cohort": "2024-02",
+   "size": 162,
+   "ret": [
+    100.0,
+    96.3,
+    92.6,
+    88.9,
+    85.2,
+    82.1,
+    80.2,
+    75.9,
+    75.9,
+    75.3,
+    71.6,
+    68.5,
+    66.7
+   ]
+  },
+  {
+   "cohort": "2024-03",
+   "size": 180,
+   "ret": [
+    100.0,
+    92.8,
+    89.4,
+    89.4,
+    85.6,
+    83.9,
+    81.1,
+    76.1,
+    73.9,
+    70.6,
+    69.4,
+    68.3,
+    67.2
+   ]
+  },
+  {
+   "cohort": "2024-04",
+   "size": 154,
+   "ret": [
+    100.0,
+    90.9,
+    87.7,
+    83.1,
+    80.5,
+    78.6,
+    76.6,
+    74.0,
+    70.8,
+    66.2,
+    64.9,
+    63.0,
+    61.0
+   ]
+  },
+  {
+   "cohort": "2024-05",
+   "size": 165,
+   "ret": [
+    100.0,
+    93.9,
+    91.5,
+    86.7,
+    81.2,
+    77.6,
+    73.3,
+    71.5,
+    68.5,
+    66.1,
+    63.6,
+    62.4,
+    60.6
+   ]
+  },
+  {
+   "cohort": "2024-06",
+   "size": 131,
+   "ret": [
+    100.0,
+    90.8,
+    88.5,
+    86.3,
+    80.9,
+    77.1,
+    73.3,
+    71.8,
+    69.5,
+    65.6,
+    64.9,
+    64.1,
+    63.4
+   ]
+  },
+  {
+   "cohort": "2024-07",
+   "size": 195,
+   "ret": [
+    100.0,
+    93.8,
+    90.8,
+    86.2,
+    82.6,
+    81.5,
+    79.0,
+    77.4,
+    76.4,
+    71.8,
+    70.3,
+    68.2,
+    66.7
+   ]
+  },
+  {
+   "cohort": "2024-08",
+   "size": 193,
+   "ret": [
+    100.0,
+    95.3,
+    91.7,
+    90.7,
+    87.0,
+    85.0,
+    81.9,
+    77.2,
+    74.1,
+    72.5,
+    71.0,
+    68.9,
+    66.8
+   ]
+  },
+  {
+   "cohort": "2024-09",
+   "size": 202,
+   "ret": [
+    100.0,
+    95.0,
+    91.6,
+    88.1,
+    85.6,
+    83.7,
+    80.2,
+    78.2,
+    74.3,
+    70.8,
+    69.3,
+    65.8,
+    62.4
+   ]
+  },
+  {
+   "cohort": "2024-10",
+   "size": 209,
+   "ret": [
+    100.0,
+    93.8,
+    90.4,
+    86.6,
+    83.7,
+    81.3,
+    78.9,
+    78.5,
+    77.0,
+    72.2,
+    69.4,
+    67.5,
+    64.6
+   ]
+  },
+  {
+   "cohort": "2024-11",
+   "size": 235,
+   "ret": [
+    100.0,
+    95.7,
+    92.3,
+    89.4,
+    86.0,
+    83.4,
+    78.7,
+    76.6,
+    74.5,
+    71.9,
+    69.8,
+    68.9,
+    65.5
+   ]
+  },
+  {
+   "cohort": "2024-12",
+   "size": 218,
+   "ret": [
+    100.0,
+    95.0,
+    91.7,
+    89.0,
+    84.9,
+    83.0,
+    79.8,
+    78.4,
+    75.2,
+    72.9,
+    70.6,
+    69.3,
+    68.8
+   ]
+  },
+  {
+   "cohort": "2025-01",
+   "size": 227,
+   "ret": [
+    100.0,
+    94.3,
+    90.3,
+    88.5,
+    86.3,
+    84.1,
+    81.1,
+    77.5,
+    76.7,
+    74.4,
+    73.1,
+    71.4,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-02",
+   "size": 274,
+   "ret": [
+    100.0,
+    92.3,
+    88.0,
+    84.3,
+    81.8,
+    79.9,
+    77.4,
+    74.8,
+    71.9,
+    70.4,
+    67.2,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-03",
+   "size": 272,
+   "ret": [
+    100.0,
+    94.1,
+    87.9,
+    85.7,
+    81.6,
+    78.3,
+    75.7,
+    75.4,
+    75.0,
+    72.4,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-04",
+   "size": 228,
+   "ret": [
+    100.0,
+    93.9,
+    89.9,
+    86.4,
+    83.8,
+    81.1,
+    78.1,
+    73.7,
+    70.6,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-05",
+   "size": 260,
+   "ret": [
+    100.0,
+    93.8,
+    91.9,
+    89.6,
+    85.8,
+    82.7,
+    79.2,
+    77.3,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-06",
+   "size": 251,
+   "ret": [
+    100.0,
+    94.8,
+    88.0,
+    82.5,
+    79.3,
+    76.5,
+    73.7,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-07",
+   "size": 243,
+   "ret": [
+    100.0,
+    94.7,
+    90.1,
+    87.2,
+    84.8,
+    82.3,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-08",
+   "size": 279,
+   "ret": [
+    100.0,
+    94.6,
+    89.6,
+    85.7,
+    83.5,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-09",
+   "size": 302,
+   "ret": [
+    100.0,
+    93.7,
+    88.7,
+    86.4,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-10",
+   "size": 310,
+   "ret": [
+    100.0,
+    93.2,
+    89.4,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-11",
+   "size": 303,
+   "ret": [
+    100.0,
+    92.7,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-12",
+   "size": 301,
+   "ret": [
+    100.0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  }
+ ],
+ "segments": {
+  "Channel": [
    {
-    "bu": "E-commerce",
-    "rev_act": 28003707.0,
-    "rev_bud": 24813282.0,
-    "gp_act": 11433895.0,
-    "gp_bud": 11054638.0,
-    "ebitda_act": 5607347.0,
-    "ebitda_bud": 5569278.0
+    "segment": "Organic",
+    "customers": 1023,
+    "churn6_pct": 17.6
    },
    {
-    "bu": "Retail",
-    "rev_act": 16329278.0,
-    "rev_bud": 18513936.0,
-    "gp_act": 5414821.0,
-    "gp_bud": 7143564.0,
-    "ebitda_act": -751526.0,
-    "ebitda_bud": 1008674.0
+    "segment": "Paid search",
+    "customers": 742,
+    "churn6_pct": 21.3
    },
    {
-    "bu": "Subscriptions",
-    "rev_act": 4664684.0,
-    "rev_bud": 5171619.0,
-    "gp_act": 3681401.0,
-    "gp_bud": 4083924.0,
-    "ebitda_act": 1875403.0,
-    "ebitda_bud": 2281012.0
+    "segment": "Paid social",
+    "customers": 801,
+    "churn6_pct": 32.0
    },
    {
-    "bu": "Wholesale",
-    "rev_act": 10077214.0,
-    "rev_bud": 10352830.0,
-    "gp_act": 2322125.0,
-    "gp_bud": 2751489.0,
-    "ebitda_act": 539828.0,
-    "ebitda_bud": 971188.0
+    "segment": "Partner",
+    "customers": 505,
+    "churn6_pct": 23.8
+   },
+   {
+    "segment": "Referral",
+    "customers": 595,
+    "churn6_pct": 14.6
    }
   ],
-  "total": {
-   "rev_act": 59074883.0,
-   "rev_bud": 58851666.0,
-   "gp_act": 22852242.0,
-   "gp_bud": 25033615.0,
-   "ebitda_act": 7271051.0,
-   "ebitda_bud": 9830152.0
-  }
- },
- "bridge": {
-  "by_bu": [
+  "Plan": [
    {
-    "bu": "E-commerce",
-    "volume_effect": 2037881.0,
-    "price_effect": -1384551.0,
-    "cost_effect": -274074.0,
-    "marketing_effect": -310695.0,
-    "payroll_other_effect": -30493.0,
-    "total_ebitda_var": 38069.0
+    "segment": "Basic",
+    "customers": 1143,
+    "churn6_pct": 24.8
    },
    {
-    "bu": "Retail",
-    "volume_effect": -848116.0,
-    "price_effect": 14563.0,
-    "cost_effect": -895191.0,
-    "marketing_effect": 10855.0,
-    "payroll_other_effect": -42312.0,
-    "total_ebitda_var": -1760200.0
+    "segment": "Plus",
+    "customers": 1761,
+    "churn6_pct": 22.0
    },
    {
-    "bu": "Subscriptions",
-    "volume_effect": -399041.0,
-    "price_effect": -1596.0,
-    "cost_effect": -1885.0,
-    "marketing_effect": 1334.0,
-    "payroll_other_effect": -4420.0,
-    "total_ebitda_var": -405609.0
-   },
-   {
-    "bu": "Wholesale",
-    "volume_effect": -81000.0,
-    "price_effect": 29255.0,
-    "cost_effect": -377618.0,
-    "marketing_effect": 938.0,
-    "payroll_other_effect": -2936.0,
-    "total_ebitda_var": -431361.0
+    "segment": "Premium",
+    "customers": 762,
+    "churn6_pct": 17.2
    }
   ],
-  "total": {
-   "volume_effect": 709724.0,
-   "price_effect": -1342329.0,
-   "cost_effect": -1548768.0,
-   "marketing_effect": -297567.0,
-   "payroll_other_effect": -80161.0,
-   "total_ebitda_var": -2559101.0
-  },
-  "start": 9830152.0,
-  "end": 7271051.0
- },
- "margin": [
-  {
-   "bu": "E-commerce",
-   "qtr": "2023-Q1",
-   "gm_actual_pct": 44.9,
-   "gm_budget_pct": 45.4,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2023-Q2",
-   "gm_actual_pct": 45.4,
-   "gm_budget_pct": 45.4,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2023-Q3",
-   "gm_actual_pct": 45.7,
-   "gm_budget_pct": 45.3,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2023-Q4",
-   "gm_actual_pct": 45.0,
-   "gm_budget_pct": 45.2,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2024-Q1",
-   "gm_actual_pct": 45.2,
-   "gm_budget_pct": 45.2,
-   "yoy_pts": 0.3
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2024-Q2",
-   "gm_actual_pct": 44.0,
-   "gm_budget_pct": 45.1,
-   "yoy_pts": -1.4
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2024-Q3",
-   "gm_actual_pct": 44.6,
-   "gm_budget_pct": 45.0,
-   "yoy_pts": -1.1
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2024-Q4",
-   "gm_actual_pct": 44.6,
-   "gm_budget_pct": 45.0,
-   "yoy_pts": -0.3
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2025-Q1",
-   "gm_actual_pct": 44.3,
-   "gm_budget_pct": 44.9,
-   "yoy_pts": -0.9
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2025-Q2",
-   "gm_actual_pct": 43.7,
-   "gm_budget_pct": 44.8,
-   "yoy_pts": -0.2
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2025-Q3",
-   "gm_actual_pct": 42.8,
-   "gm_budget_pct": 44.8,
-   "yoy_pts": -1.8
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2025-Q4",
-   "gm_actual_pct": 42.4,
-   "gm_budget_pct": 44.7,
-   "yoy_pts": -2.2
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2026-Q1",
-   "gm_actual_pct": 41.5,
-   "gm_budget_pct": 44.6,
-   "yoy_pts": -2.8
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2026-Q2",
-   "gm_actual_pct": 41.2,
-   "gm_budget_pct": 44.6,
-   "yoy_pts": -2.5
-  },
-  {
-   "bu": "E-commerce",
-   "qtr": "2026-Q3",
-   "gm_actual_pct": 40.0,
-   "gm_budget_pct": 44.5,
-   "yoy_pts": -2.9
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2023-Q1",
-   "gm_actual_pct": 39.7,
-   "gm_budget_pct": 39.6,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2023-Q2",
-   "gm_actual_pct": 38.9,
-   "gm_budget_pct": 39.5,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2023-Q3",
-   "gm_actual_pct": 38.9,
-   "gm_budget_pct": 39.4,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2023-Q4",
-   "gm_actual_pct": 38.5,
-   "gm_budget_pct": 39.3,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2024-Q1",
-   "gm_actual_pct": 37.4,
-   "gm_budget_pct": 39.3,
-   "yoy_pts": -2.4
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2024-Q2",
-   "gm_actual_pct": 37.2,
-   "gm_budget_pct": 39.2,
-   "yoy_pts": -1.7
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2024-Q3",
-   "gm_actual_pct": 36.8,
-   "gm_budget_pct": 39.1,
-   "yoy_pts": -2.1
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2024-Q4",
-   "gm_actual_pct": 36.1,
-   "gm_budget_pct": 39.0,
-   "yoy_pts": -2.3
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2025-Q1",
-   "gm_actual_pct": 36.1,
-   "gm_budget_pct": 39.0,
-   "yoy_pts": -1.3
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2025-Q2",
-   "gm_actual_pct": 35.8,
-   "gm_budget_pct": 38.9,
-   "yoy_pts": -1.4
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2025-Q3",
-   "gm_actual_pct": 34.4,
-   "gm_budget_pct": 38.8,
-   "yoy_pts": -2.4
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2025-Q4",
-   "gm_actual_pct": 34.0,
-   "gm_budget_pct": 38.7,
-   "yoy_pts": -2.2
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2026-Q1",
-   "gm_actual_pct": 33.9,
-   "gm_budget_pct": 38.7,
-   "yoy_pts": -2.2
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2026-Q2",
-   "gm_actual_pct": 33.2,
-   "gm_budget_pct": 38.6,
-   "yoy_pts": -2.6
-  },
-  {
-   "bu": "Retail",
-   "qtr": "2026-Q3",
-   "gm_actual_pct": 32.3,
-   "gm_budget_pct": 38.5,
-   "yoy_pts": -2.1
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2023-Q1",
-   "gm_actual_pct": 79.2,
-   "gm_budget_pct": 79.3,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2023-Q2",
-   "gm_actual_pct": 79.4,
-   "gm_budget_pct": 79.3,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2023-Q3",
-   "gm_actual_pct": 79.2,
-   "gm_budget_pct": 79.2,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2023-Q4",
-   "gm_actual_pct": 78.9,
-   "gm_budget_pct": 79.2,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2024-Q1",
-   "gm_actual_pct": 79.0,
-   "gm_budget_pct": 79.2,
-   "yoy_pts": -0.1
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2024-Q2",
-   "gm_actual_pct": 79.3,
-   "gm_budget_pct": 79.2,
-   "yoy_pts": -0.1
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2024-Q3",
-   "gm_actual_pct": 79.0,
-   "gm_budget_pct": 79.1,
-   "yoy_pts": -0.2
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2024-Q4",
-   "gm_actual_pct": 79.2,
-   "gm_budget_pct": 79.1,
-   "yoy_pts": 0.3
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2025-Q1",
-   "gm_actual_pct": 79.0,
-   "gm_budget_pct": 79.1,
-   "yoy_pts": -0.1
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2025-Q2",
-   "gm_actual_pct": 79.1,
-   "gm_budget_pct": 79.1,
-   "yoy_pts": -0.2
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2025-Q3",
-   "gm_actual_pct": 78.9,
-   "gm_budget_pct": 79.0,
-   "yoy_pts": -0.1
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2025-Q4",
-   "gm_actual_pct": 79.1,
-   "gm_budget_pct": 79.0,
-   "yoy_pts": -0.1
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2026-Q1",
-   "gm_actual_pct": 78.9,
-   "gm_budget_pct": 79.0,
-   "yoy_pts": -0.0
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2026-Q2",
-   "gm_actual_pct": 78.9,
-   "gm_budget_pct": 79.0,
-   "yoy_pts": -0.2
-  },
-  {
-   "bu": "Subscriptions",
-   "qtr": "2026-Q3",
-   "gm_actual_pct": 78.9,
-   "gm_budget_pct": 78.9,
-   "yoy_pts": -0.0
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2023-Q1",
-   "gm_actual_pct": 27.9,
-   "gm_budget_pct": 27.7,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2023-Q2",
-   "gm_actual_pct": 27.4,
-   "gm_budget_pct": 27.7,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2023-Q3",
-   "gm_actual_pct": 27.6,
-   "gm_budget_pct": 27.6,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2023-Q4",
-   "gm_actual_pct": 26.4,
-   "gm_budget_pct": 27.5,
-   "yoy_pts": NaN
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2024-Q1",
-   "gm_actual_pct": 26.2,
-   "gm_budget_pct": 27.4,
-   "yoy_pts": -1.7
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2024-Q2",
-   "gm_actual_pct": 26.1,
-   "gm_budget_pct": 27.3,
-   "yoy_pts": -1.4
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2024-Q3",
-   "gm_actual_pct": 25.3,
-   "gm_budget_pct": 27.2,
-   "yoy_pts": -2.3
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2024-Q4",
-   "gm_actual_pct": 25.9,
-   "gm_budget_pct": 27.1,
-   "yoy_pts": -0.5
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2025-Q1",
-   "gm_actual_pct": 25.0,
-   "gm_budget_pct": 27.0,
-   "yoy_pts": -1.2
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2025-Q2",
-   "gm_actual_pct": 24.3,
-   "gm_budget_pct": 26.9,
-   "yoy_pts": -1.8
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2025-Q3",
-   "gm_actual_pct": 24.2,
-   "gm_budget_pct": 26.9,
-   "yoy_pts": -1.2
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2025-Q4",
-   "gm_actual_pct": 24.1,
-   "gm_budget_pct": 26.8,
-   "yoy_pts": -1.8
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2026-Q1",
-   "gm_actual_pct": 23.6,
-   "gm_budget_pct": 26.7,
-   "yoy_pts": -1.5
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2026-Q2",
-   "gm_actual_pct": 22.9,
-   "gm_budget_pct": 26.6,
-   "yoy_pts": -1.3
-  },
-  {
-   "bu": "Wholesale",
-   "qtr": "2026-Q3",
-   "gm_actual_pct": 22.7,
-   "gm_budget_pct": 26.5,
-   "yoy_pts": -1.4
-  }
- ],
- "monthly": [
-  {
-   "month": "2023-01-01",
-   "rev_act": 5441268.0,
-   "rev_bud": 5274702.0,
-   "ebitda_act": 806815.0,
-   "ebitda_bud": 733147.0,
-   "rev_yoy_pct": NaN
-  },
-  {
-   "month": "2023-02-01",
-   "rev_act": 4739841.0,
-   "rev_bud": 4766828.0,
-   "ebitda_act": 540769.0,
-   "ebitda_bud": 555208.0,
-   "rev_yoy_pct": NaN
-  },
-  {
-   "month": "2023-03-01",
-   "rev_act": 4285528.0,
-   "rev_bud": 4277871.0,
-   "ebitda_act": 353976.0,
-   "ebitda_bud": 380776.0,
-   "rev_yoy_pct": NaN
-  },
-  {
-   "month": "2023-04-01",
-   "rev_act": 3976071.0,
-   "rev_bud": 3951346.0,
-   "ebitda_act": 265693.0,
-   "ebitda_bud": 260260.0,
-   "rev_yoy_pct": NaN
-  },
-  {
-   "month": "2023-05-01",
-   "rev_act": 3780718.0,
-   "rev_bud": 3889790.0,
-   "ebitda_act": 162906.0,
-   "ebitda_bud": 230570.0,
-   "rev_yoy_pct": NaN
-  },
-  {
-   "month": "2023-06-01",
-   "rev_act": 4124858.0,
-   "rev_bud": 4125677.0,
-   "ebitda_act": 300878.0,
-   "ebitda_bud": 304497.0,
-   "rev_yoy_pct": NaN
-  },
-  {
-   "month": "2023-07-01",
-   "rev_act": 4743536.0,
-   "rev_bud": 4612238.0,
-   "ebitda_act": 526404.0,
-   "ebitda_bud": 467339.0,
-   "rev_yoy_pct": NaN
-  },
-  {
-   "month": "2023-08-01",
-   "rev_act": 5156479.0,
-   "rev_bud": 5234376.0,
-   "ebitda_act": 629600.0,
-   "ebitda_bud": 680313.0,
-   "rev_yoy_pct": NaN
-  },
-  {
-   "month": "2023-09-01",
-   "rev_act": 5858880.0,
-   "rev_bud": 5838548.0,
-   "ebitda_act": 882803.0,
-   "ebitda_bud": 890336.0,
-   "rev_yoy_pct": NaN
-  },
-  {
-   "month": "2023-10-01",
-   "rev_act": 6427865.0,
-   "rev_bud": 6273711.0,
-   "ebitda_act": 1053336.0,
-   "ebitda_bud": 1044471.0,
-   "rev_yoy_pct": NaN
-  },
-  {
-   "month": "2023-11-01",
-   "rev_act": 6613611.0,
-   "rev_bud": 6431869.0,
-   "ebitda_act": 1116900.0,
-   "ebitda_bud": 1103945.0,
-   "rev_yoy_pct": NaN
-  },
-  {
-   "month": "2023-12-01",
-   "rev_act": 6425265.0,
-   "rev_bud": 6278421.0,
-   "ebitda_act": 1068790.0,
-   "ebitda_bud": 1055231.0,
-   "rev_yoy_pct": NaN
-  },
-  {
-   "month": "2024-01-01",
-   "rev_act": 5972762.0,
-   "rev_bud": 5861885.0,
-   "ebitda_act": 888758.0,
-   "ebitda_bud": 913285.0,
-   "rev_yoy_pct": 9.8
-  },
-  {
-   "month": "2024-02-01",
-   "rev_act": 5131369.0,
-   "rev_bud": 5303240.0,
-   "ebitda_act": 575371.0,
-   "ebitda_bud": 718946.0,
-   "rev_yoy_pct": 8.3
-  },
-  {
-   "month": "2024-03-01",
-   "rev_act": 4790791.0,
-   "rev_bud": 4763844.0,
-   "ebitda_act": 499374.0,
-   "ebitda_bud": 527876.0,
-   "rev_yoy_pct": 11.8
-  },
-  {
-   "month": "2024-04-01",
-   "rev_act": 4279014.0,
-   "rev_bud": 4402887.0,
-   "ebitda_act": 302376.0,
-   "ebitda_bud": 395608.0,
-   "rev_yoy_pct": 7.6
-  },
-  {
-   "month": "2024-05-01",
-   "rev_act": 4337452.0,
-   "rev_bud": 4334431.0,
-   "ebitda_act": 301815.0,
-   "ebitda_bud": 363048.0,
-   "rev_yoy_pct": 14.7
-  },
-  {
-   "month": "2024-06-01",
-   "rev_act": 4518837.0,
-   "rev_bud": 4595601.0,
-   "ebitda_act": 344490.0,
-   "ebitda_bud": 444816.0,
-   "rev_yoy_pct": 9.6
-  },
-  {
-   "month": "2024-07-01",
-   "rev_act": 5188167.0,
-   "rev_bud": 5135684.0,
-   "ebitda_act": 616133.0,
-   "ebitda_bud": 625221.0,
-   "rev_yoy_pct": 9.4
-  },
-  {
-   "month": "2024-08-01",
-   "rev_act": 5767867.0,
-   "rev_bud": 5827717.0,
-   "ebitda_act": 723637.0,
-   "ebitda_bud": 861410.0,
-   "rev_yoy_pct": 11.9
-  },
-  {
-   "month": "2024-09-01",
-   "rev_act": 6455052.0,
-   "rev_bud": 6501858.0,
-   "ebitda_act": 1006064.0,
-   "ebitda_bud": 1095260.0,
-   "rev_yoy_pct": 10.2
-  },
-  {
-   "month": "2024-10-01",
-   "rev_act": 6995687.0,
-   "rev_bud": 6990044.0,
-   "ebitda_act": 1163323.0,
-   "ebitda_bud": 1267948.0,
-   "rev_yoy_pct": 8.8
-  },
-  {
-   "month": "2024-11-01",
-   "rev_act": 7388811.0,
-   "rev_bud": 7171810.0,
-   "ebitda_act": 1323546.0,
-   "ebitda_bud": 1336625.0,
-   "rev_yoy_pct": 11.7
-  },
-  {
-   "month": "2024-12-01",
-   "rev_act": 7155291.0,
-   "rev_bud": 7007247.0,
-   "ebitda_act": 1223317.0,
-   "ebitda_bud": 1285380.0,
-   "rev_yoy_pct": 11.4
-  },
-  {
-   "month": "2025-01-01",
-   "rev_act": 6318815.0,
-   "rev_bud": 6549487.0,
-   "ebitda_act": 903446.0,
-   "ebitda_bud": 1130909.0,
-   "rev_yoy_pct": 5.8
-  },
-  {
-   "month": "2025-02-01",
-   "rev_act": 5952910.0,
-   "rev_bud": 5931961.0,
-   "ebitda_act": 838768.0,
-   "ebitda_bud": 917755.0,
-   "rev_yoy_pct": 16.0
-  },
-  {
-   "month": "2025-03-01",
-   "rev_act": 5430075.0,
-   "rev_bud": 5333714.0,
-   "ebitda_act": 679293.0,
-   "ebitda_bud": 707279.0,
-   "rev_yoy_pct": 13.3
-  },
-  {
-   "month": "2025-04-01",
-   "rev_act": 4885486.0,
-   "rev_bud": 4932341.0,
-   "ebitda_act": 449298.0,
-   "ebitda_bud": 561300.0,
-   "rev_yoy_pct": 14.2
-  },
-  {
-   "month": "2025-05-01",
-   "rev_act": 4823164.0,
-   "rev_bud": 4855504.0,
-   "ebitda_act": 424080.0,
-   "ebitda_bud": 525380.0,
-   "rev_yoy_pct": 11.2
-  },
-  {
-   "month": "2025-06-01",
-   "rev_act": 5217319.0,
-   "rev_bud": 5146046.0,
-   "ebitda_act": 501895.0,
-   "ebitda_bud": 616305.0,
-   "rev_yoy_pct": 15.5
-  },
-  {
-   "month": "2025-07-01",
-   "rev_act": 5752221.0,
-   "rev_bud": 5748485.0,
-   "ebitda_act": 642655.0,
-   "ebitda_bud": 816980.0,
-   "rev_yoy_pct": 10.9
-  },
-  {
-   "month": "2025-08-01",
-   "rev_act": 6661827.0,
-   "rev_bud": 6522439.0,
-   "ebitda_act": 945430.0,
-   "ebitda_bud": 1080562.0,
-   "rev_yoy_pct": 15.5
-  },
-  {
-   "month": "2025-09-01",
-   "rev_act": 7372907.0,
-   "rev_bud": 7278734.0,
-   "ebitda_act": 1198517.0,
-   "ebitda_bud": 1342329.0,
-   "rev_yoy_pct": 14.2
-  },
-  {
-   "month": "2025-10-01",
-   "rev_act": 8328287.0,
-   "rev_bud": 7829769.0,
-   "ebitda_act": 1508418.0,
-   "ebitda_bud": 1537181.0,
-   "rev_yoy_pct": 19.0
-  },
-  {
-   "month": "2025-11-01",
-   "rev_act": 8271823.0,
-   "rev_bud": 8039920.0,
-   "ebitda_act": 1457246.0,
-   "ebitda_bud": 1616758.0,
-   "rev_yoy_pct": 12.0
-  },
-  {
-   "month": "2025-12-01",
-   "rev_act": 7967435.0,
-   "rev_bud": 7863242.0,
-   "ebitda_act": 1323921.0,
-   "ebitda_bud": 1563115.0,
-   "rev_yoy_pct": 11.4
-  },
-  {
-   "month": "2026-01-01",
-   "rev_act": 7342352.0,
-   "rev_bud": 7357820.0,
-   "ebitda_act": 1117236.0,
-   "ebitda_bud": 1394156.0,
-   "rev_yoy_pct": 16.2
-  },
-  {
-   "month": "2026-02-01",
-   "rev_act": 6893112.0,
-   "rev_bud": 6671647.0,
-   "ebitda_act": 1036340.0,
-   "ebitda_bud": 1159036.0,
-   "rev_yoy_pct": 15.8
-  },
-  {
-   "month": "2026-03-01",
-   "rev_act": 6075894.0,
-   "rev_bud": 6004570.0,
-   "ebitda_act": 653685.0,
-   "ebitda_bud": 926008.0,
-   "rev_yoy_pct": 11.9
-  },
-  {
-   "month": "2026-04-01",
-   "rev_act": 5549455.0,
-   "rev_bud": 5555698.0,
-   "ebitda_act": 522296.0,
-   "ebitda_bud": 764067.0,
-   "rev_yoy_pct": 13.6
-  },
-  {
-   "month": "2026-05-01",
-   "rev_act": 5496046.0,
-   "rev_bud": 5468729.0,
-   "ebitda_act": 477019.0,
-   "ebitda_bud": 724172.0,
-   "rev_yoy_pct": 14.0
-  },
-  {
-   "month": "2026-06-01",
-   "rev_act": 5818152.0,
-   "rev_bud": 5793300.0,
-   "ebitda_act": 591977.0,
-   "ebitda_bud": 825757.0,
-   "rev_yoy_pct": 11.5
-  },
-  {
-   "month": "2026-07-01",
-   "rev_act": 6366339.0,
-   "rev_bud": 6468794.0,
-   "ebitda_act": 725094.0,
-   "ebitda_bud": 1050328.0,
-   "rev_yoy_pct": 10.7
-  },
-  {
-   "month": "2026-08-01",
-   "rev_act": 7455081.0,
-   "rev_bud": 7338915.0,
-   "ebitda_act": 1028788.0,
-   "ebitda_bud": 1345918.0,
-   "rev_yoy_pct": 11.9
-  },
-  {
-   "month": "2026-09-01",
-   "rev_act": 8078453.0,
-   "rev_bud": 8192192.0,
-   "ebitda_act": 1118615.0,
-   "ebitda_bud": 1640710.0,
-   "rev_yoy_pct": 9.6
-  }
- ],
- "dso": [
-  {
-   "bu": "E-commerce",
-   "month": "2023-01-01",
-   "dso_raw": 4.020755920190058,
-   "dso": 4.0,
-   "dso_3mo": 4.0
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2023-02-01",
-   "dso_raw": 3.8600338859536794,
-   "dso": 3.9,
-   "dso_3mo": 3.9
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2023-03-01",
-   "dso_raw": 3.9935124003052684,
-   "dso": 4.0,
-   "dso_3mo": 4.0
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2023-04-01",
-   "dso_raw": 3.987624087593431,
-   "dso": 4.0,
-   "dso_3mo": 3.9
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2023-05-01",
-   "dso_raw": 3.965666865736231,
-   "dso": 4.0,
-   "dso_3mo": 4.0
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2023-06-01",
-   "dso_raw": 4.25755394184911,
-   "dso": 4.3,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2023-07-01",
-   "dso_raw": 4.154015387354903,
-   "dso": 4.2,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2023-08-01",
-   "dso_raw": 4.073535559593625,
-   "dso": 4.1,
-   "dso_3mo": 4.2
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2023-09-01",
-   "dso_raw": 3.905953783681074,
-   "dso": 3.9,
-   "dso_3mo": 4.0
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2023-10-01",
-   "dso_raw": 4.01919598644775,
-   "dso": 4.0,
-   "dso_3mo": 4.0
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2023-11-01",
-   "dso_raw": 3.622337938495767,
-   "dso": 3.6,
-   "dso_3mo": 3.8
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2023-12-01",
-   "dso_raw": 4.056722431648511,
-   "dso": 4.1,
-   "dso_3mo": 3.9
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2024-01-01",
-   "dso_raw": 3.9938420492098077,
-   "dso": 4.0,
-   "dso_3mo": 3.9
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2024-02-01",
-   "dso_raw": 4.203130924743892,
-   "dso": 4.2,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2024-03-01",
-   "dso_raw": 3.7626903735842454,
-   "dso": 3.8,
-   "dso_3mo": 4.0
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2024-04-01",
-   "dso_raw": 3.9874582853904963,
-   "dso": 4.0,
-   "dso_3mo": 4.0
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2024-05-01",
-   "dso_raw": 3.9209440320829945,
-   "dso": 3.9,
-   "dso_3mo": 3.9
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2024-06-01",
-   "dso_raw": 3.7574596066339723,
-   "dso": 3.8,
-   "dso_3mo": 3.9
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2024-07-01",
-   "dso_raw": 4.215873606774371,
-   "dso": 4.2,
-   "dso_3mo": 4.0
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2024-08-01",
-   "dso_raw": 4.270330730363378,
-   "dso": 4.3,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2024-09-01",
-   "dso_raw": 4.382288632029762,
-   "dso": 4.4,
-   "dso_3mo": 4.3
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2024-10-01",
-   "dso_raw": 3.883379803612559,
-   "dso": 3.9,
-   "dso_3mo": 4.2
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2024-11-01",
-   "dso_raw": 3.9899219950036304,
-   "dso": 4.0,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2024-12-01",
-   "dso_raw": 3.9331040406810835,
-   "dso": 3.9,
-   "dso_3mo": 3.9
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2025-01-01",
-   "dso_raw": 3.881799340283398,
-   "dso": 3.9,
-   "dso_3mo": 3.9
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2025-02-01",
-   "dso_raw": 3.799730654398547,
-   "dso": 3.8,
-   "dso_3mo": 3.9
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2025-03-01",
-   "dso_raw": 3.8677932770213737,
-   "dso": 3.9,
-   "dso_3mo": 3.8
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2025-04-01",
-   "dso_raw": 4.166143304363268,
-   "dso": 4.2,
-   "dso_3mo": 3.9
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2025-05-01",
-   "dso_raw": 4.228146537219207,
-   "dso": 4.2,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2025-06-01",
-   "dso_raw": 4.133377585089271,
-   "dso": 4.1,
-   "dso_3mo": 4.2
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2025-07-01",
-   "dso_raw": 3.99601633170481,
-   "dso": 4.0,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2025-08-01",
-   "dso_raw": 4.0924757866400965,
-   "dso": 4.1,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2025-09-01",
-   "dso_raw": 4.1622936922634635,
-   "dso": 4.2,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2025-10-01",
-   "dso_raw": 4.054102447939417,
-   "dso": 4.1,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2025-11-01",
-   "dso_raw": 4.024919524926127,
-   "dso": 4.0,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2025-12-01",
-   "dso_raw": 3.8067403215680145,
-   "dso": 3.8,
-   "dso_3mo": 4.0
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2026-01-01",
-   "dso_raw": 4.203945836055833,
-   "dso": 4.2,
-   "dso_3mo": 4.0
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2026-02-01",
-   "dso_raw": 4.211616808016709,
-   "dso": 4.2,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2026-03-01",
-   "dso_raw": 3.7122289986047337,
-   "dso": 3.7,
-   "dso_3mo": 4.0
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2026-04-01",
-   "dso_raw": 4.3660849784254285,
-   "dso": 4.4,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2026-05-01",
-   "dso_raw": 3.802324408684509,
-   "dso": 3.8,
-   "dso_3mo": 4.0
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2026-06-01",
-   "dso_raw": 4.278128780192677,
-   "dso": 4.3,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2026-07-01",
-   "dso_raw": 4.206127415713499,
-   "dso": 4.2,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2026-08-01",
-   "dso_raw": 3.828157757790829,
-   "dso": 3.8,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "E-commerce",
-   "month": "2026-09-01",
-   "dso_raw": 4.1930070635254255,
-   "dso": 4.2,
-   "dso_3mo": 4.1
-  },
-  {
-   "bu": "Retail",
-   "month": "2023-01-01",
-   "dso_raw": 3.0683320043959417,
-   "dso": 3.1,
-   "dso_3mo": 3.1
-  },
-  {
-   "bu": "Retail",
-   "month": "2023-02-01",
-   "dso_raw": 2.98360286943971,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2023-03-01",
-   "dso_raw": 2.8955417071054756,
-   "dso": 2.9,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2023-04-01",
-   "dso_raw": 2.856828381726123,
-   "dso": 2.9,
-   "dso_3mo": 2.9
-  },
-  {
-   "bu": "Retail",
-   "month": "2023-05-01",
-   "dso_raw": 3.0861452358997568,
-   "dso": 3.1,
-   "dso_3mo": 2.9
-  },
-  {
-   "bu": "Retail",
-   "month": "2023-06-01",
-   "dso_raw": 3.029699672218318,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2023-07-01",
-   "dso_raw": 3.0633664924857116,
-   "dso": 3.1,
-   "dso_3mo": 3.1
-  },
-  {
-   "bu": "Retail",
-   "month": "2023-08-01",
-   "dso_raw": 2.84015233317319,
-   "dso": 2.8,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2023-09-01",
-   "dso_raw": 2.9473418229734896,
-   "dso": 2.9,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2023-10-01",
-   "dso_raw": 2.9373783742482433,
-   "dso": 2.9,
-   "dso_3mo": 2.9
-  },
-  {
-   "bu": "Retail",
-   "month": "2023-11-01",
-   "dso_raw": 2.8111479333534293,
-   "dso": 2.8,
-   "dso_3mo": 2.9
-  },
-  {
-   "bu": "Retail",
-   "month": "2023-12-01",
-   "dso_raw": 3.06806214374961,
-   "dso": 3.1,
-   "dso_3mo": 2.9
-  },
-  {
-   "bu": "Retail",
-   "month": "2024-01-01",
-   "dso_raw": 3.2428813802898766,
-   "dso": 3.2,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2024-02-01",
-   "dso_raw": 3.0356631315187257,
-   "dso": 3.0,
-   "dso_3mo": 3.1
-  },
-  {
-   "bu": "Retail",
-   "month": "2024-03-01",
-   "dso_raw": 2.9733874597198473,
-   "dso": 3.0,
-   "dso_3mo": 3.1
-  },
-  {
-   "bu": "Retail",
-   "month": "2024-04-01",
-   "dso_raw": 3.0636062607481684,
-   "dso": 3.1,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2024-05-01",
-   "dso_raw": 2.9014560455822744,
-   "dso": 2.9,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2024-06-01",
-   "dso_raw": 3.131360035381932,
-   "dso": 3.1,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2024-07-01",
-   "dso_raw": 3.095465049386071,
-   "dso": 3.1,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2024-08-01",
-   "dso_raw": 2.986564945008881,
-   "dso": 3.0,
-   "dso_3mo": 3.1
-  },
-  {
-   "bu": "Retail",
-   "month": "2024-09-01",
-   "dso_raw": 3.0302210613799105,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2024-10-01",
-   "dso_raw": 2.922810175985567,
-   "dso": 2.9,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2024-11-01",
-   "dso_raw": 3.0462782790602554,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2024-12-01",
-   "dso_raw": 2.9801749585710127,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2025-01-01",
-   "dso_raw": 3.03792332116123,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2025-02-01",
-   "dso_raw": 3.069747977370927,
-   "dso": 3.1,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2025-03-01",
-   "dso_raw": 3.034919616209034,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2025-04-01",
-   "dso_raw": 3.000972704478466,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2025-05-01",
-   "dso_raw": 3.0360613529588876,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2025-06-01",
-   "dso_raw": 2.9847678438181497,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2025-07-01",
-   "dso_raw": 3.2031399407124956,
-   "dso": 3.2,
-   "dso_3mo": 3.1
-  },
-  {
-   "bu": "Retail",
-   "month": "2025-08-01",
-   "dso_raw": 2.721953019987648,
-   "dso": 2.7,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2025-09-01",
-   "dso_raw": 3.099059358879921,
-   "dso": 3.1,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2025-10-01",
-   "dso_raw": 3.0534260137731115,
-   "dso": 3.1,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2025-11-01",
-   "dso_raw": 2.974692149402924,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2025-12-01",
-   "dso_raw": 3.085598442105632,
-   "dso": 3.1,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2026-01-01",
-   "dso_raw": 3.072922106247979,
-   "dso": 3.1,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2026-02-01",
-   "dso_raw": 2.9980388478612294,
-   "dso": 3.0,
-   "dso_3mo": 3.1
-  },
-  {
-   "bu": "Retail",
-   "month": "2026-03-01",
-   "dso_raw": 2.77170126486504,
-   "dso": 2.8,
-   "dso_3mo": 2.9
-  },
-  {
-   "bu": "Retail",
-   "month": "2026-04-01",
-   "dso_raw": 2.9746890259602727,
-   "dso": 3.0,
-   "dso_3mo": 2.9
-  },
-  {
-   "bu": "Retail",
-   "month": "2026-05-01",
-   "dso_raw": 3.1834666134688407,
-   "dso": 3.2,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2026-06-01",
-   "dso_raw": 3.033139331723749,
-   "dso": 3.0,
-   "dso_3mo": 3.1
-  },
-  {
-   "bu": "Retail",
-   "month": "2026-07-01",
-   "dso_raw": 3.0182695484418143,
-   "dso": 3.0,
-   "dso_3mo": 3.1
-  },
-  {
-   "bu": "Retail",
-   "month": "2026-08-01",
-   "dso_raw": 3.023094034938593,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Retail",
-   "month": "2026-09-01",
-   "dso_raw": 3.0209776935093338,
-   "dso": 3.0,
-   "dso_3mo": 3.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2023-01-01",
-   "dso_raw": 5.291333945495496,
-   "dso": 5.3,
-   "dso_3mo": 5.3
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2023-02-01",
-   "dso_raw": 5.274274076993826,
-   "dso": 5.3,
-   "dso_3mo": 5.3
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2023-03-01",
-   "dso_raw": 4.998537202672226,
-   "dso": 5.0,
-   "dso_3mo": 5.2
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2023-04-01",
-   "dso_raw": 5.223545120830948,
-   "dso": 5.2,
-   "dso_3mo": 5.2
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2023-05-01",
-   "dso_raw": 5.037913093620911,
-   "dso": 5.0,
-   "dso_3mo": 5.1
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2023-06-01",
-   "dso_raw": 4.597954533045585,
-   "dso": 4.6,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2023-07-01",
-   "dso_raw": 4.763745570284699,
-   "dso": 4.8,
-   "dso_3mo": 4.8
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2023-08-01",
-   "dso_raw": 5.024670296502925,
-   "dso": 5.0,
-   "dso_3mo": 4.8
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2023-09-01",
-   "dso_raw": 5.011034783885316,
-   "dso": 5.0,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2023-10-01",
-   "dso_raw": 4.7449450224613585,
-   "dso": 4.7,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2023-11-01",
-   "dso_raw": 4.973772038988092,
-   "dso": 5.0,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2023-12-01",
-   "dso_raw": 5.209723516629849,
-   "dso": 5.2,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2024-01-01",
-   "dso_raw": 4.7690021072275055,
-   "dso": 4.8,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2024-02-01",
-   "dso_raw": 5.003332184877487,
-   "dso": 5.0,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2024-03-01",
-   "dso_raw": 4.861925033604993,
-   "dso": 4.9,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2024-04-01",
-   "dso_raw": 4.9675612462447996,
-   "dso": 5.0,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2024-05-01",
-   "dso_raw": 4.684287651889864,
-   "dso": 4.7,
-   "dso_3mo": 4.8
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2024-06-01",
-   "dso_raw": 5.059695600099231,
-   "dso": 5.1,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2024-07-01",
-   "dso_raw": 5.291558270986036,
-   "dso": 5.3,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2024-08-01",
-   "dso_raw": 5.045742828256345,
-   "dso": 5.0,
-   "dso_3mo": 5.1
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2024-09-01",
-   "dso_raw": 4.953325868254802,
-   "dso": 5.0,
-   "dso_3mo": 5.1
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2024-10-01",
-   "dso_raw": 4.943607815759671,
-   "dso": 4.9,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2024-11-01",
-   "dso_raw": 4.914534076687939,
-   "dso": 4.9,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2024-12-01",
-   "dso_raw": 4.817374044482443,
-   "dso": 4.8,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2025-01-01",
-   "dso_raw": 5.2847791765103835,
-   "dso": 5.3,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2025-02-01",
-   "dso_raw": 5.2064894933677985,
-   "dso": 5.2,
-   "dso_3mo": 5.1
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2025-03-01",
-   "dso_raw": 5.498215553380119,
-   "dso": 5.5,
-   "dso_3mo": 5.3
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2025-04-01",
-   "dso_raw": 4.895021413005591,
-   "dso": 4.9,
-   "dso_3mo": 5.2
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2025-05-01",
-   "dso_raw": 4.9150345992180755,
-   "dso": 4.9,
-   "dso_3mo": 5.1
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2025-06-01",
-   "dso_raw": 5.004274714898031,
-   "dso": 5.0,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2025-07-01",
-   "dso_raw": 4.906687768259477,
-   "dso": 4.9,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2025-08-01",
-   "dso_raw": 4.924856443907537,
-   "dso": 4.9,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2025-09-01",
-   "dso_raw": 4.893386703409011,
-   "dso": 4.9,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2025-10-01",
-   "dso_raw": 5.346525877141564,
-   "dso": 5.3,
-   "dso_3mo": 5.1
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2025-11-01",
-   "dso_raw": 5.022992444970844,
-   "dso": 5.0,
-   "dso_3mo": 5.1
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2025-12-01",
-   "dso_raw": 4.70837670373086,
-   "dso": 4.7,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2026-01-01",
-   "dso_raw": 4.78232966719182,
-   "dso": 4.8,
-   "dso_3mo": 4.8
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2026-02-01",
-   "dso_raw": 4.947332467240358,
-   "dso": 4.9,
-   "dso_3mo": 4.8
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2026-03-01",
-   "dso_raw": 5.095716272796627,
-   "dso": 5.1,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2026-04-01",
-   "dso_raw": 4.937601175193629,
-   "dso": 4.9,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2026-05-01",
-   "dso_raw": 4.965563664035713,
-   "dso": 5.0,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2026-06-01",
-   "dso_raw": 5.099990283885704,
-   "dso": 5.1,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2026-07-01",
-   "dso_raw": 4.924405985883517,
-   "dso": 4.9,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2026-08-01",
-   "dso_raw": 4.727873242358158,
-   "dso": 4.7,
-   "dso_3mo": 4.9
-  },
-  {
-   "bu": "Subscriptions",
-   "month": "2026-09-01",
-   "dso_raw": 5.285273521049561,
-   "dso": 5.3,
-   "dso_3mo": 5.0
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2023-01-01",
-   "dso_raw": 38.3636291669662,
-   "dso": 38.4,
-   "dso_3mo": 38.4
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2023-02-01",
-   "dso_raw": 41.44352777220996,
-   "dso": 41.4,
-   "dso_3mo": 39.9
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2023-03-01",
-   "dso_raw": 37.82570962960098,
-   "dso": 37.8,
-   "dso_3mo": 39.2
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2023-04-01",
-   "dso_raw": 39.54877818349006,
-   "dso": 39.5,
-   "dso_3mo": 39.6
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2023-05-01",
-   "dso_raw": 36.83696369339363,
-   "dso": 36.8,
-   "dso_3mo": 38.1
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2023-06-01",
-   "dso_raw": 38.14286247811392,
-   "dso": 38.1,
-   "dso_3mo": 38.2
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2023-07-01",
-   "dso_raw": 39.03226956769635,
-   "dso": 39.0,
-   "dso_3mo": 38.0
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2023-08-01",
-   "dso_raw": 37.71502196296619,
-   "dso": 37.7,
-   "dso_3mo": 38.3
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2023-09-01",
-   "dso_raw": 38.22152325298796,
-   "dso": 38.2,
-   "dso_3mo": 38.3
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2023-10-01",
-   "dso_raw": 41.66749623427081,
-   "dso": 41.7,
-   "dso_3mo": 39.2
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2023-11-01",
-   "dso_raw": 36.63274724165005,
-   "dso": 36.6,
-   "dso_3mo": 38.8
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2023-12-01",
-   "dso_raw": 39.772426943192926,
-   "dso": 39.8,
-   "dso_3mo": 39.4
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2024-01-01",
-   "dso_raw": 37.76720844699391,
-   "dso": 37.8,
-   "dso_3mo": 38.1
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2024-02-01",
-   "dso_raw": 40.11361735340702,
-   "dso": 40.1,
-   "dso_3mo": 39.2
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2024-03-01",
-   "dso_raw": 39.49521329771178,
-   "dso": 39.5,
-   "dso_3mo": 39.1
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2024-04-01",
-   "dso_raw": 39.30938944858743,
-   "dso": 39.3,
-   "dso_3mo": 39.6
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2024-05-01",
-   "dso_raw": 36.9760007314502,
-   "dso": 37.0,
-   "dso_3mo": 38.6
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2024-06-01",
-   "dso_raw": 37.60787407948392,
-   "dso": 37.6,
-   "dso_3mo": 38.0
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2024-07-01",
-   "dso_raw": 38.97385799969354,
-   "dso": 39.0,
-   "dso_3mo": 37.9
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2024-08-01",
-   "dso_raw": 41.4002054058918,
-   "dso": 41.4,
-   "dso_3mo": 39.3
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2024-09-01",
-   "dso_raw": 38.242386393878974,
-   "dso": 38.2,
-   "dso_3mo": 39.5
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2024-10-01",
-   "dso_raw": 37.2962782198913,
-   "dso": 37.3,
-   "dso_3mo": 39.0
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2024-11-01",
-   "dso_raw": 38.72199676362401,
-   "dso": 38.7,
-   "dso_3mo": 38.1
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2024-12-01",
-   "dso_raw": 39.45536843709485,
-   "dso": 39.5,
-   "dso_3mo": 38.5
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2025-01-01",
-   "dso_raw": 43.52487242884389,
-   "dso": 43.5,
-   "dso_3mo": 40.6
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2025-02-01",
-   "dso_raw": 44.02601909023654,
-   "dso": 44.0,
-   "dso_3mo": 42.3
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2025-03-01",
-   "dso_raw": 42.06472573644821,
-   "dso": 42.1,
-   "dso_3mo": 43.2
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2025-04-01",
-   "dso_raw": 45.187367906243345,
-   "dso": 45.2,
-   "dso_3mo": 43.8
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2025-05-01",
-   "dso_raw": 45.175929901407066,
-   "dso": 45.2,
-   "dso_3mo": 44.1
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2025-06-01",
-   "dso_raw": 47.45494500577728,
-   "dso": 47.5,
-   "dso_3mo": 45.9
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2025-07-01",
-   "dso_raw": 46.85553015871801,
-   "dso": 46.9,
-   "dso_3mo": 46.5
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2025-08-01",
-   "dso_raw": 43.58092215045146,
-   "dso": 43.6,
-   "dso_3mo": 46.0
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2025-09-01",
-   "dso_raw": 48.51501536609025,
-   "dso": 48.5,
-   "dso_3mo": 46.3
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2025-10-01",
-   "dso_raw": 46.82936966608598,
-   "dso": 46.8,
-   "dso_3mo": 46.3
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2025-11-01",
-   "dso_raw": 49.21735067279756,
-   "dso": 49.2,
-   "dso_3mo": 48.2
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2025-12-01",
-   "dso_raw": 49.37678898517926,
-   "dso": 49.4,
-   "dso_3mo": 48.5
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2026-01-01",
-   "dso_raw": 51.141320355894415,
-   "dso": 51.1,
-   "dso_3mo": 49.9
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2026-02-01",
-   "dso_raw": 53.118610878212806,
-   "dso": 53.1,
-   "dso_3mo": 51.2
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2026-03-01",
-   "dso_raw": 56.22059895087099,
-   "dso": 56.2,
-   "dso_3mo": 53.5
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2026-04-01",
-   "dso_raw": 52.56680393996804,
-   "dso": 52.6,
-   "dso_3mo": 54.0
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2026-05-01",
-   "dso_raw": 53.29080919597698,
-   "dso": 53.3,
-   "dso_3mo": 54.0
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2026-06-01",
-   "dso_raw": 54.468643864390074,
-   "dso": 54.5,
-   "dso_3mo": 53.4
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2026-07-01",
-   "dso_raw": 55.60202005417263,
-   "dso": 55.6,
-   "dso_3mo": 54.5
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2026-08-01",
-   "dso_raw": 56.32250762534109,
-   "dso": 56.3,
-   "dso_3mo": 55.5
-  },
-  {
-   "bu": "Wholesale",
-   "month": "2026-09-01",
-   "dso_raw": 56.61370750191359,
-   "dso": 56.6,
-   "dso_3mo": 56.2
-  }
- ],
- "dso_story": {
-  "start": 38.8,
-  "end": 56.2,
-  "cash_trapped": 727132.0
- },
- "backtest": [
-  {
-   "bu": "E-commerce",
-   "reg": 1.8,
-   "snaive": 18.5
-  },
-  {
-   "bu": "Retail",
-   "reg": 3.6,
-   "snaive": 4.8
-  },
-  {
-   "bu": "Subscriptions",
-   "reg": 4.1,
-   "snaive": 18.9
-  },
-  {
-   "bu": "Wholesale",
-   "reg": 3.6,
-   "snaive": 8.5
-  },
-  {
-   "bu": "Total company",
-   "reg": 1.4,
-   "snaive": 11.3
-  }
- ],
- "forecast": {
-  "months": [
-   "2026-10",
-   "2026-11",
-   "2026-12",
-   "2027-01",
-   "2027-02",
-   "2027-03",
-   "2027-04",
-   "2027-05",
-   "2027-06",
-   "2027-07",
-   "2027-08",
-   "2027-09"
-  ],
-  "rev": [
-   9079789.0,
-   9360883.0,
-   9142865.0,
-   8502632.0,
-   7647710.0,
-   6857102.0,
-   6359518.0,
-   6270134.0,
-   6620954.0,
-   7389500.0,
-   8459245.0,
-   9575147.0
-  ],
-  "lo": [
-   8867407.0,
-   9138947.0,
-   8917792.0,
-   8308863.0,
-   7469469.0,
-   6694643.0,
-   6212857.0,
-   6117977.0,
-   6473962.0,
-   7216346.0,
-   8254831.0,
-   9335706.0
-  ],
-  "hi": [
-   9297651.0,
-   9585439.0,
-   9357214.0,
-   8709852.0,
-   7829056.0,
-   7020613.0,
-   6516696.0,
-   6411869.0,
-   6782734.0,
-   7566132.0,
-   8652295.0,
-   9808186.0
-  ],
-  "ntm_rev": 95265479.0,
-  "ntm_ebitda": 14398201.0,
-  "parts": {
-   "rev": 95265479.0,
-   "cogs": 58194565.0,
-   "mkt": 7527382.0,
-   "fixed": 15145330.0,
-   "ebitda": 14398201.0
-  },
-  "assumptions": {
-   "E-commerce": {
-    "gm_pct": 40.5,
-    "mkt_pct": 9.2
+  "7-day activation": [
+   {
+    "segment": "Activated",
+    "customers": 2817,
+    "churn6_pct": 16.8
    },
-   "Retail": {
-    "gm_pct": 32.7,
-    "mkt_pct": 6.9
-   },
-   "Subscriptions": {
-    "gm_pct": 78.9,
-    "mkt_pct": 13.6
-   },
-   "Wholesale": {
-    "gm_pct": 22.8,
-    "mkt_pct": 2.0
+   {
+    "segment": "Not activated",
+    "customers": 849,
+    "churn6_pct": 38.5
    }
-  }
+  ],
+  "Support tickets in first 30 days": [
+   {
+    "segment": "0 tickets",
+    "customers": 2008,
+    "churn6_pct": 17.9
+   },
+   {
+    "segment": "1 ticket",
+    "customers": 1194,
+    "churn6_pct": 24.5
+   },
+   {
+    "segment": "2 or more",
+    "customers": 464,
+    "churn6_pct": 32.1
+   }
+  ]
  },
- "fy2026": {
-  "rev_outlook": 86658420.0,
-  "rev_budget": 85603012.0,
-  "ebitda_outlook": 11961735.0,
-  "ebitda_budget": 15544244.0
- },
- "tornado": [
+ "overall_churn6": 21.9,
+ "unit_econ": [
   {
-   "driver": "Price +/-2%",
-   "up": 1905310.0,
-   "down": -1905310.0
+   "channel": "Paid social",
+   "signups": 2725,
+   "paid": 657,
+   "revenue6": 52037.0,
+   "spend": 54500.0,
+   "revenue6_per_signup": 19.1,
+   "return_per_dollar": 0.95
   },
   {
-   "driver": "Unit cost inflation +/-3%",
-   "up": 1745837.0,
-   "down": -1745837.0
+   "channel": "Paid search",
+   "signups": 1882,
+   "paid": 551,
+   "revenue6": 46915.0,
+   "spend": 41404.0,
+   "revenue6_per_signup": 24.93,
+   "return_per_dollar": 1.13
   },
   {
-   "driver": "Volume +/-5%",
-   "up": 1477177.0,
-   "down": -1477177.0
+   "channel": "Partner",
+   "signups": 1171,
+   "paid": 384,
+   "revenue6": 30745.0,
+   "spend": 12881.0,
+   "revenue6_per_signup": 26.25,
+   "return_per_dollar": 2.39
   },
   {
-   "driver": "Marketing spend +/-10%",
-   "up": 752738.0,
-   "down": -752738.0
+   "channel": "Referral",
+   "signups": 1200,
+   "paid": 438,
+   "revenue6": 38731.0,
+   "spend": 9600.0,
+   "revenue6_per_signup": 32.28,
+   "return_per_dollar": 4.03
+  },
+  {
+   "channel": "Organic",
+   "signups": 2219,
+   "paid": 765,
+   "revenue6": 66013.0,
+   "spend": 4438.0,
+   "revenue6_per_signup": 29.75,
+   "return_per_dollar": 14.87
   }
  ],
- "scenarios": {
-  "Downside": 9452436.0,
-  "Base": 14398201.0,
-  "Upside": 16865146.0
- }
+ "decomp": {
+  "start": 30.5,
+  "end": 29.7,
+  "mix": -0.7,
+  "rate_social": -0.7,
+  "rate_other": 0.5,
+  "social_share_A": 21.8,
+  "social_share_B": 32.5,
+  "social_conv_A": 25.9,
+  "social_conv_B": 23.7
+ },
+ "retention_check": {
+  "month3_min": 82.5,
+  "month3_max": 90.7,
+  "first_half_avg": 86.9,
+  "second_half_avg": 86.8,
+  "cohorts": 21
+ },
+ "trend": [
+  {
+   "month": "2024-01",
+   "signups": 583,
+   "paid_social_share_pct": 19.6,
+   "activation_pct": 45.8
+  },
+  {
+   "month": "2024-02",
+   "signups": 552,
+   "paid_social_share_pct": 23.6,
+   "activation_pct": 45.7
+  },
+  {
+   "month": "2024-03",
+   "signups": 527,
+   "paid_social_share_pct": 22.0,
+   "activation_pct": 39.5
+  },
+  {
+   "month": "2024-04",
+   "signups": 513,
+   "paid_social_share_pct": 21.8,
+   "activation_pct": 42.7
+  },
+  {
+   "month": "2024-05",
+   "signups": 542,
+   "paid_social_share_pct": 20.8,
+   "activation_pct": 41.3
+  },
+  {
+   "month": "2024-06",
+   "signups": 505,
+   "paid_social_share_pct": 23.4,
+   "activation_pct": 35.4
+  },
+  {
+   "month": "2024-07",
+   "signups": 582,
+   "paid_social_share_pct": 25.3,
+   "activation_pct": 40.4
+  },
+  {
+   "month": "2024-08",
+   "signups": 606,
+   "paid_social_share_pct": 24.4,
+   "activation_pct": 36.1
+  },
+  {
+   "month": "2024-09",
+   "signups": 728,
+   "paid_social_share_pct": 28.3,
+   "activation_pct": 39.4
+  },
+  {
+   "month": "2024-10",
+   "signups": 715,
+   "paid_social_share_pct": 26.0,
+   "activation_pct": 41.7
+  },
+  {
+   "month": "2024-11",
+   "signups": 722,
+   "paid_social_share_pct": 23.5,
+   "activation_pct": 40.7
+  },
+  {
+   "month": "2024-12",
+   "signups": 637,
+   "paid_social_share_pct": 27.5,
+   "activation_pct": 41.0
+  },
+  {
+   "month": "2025-01",
+   "signups": 987,
+   "paid_social_share_pct": 30.1,
+   "activation_pct": 37.1
+  },
+  {
+   "month": "2025-02",
+   "signups": 887,
+   "paid_social_share_pct": 30.2,
+   "activation_pct": 36.3
+  },
+  {
+   "month": "2025-03",
+   "signups": 831,
+   "paid_social_share_pct": 32.4,
+   "activation_pct": 37.2
+  },
+  {
+   "month": "2025-04",
+   "signups": 793,
+   "paid_social_share_pct": 32.3,
+   "activation_pct": 38.2
+  },
+  {
+   "month": "2025-05",
+   "signups": 857,
+   "paid_social_share_pct": 35.5,
+   "activation_pct": 37.3
+  },
+  {
+   "month": "2025-06",
+   "signups": 852,
+   "paid_social_share_pct": 35.1,
+   "activation_pct": 37.2
+  },
+  {
+   "month": "2025-07",
+   "signups": 845,
+   "paid_social_share_pct": 33.5,
+   "activation_pct": 37.0
+  },
+  {
+   "month": "2025-08",
+   "signups": 898,
+   "paid_social_share_pct": 35.3,
+   "activation_pct": 41.3
+  },
+  {
+   "month": "2025-09",
+   "signups": 1052,
+   "paid_social_share_pct": 36.4,
+   "activation_pct": 41.3
+  },
+  {
+   "month": "2025-10",
+   "signups": 1076,
+   "paid_social_share_pct": 35.0,
+   "activation_pct": 36.4
+  },
+  {
+   "month": "2025-11",
+   "signups": 1044,
+   "paid_social_share_pct": 37.4,
+   "activation_pct": 35.2
+  },
+  {
+   "month": "2025-12",
+   "signups": 949,
+   "paid_social_share_pct": 38.1,
+   "activation_pct": 36.6
+  }
+ ],
+ "experiment": {
+  "n_control": 1394,
+  "n_variant": 1401,
+  "act_control": 36.2,
+  "act_variant": 43.8,
+  "ci_control": [
+   33.7,
+   38.8
+  ],
+  "ci_variant": [
+   41.2,
+   46.4
+  ],
+  "lift_pts": 7.5,
+  "lift_ci": [
+   3.9,
+   11.1
+  ],
+  "lift_rel_pct": 20.8,
+  "z": 4.06,
+  "p_value": 4.87e-05,
+  "mde_pts": 5.2,
+  "srm_p": 0.895,
+  "max_mix_gap_pts": 0.82,
+  "paid_control": 27.8,
+  "paid_variant": 33.8,
+  "paid_lift_pts": 6.1,
+  "paid_lift_ci": [
+   2.7,
+   9.5
+  ],
+  "paid_p_value": 0.000509,
+  "tickets_control": 0.876,
+  "tickets_variant": 0.801
+ },
+ "value": {
+  "conv_act": 60.5,
+  "conv_non": 11.6,
+  "rev_act": 86.6,
+  "rev_non": 75.0,
+  "value_per_activation": 43.7,
+  "signups_2025": 11071
+ },
+ "initiatives": [
+  {
+   "name": "Roll out onboarding checklist",
+   "impact": 36403.0,
+   "impact_low": 18890.0,
+   "impact_high": 53915.0,
+   "effort": 2,
+   "customers": 11071,
+   "basis": "Measured lift from the A/B test, applied to 2025 signup volume"
+  },
+  {
+   "name": "Shift 20% of paid-social budget to search",
+   "impact": -5912.0,
+   "effort": 1,
+   "customers": 761,
+   "breakeven_efficiency_pct": 84.0,
+   "basis": "Assumes search absorbs the money at 50% of its current efficiency"
+  },
+  {
+   "name": "Early-warning outreach (2+ early tickets)",
+   "impact": 2414.0,
+   "effort": 3,
+   "customers": 404,
+   "basis": "Assumes outreach cuts churn 20% in the group and saved customers stay 6 more months"
+  },
+  {
+   "name": "Win-back campaign for 2025 cancellations",
+   "impact": 2081.0,
+   "effort": 2,
+   "customers": 1208,
+   "basis": "Assumes 4% win-back at a $2 cost per customer contacted"
+  },
+  {
+   "name": "Expand referral program by 25%",
+   "impact": 7812.0,
+   "effort": 3,
+   "customers": 322,
+   "basis": "Assumes constant cost per signup; net of spend"
+  }
+ ]
 }

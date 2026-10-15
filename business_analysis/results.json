@@ -1,0 +1,883 @@
+{
+ "kpis": {
+  "signups": 6950.0,
+  "activation_pct": 37.7,
+  "conversion_pct": 30.0,
+  "retained_90d_pct": 86.2,
+  "arpu": 15.51
+ },
+ "totals": {
+  "signups": 18283,
+  "paying": 5545
+ },
+ "funnel": [
+  {
+   "channel": "Paid social",
+   "signups": 2293,
+   "activation_pct": 23.3,
+   "paid_pct": 23.6,
+   "retained_pct_of_signups": 19.0,
+   "retained_pct_of_paid": 80.4
+  },
+  {
+   "channel": "Paid search",
+   "signups": 1402,
+   "activation_pct": 37.4,
+   "paid_pct": 29.0,
+   "retained_pct_of_signups": 25.3,
+   "retained_pct_of_paid": 87.4
+  },
+  {
+   "channel": "Partner",
+   "signups": 819,
+   "activation_pct": 42.7,
+   "paid_pct": 33.7,
+   "retained_pct_of_signups": 28.6,
+   "retained_pct_of_paid": 84.8
+  },
+  {
+   "channel": "Organic",
+   "signups": 1593,
+   "activation_pct": 47.5,
+   "paid_pct": 34.9,
+   "retained_pct_of_signups": 31.2,
+   "retained_pct_of_paid": 89.4
+  },
+  {
+   "channel": "Referral",
+   "signups": 843,
+   "activation_pct": 54.1,
+   "paid_pct": 36.2,
+   "retained_pct_of_signups": 32.6,
+   "retained_pct_of_paid": 90.2
+  }
+ ],
+ "heat": [
+  {
+   "cohort": "2024-01",
+   "size": 110,
+   "ret": [
+    100.0,
+    92.7,
+    86.4,
+    82.7,
+    79.1,
+    78.2,
+    77.3,
+    75.5,
+    73.6,
+    71.8,
+    70.0,
+    67.3,
+    65.5
+   ]
+  },
+  {
+   "cohort": "2024-02",
+   "size": 162,
+   "ret": [
+    100.0,
+    96.3,
+    92.6,
+    88.9,
+    85.2,
+    82.1,
+    80.2,
+    75.9,
+    75.9,
+    75.3,
+    71.6,
+    68.5,
+    66.7
+   ]
+  },
+  {
+   "cohort": "2024-03",
+   "size": 180,
+   "ret": [
+    100.0,
+    92.8,
+    89.4,
+    89.4,
+    85.6,
+    83.9,
+    81.1,
+    76.1,
+    73.9,
+    70.6,
+    69.4,
+    68.3,
+    67.2
+   ]
+  },
+  {
+   "cohort": "2024-04",
+   "size": 154,
+   "ret": [
+    100.0,
+    90.9,
+    87.7,
+    83.1,
+    80.5,
+    78.6,
+    76.6,
+    74.0,
+    70.8,
+    66.2,
+    64.9,
+    63.0,
+    61.0
+   ]
+  },
+  {
+   "cohort": "2024-05",
+   "size": 165,
+   "ret": [
+    100.0,
+    93.9,
+    91.5,
+    86.7,
+    81.2,
+    77.6,
+    73.3,
+    71.5,
+    68.5,
+    66.1,
+    63.6,
+    62.4,
+    60.6
+   ]
+  },
+  {
+   "cohort": "2024-06",
+   "size": 131,
+   "ret": [
+    100.0,
+    90.8,
+    88.5,
+    86.3,
+    80.9,
+    77.1,
+    73.3,
+    71.8,
+    69.5,
+    65.6,
+    64.9,
+    64.1,
+    63.4
+   ]
+  },
+  {
+   "cohort": "2024-07",
+   "size": 195,
+   "ret": [
+    100.0,
+    93.8,
+    90.8,
+    86.2,
+    82.6,
+    81.5,
+    79.0,
+    77.4,
+    76.4,
+    71.8,
+    70.3,
+    68.2,
+    66.7
+   ]
+  },
+  {
+   "cohort": "2024-08",
+   "size": 193,
+   "ret": [
+    100.0,
+    95.3,
+    91.7,
+    90.7,
+    87.0,
+    85.0,
+    81.9,
+    77.2,
+    74.1,
+    72.5,
+    71.0,
+    68.9,
+    66.8
+   ]
+  },
+  {
+   "cohort": "2024-09",
+   "size": 202,
+   "ret": [
+    100.0,
+    95.0,
+    91.6,
+    88.1,
+    85.6,
+    83.7,
+    80.2,
+    78.2,
+    74.3,
+    70.8,
+    69.3,
+    65.8,
+    62.4
+   ]
+  },
+  {
+   "cohort": "2024-10",
+   "size": 209,
+   "ret": [
+    100.0,
+    93.8,
+    90.4,
+    86.6,
+    83.7,
+    81.3,
+    78.9,
+    78.5,
+    77.0,
+    72.2,
+    69.4,
+    67.5,
+    64.6
+   ]
+  },
+  {
+   "cohort": "2024-11",
+   "size": 235,
+   "ret": [
+    100.0,
+    95.7,
+    92.3,
+    89.4,
+    86.0,
+    83.4,
+    78.7,
+    76.6,
+    74.5,
+    71.9,
+    69.8,
+    68.9,
+    65.5
+   ]
+  },
+  {
+   "cohort": "2024-12",
+   "size": 218,
+   "ret": [
+    100.0,
+    95.0,
+    91.7,
+    89.0,
+    84.9,
+    83.0,
+    79.8,
+    78.4,
+    75.2,
+    72.9,
+    70.6,
+    69.3,
+    68.8
+   ]
+  },
+  {
+   "cohort": "2025-01",
+   "size": 227,
+   "ret": [
+    100.0,
+    94.3,
+    90.3,
+    88.5,
+    86.3,
+    84.1,
+    81.1,
+    77.5,
+    76.7,
+    74.4,
+    73.1,
+    71.4,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-02",
+   "size": 274,
+   "ret": [
+    100.0,
+    92.3,
+    88.0,
+    84.3,
+    81.8,
+    79.9,
+    77.4,
+    74.8,
+    71.9,
+    70.4,
+    67.2,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-03",
+   "size": 272,
+   "ret": [
+    100.0,
+    94.1,
+    87.9,
+    85.7,
+    81.6,
+    78.3,
+    75.7,
+    75.4,
+    75.0,
+    72.4,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-04",
+   "size": 228,
+   "ret": [
+    100.0,
+    93.9,
+    89.9,
+    86.4,
+    83.8,
+    81.1,
+    78.1,
+    73.7,
+    70.6,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-05",
+   "size": 260,
+   "ret": [
+    100.0,
+    93.8,
+    91.9,
+    89.6,
+    85.8,
+    82.7,
+    79.2,
+    77.3,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-06",
+   "size": 251,
+   "ret": [
+    100.0,
+    94.8,
+    88.0,
+    82.5,
+    79.3,
+    76.5,
+    73.7,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-07",
+   "size": 243,
+   "ret": [
+    100.0,
+    94.7,
+    90.1,
+    87.2,
+    84.8,
+    82.3,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-08",
+   "size": 279,
+   "ret": [
+    100.0,
+    94.6,
+    89.6,
+    85.7,
+    83.5,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-09",
+   "size": 302,
+   "ret": [
+    100.0,
+    93.7,
+    88.7,
+    86.4,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-10",
+   "size": 310,
+   "ret": [
+    100.0,
+    93.2,
+    89.4,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-11",
+   "size": 303,
+   "ret": [
+    100.0,
+    92.7,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "cohort": "2025-12",
+   "size": 301,
+   "ret": [
+    100.0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  }
+ ],
+ "segments": {
+  "Channel": [
+   {
+    "segment": "Organic",
+    "customers": 1023,
+    "churn6_pct": 17.6
+   },
+   {
+    "segment": "Paid search",
+    "customers": 742,
+    "churn6_pct": 21.3
+   },
+   {
+    "segment": "Paid social",
+    "customers": 801,
+    "churn6_pct": 32.0
+   },
+   {
+    "segment": "Partner",
+    "customers": 505,
+    "churn6_pct": 23.8
+   },
+   {
+    "segment": "Referral",
+    "customers": 595,
+    "churn6_pct": 14.6
+   }
+  ],
+  "Plan": [
+   {
+    "segment": "Basic",
+    "customers": 1143,
+    "churn6_pct": 24.8
+   },
+   {
+    "segment": "Plus",
+    "customers": 1761,
+    "churn6_pct": 22.0
+   },
+   {
+    "segment": "Premium",
+    "customers": 762,
+    "churn6_pct": 17.2
+   }
+  ],
+  "7-day activation": [
+   {
+    "segment": "Activated",
+    "customers": 2817,
+    "churn6_pct": 16.8
+   },
+   {
+    "segment": "Not activated",
+    "customers": 849,
+    "churn6_pct": 38.5
+   }
+  ],
+  "Support tickets in first 30 days": [
+   {
+    "segment": "0 tickets",
+    "customers": 2008,
+    "churn6_pct": 17.9
+   },
+   {
+    "segment": "1 ticket",
+    "customers": 1194,
+    "churn6_pct": 24.5
+   },
+   {
+    "segment": "2 or more",
+    "customers": 464,
+    "churn6_pct": 32.1
+   }
+  ]
+ },
+ "overall_churn6": 21.9,
+ "unit_econ": [
+  {
+   "channel": "Paid social",
+   "signups": 2725,
+   "paid": 657,
+   "revenue6": 52037.0,
+   "spend": 54500.0,
+   "revenue6_per_signup": 19.1,
+   "return_per_dollar": 0.95
+  },
+  {
+   "channel": "Paid search",
+   "signups": 1882,
+   "paid": 551,
+   "revenue6": 46915.0,
+   "spend": 41404.0,
+   "revenue6_per_signup": 24.93,
+   "return_per_dollar": 1.13
+  },
+  {
+   "channel": "Partner",
+   "signups": 1171,
+   "paid": 384,
+   "revenue6": 30745.0,
+   "spend": 12881.0,
+   "revenue6_per_signup": 26.25,
+   "return_per_dollar": 2.39
+  },
+  {
+   "channel": "Referral",
+   "signups": 1200,
+   "paid": 438,
+   "revenue6": 38731.0,
+   "spend": 9600.0,
+   "revenue6_per_signup": 32.28,
+   "return_per_dollar": 4.03
+  },
+  {
+   "channel": "Organic",
+   "signups": 2219,
+   "paid": 765,
+   "revenue6": 66013.0,
+   "spend": 4438.0,
+   "revenue6_per_signup": 29.75,
+   "return_per_dollar": 14.87
+  }
+ ],
+ "decomp": {
+  "start": 30.5,
+  "end": 29.7,
+  "mix": -0.7,
+  "rate_social": -0.7,
+  "rate_other": 0.5,
+  "social_share_A": 21.8,
+  "social_share_B": 32.5,
+  "social_conv_A": 25.9,
+  "social_conv_B": 23.7
+ },
+ "retention_check": {
+  "month3_min": 82.5,
+  "month3_max": 90.7,
+  "first_half_avg": 86.9,
+  "second_half_avg": 86.8,
+  "cohorts": 21
+ },
+ "trend": [
+  {
+   "month": "2024-01",
+   "signups": 583,
+   "paid_social_share_pct": 19.6,
+   "activation_pct": 45.8
+  },
+  {
+   "month": "2024-02",
+   "signups": 552,
+   "paid_social_share_pct": 23.6,
+   "activation_pct": 45.7
+  },
+  {
+   "month": "2024-03",
+   "signups": 527,
+   "paid_social_share_pct": 22.0,
+   "activation_pct": 39.5
+  },
+  {
+   "month": "2024-04",
+   "signups": 513,
+   "paid_social_share_pct": 21.8,
+   "activation_pct": 42.7
+  },
+  {
+   "month": "2024-05",
+   "signups": 542,
+   "paid_social_share_pct": 20.8,
+   "activation_pct": 41.3
+  },
+  {
+   "month": "2024-06",
+   "signups": 505,
+   "paid_social_share_pct": 23.4,
+   "activation_pct": 35.4
+  },
+  {
+   "month": "2024-07",
+   "signups": 582,
+   "paid_social_share_pct": 25.3,
+   "activation_pct": 40.4
+  },
+  {
+   "month": "2024-08",
+   "signups": 606,
+   "paid_social_share_pct": 24.4,
+   "activation_pct": 36.1
+  },
+  {
+   "month": "2024-09",
+   "signups": 728,
+   "paid_social_share_pct": 28.3,
+   "activation_pct": 39.4
+  },
+  {
+   "month": "2024-10",
+   "signups": 715,
+   "paid_social_share_pct": 26.0,
+   "activation_pct": 41.7
+  },
+  {
+   "month": "2024-11",
+   "signups": 722,
+   "paid_social_share_pct": 23.5,
+   "activation_pct": 40.7
+  },
+  {
+   "month": "2024-12",
+   "signups": 637,
+   "paid_social_share_pct": 27.5,
+   "activation_pct": 41.0
+  },
+  {
+   "month": "2025-01",
+   "signups": 987,
+   "paid_social_share_pct": 30.1,
+   "activation_pct": 37.1
+  },
+  {
+   "month": "2025-02",
+   "signups": 887,
+   "paid_social_share_pct": 30.2,
+   "activation_pct": 36.3
+  },
+  {
+   "month": "2025-03",
+   "signups": 831,
+   "paid_social_share_pct": 32.4,
+   "activation_pct": 37.2
+  },
+  {
+   "month": "2025-04",
+   "signups": 793,
+   "paid_social_share_pct": 32.3,
+   "activation_pct": 38.2
+  },
+  {
+   "month": "2025-05",
+   "signups": 857,
+   "paid_social_share_pct": 35.5,
+   "activation_pct": 37.3
+  },
+  {
+   "month": "2025-06",
+   "signups": 852,
+   "paid_social_share_pct": 35.1,
+   "activation_pct": 37.2
+  },
+  {
+   "month": "2025-07",
+   "signups": 845,
+   "paid_social_share_pct": 33.5,
+   "activation_pct": 37.0
+  },
+  {
+   "month": "2025-08",
+   "signups": 898,
+   "paid_social_share_pct": 35.3,
+   "activation_pct": 41.3
+  },
+  {
+   "month": "2025-09",
+   "signups": 1052,
+   "paid_social_share_pct": 36.4,
+   "activation_pct": 41.3
+  },
+  {
+   "month": "2025-10",
+   "signups": 1076,
+   "paid_social_share_pct": 35.0,
+   "activation_pct": 36.4
+  },
+  {
+   "month": "2025-11",
+   "signups": 1044,
+   "paid_social_share_pct": 37.4,
+   "activation_pct": 35.2
+  },
+  {
+   "month": "2025-12",
+   "signups": 949,
+   "paid_social_share_pct": 38.1,
+   "activation_pct": 36.6
+  }
+ ],
+ "experiment": {
+  "n_control": 1394,
+  "n_variant": 1401,
+  "act_control": 36.2,
+  "act_variant": 43.8,
+  "ci_control": [
+   33.7,
+   38.8
+  ],
+  "ci_variant": [
+   41.2,
+   46.4
+  ],
+  "lift_pts": 7.5,
+  "lift_ci": [
+   3.9,
+   11.1
+  ],
+  "lift_rel_pct": 20.8,
+  "z": 4.06,
+  "p_value": 4.87e-05,
+  "mde_pts": 5.2,
+  "srm_p": 0.895,
+  "max_mix_gap_pts": 0.82,
+  "paid_control": 27.8,
+  "paid_variant": 33.8,
+  "paid_lift_pts": 6.1,
+  "paid_lift_ci": [
+   2.7,
+   9.5
+  ],
+  "paid_p_value": 0.000509,
+  "tickets_control": 0.876,
+  "tickets_variant": 0.801
+ },
+ "value": {
+  "conv_act": 60.5,
+  "conv_non": 11.6,
+  "rev_act": 86.6,
+  "rev_non": 75.0,
+  "value_per_activation": 43.7,
+  "signups_2025": 11071
+ },
+ "initiatives": [
+  {
+   "name": "Roll out onboarding checklist",
+   "impact": 36403.0,
+   "impact_low": 18890.0,
+   "impact_high": 53915.0,
+   "effort": 2,
+   "customers": 11071,
+   "basis": "Measured lift from the A/B test, applied to 2025 signup volume"
+  },
+  {
+   "name": "Shift 20% of paid-social budget to search",
+   "impact": -5912.0,
+   "effort": 1,
+   "customers": 761,
+   "breakeven_efficiency_pct": 84.0,
+   "basis": "Assumes search absorbs the money at 50% of its current efficiency"
+  },
+  {
+   "name": "Early-warning outreach (2+ early tickets)",
+   "impact": 2414.0,
+   "effort": 3,
+   "customers": 404,
+   "basis": "Assumes outreach cuts churn 20% in the group and saved customers stay 6 more months"
+  },
+  {
+   "name": "Win-back campaign for 2025 cancellations",
+   "impact": 2081.0,
+   "effort": 2,
+   "customers": 1208,
+   "basis": "Assumes 4% win-back at a $2 cost per customer contacted"
+  },
+  {
+   "name": "Expand referral program by 25%",
+   "impact": 7812.0,
+   "effort": 3,
+   "customers": 322,
+   "basis": "Assumes constant cost per signup; net of spend"
+  }
+ ]
+}
