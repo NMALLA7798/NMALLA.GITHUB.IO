@@ -1,0 +1,1683 @@
+{
+ "cpm": {
+  "All": {
+   "AI": {
+    "fuel": 0.5709111129080326,
+    "driver": 0.7378612215947327,
+    "maintenance": 0.1389696166904069,
+    "insurance": 0.15487834683405938,
+    "software": 0.15487834683405938,
+    "other": 0.12007885465051656,
+    "depreciation": 0.20243576262561425,
+    "revenue": 2.7486940888552507,
+    "total_cost": 2.0800132621374217,
+    "profit": 0.668680826717829,
+    "miles_pm": 10653.522805017104,
+    "profit_pvm": 7123.806436716079,
+    "vehicle_months": 1754
+   },
+   "Conventional": {
+    "fuel": 0.6222552303143126,
+    "driver": 0.8789959467487442,
+    "maintenance": 0.16625672541519168,
+    "insurance": 0.16607263448407017,
+    "software": 0.010880620879990805,
+    "other": 0.11998173013498374,
+    "depreciation": 0.1545432891480787,
+    "revenue": 2.8168703295407287,
+    "total_cost": 2.1189861771253717,
+    "profit": 0.697884152415357,
+    "miles_pm": 8731.119395465996,
+    "profit_pvm": 6093.30985894207,
+    "vehicle_months": 1985
+   }
+  },
+  "Long-haul": {
+   "AI": {
+    "fuel": 0.5423052946753736,
+    "driver": 0.6725189126251718,
+    "maintenance": 0.1276540461571301,
+    "insurance": 0.12468289829646031,
+    "software": 0.12468289829646031,
+    "other": 0.1198956793530846,
+    "depreciation": 0.16634861917784338,
+    "revenue": 2.558301560764935,
+    "total_cost": 1.878088348581524,
+    "profit": 0.680213212183411,
+    "miles_pm": 13233.571103526734,
+    "profit_pvm": 9001.649908987489,
+    "vehicle_months": 879
+   },
+   "Conventional": {
+    "fuel": 0.5881021902649576,
+    "driver": 0.8373259912499269,
+    "maintenance": 0.16567959516764108,
+    "insurance": 0.13372902903170736,
+    "software": 0.008761557074491172,
+    "other": 0.12023343709946702,
+    "depreciation": 0.12919359696576996,
+    "revenue": 2.5420252178461333,
+    "total_cost": 1.983025396853961,
+    "profit": 0.5589998209921723,
+    "miles_pm": 10842.821566110399,
+    "profit_pvm": 6061.135314505782,
+    "vehicle_months": 779
+   }
+  },
+  "Regional": {
+   "AI": {
+    "fuel": 0.5939954318701048,
+    "driver": 0.776582422546737,
+    "maintenance": 0.13915069877935665,
+    "insurance": 0.17478584502212535,
+    "software": 0.17478584502212535,
+    "other": 0.12027893476554707,
+    "depreciation": 0.2251751844506668,
+    "revenue": 2.866830599153427,
+    "total_cost": 2.2047543624566632,
+    "profit": 0.6620762366967639,
+    "miles_pm": 9440.123711340206,
+    "profit_pvm": 6250.081580756015,
+    "vehicle_months": 582
+   },
+   "Conventional": {
+    "fuel": 0.6338350937947624,
+    "driver": 0.8567399533450781,
+    "maintenance": 0.16917151862344715,
+    "insurance": 0.17326402872894192,
+    "software": 0.01135178119258585,
+    "other": 0.11979327506856086,
+    "depreciation": 0.15909593777087847,
+    "revenue": 2.848876222758067,
+    "total_cost": 2.123251588524255,
+    "profit": 0.725624634233812,
+    "miles_pm": 8368.730720606827,
+    "profit_pvm": 6072.557168141591,
+    "vehicle_months": 791
+   }
+  },
+  "Urban": {
+   "AI": {
+    "fuel": 0.7029284121609058,
+    "driver": 1.0887622658540932,
+    "maintenance": 0.22271741318538446,
+    "insurance": 0.30994000582119197,
+    "software": 0.30994000582119197,
+    "other": 0.12074013763144163,
+    "depreciation": 0.39145971517189826,
+    "revenue": 3.7524296360216383,
+    "total_cost": 3.146487955646107,
+    "profit": 0.6059416803755311,
+    "miles_pm": 5323.610921501707,
+    "profit_pvm": 3225.7977474402737,
+    "vehicle_months": 293
+   },
+   "Conventional": {
+    "fuel": 0.7157723677379022,
+    "driver": 1.0994305418693116,
+    "maintenance": 0.1598903290349697,
+    "insurance": 0.26566765914011536,
+    "software": 0.017405812150559283,
+    "other": 0.11959385849659698,
+    "depreciation": 0.2357692199017416,
+    "revenue": 3.7482531760916324,
+    "total_cost": 2.6135297883311965,
+    "profit": 1.134723387760436,
+    "miles_pm": 5457.946987951807,
+    "profit_pvm": 6193.260096385541,
+    "vehicle_months": 415
+   }
+  }
+ },
+ "maint": {
+  "AI": {
+   "kinds": {
+    "Preventive": {
+     "events": 599,
+     "per_100k": 3.205560614823315,
+     "avg_cost": 877.3887646076795,
+     "cost": 525555.87,
+     "downtime": 2995.0
+    },
+    "Corrective": {
+     "events": 401,
+     "per_100k": 2.145959610257344,
+     "avg_cost": 3332.07710723192,
+     "cost": 1336162.92,
+     "downtime": 5706.5
+    },
+    "Breakdown": {
+     "events": 87,
+     "per_100k": 0.4655822595820174,
+     "avg_cost": 7199.228620689655,
+     "cost": 626332.89,
+     "downtime": 2618.7
+    },
+    "Sensor refresh": {
+     "events": 5,
+     "per_100k": 0.026757601125403298,
+     "avg_cost": 21754.670000000002,
+     "cost": 108773.35,
+     "downtime": 240.0
+    }
+   },
+   "downtime_per_vm": 6.590763968072976,
+   "cost_per_mile": 0.1389696166904069,
+   "unplanned_per_100k": 0.4655822595820174
+  },
+  "Conventional": {
+   "kinds": {
+    "Preventive": {
+     "events": 697,
+     "per_100k": 4.021632111018741,
+     "avg_cost": 791.2850645624103,
+     "cost": 551525.69,
+     "downtime": 4182.0
+    },
+    "Corrective": {
+     "events": 497,
+     "per_100k": 2.8676487219172375,
+     "avg_cost": 2638.8478470824953,
+     "cost": 1311507.3800000001,
+     "downtime": 6948.3
+    },
+    "Breakdown": {
+     "events": 131,
+     "per_100k": 0.755859119861485,
+     "avg_cost": 7774.102748091603,
+     "cost": 1018407.46,
+     "downtime": 3844.7
+    },
+    "Sensor refresh": {
+     "events": 0,
+     "per_100k": 0.0,
+     "avg_cost": 0.0,
+     "cost": 0.0,
+     "downtime": 0.0
+    }
+   },
+   "downtime_per_vm": 7.544080604534005,
+   "cost_per_mile": 0.1662567254151917,
+   "unplanned_per_100k": 0.755859119861485
+  }
+ },
+ "age": {
+  "labels": [
+   "0-11 months",
+   "12-23",
+   "24-35",
+   "36-47",
+   "48+"
+  ],
+  "AI": [
+   0.11262257942931736,
+   0.11776661937796476,
+   0.18133838835051877,
+   0.21188595284552755,
+   null
+  ],
+  "Conventional": [
+   0.12554696836968052,
+   0.16873461992162006,
+   0.15302094217975695,
+   0.1896115480373538,
+   0.18832881466519516
+  ],
+  "n": {
+   "AI": [
+    541,
+    621,
+    398,
+    179,
+    15
+   ],
+   "Conventional": [
+    303,
+    463,
+    481,
+    410,
+    328
+   ]
+  }
+ },
+ "age_slope_per_month": {
+  "AI": 0.00264883765255441,
+  "Conventional": 0.0012175040552865604
+ },
+ "trend": {
+  "months": [
+   "2023-10-01",
+   "2023-11-01",
+   "2023-12-01",
+   "2024-01-01",
+   "2024-02-01",
+   "2024-03-01",
+   "2024-04-01",
+   "2024-05-01",
+   "2024-06-01",
+   "2024-07-01",
+   "2024-08-01",
+   "2024-09-01",
+   "2024-10-01",
+   "2024-11-01",
+   "2024-12-01",
+   "2025-01-01",
+   "2025-02-01",
+   "2025-03-01",
+   "2025-04-01",
+   "2025-05-01",
+   "2025-06-01",
+   "2025-07-01",
+   "2025-08-01",
+   "2025-09-01",
+   "2025-10-01",
+   "2025-11-01",
+   "2025-12-01",
+   "2026-01-01",
+   "2026-02-01",
+   "2026-03-01",
+   "2026-04-01",
+   "2026-05-01",
+   "2026-06-01",
+   "2026-07-01",
+   "2026-08-01",
+   "2026-09-01"
+  ],
+  "AI": [
+   8352.0,
+   6704.0,
+   7078.0,
+   7820.0,
+   5563.0,
+   6254.0,
+   5945.0,
+   6924.0,
+   5951.0,
+   6653.0,
+   6128.0,
+   7788.0,
+   7866.0,
+   8091.0,
+   7873.0,
+   7433.0,
+   7438.0,
+   6708.0,
+   6890.0,
+   6722.0,
+   6809.0,
+   6014.0,
+   6614.0,
+   7696.0,
+   8352.0,
+   7399.0,
+   8145.0,
+   8179.0,
+   7214.0,
+   7301.0,
+   6505.0,
+   6519.0,
+   6655.0,
+   6616.0,
+   7397.0,
+   7932.0
+  ],
+  "Conventional": [
+   6172.0,
+   6325.0,
+   6427.0,
+   6354.0,
+   5929.0,
+   5701.0,
+   5250.0,
+   4822.0,
+   6067.0,
+   5499.0,
+   6023.0,
+   6349.0,
+   6597.0,
+   6178.0,
+   7078.0,
+   6849.0,
+   6566.0,
+   6239.0,
+   5210.0,
+   5363.0,
+   5435.0,
+   5475.0,
+   5989.0,
+   7117.0,
+   6987.0,
+   6724.0,
+   6533.0,
+   6855.0,
+   6229.0,
+   5790.0,
+   6092.0,
+   5235.0,
+   5504.0,
+   5532.0,
+   5600.0,
+   7193.0
+  ]
+ },
+ "stats": {
+  "naive": 1030.4965777740117,
+  "adjusted": 693.342847939666,
+  "adj_lo": 278.07728799999995,
+  "adj_hi": 1290.790763315255,
+  "lane": {
+   "Long-haul": {
+    "diff": 2940.5145944817086,
+    "lo": 2511.0878703576686,
+    "hi": 3310.3883697224555,
+    "n_ai": 31,
+    "n_conv": 24,
+    "ai": 9001.649908987485,
+    "conv": 6061.1353145057765
+   },
+   "Regional": {
+    "diff": 177.52441261442164,
+    "lo": -76.06079523007146,
+    "hi": 455.06056522387206,
+    "n_ai": 20,
+    "n_conv": 23,
+    "ai": 6250.081580756014,
+    "conv": 6072.557168141592
+   },
+   "Urban": {
+    "diff": -2967.4623489452683,
+    "lo": -3278.4977191156618,
+    "hi": -2675.845397809579,
+    "n_ai": 9,
+    "n_conv": 13,
+    "ai": 3225.797747440273,
+    "conv": 6193.260096385541
+   }
+  },
+  "ai_share_longhaul": 0.5166666666666667,
+  "conv_share_longhaul": 0.4,
+  "mean_age": {
+   "AI": 19.01824401368301,
+   "Conventional": 29.998992443324937
+  }
+ },
+ "vehicles": [
+  {
+   "id": "A001",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 51,
+   "profit": 68677,
+   "maint": 25127,
+   "miles": 109969
+  },
+  {
+   "id": "A002",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 18,
+   "profit": 98209,
+   "maint": 22635,
+   "miles": 157384
+  },
+  {
+   "id": "A003",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 17,
+   "profit": 65172,
+   "maint": 18523,
+   "miles": 108252
+  },
+  {
+   "id": "A004",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 23,
+   "profit": 97004,
+   "maint": 31672,
+   "miles": 155561
+  },
+  {
+   "id": "A005",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 40,
+   "profit": 90292,
+   "maint": 40003,
+   "miles": 156876
+  },
+  {
+   "id": "A006",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 21,
+   "profit": 39739,
+   "maint": 15691,
+   "miles": 63559
+  },
+  {
+   "id": "A007",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 15,
+   "profit": 98456,
+   "maint": 30731,
+   "miles": 153540
+  },
+  {
+   "id": "A008",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 17,
+   "profit": 131503,
+   "maint": 12098,
+   "miles": 159020
+  },
+  {
+   "id": "A009",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 20,
+   "profit": 80911,
+   "maint": 14912,
+   "miles": 112922
+  },
+  {
+   "id": "A010",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 19,
+   "profit": 107961,
+   "maint": 17174,
+   "miles": 158572
+  },
+  {
+   "id": "A011",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 19,
+   "profit": 108267,
+   "maint": 19717,
+   "miles": 160486
+  },
+  {
+   "id": "A012",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 48,
+   "profit": 26198,
+   "maint": 37539,
+   "miles": 64624
+  },
+  {
+   "id": "A013",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 18,
+   "profit": 72895,
+   "maint": 11638,
+   "miles": 107516
+  },
+  {
+   "id": "A014",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 46,
+   "profit": 31499,
+   "maint": 24398,
+   "miles": 63489
+  },
+  {
+   "id": "A015",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 40,
+   "profit": 46677,
+   "maint": 54152,
+   "miles": 115577
+  },
+  {
+   "id": "A016",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 16,
+   "profit": 111385,
+   "maint": 24940,
+   "miles": 158154
+  },
+  {
+   "id": "A017",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 16,
+   "profit": 70638,
+   "maint": 17853,
+   "miles": 111813
+  },
+  {
+   "id": "A018",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 47,
+   "profit": 71093,
+   "maint": 36046,
+   "miles": 116979
+  },
+  {
+   "id": "A019",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 48,
+   "profit": 66270,
+   "maint": 26489,
+   "miles": 110601
+  },
+  {
+   "id": "A020",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 24,
+   "profit": 119008,
+   "maint": 10558,
+   "miles": 157672
+  },
+  {
+   "id": "A021",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 32,
+   "profit": 29595,
+   "maint": 21983,
+   "miles": 61468
+  },
+  {
+   "id": "A022",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 41,
+   "profit": 86673,
+   "maint": 6668,
+   "miles": 115366
+  },
+  {
+   "id": "A023",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 24,
+   "profit": 124629,
+   "maint": 7252,
+   "miles": 158858
+  },
+  {
+   "id": "A024",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 36,
+   "profit": 42942,
+   "maint": 14467,
+   "miles": 63365
+  },
+  {
+   "id": "A025",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 20,
+   "profit": 73098,
+   "maint": 27953,
+   "miles": 116533
+  },
+  {
+   "id": "A026",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 51,
+   "profit": 81132,
+   "maint": 18504,
+   "miles": 117966
+  },
+  {
+   "id": "A027",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 17,
+   "profit": 86990,
+   "maint": 12603,
+   "miles": 114357
+  },
+  {
+   "id": "A028",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 19,
+   "profit": 125423,
+   "maint": 12155,
+   "miles": 163592
+  },
+  {
+   "id": "A029",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 41,
+   "profit": 40533,
+   "maint": 14559,
+   "miles": 63900
+  },
+  {
+   "id": "A030",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 35,
+   "profit": 62111,
+   "maint": 24016,
+   "miles": 109613
+  },
+  {
+   "id": "A031",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 34,
+   "profit": 103492,
+   "maint": 21263,
+   "miles": 156797
+  },
+  {
+   "id": "A032",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 30,
+   "profit": 115937,
+   "maint": 12000,
+   "miles": 156546
+  },
+  {
+   "id": "A033",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 46,
+   "profit": 117856,
+   "maint": 18586,
+   "miles": 167819
+  },
+  {
+   "id": "A034",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 41,
+   "profit": 122028,
+   "maint": 17457,
+   "miles": 159909
+  },
+  {
+   "id": "A035",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 36,
+   "profit": 114403,
+   "maint": 28499,
+   "miles": 162053
+  },
+  {
+   "id": "A036",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 30,
+   "profit": 112531,
+   "maint": 24344,
+   "miles": 155405
+  },
+  {
+   "id": "A037",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 32,
+   "profit": 26083,
+   "maint": 26541,
+   "miles": 63503
+  },
+  {
+   "id": "A038",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 50,
+   "profit": 91351,
+   "maint": 11381,
+   "miles": 119161
+  },
+  {
+   "id": "A039",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 17,
+   "profit": 128071,
+   "maint": 8407,
+   "miles": 162055
+  },
+  {
+   "id": "A040",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 32,
+   "profit": 108332,
+   "maint": 24095,
+   "miles": 161099
+  },
+  {
+   "id": "A041",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 22,
+   "profit": 86362,
+   "maint": 8769,
+   "miles": 113043
+  },
+  {
+   "id": "A042",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 18,
+   "profit": 73715,
+   "maint": 22461,
+   "miles": 113985
+  },
+  {
+   "id": "A043",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 21,
+   "profit": 125957,
+   "maint": 21301,
+   "miles": 163685
+  },
+  {
+   "id": "A044",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 32,
+   "profit": 111595,
+   "maint": 32117,
+   "miles": 161497
+  },
+  {
+   "id": "A045",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 49,
+   "profit": 106261,
+   "maint": 20679,
+   "miles": 157591
+  },
+  {
+   "id": "A046",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 46,
+   "profit": 136180,
+   "maint": 11684,
+   "miles": 162431
+  },
+  {
+   "id": "A047",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 35,
+   "profit": 126908,
+   "maint": 12429,
+   "miles": 160760
+  },
+  {
+   "id": "A048",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 37,
+   "profit": 47958,
+   "maint": 8061,
+   "miles": 66349
+  },
+  {
+   "id": "A049",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 34,
+   "profit": 80591,
+   "maint": 39113,
+   "miles": 152489
+  },
+  {
+   "id": "A050",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 32,
+   "profit": 87070,
+   "maint": 7267,
+   "miles": 112887
+  },
+  {
+   "id": "A051",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 45,
+   "profit": 115025,
+   "maint": 27771,
+   "miles": 159639
+  },
+  {
+   "id": "A052",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 24,
+   "profit": 29750,
+   "maint": 20579,
+   "miles": 63558
+  },
+  {
+   "id": "A053",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 28,
+   "profit": 92482,
+   "maint": 37621,
+   "miles": 156951
+  },
+  {
+   "id": "A054",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 25,
+   "profit": 119401,
+   "maint": 12110,
+   "miles": 160372
+  },
+  {
+   "id": "A055",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 35,
+   "profit": 88568,
+   "maint": 12813,
+   "miles": 113767
+  },
+  {
+   "id": "A056",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 23,
+   "profit": 109920,
+   "maint": 19455,
+   "miles": 154566
+  },
+  {
+   "id": "A057",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 45,
+   "profit": 67776,
+   "maint": 25426,
+   "miles": 115041
+  },
+  {
+   "id": "A058",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 45,
+   "profit": 108268,
+   "maint": 30383,
+   "miles": 160346
+  },
+  {
+   "id": "A059",
+   "type": "AI",
+   "lane": "Regional",
+   "age": 32,
+   "profit": 79465,
+   "maint": 11093,
+   "miles": 114406
+  },
+  {
+   "id": "A060",
+   "type": "AI",
+   "lane": "Long-haul",
+   "age": 33,
+   "profit": 104473,
+   "maint": 22763,
+   "miles": 156524
+  },
+  {
+   "id": "C001",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 36,
+   "profit": 63769,
+   "maint": 19782,
+   "miles": 65899
+  },
+  {
+   "id": "C002",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 49,
+   "profit": 57704,
+   "maint": 32633,
+   "miles": 96679
+  },
+  {
+   "id": "C003",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 31,
+   "profit": 71371,
+   "maint": 18012,
+   "miles": 65024
+  },
+  {
+   "id": "C004",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 29,
+   "profit": 77609,
+   "maint": 24417,
+   "miles": 133152
+  },
+  {
+   "id": "C005",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 64,
+   "profit": 65183,
+   "maint": 27004,
+   "miles": 96421
+  },
+  {
+   "id": "C006",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 19,
+   "profit": 77531,
+   "maint": 5471,
+   "miles": 64621
+  },
+  {
+   "id": "C007",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 70,
+   "profit": 85998,
+   "maint": 9216,
+   "miles": 128819
+  },
+  {
+   "id": "C008",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 42,
+   "profit": 82613,
+   "maint": 3606,
+   "miles": 65182
+  },
+  {
+   "id": "C009",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 33,
+   "profit": 83815,
+   "maint": 3822,
+   "miles": 66256
+  },
+  {
+   "id": "C010",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 54,
+   "profit": 74593,
+   "maint": 12576,
+   "miles": 66170
+  },
+  {
+   "id": "C011",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 53,
+   "profit": 68824,
+   "maint": 33750,
+   "miles": 131818
+  },
+  {
+   "id": "C012",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 47,
+   "profit": 90419,
+   "maint": 3558,
+   "miles": 129041
+  },
+  {
+   "id": "C013",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 53,
+   "profit": 71893,
+   "maint": 19160,
+   "miles": 101982
+  },
+  {
+   "id": "C014",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 16,
+   "profit": 68481,
+   "maint": 25960,
+   "miles": 102612
+  },
+  {
+   "id": "C015",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 47,
+   "profit": 67943,
+   "maint": 21827,
+   "miles": 126904
+  },
+  {
+   "id": "C016",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 68,
+   "profit": 38712,
+   "maint": 55518,
+   "miles": 126998
+  },
+  {
+   "id": "C017",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 66,
+   "profit": 76426,
+   "maint": 22666,
+   "miles": 104542
+  },
+  {
+   "id": "C018",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 25,
+   "profit": 92382,
+   "maint": 5217,
+   "miles": 126761
+  },
+  {
+   "id": "C019",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 24,
+   "profit": 88228,
+   "maint": 8620,
+   "miles": 67728
+  },
+  {
+   "id": "C020",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 52,
+   "profit": 57165,
+   "maint": 20374,
+   "miles": 97479
+  },
+  {
+   "id": "C021",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 26,
+   "profit": 103074,
+   "maint": 6480,
+   "miles": 136160
+  },
+  {
+   "id": "C022",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 75,
+   "profit": 86219,
+   "maint": 7616,
+   "miles": 99390
+  },
+  {
+   "id": "C023",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 42,
+   "profit": 84007,
+   "maint": 8536,
+   "miles": 67128
+  },
+  {
+   "id": "C024",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 48,
+   "profit": 77688,
+   "maint": 8564,
+   "miles": 128741
+  },
+  {
+   "id": "C025",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 36,
+   "profit": 87989,
+   "maint": 6558,
+   "miles": 98835
+  },
+  {
+   "id": "C026",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 47,
+   "profit": 78889,
+   "maint": 6805,
+   "miles": 65331
+  },
+  {
+   "id": "C027",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 70,
+   "profit": 79259,
+   "maint": 13871,
+   "miles": 101019
+  },
+  {
+   "id": "C028",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 41,
+   "profit": 88970,
+   "maint": 13911,
+   "miles": 132000
+  },
+  {
+   "id": "C029",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 59,
+   "profit": 74290,
+   "maint": 20262,
+   "miles": 131141
+  },
+  {
+   "id": "C030",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 51,
+   "profit": 68184,
+   "maint": 29295,
+   "miles": 127894
+  },
+  {
+   "id": "C031",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 20,
+   "profit": 56618,
+   "maint": 34053,
+   "miles": 127176
+  },
+  {
+   "id": "C032",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 58,
+   "profit": 86632,
+   "maint": 12276,
+   "miles": 98203
+  },
+  {
+   "id": "C033",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 51,
+   "profit": 68034,
+   "maint": 25655,
+   "miles": 99213
+  },
+  {
+   "id": "C034",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 51,
+   "profit": 41441,
+   "maint": 47051,
+   "miles": 126921
+  },
+  {
+   "id": "C035",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 28,
+   "profit": 47862,
+   "maint": 38424,
+   "miles": 123510
+  },
+  {
+   "id": "C036",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 31,
+   "profit": 77102,
+   "maint": 14986,
+   "miles": 130003
+  },
+  {
+   "id": "C037",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 45,
+   "profit": 64524,
+   "maint": 29085,
+   "miles": 130898
+  },
+  {
+   "id": "C038",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 33,
+   "profit": 83563,
+   "maint": 11257,
+   "miles": 100574
+  },
+  {
+   "id": "C039",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 38,
+   "profit": 66264,
+   "maint": 22734,
+   "miles": 98280
+  },
+  {
+   "id": "C040",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 53,
+   "profit": 70226,
+   "maint": 22989,
+   "miles": 127337
+  },
+  {
+   "id": "C041",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 45,
+   "profit": 61349,
+   "maint": 26128,
+   "miles": 64107
+  },
+  {
+   "id": "C042",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 33,
+   "profit": 80106,
+   "maint": 8604,
+   "miles": 64801
+  },
+  {
+   "id": "C043",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 27,
+   "profit": 73907,
+   "maint": 19521,
+   "miles": 99760
+  },
+  {
+   "id": "C044",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 48,
+   "profit": 90057,
+   "maint": 9908,
+   "miles": 135114
+  },
+  {
+   "id": "C045",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 33,
+   "profit": 83185,
+   "maint": 7286,
+   "miles": 104325
+  },
+  {
+   "id": "C046",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 63,
+   "profit": 82742,
+   "maint": 11016,
+   "miles": 102030
+  },
+  {
+   "id": "C047",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 74,
+   "profit": 74844,
+   "maint": 14015,
+   "miles": 64697
+  },
+  {
+   "id": "C048",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 29,
+   "profit": 82811,
+   "maint": 8163,
+   "miles": 100064
+  },
+  {
+   "id": "C049",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 70,
+   "profit": 73337,
+   "maint": 12490,
+   "miles": 97677
+  },
+  {
+   "id": "C050",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 36,
+   "profit": 74596,
+   "maint": 21641,
+   "miles": 101745
+  },
+  {
+   "id": "C051",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 64,
+   "profit": 68348,
+   "maint": 21468,
+   "miles": 99042
+  },
+  {
+   "id": "C052",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 55,
+   "profit": 83457,
+   "maint": 20589,
+   "miles": 129147
+  },
+  {
+   "id": "C053",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 57,
+   "profit": 48921,
+   "maint": 42567,
+   "miles": 125811
+  },
+  {
+   "id": "C054",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 19,
+   "profit": 88536,
+   "maint": 15617,
+   "miles": 135425
+  },
+  {
+   "id": "C055",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 66,
+   "profit": 80573,
+   "maint": 21009,
+   "miles": 127045
+  },
+  {
+   "id": "C056",
+   "type": "Conventional",
+   "lane": "Urban",
+   "age": 17,
+   "profit": 83995,
+   "maint": 2076,
+   "miles": 64572
+  },
+  {
+   "id": "C057",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 35,
+   "profit": 79204,
+   "maint": 8362,
+   "miles": 98355
+  },
+  {
+   "id": "C058",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 46,
+   "profit": 62713,
+   "maint": 36954,
+   "miles": 100953
+  },
+  {
+   "id": "C059",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 17,
+   "profit": 82810,
+   "maint": 19471,
+   "miles": 130900
+  },
+  {
+   "id": "C060",
+   "type": "Conventional",
+   "lane": "Regional",
+   "age": 55,
+   "profit": 49462,
+   "maint": 35740,
+   "miles": 100858
+  }
+ ],
+ "watch": [
+  {
+   "id": "A037",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 32,
+   "profit": 26083,
+   "maint": 26541
+  },
+  {
+   "id": "A012",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 48,
+   "profit": 26198,
+   "maint": 37539
+  },
+  {
+   "id": "A021",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 32,
+   "profit": 29595,
+   "maint": 21983
+  },
+  {
+   "id": "A052",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 24,
+   "profit": 29750,
+   "maint": 20579
+  },
+  {
+   "id": "A014",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 46,
+   "profit": 31499,
+   "maint": 24398
+  },
+  {
+   "id": "C016",
+   "type": "Conventional",
+   "lane": "Long-haul",
+   "age": 68,
+   "profit": 38712,
+   "maint": 55518
+  },
+  {
+   "id": "A006",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 21,
+   "profit": 39739,
+   "maint": 15691
+  },
+  {
+   "id": "A029",
+   "type": "AI",
+   "lane": "Urban",
+   "age": 41,
+   "profit": 40533,
+   "maint": 14559
+  }
+ ],
+ "ttm_counts": {
+  "n": 120,
+  "loss": 0,
+  "loss_ai": 0,
+  "loss_conv": 0
+ },
+ "calc": {
+  "diesel_ttm": 4.057833333333334,
+  "slope": {
+   "AI": 0.00264883765255441,
+   "Conventional": 0.0012175040552865604
+  },
+  "rate": 0.08,
+  "life_months": 84,
+  "cells": {
+   "Long-haul|AI": {
+    "miles": 13233.571103526734,
+    "rev_pm": 2.611983209452282,
+    "gal_pm": 0.13521506930505095,
+    "driver_pm": 0.6725189126251718,
+    "other_pm": 0.11989567935308457,
+    "maint_pm": 0.1276540461571301,
+    "mean_age": 17.37428896473265,
+    "ins": 1650.0,
+    "software": 1650.0,
+    "acq": 237374.1935483871,
+    "resid": 0.21999999999999995
+   },
+   "Long-haul|Conventional": {
+    "miles": 10842.821566110399,
+    "rev_pm": 2.594487479718315,
+    "gal_pm": 0.1470743677991248,
+    "driver_pm": 0.837325991249927,
+    "other_pm": 0.12023343709946702,
+    "maint_pm": 0.16567959516764108,
+    "mean_age": 30.051347881899872,
+    "ins": 1450.0,
+    "software": 95.0,
+    "acq": 163641.66666666666,
+    "resid": 0.28
+   },
+   "Regional|AI": {
+    "miles": 9440.123711340206,
+    "rev_pm": 2.927392329741461,
+    "gal_pm": 0.14821533487841096,
+    "driver_pm": 0.776582422546737,
+    "other_pm": 0.12027893476554707,
+    "maint_pm": 0.13915069877935668,
+    "mean_age": 20.895189003436425,
+    "ins": 1650.0,
+    "software": 1650.0,
+    "acq": 229385.0,
+    "resid": 0.22000000000000003
+   },
+   "Regional|Conventional": {
+    "miles": 8368.730720606827,
+    "rev_pm": 2.9097039266307774,
+    "gal_pm": 0.1586876353917581,
+    "driver_pm": 0.8567399533450781,
+    "other_pm": 0.11979327506856086,
+    "maint_pm": 0.16917151862344715,
+    "mean_age": 32.92920353982301,
+    "ins": 1450.0,
+    "software": 95.0,
+    "acq": 155530.4347826087,
+    "resid": 0.2800000000000001
+   },
+   "Urban|AI": {
+    "miles": 5323.610921501707,
+    "rev_pm": 3.830700870489618,
+    "gal_pm": 0.17571246377471386,
+    "driver_pm": 1.0887622658540932,
+    "other_pm": 0.12074013763144163,
+    "maint_pm": 0.22271741318538446,
+    "mean_age": 20.22184300341297,
+    "ins": 1650.0,
+    "software": 1650.0,
+    "acq": 224444.44444444444,
+    "resid": 0.22
+   },
+   "Urban|Conventional": {
+    "miles": 5457.946987951807,
+    "rev_pm": 3.8328874853790182,
+    "gal_pm": 0.17893347881975713,
+    "driver_pm": 1.0994305418693116,
+    "other_pm": 0.11959385849659698,
+    "maint_pm": 0.1598903290349697,
+    "mean_age": 24.31566265060241,
+    "ins": 1450.0,
+    "software": 95.0,
+    "acq": 150438.46153846153,
+    "resid": 0.28000000000000014
+   }
+  },
+  "defaults": {
+   "diesel": 4.057833333333334,
+   "premium": 75100.0,
+   "util": 0.0,
+   "software": 1650.0
+  }
+ },
+ "fleet": {
+  "vehicles": 120,
+  "ai": 60,
+  "conv": 60,
+  "vehicle_months": 3739,
+  "events": 2417,
+  "first": "2023-10",
+  "last": "2026-09",
+  "premium": 75100.0
+ },
+ "payback_default": {
+  "Long-haul": {
+   "payback": 19,
+   "npv_adv": 139163.5939717135,
+   "cum_adv_end": 199471.83347920876,
+   "monthly_adv": 3318.251381455986
+  },
+  "Regional": {
+   "payback": null,
+   "npv_adv": -27323.892830391997,
+   "cum_adv_end": -16037.168222210137,
+   "monthly_adv": 702.273434713481
+  },
+  "Urban": {
+   "payback": null,
+   "npv_adv": -222379.43991841175,
+   "cum_adv_end": -268877.6014639019,
+   "monthly_adv": -2357.8033652739086
+  }
+ }
+}

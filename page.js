@@ -253,7 +253,109 @@ function buildRest(){
 function build(){
   Chart.defaults.font.family=font;Chart.defaults.font.size=12;Chart.defaults.color=css('--ink2');Chart.defaults.borderColor=css('--line');
   Object.keys(reg).forEach(function(k){reg[k].destroy();delete reg[k];});
-  buildSup();buildSvc();buildBridge();buildRest();buildHeat();buildTrend();buildFunnel();buildChurn();buildAB();buildPrio();
+  buildSup();buildSvc();buildBridge();buildRest();buildHeat();buildTrend();buildFunnel();buildChurn();buildAB();buildPrio();buildFlCpm();buildFlLane();buildFlMaint();buildFlAge();buildFlScat();buildFlPay();
+}
+
+
+/* ---------- Project 4: fleet ---------- */
+var FL=D.fl, FS={lane:'All',m:'events',s:'All',p:'Long-haul',diesel:FL.calc.defaults.diesel,prem:FL.calc.defaults.premium,util:0,soft:FL.calc.defaults.software};
+var TCOL={AI:'--c1',Conventional:'--c3'};
+function usd0(v){return (v<0?'-':'')+'$'+Math.abs(Math.round(v)).toLocaleString();}
+function usdK(v){return (v<0?'-':'')+'$'+(Math.abs(v)/1000).toFixed(0)+'K';}
+var CATS=[['depreciation','Depreciation','--c1'],['fuel','Fuel','--c4'],['driver','Driver','--c3'],['maintenance','Maintenance','--c2'],['insurance','Insurance','--axis'],['software','Software and telematics','--muted'],['other','Tolls and other','--line']];
+var revMarks={id:'revMarks',afterDatasetsDraw:function(chart,args,o){
+  var ctx=chart.ctx,x=chart.scales.x,meta=chart.getDatasetMeta(0);
+  meta.data.forEach(function(el,i){var px=x.getPixelForValue(o.rev[i]),h=el.height/2+6;
+    ctx.save();ctx.strokeStyle=css('--ink');ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(px,el.y-h);ctx.lineTo(px,el.y+h);ctx.stroke();
+    ctx.fillStyle=css('--ink');ctx.font='600 12px '+font;ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText('Revenue $'+o.rev[i].toFixed(2),px+6,el.y-h+2);ctx.restore();});}};
+function buildFlCpm(){
+  var c=FL.cpm[FS.lane],T=['AI','Conventional'],lab=['AI-equipped','Conventional'];
+  mk('c-fl-cpm',{type:'bar',data:{labels:lab,datasets:CATS.map(function(k){return {label:k[1],data:T.map(function(t){return c[t][k[0]];}),backgroundColor:css(k[2]),borderWidth:1,borderColor:css('--surface')};})},
+   options:Object.assign(base(),{indexAxis:'y',layout:{padding:{top:4,right:20}},plugins:{legend:legend(),tooltip:tip({label:function(x){return x.dataset.label+': $'+x.parsed.x.toFixed(2)+' per mile';}}),revMarks:{rev:T.map(function(t){return c[t].revenue;})}},
+    scales:{x:ax('Dollars per mile',{ticks:{callback:function(v){return '$'+v.toFixed(2);}}},{stacked:true,min:0}),y:ax(null,{grid:{display:false}},{stacked:true})}}),plugins:[revMarks]});
+}
+function flCpmRead(){
+  var a=FL.cpm[FS.lane].AI,c=FL.cpm[FS.lane].Conventional;
+  $('fl-cpm-read').innerHTML='<strong>'+FS.lane+'</strong>: AI costs <strong>$'+a.total_cost.toFixed(2)+'</strong> per mile against <strong>$'+c.total_cost.toFixed(2)+'</strong>, with revenue near $'+a.revenue.toFixed(2)+'. Profit per vehicle-month: <strong>'+usd0(a.profit_pvm)+'</strong> AI vs <strong>'+usd0(c.profit_pvm)+'</strong> conventional.';
+}
+var ciBars={id:'ciBars',afterDatasetsDraw:function(chart){
+  var ctx=chart.ctx,y=chart.scales.y,ds=chart.data.datasets[0],meta=chart.getDatasetMeta(0);
+  meta.data.forEach(function(el,i){var ci=ds.ci[i],lo=y.getPixelForValue(ci[0]),hi=y.getPixelForValue(ci[1]);
+    ctx.save();ctx.strokeStyle=css('--ink');ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(el.x,lo);ctx.lineTo(el.x,hi);ctx.moveTo(el.x-8,lo);ctx.lineTo(el.x+8,lo);ctx.moveTo(el.x-8,hi);ctx.lineTo(el.x+8,hi);ctx.stroke();
+    var v=ds.data[i];ctx.fillStyle=css('--ink');ctx.font='600 13px '+font;ctx.textAlign='center';
+    if(v>=0){ctx.textBaseline='bottom';ctx.fillText(usd0(v),el.x+30,hi-4);}else{ctx.textBaseline='top';ctx.fillText(usd0(v),el.x+30,lo+4);}ctx.restore();});}};
+function buildFlLane(){
+  var st=FL.stats,L=['Long-haul','Regional','Urban'],lab=L.concat(['All, adjusted']);
+  var d=L.map(function(l){return Math.round(st.lane[l].diff);}).concat([Math.round(st.adjusted)]);
+  var ci=L.map(function(l){return [st.lane[l].lo,st.lane[l].hi];}).concat([[st.adj_lo,st.adj_hi]]);
+  mk('c-fl-lane',{type:'bar',data:{labels:lab,datasets:[{data:d,ci:ci,backgroundColor:d.map(function(v,i){return css(i===3?'--muted':(v>=0?'--c1':'--c2'));}),barPercentage:.5,borderRadius:3}]},
+   options:Object.assign(base(),{layout:{padding:{top:26,right:30,bottom:10}},plugins:{legend:{display:false},tooltip:tip({label:function(c){var k=c.dataset.ci[c.dataIndex];return usd0(c.parsed.y)+' per vehicle-month (95% CI '+usd0(k[0])+' to '+usd0(k[1])+')';}})},
+    scales:{x:ax(null,{grid:{display:false}}),y:ax('AI minus conventional, profit per vehicle-month',{ticks:{callback:function(v){return usd0(v);}}})}}),plugins:[ciBars]});
+}
+var KINDS=['Preventive','Corrective','Breakdown','Sensor refresh'];
+function flMaintVal(t,k){var m=FL.maint[t].kinds[k],mi=FL.cpm.All[t].vehicle_months*FL.cpm.All[t].miles_pm;
+  if(FS.m==='events')return m.per_100k;if(FS.m==='cost')return m.avg_cost;return m.downtime/mi*1e5;}
+function flMaintFmt(v){if(FS.m==='events')return v.toFixed(2);if(FS.m==='cost')return usd0(v);return v.toFixed(0)+' h';}
+function buildFlMaint(){
+  var T=['AI','Conventional'],name={AI:'AI-equipped',Conventional:'Conventional'};
+  mk('c-fl-maint',{type:'bar',data:{labels:KINDS,datasets:T.map(function(t){return {label:name[t],data:KINDS.map(function(k){return flMaintVal(t,k);}),backgroundColor:css(TCOL[t]),borderRadius:{topLeft:3,topRight:3},barPercentage:.8,categoryPercentage:.7};})},
+   options:Object.assign(base(),{layout:{padding:{top:22,right:8}},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+flMaintFmt(c.parsed.y);}})},
+    scales:{x:ax(null,{grid:{display:false}}),y:ax(FS.m==='events'?'Events per 100,000 miles':(FS.m==='cost'?'Average cost per event':'Downtime hours per 100,000 miles'),{ticks:{callback:function(v){return FS.m==='cost'?usd0(v):v;}}},{min:0})}}),
+   plugins:[valueLabels(function(v){return v>0?flMaintFmt(v):'';})]});
+}
+function flMaintRead(){
+  var a=KINDS.reduce(function(s,k){return s+flMaintVal('AI',k);},0),c=KINDS.reduce(function(s,k){return s+flMaintVal('Conventional',k);},0);
+  var txt=FS.m==='events'?'Breakdowns are the costly event: AI '+flMaintVal('AI','Breakdown').toFixed(2)+' vs conventional '+flMaintVal('Conventional','Breakdown').toFixed(2)+' per 100,000 miles.':
+    FS.m==='cost'?'Preventive and corrective work costs more on AI units and breakdowns cost about the same. Sensor refreshes alone average '+usd0(flMaintVal('AI','Sensor refresh'))+'.':
+    'AI units lose '+(a).toFixed(0)+' hours per 100,000 miles to the shop against '+(c).toFixed(0)+' conventional, with sensor refreshes adding a long outage each time.';
+  $('fl-m-read').innerHTML=txt;
+}
+function buildFlAge(){
+  var A=FL.age;
+  mk('c-fl-age',{type:'line',data:{labels:A.labels,datasets:[
+    {label:'AI-equipped',endLabel:'AI-equipped',data:A.AI,borderColor:css(TCOL.AI),backgroundColor:css(TCOL.AI),pointStyle:'circle',pointRadius:5,borderWidth:2.5,spanGaps:false},
+    {label:'Conventional',endLabel:'Conventional',data:A.Conventional,borderColor:css(TCOL.Conventional),backgroundColor:css(TCOL.Conventional),pointStyle:'rect',pointRadius:5,borderWidth:2.5,borderDash:[6,4],spanGaps:false}]},
+   options:Object.assign(base(),{layout:{padding:{top:8,right:8}},interaction:{mode:'index',intersect:false},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.parsed.y==null?'':c.dataset.label+': $'+c.parsed.y.toFixed(3)+' per mile';}})},
+    scales:{x:ax('Vehicle age when the cost was incurred',{grid:{display:false}}),y:ax('Maintenance cost per mile',{ticks:{callback:function(v){return '$'+v.toFixed(2);}}},{min:0})}})});
+}
+function flScatPts(t){return FL.vehicles.filter(function(v){return v.type===t&&(FS.s==='All'||v.lane===FS.s);}).map(function(v){return {x:v.age,y:v.profit,id:v.id,lane:v.lane};});}
+function buildFlScat(){
+  mk('c-fl-scat',{type:'scatter',data:{datasets:[
+    {label:'AI-equipped',data:flScatPts('AI'),backgroundColor:css(TCOL.AI),pointStyle:'circle',pointRadius:5,pointHoverRadius:8},
+    {label:'Conventional',data:flScatPts('Conventional'),backgroundColor:css(TCOL.Conventional),pointStyle:'rect',pointRadius:5,pointHoverRadius:8}]},
+   options:Object.assign(base(),{plugins:{legend:legend(),tooltip:tip({label:function(c){var p=c.raw;return p.id+' ('+p.lane+'): '+usd0(p.y)+' profit, '+p.x+' months old';}})},
+    scales:{x:ax('Vehicle age (months)',{grid:{display:false}},{min:0}),y:ax('Operating profit, last 12 months',{ticks:{callback:function(v){return usdK(v);}}},{min:0})}})});
+}
+function flScatRead(){
+  var out=['AI','Conventional'].map(function(t){var p=flScatPts(t).map(function(v){return v.y;});var m=p.length?p.reduce(function(a,b){return a+b;},0)/p.length:0;return [t,p.length,m];});
+  $('fl-s-read').innerHTML=out.map(function(o){return '<strong>'+(o[0]==='AI'?'AI-equipped':'Conventional')+'</strong>: '+o[1]+' tractors, average '+usd0(o[2])+' a year. ';}).join('');
+}
+/* payback calculator (mirrors fleet/02_analyze.py) */
+function flUnit(lane,typ,age){
+  var c=FL.calc.cells[lane+'|'+typ],m=c.miles*(1+(typ==='AI'?FS.util/100:0)),
+      maint=Math.max(0.03,c.maint_pm+FL.calc.slope[typ]*(age-c.mean_age));
+  return m*(c.rev_pm-c.gal_pm*FS.diesel-c.driver_pm-c.other_pm-maint)-c.ins-(typ==='AI'?FS.soft:c.software);
+}
+function flProject(){
+  var T=['AI','Conventional'],life=FL.calc.life_months,r=FL.calc.rate/12,acq={},cum={},npv={},lane=FS.p;
+  T.forEach(function(t){var c=FL.calc.cells[lane+'|'+t];acq[t]=c.acq+(t==='AI'?FS.prem-FL.fleet.premium:0);cum[t]=[-acq[t]];npv[t]=-acq[t];});
+  for(var m=1;m<=life;m++){T.forEach(function(t){var cash=flUnit(lane,t,m);cum[t].push(cum[t][m-1]+cash);npv[t]+=cash/Math.pow(1+r,m);});}
+  T.forEach(function(t){var res=FL.calc.cells[lane+'|'+t].resid*acq[t];cum[t][life]+=res;npv[t]+=res/Math.pow(1+r,life);});
+  var diff=cum.AI.map(function(v,i){return v-cum.Conventional[i];}),pay=-1;
+  for(var i=0;i<diff.length;i++){if(diff[i]>=0){pay=i;break;}}
+  return {diff:diff,pay:pay,npv:npv.AI-npv.Conventional};
+}
+function buildFlPay(){
+  var P=flProject(),labels=P.diff.map(function(_,i){return i;});
+  mk('c-fl-pay',{type:'line',data:{labels:labels,datasets:[{label:'AI minus conventional, cumulative cash per truck',data:P.diff,borderColor:css('--c1'),backgroundColor:rgba(css('--c1').indexOf('#')===0?css('--c1'):'#2a78d6',.12),fill:{target:{value:0},above:rgba('#2a78d6',.14),below:rgba('#d95926',.14)},pointRadius:0,borderWidth:2.5,tension:0}]},
+   options:Object.assign(base(),{layout:{padding:{top:8,right:8}},interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:tip({title:function(i){return 'Month '+i[0].label;},label:function(c){return usd0(c.parsed.y)+' cumulative advantage';}})},
+    scales:{x:ax('Months in service',{grid:{display:false},ticks:{maxTicksLimit:8}}),y:ax('Cumulative cash advantage',{ticks:{callback:function(v){return usdK(v);}}})}})});
+}
+function flPayRead(){
+  var P=flProject();
+  $('fl-diesel-out').textContent='$'+FS.diesel.toFixed(2);$('fl-prem-out').textContent=usd0(FS.prem);$('fl-util-out').textContent=(FS.util>0?'+':'')+FS.util+'%';$('fl-soft-out').textContent=usd0(FS.soft);
+  $('fl-npv').textContent=(P.npv>=0?'+':'-')+usd0(Math.abs(P.npv))+' per truck';
+  $('fl-pay').textContent=P.pay<0?'No payback within the 7-year life on '+FS.p+' lanes.':'Payback after '+P.pay+' months on '+FS.p+' lanes.';
 }
 
 /* ---------- controls ---------- */
@@ -273,6 +375,15 @@ function wire(){
     function ok(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email';},1800);}
     try{navigator.clipboard.writeText($('email-text').textContent).then(ok,fallback);}catch(e){fallback();}
   });
+  function segWire(id,attr,key,after){Array.prototype.forEach.call(document.querySelectorAll('#'+id+' button'),function(b){b.addEventListener('click',function(){
+    FS[key]=b.getAttribute(attr);Array.prototype.forEach.call(document.querySelectorAll('#'+id+' button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});after();});});}
+  segWire('fl-lane','data-l','lane',function(){flCpmRead();buildFlCpm();});
+  segWire('fl-m','data-m','m',function(){flMaintRead();buildFlMaint();});
+  segWire('fl-s','data-s','s',function(){flScatRead();buildFlScat();});
+  segWire('fl-p','data-p','p',function(){flPayRead();buildFlPay();});
+  [['fl-diesel','diesel',1],['fl-prem','prem',1],['fl-util','util',1],['fl-soft','soft',1]].forEach(function(a){on(a[0],'input',function(){FS[a[1]]=parseFloat($(a[0]).value);flPayRead();buildFlPay();});});
+  on('fl-reset','click',function(){FS.diesel=FL.calc.defaults.diesel;FS.prem=FL.calc.defaults.premium;FS.util=0;FS.soft=FL.calc.defaults.software;
+    $('fl-diesel').value=FS.diesel.toFixed(2);$('fl-prem').value=FS.prem;$('fl-util').value=0;$('fl-soft').value=FS.soft;flPayRead();buildFlPay();});
   /* theme toggle */
   var tb=$('theme-btn');
   function effective(){var t=document.documentElement.getAttribute('data-theme');if(t)return t;return (window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}
@@ -283,7 +394,7 @@ function wire(){
   new MutationObserver(function(){label();if(window.Chart)build();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 }
 
-supRead();svcRead();bridgeRead();scenRead();churnRead();wire();
+supRead();svcRead();bridgeRead();scenRead();churnRead();flCpmRead();flMaintRead();flScatRead();flPayRead();wire();
 function boot(){if(!window.Chart){setTimeout(boot,100);return;}build();}
 boot();
 })();

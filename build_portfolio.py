@@ -12,9 +12,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SC = json.load(open(os.path.join(HERE, "supply_chain", "results.json")))
 FN = json.load(open(os.path.join(HERE, "finance", "results.json")))
 BA = json.load(open(os.path.join(HERE, "business_analysis", "results.json")))
+FL = json.load(open(os.path.join(HERE, "fleet", "results.json")))
 import sys
 sys.path.insert(0, HERE)
 import ba_content
+import fleet_content
+d0 = fleet_content.d0
 
 
 def sql_block(path, name):
@@ -162,18 +165,20 @@ fn_limits = (
     "The tornado moves one driver at a time.")
 
 skills = [
-    ("SQL", "CTEs, window functions (RANK, LAG, moving averages), conditional aggregation, multi-table joins. All three projects start from a query file.", "All three projects"),
-    ("Python", "pandas, NumPy and scikit-learn in scripts that rebuild every number from the raw tables.", "All three projects"),
+    ("SQL", "CTEs, window functions (RANK, LAG, moving averages), conditional aggregation, multi-table joins. All three projects start from a query file.", "All four projects"),
+    ("Python", "pandas, NumPy and scikit-learn in scripts that rebuild every number from the raw tables.", "All four projects"),
     ("Forecasting", "Rolling-origin backtests, WAPE and MAPE, baseline comparison, bootstrap prediction intervals.", "Weekly demand, monthly revenue"),
     ("Simulation", "Monte Carlo test of a reorder policy using bootstrapped lead times and demand.", "Supply chain"),
     ("Variance analysis", "Price, volume, cost and opex bridge that reconciles exactly to the EBITDA variance, checked by an assertion.", "Finance"),
-    ("Domain metrics", "OTIF, ABC classification, safety stock, supplier scorecards, DSO, gross margin, EBITDA.", "All three projects"),
+    ("Domain metrics", "OTIF, ABC classification, safety stock, supplier scorecards, DSO, gross margin, EBITDA.", "All four projects"),
     ("Scenario work", "Base, upside and downside cases and a one-driver-at-a-time sensitivity.", "Finance"),
     ("Business analysis", "Stakeholder framing, testable hypotheses, a KPI dictionary and a prioritized business case with stated assumptions.", "Project 3"),
     ("Experimentation", "A/B test checks (split balance, detectable effect), z-tests, confidence intervals and guardrail metrics.", "Project 3"),
     ("Cohort and funnel analysis", "Recursive-CTE cohorts, funnel by channel, churn segmentation and a mix-shift decomposition.", "Project 3"),
-    ("Data visualization", "Sixteen chart types, one color system, uncertainty shown, light and dark themes, interactive controls.", "All three projects"),
-    ("Communication", "Each section leads with the finding, ends with a recommendation and lists the limits of the data.", "All three projects"),
+    ("Data visualization", "Twenty-two chart types, one color system, uncertainty shown, light and dark themes, interactive controls.", "All four projects"),
+    ("Fleet economics", "Cost per mile by category, maintenance frequency and age curves, vehicle-level profitability and lane segmentation for AI-equipped vs conventional trucks.", "Project 4"),
+    ("Unit economics and payback", "Adjusting a naive comparison for lane mix and age, bootstrap intervals by vehicle, and a live 7-year payback and NPV model.", "Project 4"),
+    ("Communication", "Each section leads with the finding, ends with a recommendation and lists the limits of the data.", "All four projects"),
 ]
 skills_html = "".join(
     f"<div class='skill'><h3>{n}</h3><p>{d}</p><span class='tag'>{w}</span></div>" for n, d, w in skills)
@@ -323,6 +328,9 @@ summary2 = summary(
      f"FY2026 EBITDA is heading for {M(fy['ebitda_outlook'])} against a {M(fy['ebitda_budget'])} budget. The revenue model backtests at {bt['Total company']['reg']}% error."])
 ba = ba_content.make(BA, finding, K, None)
 summary3 = summary(ba["summary_text"], ba["summary_results"])
+fl = fleet_content.make(FL, finding)
+summary4 = summary(fl["summary_text"], fl["summary_results"])
+fl_sql = sql_block(os.path.join(HERE, "fleet", "queries.sql"), "maintenance_by_age")
 ba_sql = sql_block(os.path.join(HERE, "business_analysis", "queries.sql"), "cohort_retention")
 
 viz_rows = [
@@ -342,8 +350,14 @@ viz_rows = [
     ("Segment bars with selector", "Which segment churns most?", "Project 3", "c-churn"),
     ("Bars with confidence whiskers", "Is the test result real?", "Project 3", "c-ab"),
     ("Bubble matrix", "What should we do first?", "Project 3", "c-prio"),
+    ("Stacked cost bars with revenue marker", "Where does each mile's money go?", "Project 4", "c-fl-cpm"),
+    ("Effect bars with 95% whiskers", "Is the gap real after adjustment?", "Project 4", "c-fl-lane"),
+    ("Grouped bars with measure switch", "Where do maintenance dollars and hours go?", "Project 4", "c-fl-maint"),
+    ("Age curve", "Do costs change as the asset ages?", "Project 4", "c-fl-age"),
+    ("Filtered scatter", "Which individual assets are weak?", "Project 4", "c-fl-scat"),
+    ("Cumulative payback curve with sliders", "When does the extra spend pay back?", "Project 4", "c-fl-pay"),
 ]
-assert len(viz_rows) == 16
+assert len(viz_rows) == 22
 viz_table = ("<div class=\"tbl-wrap\"><table><thead><tr><th>Chart</th><th>Question it answers</th><th>See it in</th></tr></thead><tbody>"
              + "".join(f"<tr><td>{a}</td><td class=\"wrap\">{b}</td><td><a href=\"#f-{d}\">{c}</a></td></tr>" for a, b, c, d in viz_rows)
              + "</tbody></table></div>")
@@ -380,6 +394,7 @@ D = {
 D["ba"] = {"funnel": BA["funnel"], "heat": BA["heat"], "segments": BA["segments"], "overall_churn6": BA["overall_churn6"],
            "trend": BA["trend"], "experiment": BA["experiment"],
            "initiatives": [dict(i, short=ba_content.SHORT[n]) for n, i in enumerate(BA["initiatives"])]}
+D["fl"] = {k_: FL[k_] for k_ in ("cpm", "maint", "age", "stats", "vehicles", "calc", "fleet")}
 for _row in D["sc"]["scorecard"]:
     _row["spend"] = next(r["spend"] for r in card if r["supplier_id"] == _row["supplier_id"])
 D["fn"]["by_bu"] = FN["bridge"]["by_bu"]
@@ -500,6 +515,8 @@ output{font-variant-numeric:tabular-nums;font-weight:600}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 select{background:var(--surface);color:var(--ink);border:1px solid var(--axis);border-radius:4px;padding:7px 10px;font-size:.9rem}
 .scen{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:10px}
+.sl.wide{grid-template-columns:130px minmax(0,1fr) 76px}
+td.num,th.num{text-align:right}
 .sl{display:grid;grid-template-columns:84px minmax(0,1fr) 56px;align-items:center;gap:12px}
 .sl label{font-size:.9rem}
 .sl input{width:100%;accent-color:var(--accent)}
@@ -548,7 +565,7 @@ page = f"""<title>Nischal Malla Analytics Portfolio</title>
 <div class="wrap">
 <nav>
   <span class="brand">Nischal Malla</span>
-  <div class="nav-r"><div class="links"><a href="#skills">Skills</a><a href="#supply-chain">Supply chain</a><a href="#finance">Finance</a><a href="#business-analysis">Business analysis</a><a href="#visualization">Visualization</a><a href="#contact">Contact</a></div>
+  <div class="nav-r"><div class="links"><a href="#skills">Skills</a><a href="#supply-chain">Supply chain</a><a href="#finance">Finance</a><a href="#business-analysis">Business analysis</a><a href="#fleet">Fleet</a><a href="#visualization">Visualization</a><a href="#contact">Contact</a></div>
   <button type="button" id="theme-btn" class="tbtn">Dark mode</button></div>
 </nav>
 
@@ -561,12 +578,13 @@ page = f"""<title>Nischal Malla Analytics Portfolio</title>
     <a href="#supply-chain"><h2>Supplier performance and inventory risk</h2><p>{prob['n']} suppliers miss 60% OTIF. A variability-aware reorder policy lifts simulated service on Class A SKUs from {sim['service_now_pct']}% to {sim['service_new_pct']}%.</p></a>
     <a href="#finance"><h2>Budget vs actual and outlook</h2><p>Revenue is on budget while EBITDA is {M(abs(eb_gap))} short. A price, volume and cost bridge shows where it went.</p></a>
     <a href="#business-analysis"><h2>Subscription growth and onboarding</h2><p>Retention is stable, so the leak is upstream. A tested onboarding checklist lifts activation {BA['experiment']['lift_pts']} points.</p></a>
+    <a href="#fleet"><h2>Fleet profitability: AI vs conventional trucks</h2><p>AI-equipped tractors earn {d0(FL['stats']['lane']['Long-haul']['diff'], True)} more a month on long-haul and lose {d0(abs(FL['stats']['lane']['Urban']['diff']))} on urban lanes.</p></a>
   </div>
 </header>
 
 <section id="skills" class="first">
-  <h2 class="sec">What the three projects show</h2>
-  <p class="intro">Each of the three projects runs the full workflow: frame the question, model the data in SQL, analyze in Python, test the result, and state the limits. All datasets are synthetic and built to behave like real operating data, so the code and method are the point.</p>
+  <h2 class="sec">What the four projects show</h2>
+  <p class="intro">Each of the four projects runs the full workflow: frame the question, model the data in SQL, analyze in Python, test the result, and state the limits. All datasets are synthetic and built to behave like real operating data, so the code and method are the point.</p>
   <div class="skills">{skills_html}</div>
 </section>
 
@@ -626,10 +644,28 @@ page = f"""<title>Nischal Malla Analytics Portfolio</title>
   </div>
 </section>
 
+<section id="fleet">
+  <p class="eyebrow">Project 4</p>
+  <h2 class="sec">Fleet management: AI-equipped vs conventional trucks</h2>
+  <p class="intro">Is the AI premium worth paying? Compare maintenance, operating cost, acquisition cost and profit across a 120-tractor fleet.</p>
+  <p class="meta">Synthetic data: fictional freight carrier, {FL['fleet']['vehicles']} tractors ({FL['fleet']['ai']} AI, {FL['fleet']['conv']} conventional), {FL['fleet']['vehicle_months']:,} vehicle-months, Oct 2023 to Sep 2026</p>
+  <p class="stack">SQL (CTEs, joins, bucketing) / Python / regression with vehicle-level bootstrap / NPV and payback model</p>
+  {summary4}
+  {fl['kpis']}
+  {fl['findings']}
+  <h3 class="sub">Recommendations</h3>
+  {fl['recs']}
+  <div class="two">
+    <div><h3 class="sub" style="margin-top:0">The maintenance-by-age query</h3><pre><code>{fl_sql}</code></pre></div>
+    <div><h3 class="sub" style="margin-top:0">Limits</h3><p class="limits">{fl['limits']}</p>
+      <ul class="files"><li>fleet/01_generate_data.py</li><li>fleet/queries.sql</li><li>fleet/02_analyze.py</li></ul></div>
+  </div>
+</section>
+
 <section id="visualization">
   <p class="eyebrow">Visualization</p>
   <h2 class="sec">How I design charts</h2>
-  <p class="intro">The three projects use {len(viz_rows)} chart types, each picked for the question it answers. Six rules apply to all of them.</p>
+  <p class="intro">The four projects use {len(viz_rows)} chart types, each picked for the question it answers. Six rules apply to all of them.</p>
   <div class="principles">{principles_html}</div>
   <h3 class="sub">Chart index</h3>
   {viz_table}
