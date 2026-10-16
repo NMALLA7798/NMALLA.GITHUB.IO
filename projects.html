@@ -1,0 +1,952 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nischal Malla Analytics Case Studies</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one left-aligned column. Each project reads finding -> chart, then recommendations and limits. */
+:root{
+  --bg:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#6c6a65;
+  --line:#e1e0d9; --axis:#c3c2b7; --link:#1c5cab; --accent:#2a78d6; --code:#f1f0ec;
+  --c1:#2a78d6; --c2:#eb6834; --c3:#1baf7a; --c4:#eda100;
+  --good:#0ca30c; --bad:#d03b3b; --best:#e8f0fb;
+  --font-sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#a09e97;
+    --line:#2c2c2a; --axis:#383835; --link:#6da7ec; --accent:#3987e5; --code:#141413;
+    --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --best:#16263a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#a09e97;
+  --line:#2c2c2a; --axis:#383835; --link:#6da7ec; --accent:#3987e5; --code:#141413;
+  --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --best:#16263a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+a{color:var(--link)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:14px;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));
+  padding-inline:max(16px,env(safe-area-inset-left,0px))}
+nav .brand{font-weight:600;white-space:nowrap}
+nav .links{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav .links a{color:var(--ink2);text-decoration:none;font-size:.9rem;white-space:nowrap}
+nav .links a:hover{color:var(--ink)}
+.lab,.tag,th,.eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+header.hero{padding-block:72px 56px;max-width:820px}
+.eyebrow{color:var(--muted);margin:0 0 18px}
+h1{font-size:clamp(2.3rem,6vw,3.7rem);line-height:1.05;letter-spacing:-.025em;font-weight:600;margin:0 0 20px;text-wrap:balance}
+.lede{font-size:1.2rem;color:var(--ink2);margin:0 0 32px;max-width:62ch}
+.jump{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border-top:1px solid var(--line)}
+.jump a{display:block;padding:20px 24px 20px 0;color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+.jump a:hover h2{color:var(--link)}
+.jump h2{font-size:1.1rem;margin:0 0 6px}
+.jump p{margin:0;color:var(--ink2);font-size:.95rem}
+section{padding-block:64px;border-top:1px solid var(--line)}
+section.first{border-top:0}
+h2.sec{font-size:clamp(1.6rem,3.6vw,2.2rem);line-height:1.15;letter-spacing:-.02em;margin:0 0 12px;font-weight:600;text-wrap:balance}
+p.intro{font-size:1.08rem;color:var(--ink2);max-width:68ch;margin:0 0 8px}
+p.meta{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin:0 0 32px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px 48px;margin-top:28px}
+.skill h3{font-size:1.05rem;margin:0 0 6px}
+.skill p{margin:0 0 8px;color:var(--ink2);font-size:.95rem;max-width:52ch}
+.tag{color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin:8px 0 48px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpi{display:flex;flex-direction:column;gap:2px;padding:20px 20px 20px 0}
+.kpi+.kpi{padding-left:20px}
+@media (min-width:700px){.kpi+.kpi{border-left:1px solid var(--line)}}
+.kpi .lab{color:var(--muted)}
+.kpi .val{font-size:2rem;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.2}
+.kpi .sub{color:var(--ink2);font-size:.88rem}
+.kpis.three{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:20px 0 0}
+.kpis.three .val{font-size:1.5rem}
+.finding{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;padding-block:36px;border-top:1px solid var(--line)}
+.finding:first-of-type{border-top:0}
+@media (max-width:900px){.finding{grid-template-columns:minmax(0,1fr);gap:20px}}
+.ftext,.ffig{min-width:0}
+.ftext h3{font-size:1.3rem;line-height:1.25;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance}
+.ftext p{margin:0 0 12px;color:var(--ink2);max-width:60ch}
+.ffig{margin:0}
+.chart{position:relative;height:340px}
+.chart.tall{height:600px}
+figcaption{color:var(--muted);font-size:.85rem;margin-top:8px}
+.tbl-wrap{overflow-x:auto;margin-top:16px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--muted);font-weight:500}
+th.n,td.n{text-align:right;padding-right:0;padding-left:12px}
+tr.best td{background:var(--best)}
+details.data-table{margin-top:12px}
+details summary{cursor:pointer;color:var(--link);font-size:.9rem}
+h3.sub{font-size:1.1rem;margin:40px 0 12px}
+.recs{max-width:72ch;padding-left:1.2rem;margin:0}
+.recs li{margin-bottom:12px;color:var(--ink2)}
+.recs strong{color:var(--ink)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;margin-top:20px}
+@media (max-width:900px){.two{grid-template-columns:minmax(0,1fr)}}
+pre{background:var(--code);border:1px solid var(--line);border-radius:4px;padding:16px;margin:0;overflow-x:auto;font-family:var(--font-mono);font-size:.78rem;line-height:1.55;color:var(--ink)}
+.limits{color:var(--ink2);max-width:60ch;margin:0}
+.stack{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin:0 0 4px}
+ul.files{font-family:var(--font-mono);font-size:.85rem;color:var(--ink2);padding-left:1.1rem;margin:8px 0 0}
+footer{border-top:1px solid var(--line);padding-block:48px 72px}
+footer p{margin:0 0 8px;color:var(--ink2)}
+.contact{font-family:var(--font-mono);font-size:.95rem;color:var(--ink);user-select:all}
+.nav-r{display:flex;align-items:center;gap:16px;min-width:0}
+.nav-r .links{min-width:0}
+button,select,input[type=range]{font:inherit}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.tbtn{font-family:var(--font-mono);font-size:.75rem;color:var(--ink);background:transparent;border:1px solid var(--axis);border-radius:4px;padding:6px 10px;cursor:pointer;white-space:nowrap}
+.tbtn:hover{border-color:var(--ink2)}
+.ctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:0 0 10px}
+.ctl label,.ctl-text{font-size:.9rem;color:var(--ink)}
+.ctl input[type=range]{width:min(220px,100%);accent-color:var(--accent)}
+.try{color:var(--link);margin:0}
+output{font-variant-numeric:tabular-nums;font-weight:600}
+.readout{margin:0 0 12px;color:var(--ink2);font-size:.92rem;min-height:3em;max-width:68ch}
+.readout strong{color:var(--ink);font-variant-numeric:tabular-nums}
+.seg{display:inline-flex;border:1px solid var(--axis);border-radius:4px;overflow:hidden}
+.seg button{font-family:var(--font-mono);font-size:.78rem;background:transparent;color:var(--ink);border:0;padding:7px 12px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--axis)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+select{background:var(--surface);color:var(--ink);border:1px solid var(--axis);border-radius:4px;padding:7px 10px;font-size:.9rem}
+.scen{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:10px}
+.sl.wide{grid-template-columns:130px minmax(0,1fr) 76px}
+td.num,th.num{text-align:right}
+.sl{display:grid;grid-template-columns:84px minmax(0,1fr) 56px;align-items:center;gap:12px}
+.sl label{font-size:.9rem}
+.sl input{width:100%;accent-color:var(--accent)}
+.sl output{text-align:right;font-size:.9rem}
+.scen-out{display:flex;flex-direction:column;gap:2px;margin-top:6px}
+.scen-out .lab{color:var(--muted)}
+.scen-out .val{font-size:2rem;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.2}
+.scen-out .sub{color:var(--ink2);font-size:.9rem}
+#sc-reset{justify-self:start}
+.hint{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+td.wrap{white-space:normal;min-width:180px}
+.summary{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:32px;padding:24px 0;margin:0 0 8px;border-top:1px solid var(--line)}
+@media (max-width:900px){.summary{grid-template-columns:minmax(0,1fr);gap:16px}}
+.summary h3{font-size:.78rem;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:500}
+.summary p{margin:0;color:var(--ink2);max-width:46ch}
+.summary ul{margin:0;padding-left:1.1rem;color:var(--ink2)}
+.summary li{margin-bottom:6px}
+.brief{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:32px;margin:0 0 32px}
+@media (max-width:900px){.brief{grid-template-columns:minmax(0,1fr);gap:16px}}
+.brief .quote{font-size:1.1rem;color:var(--ink);margin:6px 0 12px;max-width:34ch}
+#heat table{border-collapse:separate;border-spacing:2px;font-size:.72rem;width:auto;font-variant-numeric:tabular-nums}
+#heat th,#heat td{padding:0;border:0;text-align:center;white-space:nowrap}
+#heat thead th{color:var(--muted);height:22px;min-width:34px;font-weight:500}
+#heat th.hc{text-align:left;color:var(--ink2);padding-right:8px;font-family:var(--font-mono);letter-spacing:0;text-transform:none;font-size:.72rem}
+#heat td.hn{color:var(--muted);padding-right:8px;min-width:48px}
+#heat td{height:22px;min-width:34px;border-radius:2px}
+.heat-wrap{overflow-x:auto;padding-bottom:4px}
+.heat-legend{display:flex;align-items:center;gap:10px;font-size:.78rem;color:var(--muted);margin-top:10px}
+.heat-legend .bar{display:inline-block;height:10px;width:160px;border-radius:2px;flex:0 0 160px}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px 44px;margin:28px 0 8px}
+.principle h3{font-size:1.05rem;margin:0 0 6px}
+.principle p{margin:0;color:var(--ink2);font-size:.95rem;max-width:46ch}
+.email-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 8px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+
+<div class="wrap">
+<nav>
+  <a class="brand" href="index.html" style="color:inherit;text-decoration:none">&larr; Nischal Malla</a>
+  <div class="nav-r"><div class="links"><a href="pm.html">Product case</a><a href="#skills">Skills</a><a href="#supply-chain">Supply chain</a><a href="#finance">Finance</a><a href="#business-analysis">Business analysis</a><a href="#fleet">Fleet</a><a href="#visualization">Visualization</a><a href="#contact">Contact</a></div>
+  <button type="button" id="theme-btn" class="tbtn">Dark mode</button></div>
+</nav>
+
+<header class="hero">
+  <p class="eyebrow">Analytics case studies</p>
+  <h1>Four analytics case studies</h1>
+  <p class="lede">I analyze operational and financial data in SQL and Python, test the result, and write it up as a recommendation a manager can act on.</p>
+  <p class="hint">Every chart responds to hover. Controls marked Interactive let you change the question: move a threshold, pick a service target, filter by business unit, or build a scenario.</p>
+  <div class="jump">
+    <a href="#supply-chain"><h2>Supplier performance and inventory risk</h2><p>3 suppliers miss 60% OTIF. A variability-aware reorder policy lifts simulated service on Class A SKUs from 83.8% to 93.9%.</p></a>
+    <a href="#finance"><h2>Budget vs actual and outlook</h2><p>Revenue is on budget while EBITDA is $2.6M short. A price, volume and cost bridge shows where it went.</p></a>
+    <a href="#business-analysis"><h2>Subscription growth and onboarding</h2><p>Retention is stable, so the leak is upstream. A tested onboarding checklist lifts activation 7.5 points.</p></a>
+    <a href="#fleet"><h2>Fleet profitability: AI vs conventional trucks</h2><p>AI-equipped tractors earn +$2,941 more a month on long-haul and lose $2,967 on urban lanes.</p></a>
+  </div>
+</header>
+
+<section id="skills" class="first">
+  <h2 class="sec">What the four projects show</h2>
+  <p class="intro">Each of the four projects runs the full workflow: frame the question, model the data in SQL, analyze in Python, test the result, and state the limits. All datasets are synthetic and built to behave like real operating data, so the code and method are the point.</p>
+  <div class="skills"><div class='skill'><h3>SQL</h3><p>CTEs, window functions (RANK, LAG, moving averages), conditional aggregation, multi-table joins. All three projects start from a query file.</p><span class='tag'>All four projects</span></div><div class='skill'><h3>Python</h3><p>pandas, NumPy and scikit-learn in scripts that rebuild every number from the raw tables.</p><span class='tag'>All four projects</span></div><div class='skill'><h3>Forecasting</h3><p>Rolling-origin backtests, WAPE and MAPE, baseline comparison, bootstrap prediction intervals.</p><span class='tag'>Weekly demand, monthly revenue</span></div><div class='skill'><h3>Simulation</h3><p>Monte Carlo test of a reorder policy using bootstrapped lead times and demand.</p><span class='tag'>Supply chain</span></div><div class='skill'><h3>Variance analysis</h3><p>Price, volume, cost and opex bridge that reconciles exactly to the EBITDA variance, checked by an assertion.</p><span class='tag'>Finance</span></div><div class='skill'><h3>Domain metrics</h3><p>OTIF, ABC classification, safety stock, supplier scorecards, DSO, gross margin, EBITDA.</p><span class='tag'>All four projects</span></div><div class='skill'><h3>Scenario work</h3><p>Base, upside and downside cases and a one-driver-at-a-time sensitivity.</p><span class='tag'>Finance</span></div><div class='skill'><h3>Business analysis</h3><p>Stakeholder framing, testable hypotheses, a KPI dictionary and a prioritized business case with stated assumptions.</p><span class='tag'>Project 3</span></div><div class='skill'><h3>Experimentation</h3><p>A/B test checks (split balance, detectable effect), z-tests, confidence intervals and guardrail metrics.</p><span class='tag'>Project 3</span></div><div class='skill'><h3>Cohort and funnel analysis</h3><p>Recursive-CTE cohorts, funnel by channel, churn segmentation and a mix-shift decomposition.</p><span class='tag'>Project 3</span></div><div class='skill'><h3>Data visualization</h3><p>Twenty-two chart types, one color system, uncertainty shown, light and dark themes, interactive controls.</p><span class='tag'>All four projects</span></div><div class='skill'><h3>Fleet economics</h3><p>Cost per mile by category, maintenance frequency and age curves, vehicle-level profitability and lane segmentation for AI-equipped vs conventional trucks.</p><span class='tag'>Project 4</span></div><div class='skill'><h3>Unit economics and payback</h3><p>Adjusting a naive comparison for lane mix and age, bootstrap intervals by vehicle, and a live 7-year payback and NPV model.</p><span class='tag'>Project 4</span></div><div class='skill'><h3>Communication</h3><p>Each section leads with the finding, ends with a recommendation and lists the limits of the data.</p><span class='tag'>All four projects</span></div></div>
+</section>
+
+<section id="supply-chain">
+  <p class="eyebrow">Project 1</p>
+  <h2 class="sec">Supplier performance and inventory risk</h2>
+  <p class="intro">Where do late and short deliveries come from, and what would it cost to stop them hurting service?</p>
+  <p class="meta">Synthetic data: 24 suppliers, 150 SKUs, 2,722 purchase orders, 104 weeks of demand (Jan 2024 to Dec 2025)</p>
+  <p class="stack">SQL (CTEs, windows) / Python / pandas / scikit-learn / Monte Carlo</p>
+  <div class="summary"><div><h3>What I analyzed</h3><p>Delivery records for 24 suppliers and 150 SKUs across 2,722 purchase orders and two years of demand. I looked for who delivers late or short, which SKUs matter most, and what a better reorder policy would cost.</p></div><div><h3>Results</h3><ul><li>73.6% of purchase orders arrive on time and in full. 3 of 24 suppliers fall below 60% and cause 15.4% of late deliveries.</li><li>55 of 150 SKUs (36.7%) carry 80.5% of demand value, so they get the tightest inventory controls.</li><li>A reorder rule that allows for lead-time variability lifts simulated service on those SKUs from 83.8% to 93.9% for 20.3% more inventory ($336K).</li><li>A trend and seasonality forecast has 30% less error than a naive forecast.</li></ul></div></div>
+  
+<div class="kpis">
+  <div class="kpi"><span class="lab">On-time in-full</span><span class="val">73.6%</span><span class="sub">80.7% on time, 91.3% in full</span></div>
+  <div class="kpi"><span class="lab">Purchase spend</span><span class="val">$49.4M</span><span class="sub">2,722 purchase orders, 24 suppliers</span></div>
+  <div class="kpi"><span class="lab">Expedite premium</span><span class="val">$195K</span><span class="sub">paid to rush late orders</span></div>
+  <div class="kpi"><span class="lab">Class A SKUs</span><span class="val">55</span><span class="sub">36.7% of SKUs, 80.5% of value</span></div>
+</div>
+  
+<article class="finding" id="f-c-suppliers">
+  <div class="ftext"><h3>3 of 24 suppliers fall below 60% OTIF</h3><p>Together they take 12.4% of spend and cause 15.4% of late deliveries. Supplier 18 (Vietnam) is the largest exposure: 8.1% of spend at 53.8% OTIF, with a lead-time standard deviation of 9 days.</p>
+<details class="data-table"><summary>Supplier scorecard as a table</summary>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Supplier</th><th>Country</th><th class="n">POs</th><th class="n">Spend share</th><th class="n">OTIF</th><th class="n">Avg delay (days)</th><th class="n">Lead-time SD (days)</th></tr></thead>
+<tbody><tr><td>Supplier 05</td><td>USA</td><td class='n'>30</td><td class='n'>1.5%</td><td class='n'>36.7%</td><td class='n'>3.97</td><td class='n'>7.9</td></tr><tr><td>Supplier 11</td><td>India</td><td class='n'>65</td><td class='n'>2.9%</td><td class='n'>43.1%</td><td class='n'>3.46</td><td class='n'>6.0</td></tr><tr><td>Supplier 18</td><td>Vietnam</td><td class='n'>104</td><td class='n'>8.1%</td><td class='n'>53.8%</td><td class='n'>4.91</td><td class='n'>9.0</td></tr><tr><td>Supplier 06</td><td>Germany</td><td class='n'>63</td><td class='n'>1.1%</td><td class='n'>66.7%</td><td class='n'>0.44</td><td class='n'>3.2</td></tr><tr><td>Supplier 13</td><td>USA</td><td class='n'>96</td><td class='n'>6.4%</td><td class='n'>68.8%</td><td class='n'>0.24</td><td class='n'>2.8</td></tr><tr><td>Supplier 04</td><td>Mexico</td><td class='n'>132</td><td class='n'>4.2%</td><td class='n'>68.9%</td><td class='n'>0.15</td><td class='n'>3.1</td></tr><tr><td>Supplier 07</td><td>Poland</td><td class='n'>105</td><td class='n'>4.8%</td><td class='n'>69.5%</td><td class='n'>0.42</td><td class='n'>3.1</td></tr><tr><td>Supplier 17</td><td>China</td><td class='n'>72</td><td class='n'>5.3%</td><td class='n'>70.8%</td><td class='n'>-0.15</td><td class='n'>2.5</td></tr><tr><td>Supplier 10</td><td>Vietnam</td><td class='n'>99</td><td class='n'>3.0%</td><td class='n'>71.7%</td><td class='n'>-0.18</td><td class='n'>2.2</td></tr><tr><td>Supplier 03</td><td>India</td><td class='n'>260</td><td class='n'>7.2%</td><td class='n'>71.9%</td><td class='n'>-0.09</td><td class='n'>2.0</td></tr><tr><td>Supplier 12</td><td>Mexico</td><td class='n'>123</td><td class='n'>3.9%</td><td class='n'>72.4%</td><td class='n'>0.86</td><td class='n'>4.5</td></tr><tr><td>Supplier 15</td><td>Poland</td><td class='n'>110</td><td class='n'>2.5%</td><td class='n'>72.7%</td><td class='n'>0.53</td><td class='n'>4.0</td></tr><tr><td>Supplier 19</td><td>India</td><td class='n'>136</td><td class='n'>2.5%</td><td class='n'>72.8%</td><td class='n'>0.33</td><td class='n'>3.0</td></tr><tr><td>Supplier 09</td><td>China</td><td class='n'>115</td><td class='n'>6.4%</td><td class='n'>73.0%</td><td class='n'>0.6</td><td class='n'>4.2</td></tr><tr><td>Supplier 23</td><td>Poland</td><td class='n'>163</td><td class='n'>6.6%</td><td class='n'>74.8%</td><td class='n'>0.21</td><td class='n'>2.6</td></tr><tr><td>Supplier 14</td><td>Germany</td><td class='n'>90</td><td class='n'>4.4%</td><td class='n'>75.6%</td><td class='n'>-0.17</td><td class='n'>2.5</td></tr><tr><td>Supplier 08</td><td>Turkey</td><td class='n'>122</td><td class='n'>1.5%</td><td class='n'>76.2%</td><td class='n'>0.09</td><td class='n'>2.8</td></tr><tr><td>Supplier 22</td><td>Germany</td><td class='n'>36</td><td class='n'>0.1%</td><td class='n'>77.8%</td><td class='n'>0.56</td><td class='n'>3.1</td></tr><tr><td>Supplier 16</td><td>Turkey</td><td class='n'>191</td><td class='n'>4.7%</td><td class='n'>81.2%</td><td class='n'>-0.3</td><td class='n'>2.1</td></tr><tr><td>Supplier 20</td><td>Mexico</td><td class='n'>85</td><td class='n'>0.6%</td><td class='n'>81.2%</td><td class='n'>0.06</td><td class='n'>2.7</td></tr><tr><td>Supplier 01</td><td>China</td><td class='n'>160</td><td class='n'>3.5%</td><td class='n'>81.3%</td><td class='n'>-0.33</td><td class='n'>2.9</td></tr><tr><td>Supplier 21</td><td>USA</td><td class='n'>84</td><td class='n'>8.1%</td><td class='n'>83.3%</td><td class='n'>-0.55</td><td class='n'>1.9</td></tr><tr><td>Supplier 24</td><td>Turkey</td><td class='n'>115</td><td class='n'>3.9%</td><td class='n'>85.2%</td><td class='n'>-0.35</td><td class='n'>2.2</td></tr><tr><td>Supplier 02</td><td>Vietnam</td><td class='n'>166</td><td class='n'>6.8%</td><td class='n'>86.1%</td><td class='n'>-0.7</td><td class='n'>2.1</td></tr></tbody></table></div></details></div>
+  <figure class="ffig">
+<div class="ctl"><span class="lab try">Interactive</span>
+  <label for="thr">Count a supplier as at-risk if OTIF is below <output id="thr-out" for="thr">60%</output></label>
+  <input type="range" id="thr" min="40" max="80" step="1" value="60"></div>
+<p class="readout" id="sup-read" aria-live="polite"></p><div class="chart tall"><canvas id="c-suppliers" role="img" aria-label="Bar chart of on-time in-full percentage for each of 24 suppliers, lowest first"></canvas></div><figcaption>Orange bars fall below the at-risk threshold.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-otif">
+  <div class="ftext"><h3>OTIF has not improved in two years</h3><p>The 3-month average moves between 69.8% and 78.2% from 2024-04 to 2025-12 with no sustained improvement. January 2024 is left out because too few orders had arrived to measure.</p></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-otif" role="img" aria-label="Line chart of monthly OTIF percentage and its 3-month average"></canvas></div></figure>
+</article>
+<article class="finding" id="f-c-pareto">
+  <div class="ftext"><h3>55 SKUs make up 80.5% of demand value</h3><p>Ranking by 2025 demand value puts 55 of 150 SKUs (36.7%) in Class A. Class B takes the next 39 SKUs to reach 95% of value. The last 56 SKUs are 4.9% of value, so they get the lightest controls.</p></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-pareto" role="img" aria-label="Pareto curve of cumulative demand value by SKU rank"></canvas></div></figure>
+</article>
+<article class="finding" id="f-c-service">
+  <div class="ftext"><h3>Planning on promised lead times leaves Class A under-protected</h3><p>I simulated 4,000 replenishment cycles for each of the 55 Class A SKUs, sampling each supplier's real lead-time history. The current rule (demand over the promised lead time plus one week) avoids a stockout in 83.8% of cycles, and in 66.7% for SKUs from at-risk suppliers.</p><p>Safety stock built from lead-time and demand variability lifts service to 93.9%. The cost is 20.3% more Class A inventory value ($336K on $1.65M).</p></div>
+  <figure class="ffig">
+<div class="ctl"><span class="lab try">Interactive</span>
+  <span id="svc-lab" class="ctl-text">Target service level</span>
+  <div class="seg" id="svc-seg" role="group" aria-labelledby="svc-lab"><button type="button" data-t="90" aria-pressed="false">90%</button><button type="button" data-t="95" aria-pressed="true">95%</button><button type="button" data-t="975" aria-pressed="false">97.5%</button><button type="button" data-t="99" aria-pressed="false">99%</button></div></div>
+<p class="readout" id="svc-read" aria-live="polite"></p><div class="chart"><canvas id="c-service" role="img" aria-label="Grouped bar chart comparing simulated cycle service level under the current and proposed policies"></canvas></div><figcaption>Higher targets buy more service for more inventory.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-forecast">
+  <div class="ftext"><h3>Trend and seasonality regression cuts forecast error by 30%</h3><p>I tested four methods on three rolling 13-week windows. The regression has a weighted absolute percentage error (WAPE) of 35.3% per SKU-week against 50.6% for the naive baseline. On total weekly demand the gap is wider: 5.5% against 21.5%. SKU-level error stays high because demand is lumpy, which is why safety stock still matters.</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Method</th><th class="n">SKU-week WAPE</th><th class="n">Class A WAPE</th><th class="n">Total demand WAPE</th></tr></thead>
+<tbody><tr><td>Naive (last week)</td><td class='n'>50.6%</td><td class='n'>52.8%</td><td class='n'>21.5%</td></tr><tr><td>4-week moving avg</td><td class='n'>40.7%</td><td class='n'>41.0%</td><td class='n'>22.2%</td></tr><tr><td>Seasonal naive (same week LY)</td><td class='n'>44.0%</td><td class='n'>43.3%</td><td class='n'>7.7%</td></tr><tr class="best"><td>Trend + seasonality regression</td><td class='n'>35.3%</td><td class='n'>34.9%</td><td class='n'>5.5%</td></tr></tbody></table></div></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-forecast" role="img" aria-label="Line chart of actual weekly demand against two forecasts over 13 weeks"></canvas></div><figcaption>Last backtest window, total demand across all SKUs.</figcaption></figure>
+</article>
+  <h3 class="sub">Recommendations</h3>
+  
+<ol class="recs">
+  <li><strong>Put the 3 at-risk suppliers on corrective action.</strong> Start with Supplier 18 (Vietnam), which carries 8.1% of spend at 53.8% OTIF. Qualify a second source for its SKUs while the plan runs.</li>
+  <li><strong>Replace promised-lead-time reorder points on Class A SKUs.</strong> Use safety stock built from actual lead-time and demand variability. Begin with the 6 Class A SKUs sourced from at-risk suppliers, where simulated service rises from 66.7% to 93.7%.</li>
+  <li><strong>Fund the inventory deliberately.</strong> The change adds about $336K (20.3%) of Class A inventory. Weigh it against stockout losses and the $195K already spent on expediting.</li>
+  <li><strong>Run the scorecard every month.</strong> The query is in this project. Track the 3-month OTIF average and each supplier's lead-time spread, since spread drives safety stock.</li>
+</ol>
+  <div class="two">
+    <div><h3 class="sub" style="margin-top:0">The ABC query</h3><pre><code>-- ABC / Pareto on 2025 demand value. Class A = SKUs making up the first 80% of value.
+WITH s AS (
+    SELECT d.sku, p.category, p.supplier_id,
+           SUM(d.units * p.unit_cost) AS value
+    FROM weekly_demand d JOIN products p USING (sku)
+    WHERE d.week_start &gt;= &#x27;2025-01-01&#x27;
+    GROUP BY d.sku, p.category, p.supplier_id
+),
+r AS (
+    SELECT *,
+           SUM(value) OVER (ORDER BY value DESC) / SUM(value) OVER ()  AS cum_share,
+           value / SUM(value) OVER ()                                   AS own_share,
+           ROW_NUMBER() OVER (ORDER BY value DESC)                      AS rnk
+    FROM s
+)
+SELECT sku, category, supplier_id, ROUND(value) AS value, rnk,
+       ROUND(100.0 * cum_share, 1) AS cum_pct,
+       CASE WHEN cum_share - own_share &lt; 0.80 THEN &#x27;A&#x27;
+            WHEN cum_share - own_share &lt; 0.95 THEN &#x27;B&#x27;
+            ELSE &#x27;C&#x27; END AS abc_class
+FROM r
+ORDER BY rnk;</code></pre></div>
+    <div><h3 class="sub" style="margin-top:0">Limits</h3><p class="limits">The dataset is synthetic. It was generated with realistic structure (seasonality, Pareto-shaped demand, a few unreliable suppliers), so the numbers show the method and not real supplier performance. The inventory simulation resamples historical lead times and weekly demand and treats them as independent. Inventory value counts average cycle stock plus safety stock and ignores holding and ordering costs.</p>
+      <ul class="files"><li>supply_chain/01_generate_data.py</li><li>supply_chain/queries.sql</li><li>supply_chain/02_analyze.py</li></ul></div>
+  </div>
+</section>
+
+<section id="finance">
+  <p class="eyebrow">Project 2</p>
+  <h2 class="sec">Budget vs actual and outlook</h2>
+  <p class="intro">Revenue is on plan. Why is EBITDA $2.6M short, and where is the year heading?</p>
+  <p class="meta">Synthetic data: fictional omnichannel company, 4 business units, actuals Jan 2023 to Sep 2026, budget to Dec 2026</p>
+  <p class="stack">SQL (conditional aggregation, LAG) / Python / scikit-learn / bootstrap intervals</p>
+  <div class="summary"><div><h3>What I analyzed</h3><p>Budget and actual results for four business units from January 2023 to September 2026, focused on the 2026 year-to-date EBITDA shortfall and the outlook for the rest of the year.</p></div><div><h3>Results</h3><ul><li>Revenue is $59.1M (+0.4% vs budget) but EBITDA is $7.3M (-26.0%), a $2.6M shortfall.</li><li>Price (-$1.3M) and unit-cost inflation (-$1.5M) outweigh +$0.7M of extra volume. Retail and E-commerce carry the gap.</li><li>Wholesale customers pay in 56 days instead of 39, tying up about $0.73M of cash.</li><li>FY2026 EBITDA is heading for $12.0M against a $15.5M budget. The revenue model backtests at 1.4% error.</li></ul></div></div>
+  
+<div class="kpis">
+  <div class="kpi"><span class="lab">Revenue, Jan to Sep 2026</span><span class="val">$59.1M</span><span class="sub">+0.4% vs budget</span></div>
+  <div class="kpi"><span class="lab">Gross profit</span><span class="val">$22.9M</span><span class="sub">-8.7% vs budget</span></div>
+  <div class="kpi"><span class="lab">EBITDA</span><span class="val">$7.3M</span><span class="sub">-26.0% vs budget (-$2.6M)</span></div>
+  <div class="kpi"><span class="lab">Wholesale DSO</span><span class="val">56 days</span><span class="sub">up from 39 days in 2024</span></div>
+</div>
+  
+<article class="finding" id="f-c-bridge">
+  <div class="ftext"><h3>Revenue is on budget but EBITDA is $2.6M short</h3><p>Year to date, revenue is +0.4% against budget, gross profit -8.7% and EBITDA -26.0%. Volume beat plan by $0.7M. Price cost $1.3M and unit-cost inflation $1.5M. Marketing overspend added $0.3M and payroll and other costs $0.1M.</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Business unit</th><th class="n">Revenue vs budget</th><th class="n">EBITDA</th><th class="n">EBITDA vs budget</th></tr></thead>
+<tbody><tr><td>Retail</td><td class='n'>-11.8%</td><td class='n'>-$0.75M</td><td class='n'>-$1.76M</td></tr><tr><td>Wholesale</td><td class='n'>-2.7%</td><td class='n'>$0.54M</td><td class='n'>-$0.43M</td></tr><tr><td>Subscriptions</td><td class='n'>-9.8%</td><td class='n'>$1.88M</td><td class='n'>-$0.41M</td></tr><tr><td>E-commerce</td><td class='n'>+12.9%</td><td class='n'>$5.61M</td><td class='n'>+$0.04M</td></tr></tbody></table></div></div>
+  <figure class="ffig">
+<div class="ctl"><span class="lab try">Interactive</span>
+  <label for="bu-sel">Show bridge for</label>
+  <select id="bu-sel"><option value="All">All business units</option><option value="Retail">Retail</option><option value="E-commerce">E-commerce</option><option value="Wholesale">Wholesale</option><option value="Subscriptions">Subscriptions</option></select></div>
+<p class="readout" id="bu-read" aria-live="polite"></p><div class="chart"><canvas id="c-bridge" role="img" aria-label="Waterfall chart bridging budget EBITDA to actual EBITDA for 2026 year to date"></canvas></div><figcaption>Bridge components sum exactly to the variance; the build script asserts it.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-margin">
+  <div class="ftext"><h3>Retail and E-commerce lose margin in different ways</h3><p>Retail gross margin fell from 39.7% in 2023-Q1 to 32.3% in 2026-Q3, against a 38.5% budget. Unit costs rose faster than the planned 2% and prices did not follow. Revenue is also 12% under plan, almost all of it volume.</p><p>E-commerce revenue is 13% over budget, yet EBITDA is only $38K above. Extra volume added $2.0M and discounting took back $1.4M.</p></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-margin" role="img" aria-label="Line chart of quarterly gross margin percentage by business unit"></canvas></div><figcaption>Hover a point to see the budgeted margin for the same quarter.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-dso">
+  <div class="ftext"><h3>Wholesale customers now pay in 56 days, up from 39</h3><p>Days sales outstanding rose from 38.8 days before mid-2024 to 56.2 days over the latest three months. At current Wholesale sales that ties up about $0.73M in receivables. The other three units sit between 3 and 6 days.</p></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-dso" role="img" aria-label="Line chart of 3-month average days sales outstanding for Wholesale and the other units"></canvas></div></figure>
+</article>
+<article class="finding" id="f-c-fan">
+  <div class="ftext"><h3>The revenue model backtests at 1.4% error and points to $12.0M FY2026 EBITDA</h3><p>I trained on data through December 2025 and predicted January to September 2026. Mean absolute percentage error (MAPE) on company revenue was 1.4%, against 11.3% for a same-month-last-year baseline.</p><p>Adding the fourth-quarter forecast to year-to-date actuals puts FY2026 revenue at $86.7M (+1.2% vs budget) and EBITDA at $12.0M against a $15.5M budget (-23.0%).</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Revenue, Jan to Sep 2026</th><th class="n">Model MAPE</th><th class="n">Same month last year</th></tr></thead>
+<tbody><tr><td>E-commerce</td><td class='n'>1.8%</td><td class='n'>18.5%</td></tr><tr><td>Retail</td><td class='n'>3.6%</td><td class='n'>4.8%</td></tr><tr><td>Subscriptions</td><td class='n'>4.1%</td><td class='n'>18.9%</td></tr><tr><td>Wholesale</td><td class='n'>3.6%</td><td class='n'>8.5%</td></tr><tr><td>Total company</td><td class='n'>1.4%</td><td class='n'>11.3%</td></tr></tbody></table></div></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-fan" role="img" aria-label="Line chart of monthly revenue with a 12-month forecast and an 80 percent interval band"></canvas></div><figcaption>Shaded band is the 80% interval from resampled model residuals.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-tornado">
+  <div class="ftext"><h3>Price, unit cost and volume move EBITDA the most</h3><p>Holding other drivers fixed, a 2% price move changes next-12-month EBITDA by $1.9M, a 3% unit-cost move by $1.7M, a 5% volume move by $1.5M and a 10% marketing move by $0.8M.</p><p>Combining drivers gives the range below. Downside is price -2%, volume -5% and unit cost +3%. Upside is price +1%, volume +3% and unit cost -1%.</p>
+<div class="kpis three">
+  <div class="kpi"><span class="lab">Downside</span><span class="val">$9.5M</span><span class="sub">-$4.9M vs base</span></div>
+  <div class="kpi"><span class="lab">Base</span><span class="val">$14.4M</span><span class="sub">next 12 months EBITDA</span></div>
+  <div class="kpi"><span class="lab">Upside</span><span class="val">$16.9M</span><span class="sub">+$2.5M vs base</span></div>
+</div>
+<div class="scen">
+  <p class="lab try">Interactive: build your own scenario</p>
+  <div class="sl"><label for="sl-p">Price</label><input type="range" id="sl-p" min="-5" max="5" step="0.5" value="0"><output id="sl-p-out" for="sl-p">0.0%</output></div>
+  <div class="sl"><label for="sl-v">Volume</label><input type="range" id="sl-v" min="-10" max="10" step="1" value="0"><output id="sl-v-out" for="sl-v">0.0%</output></div>
+  <div class="sl"><label for="sl-c">Unit cost</label><input type="range" id="sl-c" min="-5" max="5" step="0.5" value="0"><output id="sl-c-out" for="sl-c">0.0%</output></div>
+  <div class="sl"><label for="sl-m">Marketing</label><input type="range" id="sl-m" min="-20" max="20" step="1" value="0"><output id="sl-m-out" for="sl-m">0.0%</output></div>
+  <div class="scen-out" aria-live="polite"><span class="lab">Next-12-month EBITDA</span><span class="val" id="sc-val"></span><span class="sub" id="sc-delta"></span></div>
+  <button type="button" id="sc-reset" class="tbtn">Reset to base case</button>
+</div></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-tornado" role="img" aria-label="Tornado chart of EBITDA sensitivity to price, unit cost, volume and marketing"></canvas></div><figcaption>Favorable means costs lower, price higher, volume higher or marketing lower.</figcaption></figure>
+</article>
+  <h3 class="sub">Recommendations</h3>
+  
+<ol class="recs">
+  <li><strong>Reprice or re-source Retail.</strong> Unit costs are running well above the 2% plan and prices have not followed. Retail lost $0.9M to cost and $0.8M to volume, and is at -$0.75M EBITDA YTD against $1.01M budgeted.</li>
+  <li><strong>Put a floor under E-commerce discounting.</strong> The unit added $2.0M of volume and gave back $1.4M in price. Test whether the volume still pays at the current discount depth.</li>
+  <li><strong>Tighten Wholesale collections.</strong> Bringing DSO back toward 39 days would release about $0.73M of cash.</li>
+  <li><strong>Reforecast FY2026 now.</strong> EBITDA lands near $12.0M against a $15.5M budget (-23.0%). Leadership should see that gap before Q4 closes.</li>
+</ol>
+  <div class="two">
+    <div><h3 class="sub" style="margin-top:0">The EBITDA bridge query</h3><pre><code>-- Price / volume / cost / opex decomposition of the EBITDA variance, computed at
+-- month x BU grain so the effects sum exactly to the total variance:
+--   volume = (units_a - units_b) * (price_b - cost_b)
+--   price  = (price_a - price_b) * units_a
+--   cost   = -(cost_a - cost_b) * units_a
+WITH a AS (SELECT * FROM pnl WHERE scenario = &#x27;Actual&#x27;),
+     b AS (SELECT * FROM pnl WHERE scenario = &#x27;Budget&#x27;)
+SELECT a.bu,
+       SUM((a.units - b.units) * (b.price - b.unit_cost))                    AS volume_effect,
+       SUM((a.price - b.price) * a.units)                                    AS price_effect,
+       SUM(-(a.unit_cost - b.unit_cost) * a.units)                           AS cost_effect,
+       SUM(-(a.marketing - b.marketing))                                     AS marketing_effect,
+       SUM(-((a.payroll + a.other_opex) - (b.payroll + b.other_opex)))       AS payroll_other_effect,
+       SUM((a.revenue - a.cogs - a.payroll - a.marketing - a.other_opex)
+         - (b.revenue - b.cogs - b.payroll - b.marketing - b.other_opex))    AS total_ebitda_var
+FROM a JOIN b ON a.month = b.month AND a.bu = b.bu
+WHERE a.month BETWEEN &#x27;2026-01-01&#x27; AND &#x27;2026-09-01&#x27;
+GROUP BY a.bu
+ORDER BY a.bu;</code></pre></div>
+    <div><h3 class="sub" style="margin-top:0">Limits</h3><p class="limits">The dataset is synthetic and the company is fictional. The forecast holds gross margin and marketing share at each unit's last six months, runs payroll and other costs at the last three months plus 3% a year, and fits revenue with a trend and yearly seasonality. The 80% interval comes from resampled model residuals, so it covers model error and leaves out shocks such as a lost customer. The tornado moves one driver at a time.</p>
+      <ul class="files"><li>finance/01_generate_data.py</li><li>finance/queries.sql</li><li>finance/02_analyze.py</li></ul></div>
+  </div>
+</section>
+
+<section id="business-analysis">
+  <p class="eyebrow">Project 3</p>
+  <h2 class="sec">Subscription growth, churn and onboarding</h2>
+  <p class="intro">Retention looks weak and paid social keeps growing. Where should the business invest next quarter?</p>
+  <p class="meta">Synthetic data: fictional fitness app, 18,283 signups (Jan 2024 to Dec 2025), 14-day trial, three plans, one A/B test</p>
+  <p class="stack">SQL (recursive CTE, set operations) / Python / A/B testing / cohort and funnel analysis</p>
+  <div class="summary"><div><h3>What I analyzed</h3><p>A fictional fitness app with 18,283 signups over two years, a funnel, subscription records and an onboarding A/B test. I tested why growth economics look weaker and what to do first.</p></div><div><h3>Results</h3><ul><li>Retention after payment is stable (86.9% vs 86.8% at month 3). The real leak is acquisition: activation fell from 43.7% to 36.1% as paid social grew to 36.8% of signups.</li><li>Activating in week one cuts six-month churn from 38.5% to 16.8%. Paid social returns $0.95 per $1 of spend.</li><li>The onboarding checklist lifts activation 7.5 points (95% CI 3.9 to 11.1), worth about $36K a year in six-month revenue. Moving budget to search only pays if search holds 84% of its efficiency.</li></ul></div></div>
+  
+<div class="kpis">
+  <div class="kpi"><span class="lab">Activation (7 days)</span><span class="val">37.7%</span><span class="sub">of 6,950 signups, Jan to Aug 2025</span></div>
+  <div class="kpi"><span class="lab">Signup to paid</span><span class="val">30.0%</span><span class="sub">after the 14-day trial</span></div>
+  <div class="kpi"><span class="lab">90-day retention</span><span class="val">86.2%</span><span class="sub">of paying customers</span></div>
+  <div class="kpi"><span class="lab">Paid social return</span><span class="val">$0.95</span><span class="sub">6-month revenue per $1 spent</span></div>
+</div>
+  
+<div class="brief">
+  <div><p class="lab try">The ask (fictional stakeholder)</p>
+  <p class="quote">Growth leadership: retention looks weak and paid social keeps growing. Where should we invest next quarter?</p>
+  <p class="limits">I turned it into four testable hypotheses, defined the KPIs before touching the data, and let the results overturn the first one.</p></div>
+  <div class="tbl-wrap"><table><thead><tr><th>Hypothesis</th><th>Verdict</th><th>Evidence</th></tr></thead><tbody><tr><td>H1. Retention after payment is falling</td><td><strong>&#10007; Not supported</strong></td><td>Month-3 retention averages 86.9% for earlier cohorts and 86.8% for later ones.</td></tr><tr><td>H2. Acquisition quality is falling</td><td><strong>&#10003; Supported</strong></td><td>Activation fell from 43.7% to 36.1% as paid social grew from 21.7% to 36.8% of signups.</td></tr><tr><td>H3. Early activation drives churn</td><td><strong>&#10003; Supported</strong></td><td>Six-month churn is 38.5% without week-one activation and 16.8% with it.</td></tr><tr><td>H4. An onboarding change can lift activation</td><td><strong>&#10003; Supported</strong></td><td>The A/B test shows +7.5 points (95% CI 3.9 to 11.1).</td></tr></tbody></table></div>
+</div>
+  <h3 class="sub">KPI dictionary</h3><div class="tbl-wrap"><table><thead><tr><th>KPI</th><th>Definition</th><th>Source / owner</th><th class="n">Current</th></tr></thead><tbody><tr><td>Activation rate</td><td class="wrap">Share of signups that complete a first workout within 7 days</td><td class="wrap">customers.activated_7d / Product</td><td class="n">37.7%</td></tr><tr><td>Signup to paid</td><td class="wrap">Share of signups that start paying after the 14-day trial</td><td class="wrap">customers.converted / Growth</td><td class="n">30.0%</td></tr><tr><td>90-day retention</td><td class="wrap">Share of paying customers still subscribed 3 months after first payment</td><td class="wrap">paid_start_date, cancel_date / Customer success</td><td class="n">86.2%</td></tr><tr><td>6-month churn</td><td class="wrap">Share of paying customers who cancel within 6 months of first payment</td><td class="wrap">paid_start_date, cancel_date / Customer success</td><td class="n">21.9%</td></tr><tr><td>Return on acquisition spend</td><td class="wrap">Revenue in the first 6 months divided by cost per signup times signups</td><td class="wrap">customers, channel_costs / Finance</td><td class="n">$1.91 per $1</td></tr><tr><td>Average revenue per paying customer</td><td class="wrap">Mean monthly price of paying customers</td><td class="wrap">customers.monthly_price / Finance</td><td class="n">$15.51 a month</td></tr></tbody></table></div>
+  
+<article class="finding" id="f-c-heat">
+  <div class="ftext"><h3>Retention is stable, so churn after payment is not the problem</h3><p>The first hypothesis was that retention is falling. Cohort retention says otherwise. Three months after the first payment, 82.5% to 90.7% of each cohort is still subscribed. The average is 86.9% for the earlier half of cohorts and 86.8% for the later half.</p><p>Rows with fewer columns are recent cohorts that have not had time to age.</p></div>
+  <figure class="ffig">
+<div class="heat-wrap" role="region" aria-label="Cohort retention heatmap, scrollable">
+  <div id="heat"></div>
+  <div class="heat-legend"><span>50%</span><span class="bar" id="heat-bar"></span><span>100% still subscribed</span></div>
+</div><figcaption>Rows are cohorts by month of first payment. Hover a cell for the cohort size.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-trend">
+  <div class="ftext"><h3>Acquisition quality is slipping as paid social grows</h3><p>Paid social grew from 21.7% of signups in Q1 2024 to 36.8% in Q4 2025, and 7-day activation fell from 43.7% to 36.1%.</p><p>Comparing H1 2024 with H1 2025, signup-to-paid conversion slipped from 30.5% to 29.7%. The channel shift explains -0.7 points. Falling conversion inside paid social (25.9% to 23.7%) explains -0.7, and the other channels add +0.5.</p></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-trend" role="img" aria-label="Line chart of monthly paid social share of signups and activation rate"></canvas></div></figure>
+</article>
+<article class="finding" id="f-c-funnel">
+  <div class="ftext"><h3>Each channel loses customers at a different step</h3><p>In January to August 2025, 23.3% of paid-social signups activated, against 54.1% for referral. Paid social also keeps the fewest customers to day 90: 19.0% of signups, against 32.6% for referral.</p><p>Paid social returns $0.95 of six-month revenue per $1 spent. Referral returns $4.03 and partners $2.39.</p></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-funnel" role="img" aria-label="Grouped bar chart of funnel stages by acquisition channel"></canvas></div><figcaption>Each bar is a share of that channel's signups.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-churn">
+  <div class="ftext"><h3>Activation is the strongest churn signal</h3><p>Among customers who started paying by June 2025, 38.5% of those who did not activate in week one cancelled within six months, against 16.8% of activated customers.</p><p>Paid-social customers churn at 32.0% and referral customers at 14.6%. Two or more support tickets in the first month also flag risk: 32.1% churn, against 17.9% with none.</p></div>
+  <figure class="ffig">
+<div class="ctl"><span class="lab try">Interactive</span>
+  <label for="seg-sel">Cut churn by</label>
+  <select id="seg-sel"><option>Channel</option><option>7-day activation</option><option>Support tickets in first 30 days</option><option>Plan</option></select></div><p class="readout" id="seg-read" aria-live="polite"></p><div class="chart"><canvas id="c-churn" role="img" aria-label="Bar chart of six-month churn by customer segment"></canvas></div><figcaption>Orange bars are above the all-customer average of 21.9%.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-ab">
+  <div class="ftext"><h3>The onboarding checklist lifts activation by 7.5 points</h3><p>I tested the checklist on 2,795 signups from July to September 2025, split 50/50. Activation was 43.8% with the checklist and 36.2% without. Small tests tend to overstate winners, so I plan with the low end of the interval.</p><div class="tbl-wrap"><table><tbody><tr><td>Customers</td><td class="wrap">1,394 control, 1,401 checklist</td></tr><tr><td>Activation (7 days)</td><td class="wrap">36.2% vs 43.8%</td></tr><tr><td>Lift</td><td class="wrap">+7.5 points, 95% CI 3.9 to 11.1, p below 0.001</td></tr><tr><td>Signup to paid</td><td class="wrap">27.8% vs 33.8%, +6.1 points (CI 2.7 to 9.5)</td></tr><tr><td>Guardrail: tickets per customer</td><td class="wrap">0.876 vs 0.801</td></tr><tr><td>Split check (50/50)</td><td class="wrap">p = 0.895, largest channel-mix gap 0.82 points</td></tr><tr><td>Smallest effect detectable</td><td class="wrap">5.2 points at 80% power</td></tr></tbody></table></div></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-ab" role="img" aria-label="Bar chart of activation rate for control and checklist with 95 percent confidence whiskers"></canvas></div><figcaption>Whiskers are 95% confidence intervals.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-prio">
+  <div class="ftext"><h3>One initiative clearly leads and one idea needs proof first</h3><p>I sized five initiatives from the data. Rolling out the checklist is worth about $36K of first-six-month revenue per year of signups (range $19K to $54K). Moving paid-social budget to search loses money unless search absorbs it at 84% of its current efficiency or better, and I assumed 50%.</p><p>The other three are small and worth piloting with a control group before scaling. Revenue counts only six months per customer, so every figure is conservative. Effort scores are my estimates.</p><div class="tbl-wrap"><table><thead><tr><th>Initiative</th><th class="n">Impact a year</th><th class="n">Effort (1 to 5)</th><th>Call</th><th>Assumption</th></tr></thead><tbody><tr><td>Checklist rollout</td><td class='n'>$36,403</td><td class='n'>2</td><td><strong>Do now</strong></td><td class='wrap'>Measured lift from the A/B test, applied to 2025 signup volume</td></tr><tr><td>Shift social budget</td><td class='n'>-$5,912</td><td class='n'>1</td><td><strong>Do not do</strong></td><td class='wrap'>Assumes search absorbs the money at 50% of its current efficiency</td></tr><tr><td>Early-warning outreach</td><td class='n'>$2,414</td><td class='n'>3</td><td><strong>Pilot first</strong></td><td class='wrap'>Assumes outreach cuts churn 20% in the group and saved customers stay 6 more months</td></tr><tr><td>Win-back campaign</td><td class='n'>$2,081</td><td class='n'>2</td><td><strong>Pilot first</strong></td><td class='wrap'>Assumes 4% win-back at a $2 cost per customer contacted</td></tr><tr><td>Referral expansion</td><td class='n'>$7,812</td><td class='n'>3</td><td><strong>Pilot first</strong></td><td class='wrap'>Assumes constant cost per signup; net of spend</td></tr></tbody></table></div></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-prio" role="img" aria-label="Bubble chart of initiatives by effort and annual revenue impact"></canvas></div><figcaption>Bubble size is the number of customers affected.</figcaption></figure>
+</article>
+  <h3 class="sub">Recommendations</h3>
+  
+<ol class="recs">
+  <li><strong>Roll out the onboarding checklist to every signup.</strong> It is the only initiative with a clear, measured effect, worth about $36K a year, or $19K at the low end of the interval.</li>
+  <li><strong>Hold paid-social spend flat until its activation recovers.</strong> It returns $0.95 per $1 in six months and its customers churn at 32.0%.</li>
+  <li><strong>Hold off on moving that budget to search.</strong> The move only pays if search keeps 84% of its current efficiency at higher spend. This data cannot show that, so test a small shift first.</li>
+  <li><strong>Pilot referral expansion and early-warning outreach.</strong> Run each with a control group and decide on measured results.</li>
+  <li><strong>Report four KPIs weekly:</strong> activation, signup to paid, 90-day retention and return per $1 by channel, using the definitions above.</li>
+</ol>
+  <div class="two">
+    <div><h3 class="sub" style="margin-top:0">The cohort retention query</h3><pre><code>-- Retention by paid-start cohort and months since first payment. A recursive CTE builds the month
+-- offsets; a cell is kept only when the whole cohort has been observed that long.
+WITH RECURSIVE months(m) AS (
+    SELECT 0 UNION ALL SELECT m + 1 FROM months WHERE m &lt; 12
+),
+paying AS (
+    SELECT customer_id, strftime(&#x27;%Y-%m&#x27;, paid_start_date) AS cohort, paid_start_date, cancel_date
+    FROM customers WHERE converted = 1
+)
+SELECT p.cohort, m.m AS months_since,
+       COUNT(*) AS cohort_size,
+       SUM(CASE WHEN p.cancel_date IS NULL
+                  OR p.cancel_date &gt; date(p.paid_start_date, &#x27;+&#x27; || m.m || &#x27; months&#x27;) THEN 1 ELSE 0 END) AS active
+FROM paying p
+JOIN months m
+WHERE date(p.cohort || &#x27;-01&#x27;, &#x27;+1 month&#x27;, &#x27;-1 day&#x27;, &#x27;+&#x27; || m.m || &#x27; months&#x27;) &lt;= &#x27;2025-12-31&#x27;
+GROUP BY p.cohort, m.m
+ORDER BY p.cohort, m.m;</code></pre></div>
+    <div><h3 class="sub" style="margin-top:0">Limits</h3><p class="limits">The dataset is synthetic and the app is fictional. Channel costs per signup are assumptions. Business-case figures count only the first six months of revenue per customer and rest on the stated assumptions, so they rank initiatives and are not a forecast. The A/B test assumes the checklist effect is the same across channels, and the planned rollout should be monitored for that.</p>
+      <ul class="files"><li>business_analysis/01_generate_data.py</li><li>business_analysis/queries.sql</li><li>business_analysis/02_analyze.py</li></ul></div>
+  </div>
+</section>
+
+<section id="fleet">
+  <p class="eyebrow">Project 4</p>
+  <h2 class="sec">Fleet management: AI-equipped vs conventional trucks</h2>
+  <p class="intro">Is the AI premium worth paying? Compare maintenance, operating cost, acquisition cost and profit across a 120-tractor fleet.</p>
+  <p class="meta">Synthetic data: fictional freight carrier, 120 tractors (60 AI, 60 conventional), 3,739 vehicle-months, Oct 2023 to Sep 2026</p>
+  <p class="stack">SQL (CTEs, joins, bucketing) / Python / regression with vehicle-level bootstrap / NPV and payback model</p>
+  <div class="summary"><div><h3>What I analyzed</h3><p>120 tractors (60 AI-equipped, 60 conventional) over 3,739 vehicle-months and 2,417 maintenance events. I compared acquisition cost, operating cost, maintenance and profit, adjusted for lane and age, and built a model of the buy decision.</p></div><div><h3>Results</h3><ul><li>AI tractors earn $693 more per vehicle-month after adjusting for lane, age and season (95% interval $278 to $1,291).</li><li>The gain is entirely long-haul (+$2,941). Regional is flat and urban loses $2,967 per vehicle-month.</li><li>Unplanned breakdowns fall 38% and maintenance cost per mile 16%, but AI maintenance overtakes conventional after about two years as sensors age.</li><li>The $75,100 premium pays back in 19 months on long-haul. Buying AI for regional or urban lanes loses money over a 7-year life at current prices.</li></ul></div></div>
+  
+<div class="kpis">
+  <div class="kpi"><span class="lab">Profit per vehicle-month</span><span class="val">$7,124 vs $6,093</span><span class="sub">AI vs conventional, before adjusting for lane mix and age</span></div>
+  <div class="kpi"><span class="lab">Unplanned breakdowns</span><span class="val">-38%</span><span class="sub">0.47 vs 0.76 per 100,000 miles</span></div>
+  <div class="kpi"><span class="lab">Maintenance cost per mile</span><span class="val">$0.139</span><span class="sub">-16% vs $0.166 conventional</span></div>
+  <div class="kpi"><span class="lab">Acquisition premium</span><span class="val">$75,100</span><span class="sub">Pays back in 19 months on long-haul lanes</span></div>
+</div>
+  
+<article class="finding" id="f-c-fl-cpm">
+  <div class="ftext"><h3>AI tractors earn $2,941 more per month on long-haul and lose $2,967 on urban lanes</h3><p>Across the fleet an AI tractor makes $7,124 a month against $6,093, but the lanes tell different stories. On long-haul the AI unit runs 22% more miles, burns less fuel and spends less on drivers, which more than covers its $75,100 premium, software fee and extra depreciation. In dense urban work utilization barely moves, so the fixed costs of the technology are not recovered.</p><div class="tbl-wrap"><table><thead><tr><th>Lane</th><th class='num'>Miles per month<br>AI / conv</th><th class='num'>Cost per mile<br>AI / conv</th><th class='num'>Profit per vehicle-month<br>AI / conv</th></tr></thead><tbody><tr><td>Long-haul</td><td class='num'>13,234 / 10,843</td><td class='num'>$1.88 / $1.98</td><td class='num'>$9,002 / $6,061</td></tr><tr><td>Regional</td><td class='num'>9,440 / 8,369</td><td class='num'>$2.20 / $2.12</td><td class='num'>$6,250 / $6,073</td></tr><tr><td>Urban</td><td class='num'>5,324 / 5,458</td><td class='num'>$3.15 / $2.61</td><td class='num'>$3,226 / $6,193</td></tr><tr><td>All lanes (mix differs)</td><td class='num'>10,654 / 8,731</td><td class='num'>$2.08 / $2.12</td><td class='num'>$7,124 / $6,093</td></tr></tbody></table></div></div>
+  <figure class="ffig">
+<div class="ctl"><span class="lab try">Interactive</span><span id="fl-lane-lab" class="ctl-text">Lane</span>
+  <div class="seg" id="fl-lane" role="group" aria-labelledby="fl-lane-lab"><button type="button" data-l="All" aria-pressed="true">All</button><button type="button" data-l="Long-haul" aria-pressed="false">Long-haul</button><button type="button" data-l="Regional" aria-pressed="false">Regional</button><button type="button" data-l="Urban" aria-pressed="false">Urban</button></div></div>
+<p class="readout" id="fl-cpm-read" aria-live="polite"></p><div class="chart"><canvas id="c-fl-cpm" role="img" aria-label="Stacked bar chart of cost per mile by cost category for AI and conventional tractors with revenue per mile"></canvas></div><figcaption>Bars add up to total cost per mile; the line marks revenue per mile, so the gap is profit.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-fl-lane">
+  <div class="ftext"><h3>The profit gap holds after adjusting for lane mix and age: $693 a month</h3><p>The naive gap is $1,030 per vehicle-month, but AI units are newer (19 vs 30 months on average) and 52% of them run long-haul against 40% of conventional units. A regression controlling for lane, age and season gives $693 with a 95% interval of $278 to $1,291 (bootstrapped by vehicle, so one truck's months are not counted as independent).</p><p>By lane the picture is stark: long-haul +$2,941, regional +$178 (interval -$76 to $455, so not distinguishable from zero) and urban -$2,967.</p></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-fl-lane" role="img" aria-label="Bar chart of the AI minus conventional profit gap per vehicle-month by lane with 95 percent confidence whiskers"></canvas></div><figcaption>Whiskers are 95% intervals from a vehicle-level bootstrap.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-fl-maint">
+  <div class="ftext"><h3>Predictive maintenance cuts breakdowns 38%, but repairs cost more per event</h3><p>AI units log 0.47 unplanned breakdowns per 100,000 miles against 0.76, and lose less time to the shop (6.6 vs 7.5 hours a month). Condition-based servicing also stretches the preventive interval. Offsetting that, corrective repairs average $3,332 against $2,639 because sensors and calibration add parts and labor, and sensor refreshes take 4% of AI maintenance spend.</p><div class="tbl-wrap"><table><thead><tr><th>Event type</th><th class='num'>Per 100,000 miles<br>AI / conv</th><th class='num'>Average cost<br>AI / conv</th></tr></thead><tbody><tr><td>Preventive</td><td class='num'>3.21 / 4.02</td><td class='num'>$877 / $791</td></tr><tr><td>Corrective</td><td class='num'>2.15 / 2.87</td><td class='num'>$3,332 / $2,639</td></tr><tr><td>Breakdown</td><td class='num'>0.47 / 0.76</td><td class='num'>$7,199 / $7,774</td></tr><tr><td>Sensor refresh</td><td class='num'>0.03 / 0.00</td><td class='num'>$21,755 / -</td></tr></tbody></table></div></div>
+  <figure class="ffig">
+<div class="ctl"><span class="lab try">Interactive</span><span id="fl-m-lab" class="ctl-text">Measure</span>
+  <div class="seg" id="fl-m" role="group" aria-labelledby="fl-m-lab"><button type="button" data-m="events" aria-pressed="true">Events per 100K miles</button><button type="button" data-m="cost" aria-pressed="false">Average cost per event</button><button type="button" data-m="down" aria-pressed="false">Downtime hours per 100K miles</button></div></div>
+<p class="readout" id="fl-m-read" aria-live="polite"></p><div class="chart"><canvas id="c-fl-maint" role="img" aria-label="Grouped bar chart comparing maintenance events by type for AI and conventional tractors"></canvas></div><figcaption>Switch the measure to see frequency, cost per event or downtime.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-fl-age">
+  <div class="ftext"><h3>AI maintenance cost climbs faster with age and overtakes conventional after about two years</h3><p>For the first two years an AI tractor costs less per mile to maintain ($0.11 to $0.12, against $0.13 and $0.17). From month 24 the sensor and compute refresh cycle pushes it to $0.18 per mile at 24 to 35 months and $0.21 at 36 to 47, above conventional units' $0.15 and $0.19. The 48+ month bucket is hidden for AI because only a handful of vehicle-months exist. Any business case that uses first-year maintenance savings overstates the benefit.</p></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-fl-age" role="img" aria-label="Line chart of maintenance cost per mile by vehicle age bucket for AI and conventional tractors"></canvas></div><figcaption>Buckets with fewer than 100 vehicle-months are not drawn.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-fl-scat">
+  <div class="ftext"><h3>7 of the 8 weakest earners are urban AI tractors</h3><p>Each dot is one tractor's operating profit over the last 12 months. Every vehicle is profitable, but the lowest earners cluster in urban AI work (9 units). Moving them to long-haul or swapping them for conventional units is worth about $320,486 a year at the fitted urban gap.</p><div class="tbl-wrap"><table><thead><tr><th>Vehicle</th><th>Type</th><th>Lane</th><th class='num'>Age (months)</th><th class='num'>Profit, last 12 months</th></tr></thead><tbody><tr><td>A037</td><td>AI</td><td>Urban</td><td class='num'>32</td><td class='num'>$26,083</td></tr><tr><td>A012</td><td>AI</td><td>Urban</td><td class='num'>48</td><td class='num'>$26,198</td></tr><tr><td>A021</td><td>AI</td><td>Urban</td><td class='num'>32</td><td class='num'>$29,595</td></tr><tr><td>A052</td><td>AI</td><td>Urban</td><td class='num'>24</td><td class='num'>$29,750</td></tr><tr><td>A014</td><td>AI</td><td>Urban</td><td class='num'>46</td><td class='num'>$31,499</td></tr><tr><td>C016</td><td>Conventional</td><td>Long-haul</td><td class='num'>68</td><td class='num'>$38,712</td></tr><tr><td>A006</td><td>AI</td><td>Urban</td><td class='num'>21</td><td class='num'>$39,739</td></tr><tr><td>A029</td><td>AI</td><td>Urban</td><td class='num'>41</td><td class='num'>$40,533</td></tr></tbody></table></div></div>
+  <figure class="ffig">
+<div class="ctl"><span class="lab try">Interactive</span><span id="fl-s-lab" class="ctl-text">Show lane</span>
+  <div class="seg" id="fl-s" role="group" aria-labelledby="fl-s-lab"><button type="button" data-s="All" aria-pressed="true">All</button><button type="button" data-s="Long-haul" aria-pressed="false">Long-haul</button><button type="button" data-s="Regional" aria-pressed="false">Regional</button><button type="button" data-s="Urban" aria-pressed="false">Urban</button></div></div>
+<p class="readout" id="fl-s-read" aria-live="polite"></p><div class="chart"><canvas id="c-fl-scat" role="img" aria-label="Scatter plot of vehicle age against trailing twelve month operating profit, colored by type"></canvas></div><figcaption>Hover a dot for the vehicle id, lane and profit.</figcaption></figure>
+</article>
+<article class="finding" id="f-c-fl-pay">
+  <div class="ftext"><h3>On long-haul an AI tractor pays back its premium in 19 months; on regional and urban it does not</h3><p>The calculator projects each lane's cash flow over a 7-year life using the fitted per-mile economics, the age-driven maintenance slope, and residual values (22% for AI, 28% for conventional). At today's diesel price the discounted 7-year advantage is +$139,164 per truck on long-haul, -$27,324 on regional and -$222,379 on urban.</p><p>Move the sliders to find the break-even: how much utilization advantage, premium or software fee the regional case needs to turn positive.</p>
+<div class="scen" id="fl-calc">
+  <p class="lab try">Interactive: should the next truck be AI-equipped?</p>
+  <div class="ctl"><span id="fl-p-lab" class="ctl-text">Lane</span><div class="seg" id="fl-p" role="group" aria-labelledby="fl-p-lab"><button type="button" data-p="Long-haul" aria-pressed="true">Long-haul</button><button type="button" data-p="Regional" aria-pressed="false">Regional</button><button type="button" data-p="Urban" aria-pressed="false">Urban</button></div></div>
+  <div class="sl wide"><label for="fl-diesel">Diesel price</label><input type="range" id="fl-diesel" min="3" max="6" step="0.05" value="4.06"><output id="fl-diesel-out" for="fl-diesel"></output></div>
+  <div class="sl wide"><label for="fl-prem">AI price premium</label><input type="range" id="fl-prem" min="20000" max="120000" step="1000" value="75100"><output id="fl-prem-out" for="fl-prem"></output></div>
+  <div class="sl wide"><label for="fl-util">AI extra miles</label><input type="range" id="fl-util" min="-20" max="20" step="1" value="0"><output id="fl-util-out" for="fl-util"></output></div>
+  <div class="sl wide"><label for="fl-soft">AI software fee</label><input type="range" id="fl-soft" min="500" max="3000" step="50" value="1650"><output id="fl-soft-out" for="fl-soft"></output></div>
+  <div class="scen-out" aria-live="polite"><span class="lab">AI advantage over 7 years, discounted at 8%</span><span class="val" id="fl-npv"></span><span class="sub" id="fl-pay"></span></div>
+  <button type="button" id="fl-reset" class="tbtn">Reset to fitted values</button>
+</div></div>
+  <figure class="ffig"><div class="chart"><canvas id="c-fl-pay" role="img" aria-label="Line chart of cumulative cash advantage of an AI tractor over a conventional one across seven years"></canvas></div><figcaption>The line starts at minus the extra purchase price and crosses zero at payback.</figcaption></figure>
+</article>
+  <h3 class="sub">Recommendations</h3>
+  
+<ol class="recs">
+  <li><strong>Buy AI-equipped tractors for long-haul only.</strong> Payback is 19 months and the 7-year advantage is $139,164 per truck. Hold regional purchases until the premium or software fee falls.</li>
+  <li><strong>Move or replace the 9 urban AI units.</strong> At the fitted gap they cost about $320,486 a year against conventional units. Reassigning them to long-haul lanes is the cheaper fix.</li>
+  <li><strong>Budget for the sensor refresh.</strong> Put an accrual for the month-30 to month-48 refresh into the AI business case; it is 4% of AI maintenance spend and absent from first-year numbers.</li>
+  <li><strong>Negotiate the software fee.</strong> At $1,650 a month it is the single largest AI-specific operating cost; each $500 saved adds $6,000 per truck per year.</li>
+</ol>
+  <div class="two">
+    <div><h3 class="sub" style="margin-top:0">The maintenance-by-age query</h3><pre><code>-- Maintenance cost per mile by vehicle age bucket (age at the time of the cost).
+WITH mx AS (SELECT vehicle_id, month, SUM(cost) AS maint_cost FROM maintenance GROUP BY vehicle_id, month)
+SELECT v.type,
+       CASE WHEN o.age_months &lt; 12 THEN 0 WHEN o.age_months &lt; 24 THEN 1 WHEN o.age_months &lt; 36 THEN 2
+            WHEN o.age_months &lt; 48 THEN 3 ELSE 4 END AS bucket,
+       COUNT(*) AS vehicle_months, SUM(o.miles) AS miles, SUM(COALESCE(mx.maint_cost, 0)) AS maintenance
+FROM monthly_ops o JOIN vehicles v USING (vehicle_id)
+LEFT JOIN mx ON mx.vehicle_id = o.vehicle_id AND mx.month = o.month
+GROUP BY v.type, bucket;</code></pre></div>
+    <div><h3 class="sub" style="margin-top:0">Limits</h3><p class="limits">The data is synthetic and the carrier is fictional. 'AI' stands for AI-equipped tractors (driver-assist or autonomous-capable with AI predictive maintenance and routing), not fully driverless operation, and the planted effects are assumptions, not industry benchmarks. The payback model holds rates, revenue per mile and diesel flat, uses a straight-line age slope for maintenance, and ignores financing beyond an 8% discount rate, taxes and incentives. The bootstrap resamples vehicles, so it reflects fleet-level noise but not a change in freight market conditions.</p>
+      <ul class="files"><li>fleet/01_generate_data.py</li><li>fleet/queries.sql</li><li>fleet/02_analyze.py</li></ul></div>
+  </div>
+</section>
+
+<section id="visualization">
+  <p class="eyebrow">Visualization</p>
+  <h2 class="sec">How I design charts</h2>
+  <p class="intro">The four projects use 22 chart types, each picked for the question it answers. Six rules apply to all of them.</p>
+  <div class="principles"><div class="principle"><h3>The title states the finding.</h3><p>Each chart sits under a headline such as "OTIF has not improved in two years", so the reader gets the point before reading the axes.</p></div><div class="principle"><h3>One color means one thing.</h3><p>Each business unit keeps its color across the charts that compare units. Orange marks the option or segment that needs attention.</p></div><div class="principle"><h3>Uncertainty stays visible.</h3><p>Forecasts carry an 80% interval, the A/B test carries confidence whiskers, and the business case shows a range.</p></div><div class="principle"><h3>Labels, a legend and a readout.</h3><p>Multi-series charts have direct labels and a legend, tooltips give exact values, and the controls print the numbers they change.</p></div><div class="principle"><h3>Honest axes.</h3><p>Bars start at zero. Lines may start higher, and the axis says so.</p></div><div class="principle"><h3>Built for any screen.</h3><p>Charts redraw for light and dark themes, fit a phone width, and the controls work with a keyboard.</p></div></div>
+  <h3 class="sub">Chart index</h3>
+  <div class="tbl-wrap"><table><thead><tr><th>Chart</th><th>Question it answers</th><th>See it in</th></tr></thead><tbody><tr><td>Ranked bar with threshold</td><td class="wrap">Who fails the standard?</td><td><a href="#f-c-suppliers">Project 1</a></td></tr><tr><td>Line with moving average</td><td class="wrap">Is performance trending?</td><td><a href="#f-c-otif">Project 1</a></td></tr><tr><td>Pareto curve</td><td class="wrap">Where is value concentrated?</td><td><a href="#f-c-pareto">Project 1</a></td></tr><tr><td>Grouped bars with selector</td><td class="wrap">What does each policy option buy?</td><td><a href="#f-c-service">Project 1</a></td></tr><tr><td>Forecast comparison lines</td><td class="wrap">Which method predicts best?</td><td><a href="#f-c-forecast">Project 1</a></td></tr><tr><td>Waterfall with filter</td><td class="wrap">Where did the variance come from?</td><td><a href="#f-c-bridge">Project 2</a></td></tr><tr><td>Multi-line, direct labels</td><td class="wrap">Which unit is losing margin?</td><td><a href="#f-c-margin">Project 2</a></td></tr><tr><td>Two-line comparison</td><td class="wrap">Is one group behaving differently?</td><td><a href="#f-c-dso">Project 2</a></td></tr><tr><td>Fan chart with interval</td><td class="wrap">How uncertain is the outlook?</td><td><a href="#f-c-fan">Project 2</a></td></tr><tr><td>Tornado with live sliders</td><td class="wrap">Which driver matters most?</td><td><a href="#f-c-tornado">Project 2</a></td></tr><tr><td>Cohort heatmap</td><td class="wrap">Does retention change by cohort?</td><td><a href="#f-c-heat">Project 3</a></td></tr><tr><td>Two-series trend</td><td class="wrap">Are two measures moving together?</td><td><a href="#f-c-trend">Project 3</a></td></tr><tr><td>Grouped funnel bars</td><td class="wrap">Where does each channel lose people?</td><td><a href="#f-c-funnel">Project 3</a></td></tr><tr><td>Segment bars with selector</td><td class="wrap">Which segment churns most?</td><td><a href="#f-c-churn">Project 3</a></td></tr><tr><td>Bars with confidence whiskers</td><td class="wrap">Is the test result real?</td><td><a href="#f-c-ab">Project 3</a></td></tr><tr><td>Bubble matrix</td><td class="wrap">What should we do first?</td><td><a href="#f-c-prio">Project 3</a></td></tr><tr><td>Stacked cost bars with revenue marker</td><td class="wrap">Where does each mile's money go?</td><td><a href="#f-c-fl-cpm">Project 4</a></td></tr><tr><td>Effect bars with 95% whiskers</td><td class="wrap">Is the gap real after adjustment?</td><td><a href="#f-c-fl-lane">Project 4</a></td></tr><tr><td>Grouped bars with measure switch</td><td class="wrap">Where do maintenance dollars and hours go?</td><td><a href="#f-c-fl-maint">Project 4</a></td></tr><tr><td>Age curve</td><td class="wrap">Do costs change as the asset ages?</td><td><a href="#f-c-fl-age">Project 4</a></td></tr><tr><td>Filtered scatter</td><td class="wrap">Which individual assets are weak?</td><td><a href="#f-c-fl-scat">Project 4</a></td></tr><tr><td>Cumulative payback curve with sliders</td><td class="wrap">When does the extra spend pay back?</td><td><a href="#f-c-fl-pay">Project 4</a></td></tr></tbody></table></div>
+</section>
+
+<footer id="contact">
+  <h2 class="sec">Contact</h2>
+  <p>Open to operations, analyst, AI and product roles.</p>
+  <div class="email-row"><span class="contact" id="email-text">malla.nischal@outlook.com</span><button type="button" id="copy-email" class="tbtn">Copy email</button></div>
+  <p class="contact"><a href="https://www.linkedin.com/in/nischal-malla/">linkedin.com/in/nischal-malla</a></p>
+</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const D = {"sc":{"scorecard":[{"supplier_id":5,"supplier_name":"Supplier 05","country":"USA","pos":30,"spend_share_pct":1.5,"otif_pct":36.7,"on_time_pct":60.0,"in_full_pct":66.7,"avg_delay_days":3.97,"spend":735102.0},{"supplier_id":11,"supplier_name":"Supplier 11","country":"India","pos":65,"spend_share_pct":2.9,"otif_pct":43.1,"on_time_pct":55.4,"in_full_pct":78.5,"avg_delay_days":3.46,"spend":1409979.0},{"supplier_id":18,"supplier_name":"Supplier 18","country":"Vietnam","pos":104,"spend_share_pct":8.1,"otif_pct":53.8,"on_time_pct":61.5,"in_full_pct":86.5,"avg_delay_days":4.91,"spend":3974743.0},{"supplier_id":6,"supplier_name":"Supplier 06","country":"Germany","pos":63,"spend_share_pct":1.1,"otif_pct":66.7,"on_time_pct":76.2,"in_full_pct":85.7,"avg_delay_days":0.44,"spend":549419.0},{"supplier_id":13,"supplier_name":"Supplier 13","country":"USA","pos":96,"spend_share_pct":6.4,"otif_pct":68.8,"on_time_pct":77.1,"in_full_pct":89.6,"avg_delay_days":0.24,"spend":3135231.0},{"supplier_id":4,"supplier_name":"Supplier 04","country":"Mexico","pos":132,"spend_share_pct":4.2,"otif_pct":68.9,"on_time_pct":78.0,"in_full_pct":89.4,"avg_delay_days":0.15,"spend":2071646.0},{"supplier_id":7,"supplier_name":"Supplier 07","country":"Poland","pos":105,"spend_share_pct":4.8,"otif_pct":69.5,"on_time_pct":74.3,"in_full_pct":93.3,"avg_delay_days":0.42,"spend":2358223.0},{"supplier_id":17,"supplier_name":"Supplier 17","country":"China","pos":72,"spend_share_pct":5.3,"otif_pct":70.8,"on_time_pct":77.8,"in_full_pct":91.7,"avg_delay_days":-0.15,"spend":2627106.0},{"supplier_id":10,"supplier_name":"Supplier 10","country":"Vietnam","pos":99,"spend_share_pct":3.0,"otif_pct":71.7,"on_time_pct":80.8,"in_full_pct":90.9,"avg_delay_days":-0.18,"spend":1473865.0},{"supplier_id":3,"supplier_name":"Supplier 03","country":"India","pos":260,"spend_share_pct":7.2,"otif_pct":71.9,"on_time_pct":80.0,"in_full_pct":90.0,"avg_delay_days":-0.09,"spend":3542016.0},{"supplier_id":12,"supplier_name":"Supplier 12","country":"Mexico","pos":123,"spend_share_pct":3.9,"otif_pct":72.4,"on_time_pct":77.2,"in_full_pct":93.5,"avg_delay_days":0.86,"spend":1946532.0},{"supplier_id":15,"supplier_name":"Supplier 15","country":"Poland","pos":110,"spend_share_pct":2.5,"otif_pct":72.7,"on_time_pct":80.0,"in_full_pct":92.7,"avg_delay_days":0.53,"spend":1209487.0},{"supplier_id":19,"supplier_name":"Supplier 19","country":"India","pos":136,"spend_share_pct":2.5,"otif_pct":72.8,"on_time_pct":75.7,"in_full_pct":97.1,"avg_delay_days":0.33,"spend":1232235.0},{"supplier_id":9,"supplier_name":"Supplier 09","country":"China","pos":115,"spend_share_pct":6.4,"otif_pct":73.0,"on_time_pct":83.5,"in_full_pct":88.7,"avg_delay_days":0.6,"spend":3176660.0},{"supplier_id":23,"supplier_name":"Supplier 23","country":"Poland","pos":163,"spend_share_pct":6.6,"otif_pct":74.8,"on_time_pct":77.9,"in_full_pct":94.5,"avg_delay_days":0.21,"spend":3238876.0},{"supplier_id":14,"supplier_name":"Supplier 14","country":"Germany","pos":90,"spend_share_pct":4.4,"otif_pct":75.6,"on_time_pct":84.4,"in_full_pct":88.9,"avg_delay_days":-0.17,"spend":2180964.0},{"supplier_id":8,"supplier_name":"Supplier 08","country":"Turkey","pos":122,"spend_share_pct":1.5,"otif_pct":76.2,"on_time_pct":80.3,"in_full_pct":93.4,"avg_delay_days":0.09,"spend":736110.0},{"supplier_id":22,"supplier_name":"Supplier 22","country":"Germany","pos":36,"spend_share_pct":0.1,"otif_pct":77.8,"on_time_pct":80.6,"in_full_pct":97.2,"avg_delay_days":0.56,"spend":71390.0},{"supplier_id":16,"supplier_name":"Supplier 16","country":"Turkey","pos":191,"spend_share_pct":4.7,"otif_pct":81.2,"on_time_pct":85.9,"in_full_pct":94.2,"avg_delay_days":-0.3,"spend":2338119.0},{"supplier_id":20,"supplier_name":"Supplier 20","country":"Mexico","pos":85,"spend_share_pct":0.6,"otif_pct":81.2,"on_time_pct":85.9,"in_full_pct":95.3,"avg_delay_days":0.06,"spend":301000.0},{"supplier_id":1,"supplier_name":"Supplier 01","country":"China","pos":160,"spend_share_pct":3.5,"otif_pct":81.3,"on_time_pct":92.5,"in_full_pct":88.8,"avg_delay_days":-0.33,"spend":1745629.0},{"supplier_id":21,"supplier_name":"Supplier 21","country":"USA","pos":84,"spend_share_pct":8.1,"otif_pct":83.3,"on_time_pct":91.7,"in_full_pct":91.7,"avg_delay_days":-0.55,"spend":4016543.0},{"supplier_id":24,"supplier_name":"Supplier 24","country":"Turkey","pos":115,"spend_share_pct":3.9,"otif_pct":85.2,"on_time_pct":87.8,"in_full_pct":96.5,"avg_delay_days":-0.35,"spend":1946984.0},{"supplier_id":2,"supplier_name":"Supplier 02","country":"Vietnam","pos":166,"spend_share_pct":6.8,"otif_pct":86.1,"on_time_pct":94.0,"in_full_pct":91.6,"avg_delay_days":-0.7,"spend":3341716.0}],"problem":{"ids":[5,11,18],"names":["Supplier 05","Supplier 11","Supplier 18"],"n":3,"of":24,"spend_share_pct":12.4,"late_po_share_pct":15.4,"otif_threshold":60.0},"monthly":[{"month":"2024-02","otif":79.4,"avg3":79.4},{"month":"2024-03","otif":70.9,"avg3":75.2},{"month":"2024-04","otif":75.2,"avg3":75.2},{"month":"2024-05","otif":71.8,"avg3":72.6},{"month":"2024-06","otif":72.9,"avg3":73.3},{"month":"2024-07","otif":69.8,"avg3":71.5},{"month":"2024-08","otif":69.7,"avg3":70.8},{"month":"2024-09","otif":70.0,"avg3":69.8},{"month":"2024-10","otif":76.4,"avg3":72.0},{"month":"2024-11","otif":74.8,"avg3":73.7},{"month":"2024-12","otif":83.5,"avg3":78.2},{"month":"2025-01","otif":72.6,"avg3":77.0},{"month":"2025-02","otif":76.1,"avg3":77.4},{"month":"2025-03","otif":70.2,"avg3":73.0},{"month":"2025-04","otif":67.6,"avg3":71.3},{"month":"2025-05","otif":71.7,"avg3":69.8},{"month":"2025-06","otif":70.2,"avg3":69.8},{"month":"2025-07","otif":74.2,"avg3":72.0},{"month":"2025-08","otif":73.9,"avg3":72.8},{"month":"2025-09","otif":77.3,"avg3":75.1},{"month":"2025-10","otif":71.7,"avg3":74.3},{"month":"2025-11","otif":72.3,"avg3":73.8},{"month":"2025-12","otif":78.2,"avg3":74.1}],"pareto":[{"x":1,"y":6.9},{"x":2,"y":11.0},{"x":3,"y":15.0},{"x":4,"y":18.4},{"x":5,"y":21.6},{"x":6,"y":24.6},{"x":7,"y":26.7},{"x":8,"y":28.8},{"x":9,"y":30.6},{"x":10,"y":32.4},{"x":11,"y":34.2},{"x":12,"y":35.9},{"x":13,"y":37.7},{"x":14,"y":39.4},{"x":15,"y":41.1},{"x":16,"y":42.8},{"x":17,"y":44.3},{"x":18,"y":45.9},{"x":19,"y":47.2},{"x":20,"y":48.5},{"x":21,"y":49.7},{"x":22,"y":50.9},{"x":23,"y":52.1},{"x":24,"y":53.2},{"x":25,"y":54.4},{"x":26,"y":55.5},{"x":27,"y":56.5},{"x":28,"y":57.6},{"x":29,"y":58.7},{"x":30,"y":59.7},{"x":31,"y":60.7},{"x":32,"y":61.7},{"x":33,"y":62.6},{"x":34,"y":63.6},{"x":35,"y":64.5},{"x":36,"y":65.5},{"x":37,"y":66.4},{"x":38,"y":67.3},{"x":39,"y":68.2},{"x":40,"y":69.1},{"x":41,"y":70.0},{"x":42,"y":70.8},{"x":43,"y":71.7},{"x":44,"y":72.5},{"x":45,"y":73.3},{"x":46,"y":74.1},{"x":47,"y":74.8},{"x":48,"y":75.6},{"x":49,"y":76.3},{"x":50,"y":77.1},{"x":51,"y":77.8},{"x":52,"y":78.5},{"x":53,"y":79.2},{"x":54,"y":79.9},{"x":55,"y":80.5},{"x":56,"y":81.2},{"x":57,"y":81.7},{"x":58,"y":82.3},{"x":59,"y":82.9},{"x":60,"y":83.4},{"x":61,"y":83.9},{"x":62,"y":84.4},{"x":63,"y":84.9},{"x":64,"y":85.4},{"x":65,"y":85.8},{"x":66,"y":86.3},{"x":67,"y":86.8},{"x":68,"y":87.2},{"x":69,"y":87.6},{"x":70,"y":88.0},{"x":71,"y":88.4},{"x":72,"y":88.8},{"x":73,"y":89.2},{"x":74,"y":89.6},{"x":75,"y":90.0},{"x":76,"y":90.3},{"x":77,"y":90.7},{"x":78,"y":91.0},{"x":79,"y":91.3},{"x":80,"y":91.6},{"x":81,"y":91.9},{"x":82,"y":92.2},{"x":83,"y":92.5},{"x":84,"y":92.8},{"x":85,"y":93.0},{"x":86,"y":93.3},{"x":87,"y":93.5},{"x":88,"y":93.8},{"x":89,"y":94.0},{"x":90,"y":94.2},{"x":91,"y":94.4},{"x":92,"y":94.6},{"x":93,"y":94.9},{"x":94,"y":95.1},{"x":95,"y":95.3},{"x":96,"y":95.5},{"x":97,"y":95.6},{"x":98,"y":95.8},{"x":99,"y":96.0},{"x":100,"y":96.2},{"x":101,"y":96.4},{"x":102,"y":96.5},{"x":103,"y":96.7},{"x":104,"y":96.8},{"x":105,"y":96.9},{"x":106,"y":97.1},{"x":107,"y":97.2},{"x":108,"y":97.3},{"x":109,"y":97.5},{"x":110,"y":97.6},{"x":111,"y":97.7},{"x":112,"y":97.8},{"x":113,"y":97.9},{"x":114,"y":98.1},{"x":115,"y":98.2},{"x":116,"y":98.3},{"x":117,"y":98.4},{"x":118,"y":98.5},{"x":119,"y":98.6},{"x":120,"y":98.6},{"x":121,"y":98.7},{"x":122,"y":98.8},{"x":123,"y":98.9},{"x":124,"y":99.0},{"x":125,"y":99.0},{"x":126,"y":99.1},{"x":127,"y":99.2},{"x":128,"y":99.2},{"x":129,"y":99.3},{"x":130,"y":99.4},{"x":131,"y":99.4},{"x":132,"y":99.5},{"x":133,"y":99.5},{"x":134,"y":99.6},{"x":135,"y":99.6},{"x":136,"y":99.6},{"x":137,"y":99.7},{"x":138,"y":99.7},{"x":139,"y":99.7},{"x":140,"y":99.8},{"x":141,"y":99.8},{"x":142,"y":99.8},{"x":143,"y":99.9},{"x":144,"y":99.9},{"x":145,"y":99.9},{"x":146,"y":99.9},{"x":147,"y":100.0},{"x":148,"y":100.0},{"x":149,"y":100.0},{"x":150,"y":100.0}],"abcA":55,"abcAB":94,"sim":{"n_a_skus":55,"n_a_problem":6,"n_a_other":49,"service_now_pct":83.8,"service_new_pct":93.9,"service_now_problem_pct":66.7,"service_new_problem_pct":93.7,"service_now_other_pct":85.9,"service_new_other_pct":94.0,"inventory_increase_pct":20.3,"inventory_increase_usd":336438.0,"inventory_now_usd":1654452.0,"targets":[{"key":"90","label":"90%","service_pct":89.9,"service_problem_pct":89.5,"service_other_pct":90.0,"inv_increase_pct":10.7,"inv_increase_usd":177025.0},{"key":"95","label":"95%","service_pct":93.9,"service_problem_pct":93.7,"service_other_pct":94.0,"inv_increase_pct":20.3,"inv_increase_usd":336438.0},{"key":"975","label":"97.5%","service_pct":96.2,"service_problem_pct":95.9,"service_other_pct":96.2,"inv_increase_pct":28.7,"inv_increase_usd":474620.0},{"key":"99","label":"99%","service_pct":97.8,"service_problem_pct":97.5,"service_other_pct":97.9,"inv_increase_pct":38.4,"inv_increase_usd":635306.0}]},"fc":{"series":{"weeks":["2025-09-29","2025-10-06","2025-10-13","2025-10-20","2025-10-27","2025-11-03","2025-11-10","2025-11-17","2025-11-24","2025-12-01","2025-12-08","2025-12-15","2025-12-22"],"actual":[20824,19929,22281,21131,23177,22334,24861,24967,23441,23981,25949,27099,28501],"naive":[17403,17403,17403,17403,17403,17403,17403,17403,17403,17403,17403,17403,17403],"ma4":[17516,17516,17516,17516,17516,17516,17516,17516,17516,17516,17516,17516,17516],"seasonal_naive":[18918,20287,19295,23277,24605,20420,20661,23861,23506,24808,22603,23607,29357],"trend_season":[19807,20533,21252,21953,22621,23244,23811,24312,24737,25082,25340,25509,25588]},"labels":{"naive":"Naive (last week)","ma4":"4-week moving avg","seasonal_naive":"Seasonal naive (same week LY)","trend_season":"Trend + seasonality regression"}}},"fn":{"bridge":{"total":{"volume_effect":709724.0,"price_effect":-1342329.0,"cost_effect":-1548768.0,"marketing_effect":-297567.0,"payroll_other_effect":-80161.0,"total_ebitda_var":-2559101.0},"start":9830152.0,"end":7271051.0},"margin":[{"bu":"E-commerce","qtr":"2023-Q1","a":44.9,"b":45.4},{"bu":"E-commerce","qtr":"2023-Q2","a":45.4,"b":45.4},{"bu":"E-commerce","qtr":"2023-Q3","a":45.7,"b":45.3},{"bu":"E-commerce","qtr":"2023-Q4","a":45.0,"b":45.2},{"bu":"E-commerce","qtr":"2024-Q1","a":45.2,"b":45.2},{"bu":"E-commerce","qtr":"2024-Q2","a":44.0,"b":45.1},{"bu":"E-commerce","qtr":"2024-Q3","a":44.6,"b":45.0},{"bu":"E-commerce","qtr":"2024-Q4","a":44.6,"b":45.0},{"bu":"E-commerce","qtr":"2025-Q1","a":44.3,"b":44.9},{"bu":"E-commerce","qtr":"2025-Q2","a":43.7,"b":44.8},{"bu":"E-commerce","qtr":"2025-Q3","a":42.8,"b":44.8},{"bu":"E-commerce","qtr":"2025-Q4","a":42.4,"b":44.7},{"bu":"E-commerce","qtr":"2026-Q1","a":41.5,"b":44.6},{"bu":"E-commerce","qtr":"2026-Q2","a":41.2,"b":44.6},{"bu":"E-commerce","qtr":"2026-Q3","a":40.0,"b":44.5},{"bu":"Retail","qtr":"2023-Q1","a":39.7,"b":39.6},{"bu":"Retail","qtr":"2023-Q2","a":38.9,"b":39.5},{"bu":"Retail","qtr":"2023-Q3","a":38.9,"b":39.4},{"bu":"Retail","qtr":"2023-Q4","a":38.5,"b":39.3},{"bu":"Retail","qtr":"2024-Q1","a":37.4,"b":39.3},{"bu":"Retail","qtr":"2024-Q2","a":37.2,"b":39.2},{"bu":"Retail","qtr":"2024-Q3","a":36.8,"b":39.1},{"bu":"Retail","qtr":"2024-Q4","a":36.1,"b":39.0},{"bu":"Retail","qtr":"2025-Q1","a":36.1,"b":39.0},{"bu":"Retail","qtr":"2025-Q2","a":35.8,"b":38.9},{"bu":"Retail","qtr":"2025-Q3","a":34.4,"b":38.8},{"bu":"Retail","qtr":"2025-Q4","a":34.0,"b":38.7},{"bu":"Retail","qtr":"2026-Q1","a":33.9,"b":38.7},{"bu":"Retail","qtr":"2026-Q2","a":33.2,"b":38.6},{"bu":"Retail","qtr":"2026-Q3","a":32.3,"b":38.5},{"bu":"Subscriptions","qtr":"2023-Q1","a":79.2,"b":79.3},{"bu":"Subscriptions","qtr":"2023-Q2","a":79.4,"b":79.3},{"bu":"Subscriptions","qtr":"2023-Q3","a":79.2,"b":79.2},{"bu":"Subscriptions","qtr":"2023-Q4","a":78.9,"b":79.2},{"bu":"Subscriptions","qtr":"2024-Q1","a":79.0,"b":79.2},{"bu":"Subscriptions","qtr":"2024-Q2","a":79.3,"b":79.2},{"bu":"Subscriptions","qtr":"2024-Q3","a":79.0,"b":79.1},{"bu":"Subscriptions","qtr":"2024-Q4","a":79.2,"b":79.1},{"bu":"Subscriptions","qtr":"2025-Q1","a":79.0,"b":79.1},{"bu":"Subscriptions","qtr":"2025-Q2","a":79.1,"b":79.1},{"bu":"Subscriptions","qtr":"2025-Q3","a":78.9,"b":79.0},{"bu":"Subscriptions","qtr":"2025-Q4","a":79.1,"b":79.0},{"bu":"Subscriptions","qtr":"2026-Q1","a":78.9,"b":79.0},{"bu":"Subscriptions","qtr":"2026-Q2","a":78.9,"b":79.0},{"bu":"Subscriptions","qtr":"2026-Q3","a":78.9,"b":78.9},{"bu":"Wholesale","qtr":"2023-Q1","a":27.9,"b":27.7},{"bu":"Wholesale","qtr":"2023-Q2","a":27.4,"b":27.7},{"bu":"Wholesale","qtr":"2023-Q3","a":27.6,"b":27.6},{"bu":"Wholesale","qtr":"2023-Q4","a":26.4,"b":27.5},{"bu":"Wholesale","qtr":"2024-Q1","a":26.2,"b":27.4},{"bu":"Wholesale","qtr":"2024-Q2","a":26.1,"b":27.3},{"bu":"Wholesale","qtr":"2024-Q3","a":25.3,"b":27.2},{"bu":"Wholesale","qtr":"2024-Q4","a":25.9,"b":27.1},{"bu":"Wholesale","qtr":"2025-Q1","a":25.0,"b":27.0},{"bu":"Wholesale","qtr":"2025-Q2","a":24.3,"b":26.9},{"bu":"Wholesale","qtr":"2025-Q3","a":24.2,"b":26.9},{"bu":"Wholesale","qtr":"2025-Q4","a":24.1,"b":26.8},{"bu":"Wholesale","qtr":"2026-Q1","a":23.6,"b":26.7},{"bu":"Wholesale","qtr":"2026-Q2","a":22.9,"b":26.6},{"bu":"Wholesale","qtr":"2026-Q3","a":22.7,"b":26.5}],"monthly":[{"month":"2023-01-01","rev":5441268.0},{"month":"2023-02-01","rev":4739841.0},{"month":"2023-03-01","rev":4285528.0},{"month":"2023-04-01","rev":3976071.0},{"month":"2023-05-01","rev":3780718.0},{"month":"2023-06-01","rev":4124858.0},{"month":"2023-07-01","rev":4743536.0},{"month":"2023-08-01","rev":5156479.0},{"month":"2023-09-01","rev":5858880.0},{"month":"2023-10-01","rev":6427865.0},{"month":"2023-11-01","rev":6613611.0},{"month":"2023-12-01","rev":6425265.0},{"month":"2024-01-01","rev":5972762.0},{"month":"2024-02-01","rev":5131369.0},{"month":"2024-03-01","rev":4790791.0},{"month":"2024-04-01","rev":4279014.0},{"month":"2024-05-01","rev":4337452.0},{"month":"2024-06-01","rev":4518837.0},{"month":"2024-07-01","rev":5188167.0},{"month":"2024-08-01","rev":5767867.0},{"month":"2024-09-01","rev":6455052.0},{"month":"2024-10-01","rev":6995687.0},{"month":"2024-11-01","rev":7388811.0},{"month":"2024-12-01","rev":7155291.0},{"month":"2025-01-01","rev":6318815.0},{"month":"2025-02-01","rev":5952910.0},{"month":"2025-03-01","rev":5430075.0},{"month":"2025-04-01","rev":4885486.0},{"month":"2025-05-01","rev":4823164.0},{"month":"2025-06-01","rev":5217319.0},{"month":"2025-07-01","rev":5752221.0},{"month":"2025-08-01","rev":6661827.0},{"month":"2025-09-01","rev":7372907.0},{"month":"2025-10-01","rev":8328287.0},{"month":"2025-11-01","rev":8271823.0},{"month":"2025-12-01","rev":7967435.0},{"month":"2026-01-01","rev":7342352.0},{"month":"2026-02-01","rev":6893112.0},{"month":"2026-03-01","rev":6075894.0},{"month":"2026-04-01","rev":5549455.0},{"month":"2026-05-01","rev":5496046.0},{"month":"2026-06-01","rev":5818152.0},{"month":"2026-07-01","rev":6366339.0},{"month":"2026-08-01","rev":7455081.0},{"month":"2026-09-01","rev":8078453.0}],"dso":[{"bu":"E-commerce","month":"2023-01-01","v":4.0},{"bu":"E-commerce","month":"2023-02-01","v":3.9},{"bu":"E-commerce","month":"2023-03-01","v":4.0},{"bu":"E-commerce","month":"2023-04-01","v":3.9},{"bu":"E-commerce","month":"2023-05-01","v":4.0},{"bu":"E-commerce","month":"2023-06-01","v":4.1},{"bu":"E-commerce","month":"2023-07-01","v":4.1},{"bu":"E-commerce","month":"2023-08-01","v":4.2},{"bu":"E-commerce","month":"2023-09-01","v":4.0},{"bu":"E-commerce","month":"2023-10-01","v":4.0},{"bu":"E-commerce","month":"2023-11-01","v":3.8},{"bu":"E-commerce","month":"2023-12-01","v":3.9},{"bu":"E-commerce","month":"2024-01-01","v":3.9},{"bu":"E-commerce","month":"2024-02-01","v":4.1},{"bu":"E-commerce","month":"2024-03-01","v":4.0},{"bu":"E-commerce","month":"2024-04-01","v":4.0},{"bu":"E-commerce","month":"2024-05-01","v":3.9},{"bu":"E-commerce","month":"2024-06-01","v":3.9},{"bu":"E-commerce","month":"2024-07-01","v":4.0},{"bu":"E-commerce","month":"2024-08-01","v":4.1},{"bu":"E-commerce","month":"2024-09-01","v":4.3},{"bu":"E-commerce","month":"2024-10-01","v":4.2},{"bu":"E-commerce","month":"2024-11-01","v":4.1},{"bu":"E-commerce","month":"2024-12-01","v":3.9},{"bu":"E-commerce","month":"2025-01-01","v":3.9},{"bu":"E-commerce","month":"2025-02-01","v":3.9},{"bu":"E-commerce","month":"2025-03-01","v":3.8},{"bu":"E-commerce","month":"2025-04-01","v":3.9},{"bu":"E-commerce","month":"2025-05-01","v":4.1},{"bu":"E-commerce","month":"2025-06-01","v":4.2},{"bu":"E-commerce","month":"2025-07-01","v":4.1},{"bu":"E-commerce","month":"2025-08-01","v":4.1},{"bu":"E-commerce","month":"2025-09-01","v":4.1},{"bu":"E-commerce","month":"2025-10-01","v":4.1},{"bu":"E-commerce","month":"2025-11-01","v":4.1},{"bu":"E-commerce","month":"2025-12-01","v":4.0},{"bu":"E-commerce","month":"2026-01-01","v":4.0},{"bu":"E-commerce","month":"2026-02-01","v":4.1},{"bu":"E-commerce","month":"2026-03-01","v":4.0},{"bu":"E-commerce","month":"2026-04-01","v":4.1},{"bu":"E-commerce","month":"2026-05-01","v":4.0},{"bu":"E-commerce","month":"2026-06-01","v":4.1},{"bu":"E-commerce","month":"2026-07-01","v":4.1},{"bu":"E-commerce","month":"2026-08-01","v":4.1},{"bu":"E-commerce","month":"2026-09-01","v":4.1},{"bu":"Retail","month":"2023-01-01","v":3.1},{"bu":"Retail","month":"2023-02-01","v":3.0},{"bu":"Retail","month":"2023-03-01","v":3.0},{"bu":"Retail","month":"2023-04-01","v":2.9},{"bu":"Retail","month":"2023-05-01","v":2.9},{"bu":"Retail","month":"2023-06-01","v":3.0},{"bu":"Retail","month":"2023-07-01","v":3.1},{"bu":"Retail","month":"2023-08-01","v":3.0},{"bu":"Retail","month":"2023-09-01","v":3.0},{"bu":"Retail","month":"2023-10-01","v":2.9},{"bu":"Retail","month":"2023-11-01","v":2.9},{"bu":"Retail","month":"2023-12-01","v":2.9},{"bu":"Retail","month":"2024-01-01","v":3.0},{"bu":"Retail","month":"2024-02-01","v":3.1},{"bu":"Retail","month":"2024-03-01","v":3.1},{"bu":"Retail","month":"2024-04-01","v":3.0},{"bu":"Retail","month":"2024-05-01","v":3.0},{"bu":"Retail","month":"2024-06-01","v":3.0},{"bu":"Retail","month":"2024-07-01","v":3.0},{"bu":"Retail","month":"2024-08-01","v":3.1},{"bu":"Retail","month":"2024-09-01","v":3.0},{"bu":"Retail","month":"2024-10-01","v":3.0},{"bu":"Retail","month":"2024-11-01","v":3.0},{"bu":"Retail","month":"2024-12-01","v":3.0},{"bu":"Retail","month":"2025-01-01","v":3.0},{"bu":"Retail","month":"2025-02-01","v":3.0},{"bu":"Retail","month":"2025-03-01","v":3.0},{"bu":"Retail","month":"2025-04-01","v":3.0},{"bu":"Retail","month":"2025-05-01","v":3.0},{"bu":"Retail","month":"2025-06-01","v":3.0},{"bu":"Retail","month":"2025-07-01","v":3.1},{"bu":"Retail","month":"2025-08-01","v":3.0},{"bu":"Retail","month":"2025-09-01","v":3.0},{"bu":"Retail","month":"2025-10-01","v":3.0},{"bu":"Retail","month":"2025-11-01","v":3.0},{"bu":"Retail","month":"2025-12-01","v":3.0},{"bu":"Retail","month":"2026-01-01","v":3.0},{"bu":"Retail","month":"2026-02-01","v":3.1},{"bu":"Retail","month":"2026-03-01","v":2.9},{"bu":"Retail","month":"2026-04-01","v":2.9},{"bu":"Retail","month":"2026-05-01","v":3.0},{"bu":"Retail","month":"2026-06-01","v":3.1},{"bu":"Retail","month":"2026-07-01","v":3.1},{"bu":"Retail","month":"2026-08-01","v":3.0},{"bu":"Retail","month":"2026-09-01","v":3.0},{"bu":"Subscriptions","month":"2023-01-01","v":5.3},{"bu":"Subscriptions","month":"2023-02-01","v":5.3},{"bu":"Subscriptions","month":"2023-03-01","v":5.2},{"bu":"Subscriptions","month":"2023-04-01","v":5.2},{"bu":"Subscriptions","month":"2023-05-01","v":5.1},{"bu":"Subscriptions","month":"2023-06-01","v":5.0},{"bu":"Subscriptions","month":"2023-07-01","v":4.8},{"bu":"Subscriptions","month":"2023-08-01","v":4.8},{"bu":"Subscriptions","month":"2023-09-01","v":4.9},{"bu":"Subscriptions","month":"2023-10-01","v":4.9},{"bu":"Subscriptions","month":"2023-11-01","v":4.9},{"bu":"Subscriptions","month":"2023-12-01","v":5.0},{"bu":"Subscriptions","month":"2024-01-01","v":5.0},{"bu":"Subscriptions","month":"2024-02-01","v":5.0},{"bu":"Subscriptions","month":"2024-03-01","v":4.9},{"bu":"Subscriptions","month":"2024-04-01","v":4.9},{"bu":"Subscriptions","month":"2024-05-01","v":4.8},{"bu":"Subscriptions","month":"2024-06-01","v":4.9},{"bu":"Subscriptions","month":"2024-07-01","v":5.0},{"bu":"Subscriptions","month":"2024-08-01","v":5.1},{"bu":"Subscriptions","month":"2024-09-01","v":5.1},{"bu":"Subscriptions","month":"2024-10-01","v":5.0},{"bu":"Subscriptions","month":"2024-11-01","v":4.9},{"bu":"Subscriptions","month":"2024-12-01","v":4.9},{"bu":"Subscriptions","month":"2025-01-01","v":5.0},{"bu":"Subscriptions","month":"2025-02-01","v":5.1},{"bu":"Subscriptions","month":"2025-03-01","v":5.3},{"bu":"Subscriptions","month":"2025-04-01","v":5.2},{"bu":"Subscriptions","month":"2025-05-01","v":5.1},{"bu":"Subscriptions","month":"2025-06-01","v":4.9},{"bu":"Subscriptions","month":"2025-07-01","v":4.9},{"bu":"Subscriptions","month":"2025-08-01","v":4.9},{"bu":"Subscriptions","month":"2025-09-01","v":4.9},{"bu":"Subscriptions","month":"2025-10-01","v":5.1},{"bu":"Subscriptions","month":"2025-11-01","v":5.1},{"bu":"Subscriptions","month":"2025-12-01","v":5.0},{"bu":"Subscriptions","month":"2026-01-01","v":4.8},{"bu":"Subscriptions","month":"2026-02-01","v":4.8},{"bu":"Subscriptions","month":"2026-03-01","v":4.9},{"bu":"Subscriptions","month":"2026-04-01","v":5.0},{"bu":"Subscriptions","month":"2026-05-01","v":5.0},{"bu":"Subscriptions","month":"2026-06-01","v":5.0},{"bu":"Subscriptions","month":"2026-07-01","v":5.0},{"bu":"Subscriptions","month":"2026-08-01","v":4.9},{"bu":"Subscriptions","month":"2026-09-01","v":5.0},{"bu":"Wholesale","month":"2023-01-01","v":38.4},{"bu":"Wholesale","month":"2023-02-01","v":39.9},{"bu":"Wholesale","month":"2023-03-01","v":39.2},{"bu":"Wholesale","month":"2023-04-01","v":39.6},{"bu":"Wholesale","month":"2023-05-01","v":38.1},{"bu":"Wholesale","month":"2023-06-01","v":38.2},{"bu":"Wholesale","month":"2023-07-01","v":38.0},{"bu":"Wholesale","month":"2023-08-01","v":38.3},{"bu":"Wholesale","month":"2023-09-01","v":38.3},{"bu":"Wholesale","month":"2023-10-01","v":39.2},{"bu":"Wholesale","month":"2023-11-01","v":38.8},{"bu":"Wholesale","month":"2023-12-01","v":39.4},{"bu":"Wholesale","month":"2024-01-01","v":38.1},{"bu":"Wholesale","month":"2024-02-01","v":39.2},{"bu":"Wholesale","month":"2024-03-01","v":39.1},{"bu":"Wholesale","month":"2024-04-01","v":39.6},{"bu":"Wholesale","month":"2024-05-01","v":38.6},{"bu":"Wholesale","month":"2024-06-01","v":38.0},{"bu":"Wholesale","month":"2024-07-01","v":37.9},{"bu":"Wholesale","month":"2024-08-01","v":39.3},{"bu":"Wholesale","month":"2024-09-01","v":39.5},{"bu":"Wholesale","month":"2024-10-01","v":39.0},{"bu":"Wholesale","month":"2024-11-01","v":38.1},{"bu":"Wholesale","month":"2024-12-01","v":38.5},{"bu":"Wholesale","month":"2025-01-01","v":40.6},{"bu":"Wholesale","month":"2025-02-01","v":42.3},{"bu":"Wholesale","month":"2025-03-01","v":43.2},{"bu":"Wholesale","month":"2025-04-01","v":43.8},{"bu":"Wholesale","month":"2025-05-01","v":44.1},{"bu":"Wholesale","month":"2025-06-01","v":45.9},{"bu":"Wholesale","month":"2025-07-01","v":46.5},{"bu":"Wholesale","month":"2025-08-01","v":46.0},{"bu":"Wholesale","month":"2025-09-01","v":46.3},{"bu":"Wholesale","month":"2025-10-01","v":46.3},{"bu":"Wholesale","month":"2025-11-01","v":48.2},{"bu":"Wholesale","month":"2025-12-01","v":48.5},{"bu":"Wholesale","month":"2026-01-01","v":49.9},{"bu":"Wholesale","month":"2026-02-01","v":51.2},{"bu":"Wholesale","month":"2026-03-01","v":53.5},{"bu":"Wholesale","month":"2026-04-01","v":54.0},{"bu":"Wholesale","month":"2026-05-01","v":54.0},{"bu":"Wholesale","month":"2026-06-01","v":53.4},{"bu":"Wholesale","month":"2026-07-01","v":54.5},{"bu":"Wholesale","month":"2026-08-01","v":55.5},{"bu":"Wholesale","month":"2026-09-01","v":56.2}],"forecast":{"months":["2026-10","2026-11","2026-12","2027-01","2027-02","2027-03","2027-04","2027-05","2027-06","2027-07","2027-08","2027-09"],"rev":[9079789.0,9360883.0,9142865.0,8502632.0,7647710.0,6857102.0,6359518.0,6270134.0,6620954.0,7389500.0,8459245.0,9575147.0],"lo":[8867407.0,9138947.0,8917792.0,8308863.0,7469469.0,6694643.0,6212857.0,6117977.0,6473962.0,7216346.0,8254831.0,9335706.0],"hi":[9297651.0,9585439.0,9357214.0,8709852.0,7829056.0,7020613.0,6516696.0,6411869.0,6782734.0,7566132.0,8652295.0,9808186.0],"ntm_rev":95265479.0,"ntm_ebitda":14398201.0,"parts":{"rev":95265479.0,"cogs":58194565.0,"mkt":7527382.0,"fixed":15145330.0,"ebitda":14398201.0},"assumptions":{"E-commerce":{"gm_pct":40.5,"mkt_pct":9.2},"Retail":{"gm_pct":32.7,"mkt_pct":6.9},"Subscriptions":{"gm_pct":78.9,"mkt_pct":13.6},"Wholesale":{"gm_pct":22.8,"mkt_pct":2.0}}},"tornado":[{"driver":"Price +/-2%","up":1905310.0,"down":-1905310.0},{"driver":"Unit cost inflation +/-3%","up":1745837.0,"down":-1745837.0},{"driver":"Volume +/-5%","up":1477177.0,"down":-1477177.0},{"driver":"Marketing spend +/-10%","up":752738.0,"down":-752738.0}],"by_bu":[{"bu":"E-commerce","volume_effect":2037881.0,"price_effect":-1384551.0,"cost_effect":-274074.0,"marketing_effect":-310695.0,"payroll_other_effect":-30493.0,"total_ebitda_var":38069.0},{"bu":"Retail","volume_effect":-848116.0,"price_effect":14563.0,"cost_effect":-895191.0,"marketing_effect":10855.0,"payroll_other_effect":-42312.0,"total_ebitda_var":-1760200.0},{"bu":"Subscriptions","volume_effect":-399041.0,"price_effect":-1596.0,"cost_effect":-1885.0,"marketing_effect":1334.0,"payroll_other_effect":-4420.0,"total_ebitda_var":-405609.0},{"bu":"Wholesale","volume_effect":-81000.0,"price_effect":29255.0,"cost_effect":-377618.0,"marketing_effect":938.0,"payroll_other_effect":-2936.0,"total_ebitda_var":-431361.0}],"ytd":[{"bu":"E-commerce","ebitda_bud":5569278.0,"ebitda_act":5607347.0},{"bu":"Retail","ebitda_bud":1008674.0,"ebitda_act":-751526.0},{"bu":"Subscriptions","ebitda_bud":2281012.0,"ebitda_act":1875403.0},{"bu":"Wholesale","ebitda_bud":971188.0,"ebitda_act":539828.0}]},"ba":{"funnel":[{"channel":"Paid social","signups":2293,"activation_pct":23.3,"paid_pct":23.6,"retained_pct_of_signups":19.0,"retained_pct_of_paid":80.4},{"channel":"Paid search","signups":1402,"activation_pct":37.4,"paid_pct":29.0,"retained_pct_of_signups":25.3,"retained_pct_of_paid":87.4},{"channel":"Partner","signups":819,"activation_pct":42.7,"paid_pct":33.7,"retained_pct_of_signups":28.6,"retained_pct_of_paid":84.8},{"channel":"Organic","signups":1593,"activation_pct":47.5,"paid_pct":34.9,"retained_pct_of_signups":31.2,"retained_pct_of_paid":89.4},{"channel":"Referral","signups":843,"activation_pct":54.1,"paid_pct":36.2,"retained_pct_of_signups":32.6,"retained_pct_of_paid":90.2}],"heat":[{"cohort":"2024-01","size":110,"ret":[100.0,92.7,86.4,82.7,79.1,78.2,77.3,75.5,73.6,71.8,70.0,67.3,65.5]},{"cohort":"2024-02","size":162,"ret":[100.0,96.3,92.6,88.9,85.2,82.1,80.2,75.9,75.9,75.3,71.6,68.5,66.7]},{"cohort":"2024-03","size":180,"ret":[100.0,92.8,89.4,89.4,85.6,83.9,81.1,76.1,73.9,70.6,69.4,68.3,67.2]},{"cohort":"2024-04","size":154,"ret":[100.0,90.9,87.7,83.1,80.5,78.6,76.6,74.0,70.8,66.2,64.9,63.0,61.0]},{"cohort":"2024-05","size":165,"ret":[100.0,93.9,91.5,86.7,81.2,77.6,73.3,71.5,68.5,66.1,63.6,62.4,60.6]},{"cohort":"2024-06","size":131,"ret":[100.0,90.8,88.5,86.3,80.9,77.1,73.3,71.8,69.5,65.6,64.9,64.1,63.4]},{"cohort":"2024-07","size":195,"ret":[100.0,93.8,90.8,86.2,82.6,81.5,79.0,77.4,76.4,71.8,70.3,68.2,66.7]},{"cohort":"2024-08","size":193,"ret":[100.0,95.3,91.7,90.7,87.0,85.0,81.9,77.2,74.1,72.5,71.0,68.9,66.8]},{"cohort":"2024-09","size":202,"ret":[100.0,95.0,91.6,88.1,85.6,83.7,80.2,78.2,74.3,70.8,69.3,65.8,62.4]},{"cohort":"2024-10","size":209,"ret":[100.0,93.8,90.4,86.6,83.7,81.3,78.9,78.5,77.0,72.2,69.4,67.5,64.6]},{"cohort":"2024-11","size":235,"ret":[100.0,95.7,92.3,89.4,86.0,83.4,78.7,76.6,74.5,71.9,69.8,68.9,65.5]},{"cohort":"2024-12","size":218,"ret":[100.0,95.0,91.7,89.0,84.9,83.0,79.8,78.4,75.2,72.9,70.6,69.3,68.8]},{"cohort":"2025-01","size":227,"ret":[100.0,94.3,90.3,88.5,86.3,84.1,81.1,77.5,76.7,74.4,73.1,71.4,null]},{"cohort":"2025-02","size":274,"ret":[100.0,92.3,88.0,84.3,81.8,79.9,77.4,74.8,71.9,70.4,67.2,null,null]},{"cohort":"2025-03","size":272,"ret":[100.0,94.1,87.9,85.7,81.6,78.3,75.7,75.4,75.0,72.4,null,null,null]},{"cohort":"2025-04","size":228,"ret":[100.0,93.9,89.9,86.4,83.8,81.1,78.1,73.7,70.6,null,null,null,null]},{"cohort":"2025-05","size":260,"ret":[100.0,93.8,91.9,89.6,85.8,82.7,79.2,77.3,null,null,null,null,null]},{"cohort":"2025-06","size":251,"ret":[100.0,94.8,88.0,82.5,79.3,76.5,73.7,null,null,null,null,null,null]},{"cohort":"2025-07","size":243,"ret":[100.0,94.7,90.1,87.2,84.8,82.3,null,null,null,null,null,null,null]},{"cohort":"2025-08","size":279,"ret":[100.0,94.6,89.6,85.7,83.5,null,null,null,null,null,null,null,null]},{"cohort":"2025-09","size":302,"ret":[100.0,93.7,88.7,86.4,null,null,null,null,null,null,null,null,null]},{"cohort":"2025-10","size":310,"ret":[100.0,93.2,89.4,null,null,null,null,null,null,null,null,null,null]},{"cohort":"2025-11","size":303,"ret":[100.0,92.7,null,null,null,null,null,null,null,null,null,null,null]},{"cohort":"2025-12","size":301,"ret":[100.0,null,null,null,null,null,null,null,null,null,null,null,null]}],"segments":{"Channel":[{"segment":"Organic","customers":1023,"churn6_pct":17.6},{"segment":"Paid search","customers":742,"churn6_pct":21.3},{"segment":"Paid social","customers":801,"churn6_pct":32.0},{"segment":"Partner","customers":505,"churn6_pct":23.8},{"segment":"Referral","customers":595,"churn6_pct":14.6}],"Plan":[{"segment":"Basic","customers":1143,"churn6_pct":24.8},{"segment":"Plus","customers":1761,"churn6_pct":22.0},{"segment":"Premium","customers":762,"churn6_pct":17.2}],"7-day activation":[{"segment":"Activated","customers":2817,"churn6_pct":16.8},{"segment":"Not activated","customers":849,"churn6_pct":38.5}],"Support tickets in first 30 days":[{"segment":"0 tickets","customers":2008,"churn6_pct":17.9},{"segment":"1 ticket","customers":1194,"churn6_pct":24.5},{"segment":"2 or more","customers":464,"churn6_pct":32.1}]},"overall_churn6":21.9,"trend":[{"month":"2024-01","signups":583,"paid_social_share_pct":19.6,"activation_pct":45.8},{"month":"2024-02","signups":552,"paid_social_share_pct":23.6,"activation_pct":45.7},{"month":"2024-03","signups":527,"paid_social_share_pct":22.0,"activation_pct":39.5},{"month":"2024-04","signups":513,"paid_social_share_pct":21.8,"activation_pct":42.7},{"month":"2024-05","signups":542,"paid_social_share_pct":20.8,"activation_pct":41.3},{"month":"2024-06","signups":505,"paid_social_share_pct":23.4,"activation_pct":35.4},{"month":"2024-07","signups":582,"paid_social_share_pct":25.3,"activation_pct":40.4},{"month":"2024-08","signups":606,"paid_social_share_pct":24.4,"activation_pct":36.1},{"month":"2024-09","signups":728,"paid_social_share_pct":28.3,"activation_pct":39.4},{"month":"2024-10","signups":715,"paid_social_share_pct":26.0,"activation_pct":41.7},{"month":"2024-11","signups":722,"paid_social_share_pct":23.5,"activation_pct":40.7},{"month":"2024-12","signups":637,"paid_social_share_pct":27.5,"activation_pct":41.0},{"month":"2025-01","signups":987,"paid_social_share_pct":30.1,"activation_pct":37.1},{"month":"2025-02","signups":887,"paid_social_share_pct":30.2,"activation_pct":36.3},{"month":"2025-03","signups":831,"paid_social_share_pct":32.4,"activation_pct":37.2},{"month":"2025-04","signups":793,"paid_social_share_pct":32.3,"activation_pct":38.2},{"month":"2025-05","signups":857,"paid_social_share_pct":35.5,"activation_pct":37.3},{"month":"2025-06","signups":852,"paid_social_share_pct":35.1,"activation_pct":37.2},{"month":"2025-07","signups":845,"paid_social_share_pct":33.5,"activation_pct":37.0},{"month":"2025-08","signups":898,"paid_social_share_pct":35.3,"activation_pct":41.3},{"month":"2025-09","signups":1052,"paid_social_share_pct":36.4,"activation_pct":41.3},{"month":"2025-10","signups":1076,"paid_social_share_pct":35.0,"activation_pct":36.4},{"month":"2025-11","signups":1044,"paid_social_share_pct":37.4,"activation_pct":35.2},{"month":"2025-12","signups":949,"paid_social_share_pct":38.1,"activation_pct":36.6}],"experiment":{"n_control":1394,"n_variant":1401,"act_control":36.2,"act_variant":43.8,"ci_control":[33.7,38.8],"ci_variant":[41.2,46.4],"lift_pts":7.5,"lift_ci":[3.9,11.1],"lift_rel_pct":20.8,"z":4.06,"p_value":4.87e-05,"mde_pts":5.2,"srm_p":0.895,"max_mix_gap_pts":0.82,"paid_control":27.8,"paid_variant":33.8,"paid_lift_pts":6.1,"paid_lift_ci":[2.7,9.5],"paid_p_value":0.000509,"tickets_control":0.876,"tickets_variant":0.801},"initiatives":[{"name":"Roll out onboarding checklist","impact":36403.0,"impact_low":18890.0,"impact_high":53915.0,"effort":2,"customers":11071,"basis":"Measured lift from the A/B test, applied to 2025 signup volume","short":"Checklist rollout"},{"name":"Shift 20% of paid-social budget to search","impact":-5912.0,"effort":1,"customers":761,"breakeven_efficiency_pct":84.0,"basis":"Assumes search absorbs the money at 50% of its current efficiency","short":"Shift social budget"},{"name":"Early-warning outreach (2+ early tickets)","impact":2414.0,"effort":3,"customers":404,"basis":"Assumes outreach cuts churn 20% in the group and saved customers stay 6 more months","short":"Early-warning outreach"},{"name":"Win-back campaign for 2025 cancellations","impact":2081.0,"effort":2,"customers":1208,"basis":"Assumes 4% win-back at a $2 cost per customer contacted","short":"Win-back campaign"},{"name":"Expand referral program by 25%","impact":7812.0,"effort":3,"customers":322,"basis":"Assumes constant cost per signup; net of spend","short":"Referral expansion"}]},"fl":{"cpm":{"All":{"AI":{"fuel":0.5709111129080326,"driver":0.7378612215947327,"maintenance":0.1389696166904069,"insurance":0.15487834683405938,"software":0.15487834683405938,"other":0.12007885465051656,"depreciation":0.20243576262561425,"revenue":2.7486940888552507,"total_cost":2.0800132621374217,"profit":0.668680826717829,"miles_pm":10653.522805017104,"profit_pvm":7123.806436716079,"vehicle_months":1754},"Conventional":{"fuel":0.6222552303143126,"driver":0.8789959467487442,"maintenance":0.16625672541519168,"insurance":0.16607263448407017,"software":0.010880620879990805,"other":0.11998173013498374,"depreciation":0.1545432891480787,"revenue":2.8168703295407287,"total_cost":2.1189861771253717,"profit":0.697884152415357,"miles_pm":8731.119395465996,"profit_pvm":6093.30985894207,"vehicle_months":1985}},"Long-haul":{"AI":{"fuel":0.5423052946753736,"driver":0.6725189126251718,"maintenance":0.1276540461571301,"insurance":0.12468289829646031,"software":0.12468289829646031,"other":0.1198956793530846,"depreciation":0.16634861917784338,"revenue":2.558301560764935,"total_cost":1.878088348581524,"profit":0.680213212183411,"miles_pm":13233.571103526734,"profit_pvm":9001.649908987489,"vehicle_months":879},"Conventional":{"fuel":0.5881021902649576,"driver":0.8373259912499269,"maintenance":0.16567959516764108,"insurance":0.13372902903170736,"software":0.008761557074491172,"other":0.12023343709946702,"depreciation":0.12919359696576996,"revenue":2.5420252178461333,"total_cost":1.983025396853961,"profit":0.5589998209921723,"miles_pm":10842.821566110399,"profit_pvm":6061.135314505782,"vehicle_months":779}},"Regional":{"AI":{"fuel":0.5939954318701048,"driver":0.776582422546737,"maintenance":0.13915069877935665,"insurance":0.17478584502212535,"software":0.17478584502212535,"other":0.12027893476554707,"depreciation":0.2251751844506668,"revenue":2.866830599153427,"total_cost":2.2047543624566632,"profit":0.6620762366967639,"miles_pm":9440.123711340206,"profit_pvm":6250.081580756015,"vehicle_months":582},"Conventional":{"fuel":0.6338350937947624,"driver":0.8567399533450781,"maintenance":0.16917151862344715,"insurance":0.17326402872894192,"software":0.01135178119258585,"other":0.11979327506856086,"depreciation":0.15909593777087847,"revenue":2.848876222758067,"total_cost":2.123251588524255,"profit":0.725624634233812,"miles_pm":8368.730720606827,"profit_pvm":6072.557168141591,"vehicle_months":791}},"Urban":{"AI":{"fuel":0.7029284121609058,"driver":1.0887622658540932,"maintenance":0.22271741318538446,"insurance":0.30994000582119197,"software":0.30994000582119197,"other":0.12074013763144163,"depreciation":0.39145971517189826,"revenue":3.7524296360216383,"total_cost":3.146487955646107,"profit":0.6059416803755311,"miles_pm":5323.610921501707,"profit_pvm":3225.7977474402737,"vehicle_months":293},"Conventional":{"fuel":0.7157723677379022,"driver":1.0994305418693116,"maintenance":0.1598903290349697,"insurance":0.26566765914011536,"software":0.017405812150559283,"other":0.11959385849659698,"depreciation":0.2357692199017416,"revenue":3.7482531760916324,"total_cost":2.6135297883311965,"profit":1.134723387760436,"miles_pm":5457.946987951807,"profit_pvm":6193.260096385541,"vehicle_months":415}}},"maint":{"AI":{"kinds":{"Preventive":{"events":599,"per_100k":3.205560614823315,"avg_cost":877.3887646076795,"cost":525555.87,"downtime":2995.0},"Corrective":{"events":401,"per_100k":2.145959610257344,"avg_cost":3332.07710723192,"cost":1336162.92,"downtime":5706.5},"Breakdown":{"events":87,"per_100k":0.4655822595820174,"avg_cost":7199.228620689655,"cost":626332.89,"downtime":2618.7},"Sensor refresh":{"events":5,"per_100k":0.026757601125403298,"avg_cost":21754.670000000002,"cost":108773.35,"downtime":240.0}},"downtime_per_vm":6.590763968072976,"cost_per_mile":0.1389696166904069,"unplanned_per_100k":0.4655822595820174},"Conventional":{"kinds":{"Preventive":{"events":697,"per_100k":4.021632111018741,"avg_cost":791.2850645624103,"cost":551525.69,"downtime":4182.0},"Corrective":{"events":497,"per_100k":2.8676487219172375,"avg_cost":2638.8478470824953,"cost":1311507.3800000001,"downtime":6948.3},"Breakdown":{"events":131,"per_100k":0.755859119861485,"avg_cost":7774.102748091603,"cost":1018407.46,"downtime":3844.7},"Sensor refresh":{"events":0,"per_100k":0.0,"avg_cost":0.0,"cost":0.0,"downtime":0.0}},"downtime_per_vm":7.544080604534005,"cost_per_mile":0.1662567254151917,"unplanned_per_100k":0.755859119861485}},"age":{"labels":["0-11 months","12-23","24-35","36-47","48+"],"AI":[0.11262257942931736,0.11776661937796476,0.18133838835051877,0.21188595284552755,null],"Conventional":[0.12554696836968052,0.16873461992162006,0.15302094217975695,0.1896115480373538,0.18832881466519516],"n":{"AI":[541,621,398,179,15],"Conventional":[303,463,481,410,328]}},"stats":{"naive":1030.4965777740117,"adjusted":693.342847939666,"adj_lo":278.07728799999995,"adj_hi":1290.790763315255,"lane":{"Long-haul":{"diff":2940.5145944817086,"lo":2511.0878703576686,"hi":3310.3883697224555,"n_ai":31,"n_conv":24,"ai":9001.649908987485,"conv":6061.1353145057765},"Regional":{"diff":177.52441261442164,"lo":-76.06079523007146,"hi":455.06056522387206,"n_ai":20,"n_conv":23,"ai":6250.081580756014,"conv":6072.557168141592},"Urban":{"diff":-2967.4623489452683,"lo":-3278.4977191156618,"hi":-2675.845397809579,"n_ai":9,"n_conv":13,"ai":3225.797747440273,"conv":6193.260096385541}},"ai_share_longhaul":0.5166666666666667,"conv_share_longhaul":0.4,"mean_age":{"AI":19.01824401368301,"Conventional":29.998992443324937}},"vehicles":[{"id":"A001","type":"AI","lane":"Regional","age":51,"profit":68677,"maint":25127,"miles":109969},{"id":"A002","type":"AI","lane":"Long-haul","age":18,"profit":98209,"maint":22635,"miles":157384},{"id":"A003","type":"AI","lane":"Regional","age":17,"profit":65172,"maint":18523,"miles":108252},{"id":"A004","type":"AI","lane":"Long-haul","age":23,"profit":97004,"maint":31672,"miles":155561},{"id":"A005","type":"AI","lane":"Long-haul","age":40,"profit":90292,"maint":40003,"miles":156876},{"id":"A006","type":"AI","lane":"Urban","age":21,"profit":39739,"maint":15691,"miles":63559},{"id":"A007","type":"AI","lane":"Long-haul","age":15,"profit":98456,"maint":30731,"miles":153540},{"id":"A008","type":"AI","lane":"Long-haul","age":17,"profit":131503,"maint":12098,"miles":159020},{"id":"A009","type":"AI","lane":"Regional","age":20,"profit":80911,"maint":14912,"miles":112922},{"id":"A010","type":"AI","lane":"Long-haul","age":19,"profit":107961,"maint":17174,"miles":158572},{"id":"A011","type":"AI","lane":"Long-haul","age":19,"profit":108267,"maint":19717,"miles":160486},{"id":"A012","type":"AI","lane":"Urban","age":48,"profit":26198,"maint":37539,"miles":64624},{"id":"A013","type":"AI","lane":"Regional","age":18,"profit":72895,"maint":11638,"miles":107516},{"id":"A014","type":"AI","lane":"Urban","age":46,"profit":31499,"maint":24398,"miles":63489},{"id":"A015","type":"AI","lane":"Regional","age":40,"profit":46677,"maint":54152,"miles":115577},{"id":"A016","type":"AI","lane":"Long-haul","age":16,"profit":111385,"maint":24940,"miles":158154},{"id":"A017","type":"AI","lane":"Regional","age":16,"profit":70638,"maint":17853,"miles":111813},{"id":"A018","type":"AI","lane":"Regional","age":47,"profit":71093,"maint":36046,"miles":116979},{"id":"A019","type":"AI","lane":"Regional","age":48,"profit":66270,"maint":26489,"miles":110601},{"id":"A020","type":"AI","lane":"Long-haul","age":24,"profit":119008,"maint":10558,"miles":157672},{"id":"A021","type":"AI","lane":"Urban","age":32,"profit":29595,"maint":21983,"miles":61468},{"id":"A022","type":"AI","lane":"Regional","age":41,"profit":86673,"maint":6668,"miles":115366},{"id":"A023","type":"AI","lane":"Long-haul","age":24,"profit":124629,"maint":7252,"miles":158858},{"id":"A024","type":"AI","lane":"Urban","age":36,"profit":42942,"maint":14467,"miles":63365},{"id":"A025","type":"AI","lane":"Regional","age":20,"profit":73098,"maint":27953,"miles":116533},{"id":"A026","type":"AI","lane":"Regional","age":51,"profit":81132,"maint":18504,"miles":117966},{"id":"A027","type":"AI","lane":"Regional","age":17,"profit":86990,"maint":12603,"miles":114357},{"id":"A028","type":"AI","lane":"Long-haul","age":19,"profit":125423,"maint":12155,"miles":163592},{"id":"A029","type":"AI","lane":"Urban","age":41,"profit":40533,"maint":14559,"miles":63900},{"id":"A030","type":"AI","lane":"Regional","age":35,"profit":62111,"maint":24016,"miles":109613},{"id":"A031","type":"AI","lane":"Long-haul","age":34,"profit":103492,"maint":21263,"miles":156797},{"id":"A032","type":"AI","lane":"Long-haul","age":30,"profit":115937,"maint":12000,"miles":156546},{"id":"A033","type":"AI","lane":"Long-haul","age":46,"profit":117856,"maint":18586,"miles":167819},{"id":"A034","type":"AI","lane":"Long-haul","age":41,"profit":122028,"maint":17457,"miles":159909},{"id":"A035","type":"AI","lane":"Long-haul","age":36,"profit":114403,"maint":28499,"miles":162053},{"id":"A036","type":"AI","lane":"Long-haul","age":30,"profit":112531,"maint":24344,"miles":155405},{"id":"A037","type":"AI","lane":"Urban","age":32,"profit":26083,"maint":26541,"miles":63503},{"id":"A038","type":"AI","lane":"Regional","age":50,"profit":91351,"maint":11381,"miles":119161},{"id":"A039","type":"AI","lane":"Long-haul","age":17,"profit":128071,"maint":8407,"miles":162055},{"id":"A040","type":"AI","lane":"Long-haul","age":32,"profit":108332,"maint":24095,"miles":161099},{"id":"A041","type":"AI","lane":"Regional","age":22,"profit":86362,"maint":8769,"miles":113043},{"id":"A042","type":"AI","lane":"Regional","age":18,"profit":73715,"maint":22461,"miles":113985},{"id":"A043","type":"AI","lane":"Long-haul","age":21,"profit":125957,"maint":21301,"miles":163685},{"id":"A044","type":"AI","lane":"Long-haul","age":32,"profit":111595,"maint":32117,"miles":161497},{"id":"A045","type":"AI","lane":"Long-haul","age":49,"profit":106261,"maint":20679,"miles":157591},{"id":"A046","type":"AI","lane":"Long-haul","age":46,"profit":136180,"maint":11684,"miles":162431},{"id":"A047","type":"AI","lane":"Long-haul","age":35,"profit":126908,"maint":12429,"miles":160760},{"id":"A048","type":"AI","lane":"Urban","age":37,"profit":47958,"maint":8061,"miles":66349},{"id":"A049","type":"AI","lane":"Long-haul","age":34,"profit":80591,"maint":39113,"miles":152489},{"id":"A050","type":"AI","lane":"Regional","age":32,"profit":87070,"maint":7267,"miles":112887},{"id":"A051","type":"AI","lane":"Long-haul","age":45,"profit":115025,"maint":27771,"miles":159639},{"id":"A052","type":"AI","lane":"Urban","age":24,"profit":29750,"maint":20579,"miles":63558},{"id":"A053","type":"AI","lane":"Long-haul","age":28,"profit":92482,"maint":37621,"miles":156951},{"id":"A054","type":"AI","lane":"Long-haul","age":25,"profit":119401,"maint":12110,"miles":160372},{"id":"A055","type":"AI","lane":"Regional","age":35,"profit":88568,"maint":12813,"miles":113767},{"id":"A056","type":"AI","lane":"Long-haul","age":23,"profit":109920,"maint":19455,"miles":154566},{"id":"A057","type":"AI","lane":"Regional","age":45,"profit":67776,"maint":25426,"miles":115041},{"id":"A058","type":"AI","lane":"Long-haul","age":45,"profit":108268,"maint":30383,"miles":160346},{"id":"A059","type":"AI","lane":"Regional","age":32,"profit":79465,"maint":11093,"miles":114406},{"id":"A060","type":"AI","lane":"Long-haul","age":33,"profit":104473,"maint":22763,"miles":156524},{"id":"C001","type":"Conventional","lane":"Urban","age":36,"profit":63769,"maint":19782,"miles":65899},{"id":"C002","type":"Conventional","lane":"Regional","age":49,"profit":57704,"maint":32633,"miles":96679},{"id":"C003","type":"Conventional","lane":"Urban","age":31,"profit":71371,"maint":18012,"miles":65024},{"id":"C004","type":"Conventional","lane":"Long-haul","age":29,"profit":77609,"maint":24417,"miles":133152},{"id":"C005","type":"Conventional","lane":"Regional","age":64,"profit":65183,"maint":27004,"miles":96421},{"id":"C006","type":"Conventional","lane":"Urban","age":19,"profit":77531,"maint":5471,"miles":64621},{"id":"C007","type":"Conventional","lane":"Long-haul","age":70,"profit":85998,"maint":9216,"miles":128819},{"id":"C008","type":"Conventional","lane":"Urban","age":42,"profit":82613,"maint":3606,"miles":65182},{"id":"C009","type":"Conventional","lane":"Urban","age":33,"profit":83815,"maint":3822,"miles":66256},{"id":"C010","type":"Conventional","lane":"Urban","age":54,"profit":74593,"maint":12576,"miles":66170},{"id":"C011","type":"Conventional","lane":"Long-haul","age":53,"profit":68824,"maint":33750,"miles":131818},{"id":"C012","type":"Conventional","lane":"Long-haul","age":47,"profit":90419,"maint":3558,"miles":129041},{"id":"C013","type":"Conventional","lane":"Regional","age":53,"profit":71893,"maint":19160,"miles":101982},{"id":"C014","type":"Conventional","lane":"Regional","age":16,"profit":68481,"maint":25960,"miles":102612},{"id":"C015","type":"Conventional","lane":"Long-haul","age":47,"profit":67943,"maint":21827,"miles":126904},{"id":"C016","type":"Conventional","lane":"Long-haul","age":68,"profit":38712,"maint":55518,"miles":126998},{"id":"C017","type":"Conventional","lane":"Regional","age":66,"profit":76426,"maint":22666,"miles":104542},{"id":"C018","type":"Conventional","lane":"Long-haul","age":25,"profit":92382,"maint":5217,"miles":126761},{"id":"C019","type":"Conventional","lane":"Urban","age":24,"profit":88228,"maint":8620,"miles":67728},{"id":"C020","type":"Conventional","lane":"Regional","age":52,"profit":57165,"maint":20374,"miles":97479},{"id":"C021","type":"Conventional","lane":"Long-haul","age":26,"profit":103074,"maint":6480,"miles":136160},{"id":"C022","type":"Conventional","lane":"Regional","age":75,"profit":86219,"maint":7616,"miles":99390},{"id":"C023","type":"Conventional","lane":"Urban","age":42,"profit":84007,"maint":8536,"miles":67128},{"id":"C024","type":"Conventional","lane":"Long-haul","age":48,"profit":77688,"maint":8564,"miles":128741},{"id":"C025","type":"Conventional","lane":"Regional","age":36,"profit":87989,"maint":6558,"miles":98835},{"id":"C026","type":"Conventional","lane":"Urban","age":47,"profit":78889,"maint":6805,"miles":65331},{"id":"C027","type":"Conventional","lane":"Regional","age":70,"profit":79259,"maint":13871,"miles":101019},{"id":"C028","type":"Conventional","lane":"Long-haul","age":41,"profit":88970,"maint":13911,"miles":132000},{"id":"C029","type":"Conventional","lane":"Long-haul","age":59,"profit":74290,"maint":20262,"miles":131141},{"id":"C030","type":"Conventional","lane":"Long-haul","age":51,"profit":68184,"maint":29295,"miles":127894},{"id":"C031","type":"Conventional","lane":"Long-haul","age":20,"profit":56618,"maint":34053,"miles":127176},{"id":"C032","type":"Conventional","lane":"Regional","age":58,"profit":86632,"maint":12276,"miles":98203},{"id":"C033","type":"Conventional","lane":"Regional","age":51,"profit":68034,"maint":25655,"miles":99213},{"id":"C034","type":"Conventional","lane":"Long-haul","age":51,"profit":41441,"maint":47051,"miles":126921},{"id":"C035","type":"Conventional","lane":"Long-haul","age":28,"profit":47862,"maint":38424,"miles":123510},{"id":"C036","type":"Conventional","lane":"Long-haul","age":31,"profit":77102,"maint":14986,"miles":130003},{"id":"C037","type":"Conventional","lane":"Long-haul","age":45,"profit":64524,"maint":29085,"miles":130898},{"id":"C038","type":"Conventional","lane":"Regional","age":33,"profit":83563,"maint":11257,"miles":100574},{"id":"C039","type":"Conventional","lane":"Regional","age":38,"profit":66264,"maint":22734,"miles":98280},{"id":"C040","type":"Conventional","lane":"Long-haul","age":53,"profit":70226,"maint":22989,"miles":127337},{"id":"C041","type":"Conventional","lane":"Urban","age":45,"profit":61349,"maint":26128,"miles":64107},{"id":"C042","type":"Conventional","lane":"Urban","age":33,"profit":80106,"maint":8604,"miles":64801},{"id":"C043","type":"Conventional","lane":"Regional","age":27,"profit":73907,"maint":19521,"miles":99760},{"id":"C044","type":"Conventional","lane":"Long-haul","age":48,"profit":90057,"maint":9908,"miles":135114},{"id":"C045","type":"Conventional","lane":"Regional","age":33,"profit":83185,"maint":7286,"miles":104325},{"id":"C046","type":"Conventional","lane":"Regional","age":63,"profit":82742,"maint":11016,"miles":102030},{"id":"C047","type":"Conventional","lane":"Urban","age":74,"profit":74844,"maint":14015,"miles":64697},{"id":"C048","type":"Conventional","lane":"Regional","age":29,"profit":82811,"maint":8163,"miles":100064},{"id":"C049","type":"Conventional","lane":"Regional","age":70,"profit":73337,"maint":12490,"miles":97677},{"id":"C050","type":"Conventional","lane":"Regional","age":36,"profit":74596,"maint":21641,"miles":101745},{"id":"C051","type":"Conventional","lane":"Regional","age":64,"profit":68348,"maint":21468,"miles":99042},{"id":"C052","type":"Conventional","lane":"Long-haul","age":55,"profit":83457,"maint":20589,"miles":129147},{"id":"C053","type":"Conventional","lane":"Long-haul","age":57,"profit":48921,"maint":42567,"miles":125811},{"id":"C054","type":"Conventional","lane":"Long-haul","age":19,"profit":88536,"maint":15617,"miles":135425},{"id":"C055","type":"Conventional","lane":"Long-haul","age":66,"profit":80573,"maint":21009,"miles":127045},{"id":"C056","type":"Conventional","lane":"Urban","age":17,"profit":83995,"maint":2076,"miles":64572},{"id":"C057","type":"Conventional","lane":"Regional","age":35,"profit":79204,"maint":8362,"miles":98355},{"id":"C058","type":"Conventional","lane":"Regional","age":46,"profit":62713,"maint":36954,"miles":100953},{"id":"C059","type":"Conventional","lane":"Long-haul","age":17,"profit":82810,"maint":19471,"miles":130900},{"id":"C060","type":"Conventional","lane":"Regional","age":55,"profit":49462,"maint":35740,"miles":100858}],"calc":{"diesel_ttm":4.057833333333334,"slope":{"AI":0.00264883765255441,"Conventional":0.0012175040552865604},"rate":0.08,"life_months":84,"cells":{"Long-haul|AI":{"miles":13233.571103526734,"rev_pm":2.611983209452282,"gal_pm":0.13521506930505095,"driver_pm":0.6725189126251718,"other_pm":0.11989567935308457,"maint_pm":0.1276540461571301,"mean_age":17.37428896473265,"ins":1650.0,"software":1650.0,"acq":237374.1935483871,"resid":0.21999999999999995},"Long-haul|Conventional":{"miles":10842.821566110399,"rev_pm":2.594487479718315,"gal_pm":0.1470743677991248,"driver_pm":0.837325991249927,"other_pm":0.12023343709946702,"maint_pm":0.16567959516764108,"mean_age":30.051347881899872,"ins":1450.0,"software":95.0,"acq":163641.66666666666,"resid":0.28},"Regional|AI":{"miles":9440.123711340206,"rev_pm":2.927392329741461,"gal_pm":0.14821533487841096,"driver_pm":0.776582422546737,"other_pm":0.12027893476554707,"maint_pm":0.13915069877935668,"mean_age":20.895189003436425,"ins":1650.0,"software":1650.0,"acq":229385.0,"resid":0.22000000000000003},"Regional|Conventional":{"miles":8368.730720606827,"rev_pm":2.9097039266307774,"gal_pm":0.1586876353917581,"driver_pm":0.8567399533450781,"other_pm":0.11979327506856086,"maint_pm":0.16917151862344715,"mean_age":32.92920353982301,"ins":1450.0,"software":95.0,"acq":155530.4347826087,"resid":0.2800000000000001},"Urban|AI":{"miles":5323.610921501707,"rev_pm":3.830700870489618,"gal_pm":0.17571246377471386,"driver_pm":1.0887622658540932,"other_pm":0.12074013763144163,"maint_pm":0.22271741318538446,"mean_age":20.22184300341297,"ins":1650.0,"software":1650.0,"acq":224444.44444444444,"resid":0.22},"Urban|Conventional":{"miles":5457.946987951807,"rev_pm":3.8328874853790182,"gal_pm":0.17893347881975713,"driver_pm":1.0994305418693116,"other_pm":0.11959385849659698,"maint_pm":0.1598903290349697,"mean_age":24.31566265060241,"ins":1450.0,"software":95.0,"acq":150438.46153846153,"resid":0.28000000000000014}},"defaults":{"diesel":4.057833333333334,"premium":75100.0,"util":0.0,"software":1650.0}},"fleet":{"vehicles":120,"ai":60,"conv":60,"vehicle_months":3739,"events":2417,"first":"2023-10","last":"2026-09","premium":75100.0}}};
+(function(){
+var font='"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
+var BU={'Retail':'--c1','E-commerce':'--c2','Wholesale':'--c3','Subscriptions':'--c4'};
+var reg={};
+var state={thr:60,target:'95',bu:'All',p:0,v:0,c:0,m:0,dim:'Channel'};
+var S=D.sc,F=D.fn;
+function $(id){return document.getElementById(id);}
+function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
+function rgba(hex,a){var n=parseInt(hex.replace('#',''),16);return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')';}
+function mk(id,cfg){var el=$(id);if(!el||!window.Chart)return;if(reg[id]){reg[id].destroy();}reg[id]=new Chart(el,cfg);}
+function tip(cb,extra){return Object.assign({backgroundColor:css('--surface'),titleColor:css('--ink'),bodyColor:css('--ink2'),borderColor:css('--axis'),borderWidth:1,padding:10,cornerRadius:4,boxPadding:4,callbacks:cb||{}},extra||{});}
+function ax(title,o,extra){o=o||{};var a={grid:Object.assign({color:css('--line'),drawTicks:false},o.grid||{}),border:{color:css('--axis')},ticks:Object.assign({color:css('--ink2'),padding:6},o.ticks||{}),title:{display:!!title,text:title||'',color:css('--ink2')}};return Object.assign(a,extra||{});}
+function legend(filter){return {position:'top',align:'start',labels:{usePointStyle:true,boxWidth:8,boxHeight:8,color:css('--ink2'),filter:filter}};}
+function base(){return {maintainAspectRatio:false,animation:false,layout:{padding:{top:4,right:4}}};}
+function pct(v){return v+'%';}
+function mm(v,d){return (v<0?'-':'')+'$'+Math.abs(v).toFixed(d==null?2:d)+'M';}
+function sgn(v,d){return (v>=0?'+':'-')+'$'+Math.abs(v).toFixed(d==null?2:d)+'M';}
+
+/* ---------- chart plugins ---------- */
+var refLines={id:'refLines',afterDatasetsDraw:function(chart,args,opts){
+  var L=(opts&&opts.lines)||[],ctx=chart.ctx,a=chart.chartArea,x=chart.scales.x,y=chart.scales.y;
+  L.forEach(function(l){ctx.save();ctx.strokeStyle=css('--ink2');ctx.fillStyle=css('--ink2');ctx.lineWidth=1;ctx.setLineDash([5,4]);ctx.font='11px '+font;ctx.beginPath();
+    if(l.axis==='y'){var py=y.getPixelForValue(l.value);ctx.moveTo(a.left,py);ctx.lineTo(a.right,py);ctx.stroke();ctx.setLineDash([]);ctx.textAlign='left';ctx.textBaseline='bottom';ctx.fillText(l.label,a.left+6,py-4);}
+    else{var px=x.getPixelForValue(l.value);ctx.moveTo(px,a.top);ctx.lineTo(px,a.bottom);ctx.stroke();ctx.setLineDash([]);ctx.textAlign='left';
+      if(l.pos==='bottom'){ctx.textBaseline='bottom';ctx.fillText(l.label,px+6,a.bottom-6);}else{ctx.textBaseline='bottom';ctx.fillText(l.label,px+4,a.top-4);}}
+    ctx.restore();});}};
+
+function valueLabels(fmt,horizontal){return {id:'valueLabels',afterDatasetsDraw:function(chart){
+  var ctx=chart.ctx;chart.data.datasets.forEach(function(ds,di){var meta=chart.getDatasetMeta(di);if(meta.hidden)return;
+    meta.data.forEach(function(el,i){var v=ds.data[i];if(v==null)return;var t=fmt(v,i,di);if(!t)return;
+      ctx.save();ctx.fillStyle=css('--ink');ctx.font='600 12px '+font;
+      if(horizontal){var neg=(Array.isArray(v)?0:v)<0;ctx.textBaseline='middle';ctx.textAlign=neg?'right':'left';ctx.fillText(t,el.x+(neg?-6:6),el.y);}
+      else{ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText(t,el.x,Math.min(el.y,el.base)-5);}
+      ctx.restore();});});}};}
+
+var endLabels={id:'endLabels',afterDatasetsDraw:function(chart){var ctx=chart.ctx;
+  chart.data.datasets.forEach(function(ds,i){var meta=chart.getDatasetMeta(i);if(meta.hidden)return;var j=-1;
+    for(var k=ds.data.length-1;k>=0;k--){if(ds.data[k]!=null){j=k;break;}}if(j<0)return;var p=meta.data[j];
+    ctx.save();ctx.fillStyle=css('--ink');ctx.font='500 12px '+font;ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(ds.endLabel||ds.label,p.x+8,p.y+(ds.endNudge||0));ctx.restore();});}};
+
+/* ---------- Project 1: supplier chart + threshold slider ---------- */
+var supRows=S.scorecard.slice().sort(function(a,b){return a.otif_pct-b.otif_pct;});
+function buildSup(){
+  var rows=supRows;
+  mk('c-suppliers',{type:'bar',data:{labels:rows.map(function(r){return r.supplier_name+' ('+r.country+')';}),
+    datasets:[{data:rows.map(function(r){return r.otif_pct;}),backgroundColor:rows.map(function(r){return css(r.otif_pct<state.thr?'--c2':'--c1');}),borderRadius:{topRight:3,bottomRight:3},barPercentage:.72}]},
+    options:Object.assign(base(),{indexAxis:'y',layout:{padding:{top:20,right:12}},
+      plugins:{legend:{display:false},tooltip:tip({label:function(c){var r=rows[c.dataIndex];return ['OTIF '+r.otif_pct+'% (on time '+r.on_time_pct+'%, in full '+r.in_full_pct+'%)',r.pos+' POs, '+r.spend_share_pct+'% of spend','Average delay '+r.avg_delay_days+' days'];}}),
+        refLines:{lines:[{axis:'x',value:state.thr,label:state.thr+'% threshold'}]}},
+      scales:{x:ax('OTIF %',{ticks:{callback:pct}},{min:0,max:100}),y:ax(null,{grid:{display:false},ticks:{autoSkip:false,font:{size:11}}})}}),plugins:[refLines]});
+}
+function supRead(){
+  var tot=0,tl=0,rs=0,rl=0,n=0;
+  S.scorecard.forEach(function(r){var late=r.pos*(100-r.on_time_pct)/100;tot+=r.spend;tl+=late;if(r.otif_pct<state.thr){n++;rs+=r.spend;rl+=late;}});
+  $('sup-read').innerHTML='<strong>'+n+' of '+S.scorecard.length+'</strong> suppliers fall below '+state.thr+'% OTIF. They hold <strong>'+(100*rs/tot).toFixed(1)+'%</strong> of spend and cause <strong>'+(tl?(100*rl/tl).toFixed(1):'0.0')+'%</strong> of late deliveries.';
+}
+
+/* ---------- Project 1: service-level chart + target selector ---------- */
+function tgt(){return S.sim.targets.filter(function(t){return t.key===state.target;})[0];}
+function buildSvc(){
+  var s=S.sim,t=tgt();
+  mk('c-service',{type:'bar',data:{labels:[['All Class A','('+s.n_a_skus+' SKUs)'],['From at-risk suppliers','('+s.n_a_problem+' SKUs)'],['From other suppliers','('+s.n_a_other+' SKUs)']],datasets:[
+    {label:'Current rule',data:[s.service_now_pct,s.service_now_problem_pct,s.service_now_other_pct],backgroundColor:css('--c1'),borderRadius:{topLeft:3,topRight:3}},
+    {label:'Safety stock for '+t.label+' target',data:[t.service_pct,t.service_problem_pct,t.service_other_pct],backgroundColor:css('--c2'),borderRadius:{topLeft:3,topRight:3}}]},
+    options:Object.assign(base(),{layout:{padding:{top:20,right:4}},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+c.parsed.y+'% of cycles without a stockout';}})},
+      scales:{x:ax(null,{grid:{display:false}}),y:ax('Cycle service level',{ticks:{callback:pct}},{min:0,max:100})}}),plugins:[valueLabels(function(v){return v+'%';})]});
+}
+function svcRead(){
+  var s=S.sim,t=tgt();
+  $('svc-read').innerHTML='At a <strong>'+t.label+'</strong> target, simulated service on Class A rises from '+s.service_now_pct+'% to <strong>'+t.service_pct+'%</strong>. It costs <strong>+'+t.inv_increase_pct+'%</strong> Class A inventory (<strong>+$'+Math.round(t.inv_increase_usd/1000)+'K</strong> on $'+(s.inventory_now_usd/1e6).toFixed(2)+'M).';
+  Array.prototype.forEach.call(document.querySelectorAll('#svc-seg button'),function(b){b.setAttribute('aria-pressed',b.getAttribute('data-t')===state.target?'true':'false');});
+}
+
+/* ---------- Project 2: EBITDA bridge + business-unit filter ---------- */
+function bridgeParts(){
+  var t,start,end;
+  if(state.bu==='All'){t=F.bridge.total;start=F.bridge.start;end=F.bridge.end;}
+  else{t=F.by_bu.filter(function(r){return r.bu===state.bu;})[0];var y=F.ytd.filter(function(r){return r.bu===state.bu;})[0];start=y.ebitda_bud;end=y.ebitda_act;}
+  return {t:t,start:start,end:end};
+}
+function buildBridge(){
+  var bp=bridgeParts(),t=bp.t;
+  var steps=[['Volume',t.volume_effect],['Price',t.price_effect],['Unit cost',t.cost_effect],['Marketing',t.marketing_effect],['Payroll & other',t.payroll_other_effect]];
+  var run=bp.start/1e6,data=[[0,run]],colors=[css('--c1')],labels=['Budget EBITDA'],vals=[run];
+  steps.forEach(function(st){var nxt=run+st[1]/1e6;data.push([Math.min(run,nxt),Math.max(run,nxt)]);colors.push(css(st[1]>=0?'--good':'--bad'));labels.push(st[0]);vals.push(st[1]/1e6);run=nxt;});
+  data.push([0,bp.end/1e6]);colors.push(css('--c1'));labels.push('Actual EBITDA');vals.push(bp.end/1e6);
+  function sg(v,i){return (i===0||i===vals.length-1)?mm(v):sgn(v);}
+  mk('c-bridge',{type:'bar',data:{labels:labels,datasets:[{data:data,backgroundColor:colors,borderRadius:3,barPercentage:.7}]},
+    options:Object.assign(base(),{layout:{padding:{top:22,right:4}},plugins:{legend:{display:false},tooltip:tip({label:function(c){return sg(vals[c.dataIndex],c.dataIndex);}})},
+      scales:{x:ax(null,{grid:{display:false},ticks:{autoSkip:false,maxRotation:0,font:{size:11}}}),y:ax('EBITDA, Jan to Sep 2026',{ticks:{callback:function(v){return '$'+v+'M';}}},{beginAtZero:true})}}),
+    plugins:[{id:'bl',afterDatasetsDraw:function(chart){var ctx=chart.ctx,meta=chart.getDatasetMeta(0);meta.data.forEach(function(el,i){ctx.save();ctx.fillStyle=css('--ink');ctx.font='600 12px '+font;ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText(sg(vals[i],i),el.x,Math.min(el.y,el.base)-5);ctx.restore();});}}]});
+}
+function bridgeRead(){
+  var bp=bridgeParts(),name=state.bu==='All'?'All business units':state.bu;
+  $('bu-read').innerHTML='<strong>'+name+'</strong>: budget '+mm(bp.start/1e6)+', actual <strong>'+mm(bp.end/1e6)+'</strong>, variance <strong>'+sgn((bp.end-bp.start)/1e6)+'</strong>.';
+}
+
+/* ---------- Project 2: live scenario ---------- */
+function scenEbitda(p,v,c,m){var P=F.forecast.parts;
+  var rev=P.rev*(1+v/100),cogs=P.cogs*(1+v/100)*(1+c/100),mkt=P.mkt*(1+v/100)*(1+m/100);
+  return rev*(1+p/100)-cogs-mkt-P.fixed;}
+function scenRead(){
+  var P=F.forecast.parts,e=scenEbitda(state.p,state.v,state.c,state.m),d=e-P.ebitda;
+  $('sc-val').textContent=mm(e/1e6,1);
+  $('sc-delta').textContent=Math.abs(d)<5000?'Same as the base case':sgn(d/1e6,2)+' vs base ('+(d>0?'+':'')+(100*d/P.ebitda).toFixed(1)+'%)';
+}
+function fmtPct(v){return (v>0?'+':'')+Number(v).toFixed(1)+'%';}
+
+
+/* ---------- Project 3: business analysis ---------- */
+var BAd=D.ba;
+function isDark(){var t=document.documentElement.getAttribute('data-theme');if(t)return t==='dark';return !!(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);}
+function lerp(a,b,t){return Math.round(a+(b-a)*t);}
+function heatRamp(){return isDark()?{lo:[13,54,107],hi:[134,182,239]}:{lo:[205,226,251],hi:[16,66,129]};}
+function heatColor(v){var r=heatRamp(),t=Math.max(0,Math.min(1,(v-50)/50));return {bg:'rgb('+lerp(r.lo[0],r.hi[0],t)+','+lerp(r.lo[1],r.hi[1],t)+','+lerp(r.lo[2],r.hi[2],t)+')',t:t};}
+function buildHeat(){
+  var el=$('heat');if(!el)return;var dark=isDark(),h='<table><thead><tr><th class="hc">Cohort</th><th class="hn">Paying</th>';
+  for(var m=1;m<=12;m++){h+='<th title="Months since first payment">M'+m+'</th>';}
+  h+='</tr></thead><tbody>';
+  BAd.heat.forEach(function(row){
+    h+='<tr><th class="hc" scope="row">'+row.cohort+'</th><td class="hn">'+row.size+'</td>';
+    for(var m=1;m<=12;m++){var v=row.ret[m];
+      if(v==null){h+='<td class="empty"></td>';}
+      else{var c=heatColor(v),txt=dark?(c.t>=.5?'#0b0b0b':'#f0efec'):(c.t>=.6?'#ffffff':'#0b0b0b');
+        h+='<td style="background:'+c.bg+';color:'+txt+'" title="'+row.cohort+' cohort, month '+m+': '+v+'% still subscribed (n='+row.size+')">'+Math.round(v)+'</td>';}}
+    h+='</tr>';});
+  h+='</tbody></table>';el.innerHTML=h;
+  var r=heatRamp(),bar=$('heat-bar');if(bar)bar.style.background='linear-gradient(90deg,rgb('+r.lo.join(',')+'),rgb('+r.hi.join(',')+'))';
+}
+function buildTrend(){
+  var t=BAd.trend;
+  mk('c-trend',{type:'line',data:{labels:t.map(function(r){return r.month;}),datasets:[
+    {label:'Activation rate',endLabel:'Activation',endNudge:10,data:t.map(function(r){return r.activation_pct;}),borderColor:css('--c1'),backgroundColor:css('--c1'),borderWidth:2.5,pointRadius:0,pointHoverRadius:4},
+    {label:'Paid social share of signups',endLabel:'Paid social share',endNudge:-10,data:t.map(function(r){return r.paid_social_share_pct;}),borderColor:css('--c2'),backgroundColor:css('--c2'),borderWidth:2.5,pointRadius:0,pointHoverRadius:4}]},
+    options:Object.assign(base(),{layout:{padding:{top:4,right:112}},interaction:{mode:'index',intersect:false},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+c.parsed.y+'%';}})},
+      scales:{x:ax(null,{grid:{display:false},ticks:{maxTicksLimit:8}}),y:ax('Percent of signups',{ticks:{callback:pct}},{min:0,max:60})}}),plugins:[endLabels]});
+}
+function buildFunnel(){
+  var f=BAd.funnel;
+  mk('c-funnel',{type:'bar',data:{labels:f.map(function(r){return r.channel;}),datasets:[
+    {label:'Activated within 7 days',data:f.map(function(r){return r.activation_pct;}),backgroundColor:css('--c1'),borderRadius:{topRight:3,bottomRight:3}},
+    {label:'Started paying',data:f.map(function(r){return r.paid_pct;}),backgroundColor:css('--c2'),borderRadius:{topRight:3,bottomRight:3}},
+    {label:'Still paying at day 90',data:f.map(function(r){return r.retained_pct_of_signups;}),backgroundColor:css('--c3'),borderRadius:{topRight:3,bottomRight:3}}]},
+    options:Object.assign(base(),{indexAxis:'y',layout:{padding:{top:4,right:24}},interaction:{mode:'index',intersect:false},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+c.parsed.x+'% of signups';}})},
+      scales:{x:ax('Share of channel signups',{ticks:{callback:pct}},{min:0,max:70}),y:ax(null,{grid:{display:false}})}}),
+    plugins:[valueLabels(function(v){return v+'%';},true)]});
+}
+function churnRows(){
+  var rows=BAd.segments[state.dim].slice();
+  if(state.dim==='Channel'){rows.sort(function(a,b){return b.churn6_pct-a.churn6_pct;});}
+  return rows;
+}
+function buildChurn(){
+  var rows=churnRows(),avg=BAd.overall_churn6;
+  mk('c-churn',{type:'bar',data:{labels:rows.map(function(r){return r.segment;}),datasets:[{data:rows.map(function(r){return r.churn6_pct;}),backgroundColor:rows.map(function(r){return css(r.churn6_pct>avg?'--c2':'--c1');}),borderRadius:{topLeft:3,topRight:3},barPercentage:.65}]},
+    options:Object.assign(base(),{layout:{padding:{top:20,right:8}},plugins:{legend:{display:false},tooltip:tip({label:function(c){var r=rows[c.dataIndex];return r.churn6_pct+'% churned within 6 months ('+r.customers.toLocaleString()+' customers)';}}),
+      refLines:{lines:[{axis:'y',value:avg,label:'All customers '+avg+'%'}]}},
+      scales:{x:ax(null,{grid:{display:false}}),y:ax('Churned within 6 months',{ticks:{callback:pct}},{min:0,max:50})}}),
+    plugins:[refLines,valueLabels(function(v){return v+'%';})]});
+}
+function churnRead(){
+  var rows=churnRows().slice().sort(function(a,b){return b.churn6_pct-a.churn6_pct;}),hi=rows[0],lo=rows[rows.length-1];
+  $('seg-read').innerHTML='Highest: <strong>'+hi.segment+'</strong> at <strong>'+hi.churn6_pct+'%</strong>. Lowest: <strong>'+lo.segment+'</strong> at <strong>'+lo.churn6_pct+'%</strong>. That is '+(hi.churn6_pct/lo.churn6_pct).toFixed(1)+' times the churn.';
+}
+var errBars={id:'errBars',afterDatasetsDraw:function(chart){
+  var ctx=chart.ctx,y=chart.scales.y,ds=chart.data.datasets[0],meta=chart.getDatasetMeta(0);
+  meta.data.forEach(function(el,i){var ci=ds.ci[i],lo=y.getPixelForValue(ci[0]),hi=y.getPixelForValue(ci[1]);
+    ctx.save();ctx.strokeStyle=css('--ink');ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(el.x,lo);ctx.lineTo(el.x,hi);ctx.moveTo(el.x-8,lo);ctx.lineTo(el.x+8,lo);ctx.moveTo(el.x-8,hi);ctx.lineTo(el.x+8,hi);ctx.stroke();
+    ctx.fillStyle=css('--ink');ctx.font='600 13px '+font;ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText(ds.data[i]+'%',el.x,hi-6);ctx.restore();});}};
+function buildAB(){
+  var e=BAd.experiment;
+  mk('c-ab',{type:'bar',data:{labels:['Control','Checklist'],datasets:[{data:[e.act_control,e.act_variant],ci:[e.ci_control,e.ci_variant],backgroundColor:[css('--c1'),css('--c2')],barPercentage:.5,borderRadius:{topLeft:3,topRight:3}}]},
+    options:Object.assign(base(),{layout:{padding:{top:24,right:8}},plugins:{legend:{display:false},tooltip:tip({label:function(c){var ci=c.dataset.ci[c.dataIndex];return c.parsed.y+'% activated (95% CI '+ci[0]+'% to '+ci[1]+'%)';}})},
+      scales:{x:ax(null,{grid:{display:false}}),y:ax('Activated within 7 days',{ticks:{callback:pct}},{min:0,max:60})}}),plugins:[errBars]});
+}
+function wrapText(s,n){var w=s.split(' '),out=[],line='';w.forEach(function(x){if((line+' '+x).trim().length>n){out.push(line.trim());line=x;}else{line+=' '+x;}});if(line.trim())out.push(line.trim());return out;}
+var bubbleLabels={id:'bubbleLabels',afterDatasetsDraw:function(chart){
+  var I=BAd.initiatives,meta=chart.getDatasetMeta(0),ctx=chart.ctx;
+  meta.data.forEach(function(el,i){var v=I[i].impact,t=I[i].short+' ('+(v<0?'-':'')+'$'+Math.abs(Math.round(v/1000))+'K)';
+    ctx.save();ctx.fillStyle=css('--ink');ctx.font='500 12px '+font;ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(t,el.x+el.options.radius+6,el.y);ctx.restore();});}};
+function buildPrio(){
+  var I=BAd.initiatives,maxC=Math.max.apply(null,I.map(function(i){return i.customers;}));
+  mk('c-prio',{type:'bubble',data:{datasets:[{label:'Initiatives',data:I.map(function(i){return {x:i.effort,y:i.impact/1000,r:6+22*Math.sqrt(i.customers/maxC)};}),
+      backgroundColor:I.map(function(i){return rgba(css(i.impact<0?'--bad':'--c1'),.55);}),borderColor:I.map(function(i){return css(i.impact<0?'--bad':'--c1');}),borderWidth:2}]},
+    options:Object.assign(base(),{layout:{padding:{top:8,right:8}},plugins:{legend:{display:false},
+      tooltip:tip({title:function(it){return I[it[0].dataIndex].short;},label:function(c){var i=I[c.dataIndex],o=['Impact $'+Math.round(i.impact/1000)+'K a year'+(i.impact_low!=null?' (range $'+Math.round(i.impact_low/1000)+'K to $'+Math.round(i.impact_high/1000)+'K)':''),'Effort '+i.effort+' of 5','Customers affected: '+i.customers.toLocaleString()];return o.concat(wrapText(i.basis,46));}}),
+      refLines:{lines:[{axis:'y',value:0,label:'Break-even'}]}},
+      scales:{x:ax('Effort (1 low to 5 high, my estimate)',{ticks:{stepSize:1,callback:function(v){return Number.isInteger(v)?v:'';}}},{min:0.5,max:5}),y:ax('Revenue impact a year, $K',{ticks:{callback:function(v){return (v<0?'-':'')+'$'+Math.abs(v)+'K';}}},{min:-12,max:48})}}),
+    plugins:[refLines,bubbleLabels]});
+}
+
+/* ---------- remaining charts ---------- */
+function buildRest(){
+  mk('c-otif',{type:'line',data:{labels:S.monthly.map(function(m){return m.month;}),datasets:[
+    {label:'Monthly OTIF',data:S.monthly.map(function(m){return m.otif;}),borderColor:css('--c1'),backgroundColor:css('--c1'),borderWidth:1.5,pointRadius:3,pointHoverRadius:5},
+    {label:'3-month average',data:S.monthly.map(function(m,i){return i<2?null:m.avg3;}),borderColor:css('--c2'),backgroundColor:css('--c2'),borderWidth:3,pointRadius:0,pointHoverRadius:4,tension:.2}]},
+    options:Object.assign(base(),{interaction:{mode:'index',intersect:false},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+c.parsed.y+'%';}})},
+      scales:{x:ax(null,{grid:{display:false},ticks:{maxTicksLimit:8}}),y:ax('OTIF %',{ticks:{callback:pct}},{min:60,max:90})}})});
+
+  mk('c-pareto',{type:'line',data:{datasets:[{label:'Cumulative share of demand value',data:S.pareto,borderColor:css('--c1'),backgroundColor:css('--c1'),borderWidth:2.5,pointRadius:0,pointHoverRadius:4}]},
+    options:Object.assign(base(),{layout:{padding:{top:20,right:12}},interaction:{mode:'nearest',axis:'x',intersect:false},
+      plugins:{legend:{display:false},tooltip:tip({title:function(i){return 'Top '+i[0].parsed.x+' SKUs';},label:function(c){return c.parsed.y+'% of demand value';}}),
+        refLines:{lines:[{axis:'y',value:80,label:'80% of value'},{axis:'y',value:95,label:'95% of value'},
+          {axis:'x',value:S.abcA,label:'Class A: '+S.abcA+' SKUs',pos:'bottom'},{axis:'x',value:S.abcAB,label:'A+B: '+S.abcAB+' SKUs',pos:'bottom'}]}},
+      scales:{x:ax('SKUs ranked by 2025 demand value',{ticks:{stepSize:25}},{type:'linear',min:0,max:150}),y:ax('Cumulative share of value',{ticks:{callback:pct}},{min:0,max:100})}}),plugins:[refLines]});
+
+  var fs=S.fc.series;
+  mk('c-forecast',{type:'line',data:{labels:fs.weeks.map(function(w){return w.slice(5);}),datasets:[
+    {label:'Actual',data:fs.actual,borderColor:css('--c1'),backgroundColor:css('--c1'),borderWidth:2.5,pointRadius:3,pointHoverRadius:5},
+    {label:S.fc.labels.trend_season,data:fs.trend_season,borderColor:css('--c2'),backgroundColor:css('--c2'),borderWidth:2.5,pointRadius:3,pointHoverRadius:5},
+    {label:S.fc.labels.naive,data:fs.naive,borderColor:css('--ink2'),backgroundColor:css('--ink2'),borderWidth:1.5,borderDash:[6,4],pointRadius:0,pointHoverRadius:4}]},
+    options:Object.assign(base(),{interaction:{mode:'index',intersect:false},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+c.parsed.y.toLocaleString()+' units';}})},
+      scales:{x:ax('Week starting (2025, MM-DD)',{grid:{display:false}}),y:ax('Units per week',{ticks:{callback:function(v){return (v/1000).toFixed(0)+'k';}}})}})});
+
+  var qs=[];F.margin.forEach(function(r){if(qs.indexOf(r.qtr)<0)qs.push(r.qtr);});
+  var bus=['Retail','E-commerce','Wholesale','Subscriptions'];
+  mk('c-margin',{type:'line',data:{labels:qs,datasets:bus.map(function(bu){var rr=F.margin.filter(function(r){return r.bu===bu;});
+    return {label:bu,data:rr.map(function(r){return r.a;}),budget:rr.map(function(r){return r.b;}),borderColor:css(BU[bu]),backgroundColor:css(BU[bu]),borderWidth:2.5,pointRadius:0,pointHoverRadius:4,tension:.15};})},
+    options:Object.assign(base(),{layout:{padding:{top:4,right:96}},interaction:{mode:'index',intersect:false},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+c.parsed.y+'% (budget '+c.dataset.budget[c.dataIndex]+'%)';}})},
+      scales:{x:ax(null,{grid:{display:false},ticks:{maxTicksLimit:8}}),y:ax('Gross margin',{ticks:{callback:pct}},{min:0,max:100})}}),plugins:[endLabels]});
+
+  var wh=F.dso.filter(function(r){return r.bu==='Wholesale';});
+  var ms=wh.map(function(r){return r.month.slice(0,7);});
+  var oth=ms.map(function(m){var v=F.dso.filter(function(r){return r.bu!=='Wholesale'&&r.month.slice(0,7)===m;}).map(function(r){return r.v;});return +(v.reduce(function(a,c){return a+c;},0)/v.length).toFixed(1);});
+  mk('c-dso',{type:'line',data:{labels:ms,datasets:[
+    {label:'Wholesale',data:wh.map(function(r){return r.v;}),borderColor:css('--c3'),backgroundColor:css('--c3'),borderWidth:3,pointRadius:0,pointHoverRadius:4},
+    {label:'Other three units (average)',endLabel:'Other units',data:oth,borderColor:css('--ink2'),backgroundColor:css('--ink2'),borderWidth:2,pointRadius:0,pointHoverRadius:4}]},
+    options:Object.assign(base(),{layout:{padding:{top:4,right:84}},interaction:{mode:'index',intersect:false},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+c.parsed.y+' days';}})},
+      scales:{x:ax(null,{grid:{display:false},ticks:{maxTicksLimit:8}}),y:ax('Days sales outstanding (3-month average)',{},{min:0,max:70})}}),plugins:[endLabels]});
+
+  var h=F.monthly,fm=F.forecast,n=h.length;
+  var lbl=h.map(function(r){return r.month.slice(0,7);}).concat(fm.months);
+  var act=h.map(function(r){return r.rev/1e6;}).concat(fm.months.map(function(){return null;}));
+  var last=act[n-1],pad=function(arr){return Array(n-1).fill(null).concat([last]).concat(arr.map(function(v){return v/1e6;}));};
+  var names=['Actual','Forecast','80% low','80% high'];
+  mk('c-fan',{type:'line',data:{labels:lbl,datasets:[
+    {label:'Actual',data:act,borderColor:css('--c1'),backgroundColor:css('--c1'),borderWidth:2.5,pointRadius:0,pointHoverRadius:4},
+    {label:'Forecast',data:pad(fm.rev),borderColor:css('--c2'),backgroundColor:css('--c2'),borderWidth:2.5,borderDash:[6,4],pointRadius:0,pointHoverRadius:4},
+    {label:'80% low',data:pad(fm.lo),borderWidth:0,pointRadius:0,pointHoverRadius:0,fill:false},
+    {label:'80% interval',data:pad(fm.hi),borderWidth:0,pointRadius:0,pointHoverRadius:0,fill:'-1',backgroundColor:rgba(css('--c2'),.2)}]},
+    options:Object.assign(base(),{interaction:{mode:'index',intersect:false},plugins:{legend:legend(function(i){return i.text!=='80% low';}),tooltip:tip({label:function(c){return names[c.datasetIndex]+': '+mm(c.parsed.y);}})},
+      scales:{x:ax(null,{grid:{display:false},ticks:{maxTicksLimit:9}}),y:ax('Monthly revenue',{ticks:{callback:function(v){return '$'+v+'M';}}},{min:0})}})});
+
+  var tr=F.tornado;
+  mk('c-tornado',{type:'bar',data:{labels:tr.map(function(r){return r.driver;}),datasets:[
+    {label:'Favorable',data:tr.map(function(r){return r.up/1e6;}),backgroundColor:css('--c1'),barPercentage:.7},
+    {label:'Unfavorable',data:tr.map(function(r){return r.down/1e6;}),backgroundColor:css('--c2'),barPercentage:.7}]},
+    options:Object.assign(base(),{indexAxis:'y',layout:{padding:{top:4,right:16}},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+sgn(c.parsed.x)+' EBITDA';}})},
+      scales:{x:ax('Change in next-12-month EBITDA, $M',{ticks:{callback:function(v){return (v>0?'+':'')+v;}}},{stacked:true,min:-2.8,max:2.8}),y:ax(null,{grid:{display:false},ticks:{autoSkip:false}},{stacked:true})}}),
+    plugins:[valueLabels(function(v){return (v>=0?'+':'-')+'$'+Math.abs(v).toFixed(1)+'M';},true)]});
+}
+
+function build(){
+  Chart.defaults.font.family=font;Chart.defaults.font.size=12;Chart.defaults.color=css('--ink2');Chart.defaults.borderColor=css('--line');
+  Object.keys(reg).forEach(function(k){reg[k].destroy();delete reg[k];});
+  buildSup();buildSvc();buildBridge();buildRest();buildHeat();buildTrend();buildFunnel();buildChurn();buildAB();buildPrio();buildFlCpm();buildFlLane();buildFlMaint();buildFlAge();buildFlScat();buildFlPay();
+}
+
+
+/* ---------- Project 4: fleet ---------- */
+var FL=D.fl, FS={lane:'All',m:'events',s:'All',p:'Long-haul',diesel:FL.calc.defaults.diesel,prem:FL.calc.defaults.premium,util:0,soft:FL.calc.defaults.software};
+var TCOL={AI:'--c1',Conventional:'--c3'};
+function usd0(v){return (v<0?'-':'')+'$'+Math.abs(Math.round(v)).toLocaleString();}
+function usdK(v){return (v<0?'-':'')+'$'+(Math.abs(v)/1000).toFixed(0)+'K';}
+var CATS=[['depreciation','Depreciation','--c1'],['fuel','Fuel','--c4'],['driver','Driver','--c3'],['maintenance','Maintenance','--c2'],['insurance','Insurance','--axis'],['software','Software and telematics','--muted'],['other','Tolls and other','--line']];
+var revMarks={id:'revMarks',afterDatasetsDraw:function(chart,args,o){
+  var ctx=chart.ctx,x=chart.scales.x,meta=chart.getDatasetMeta(0);
+  meta.data.forEach(function(el,i){var px=x.getPixelForValue(o.rev[i]),h=el.height/2+6;
+    ctx.save();ctx.strokeStyle=css('--ink');ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(px,el.y-h);ctx.lineTo(px,el.y+h);ctx.stroke();
+    ctx.fillStyle=css('--ink');ctx.font='600 12px '+font;ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText('Revenue $'+o.rev[i].toFixed(2),px+6,el.y-h+2);ctx.restore();});}};
+function buildFlCpm(){
+  var c=FL.cpm[FS.lane],T=['AI','Conventional'],lab=['AI-equipped','Conventional'];
+  mk('c-fl-cpm',{type:'bar',data:{labels:lab,datasets:CATS.map(function(k){return {label:k[1],data:T.map(function(t){return c[t][k[0]];}),backgroundColor:css(k[2]),borderWidth:1,borderColor:css('--surface')};})},
+   options:Object.assign(base(),{indexAxis:'y',layout:{padding:{top:4,right:20}},plugins:{legend:legend(),tooltip:tip({label:function(x){return x.dataset.label+': $'+x.parsed.x.toFixed(2)+' per mile';}}),revMarks:{rev:T.map(function(t){return c[t].revenue;})}},
+    scales:{x:ax('Dollars per mile',{ticks:{callback:function(v){return '$'+v.toFixed(2);}}},{stacked:true,min:0}),y:ax(null,{grid:{display:false}},{stacked:true})}}),plugins:[revMarks]});
+}
+function flCpmRead(){
+  var a=FL.cpm[FS.lane].AI,c=FL.cpm[FS.lane].Conventional;
+  $('fl-cpm-read').innerHTML='<strong>'+FS.lane+'</strong>: AI costs <strong>$'+a.total_cost.toFixed(2)+'</strong> per mile against <strong>$'+c.total_cost.toFixed(2)+'</strong>, with revenue near $'+a.revenue.toFixed(2)+'. Profit per vehicle-month: <strong>'+usd0(a.profit_pvm)+'</strong> AI vs <strong>'+usd0(c.profit_pvm)+'</strong> conventional.';
+}
+var ciBars={id:'ciBars',afterDatasetsDraw:function(chart){
+  var ctx=chart.ctx,y=chart.scales.y,ds=chart.data.datasets[0],meta=chart.getDatasetMeta(0);
+  meta.data.forEach(function(el,i){var ci=ds.ci[i],lo=y.getPixelForValue(ci[0]),hi=y.getPixelForValue(ci[1]);
+    ctx.save();ctx.strokeStyle=css('--ink');ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(el.x,lo);ctx.lineTo(el.x,hi);ctx.moveTo(el.x-8,lo);ctx.lineTo(el.x+8,lo);ctx.moveTo(el.x-8,hi);ctx.lineTo(el.x+8,hi);ctx.stroke();
+    var v=ds.data[i];ctx.fillStyle=css('--ink');ctx.font='600 13px '+font;ctx.textAlign='center';
+    if(v>=0){ctx.textBaseline='bottom';ctx.fillText(usd0(v),el.x+30,hi-4);}else{ctx.textBaseline='top';ctx.fillText(usd0(v),el.x+30,lo+4);}ctx.restore();});}};
+function buildFlLane(){
+  var st=FL.stats,L=['Long-haul','Regional','Urban'],lab=L.concat(['All, adjusted']);
+  var d=L.map(function(l){return Math.round(st.lane[l].diff);}).concat([Math.round(st.adjusted)]);
+  var ci=L.map(function(l){return [st.lane[l].lo,st.lane[l].hi];}).concat([[st.adj_lo,st.adj_hi]]);
+  mk('c-fl-lane',{type:'bar',data:{labels:lab,datasets:[{data:d,ci:ci,backgroundColor:d.map(function(v,i){return css(i===3?'--muted':(v>=0?'--c1':'--c2'));}),barPercentage:.5,borderRadius:3}]},
+   options:Object.assign(base(),{layout:{padding:{top:26,right:30,bottom:10}},plugins:{legend:{display:false},tooltip:tip({label:function(c){var k=c.dataset.ci[c.dataIndex];return usd0(c.parsed.y)+' per vehicle-month (95% CI '+usd0(k[0])+' to '+usd0(k[1])+')';}})},
+    scales:{x:ax(null,{grid:{display:false}}),y:ax('AI minus conventional, profit per vehicle-month',{ticks:{callback:function(v){return usd0(v);}}})}}),plugins:[ciBars]});
+}
+var KINDS=['Preventive','Corrective','Breakdown','Sensor refresh'];
+function flMaintVal(t,k){var m=FL.maint[t].kinds[k],mi=FL.cpm.All[t].vehicle_months*FL.cpm.All[t].miles_pm;
+  if(FS.m==='events')return m.per_100k;if(FS.m==='cost')return m.avg_cost;return m.downtime/mi*1e5;}
+function flMaintFmt(v){if(FS.m==='events')return v.toFixed(2);if(FS.m==='cost')return usd0(v);return v.toFixed(0)+' h';}
+function buildFlMaint(){
+  var T=['AI','Conventional'],name={AI:'AI-equipped',Conventional:'Conventional'};
+  mk('c-fl-maint',{type:'bar',data:{labels:KINDS,datasets:T.map(function(t){return {label:name[t],data:KINDS.map(function(k){return flMaintVal(t,k);}),backgroundColor:css(TCOL[t]),borderRadius:{topLeft:3,topRight:3},barPercentage:.8,categoryPercentage:.7};})},
+   options:Object.assign(base(),{layout:{padding:{top:22,right:8}},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.dataset.label+': '+flMaintFmt(c.parsed.y);}})},
+    scales:{x:ax(null,{grid:{display:false}}),y:ax(FS.m==='events'?'Events per 100,000 miles':(FS.m==='cost'?'Average cost per event':'Downtime hours per 100,000 miles'),{ticks:{callback:function(v){return FS.m==='cost'?usd0(v):v;}}},{min:0})}}),
+   plugins:[valueLabels(function(v){return v>0?flMaintFmt(v):'';})]});
+}
+function flMaintRead(){
+  var a=KINDS.reduce(function(s,k){return s+flMaintVal('AI',k);},0),c=KINDS.reduce(function(s,k){return s+flMaintVal('Conventional',k);},0);
+  var txt=FS.m==='events'?'Breakdowns are the costly event: AI '+flMaintVal('AI','Breakdown').toFixed(2)+' vs conventional '+flMaintVal('Conventional','Breakdown').toFixed(2)+' per 100,000 miles.':
+    FS.m==='cost'?'Preventive and corrective work costs more on AI units and breakdowns cost about the same. Sensor refreshes alone average '+usd0(flMaintVal('AI','Sensor refresh'))+'.':
+    'AI units lose '+(a).toFixed(0)+' hours per 100,000 miles to the shop against '+(c).toFixed(0)+' conventional, with sensor refreshes adding a long outage each time.';
+  $('fl-m-read').innerHTML=txt;
+}
+function buildFlAge(){
+  var A=FL.age;
+  mk('c-fl-age',{type:'line',data:{labels:A.labels,datasets:[
+    {label:'AI-equipped',endLabel:'AI-equipped',data:A.AI,borderColor:css(TCOL.AI),backgroundColor:css(TCOL.AI),pointStyle:'circle',pointRadius:5,borderWidth:2.5,spanGaps:false},
+    {label:'Conventional',endLabel:'Conventional',data:A.Conventional,borderColor:css(TCOL.Conventional),backgroundColor:css(TCOL.Conventional),pointStyle:'rect',pointRadius:5,borderWidth:2.5,borderDash:[6,4],spanGaps:false}]},
+   options:Object.assign(base(),{layout:{padding:{top:8,right:8}},interaction:{mode:'index',intersect:false},plugins:{legend:legend(),tooltip:tip({label:function(c){return c.parsed.y==null?'':c.dataset.label+': $'+c.parsed.y.toFixed(3)+' per mile';}})},
+    scales:{x:ax('Vehicle age when the cost was incurred',{grid:{display:false}}),y:ax('Maintenance cost per mile',{ticks:{callback:function(v){return '$'+v.toFixed(2);}}},{min:0})}})});
+}
+function flScatPts(t){return FL.vehicles.filter(function(v){return v.type===t&&(FS.s==='All'||v.lane===FS.s);}).map(function(v){return {x:v.age,y:v.profit,id:v.id,lane:v.lane};});}
+function buildFlScat(){
+  mk('c-fl-scat',{type:'scatter',data:{datasets:[
+    {label:'AI-equipped',data:flScatPts('AI'),backgroundColor:css(TCOL.AI),pointStyle:'circle',pointRadius:5,pointHoverRadius:8},
+    {label:'Conventional',data:flScatPts('Conventional'),backgroundColor:css(TCOL.Conventional),pointStyle:'rect',pointRadius:5,pointHoverRadius:8}]},
+   options:Object.assign(base(),{plugins:{legend:legend(),tooltip:tip({label:function(c){var p=c.raw;return p.id+' ('+p.lane+'): '+usd0(p.y)+' profit, '+p.x+' months old';}})},
+    scales:{x:ax('Vehicle age (months)',{grid:{display:false}},{min:0}),y:ax('Operating profit, last 12 months',{ticks:{callback:function(v){return usdK(v);}}},{min:0})}})});
+}
+function flScatRead(){
+  var out=['AI','Conventional'].map(function(t){var p=flScatPts(t).map(function(v){return v.y;});var m=p.length?p.reduce(function(a,b){return a+b;},0)/p.length:0;return [t,p.length,m];});
+  $('fl-s-read').innerHTML=out.map(function(o){return '<strong>'+(o[0]==='AI'?'AI-equipped':'Conventional')+'</strong>: '+o[1]+' tractors, average '+usd0(o[2])+' a year. ';}).join('');
+}
+/* payback calculator (mirrors fleet/02_analyze.py) */
+function flUnit(lane,typ,age){
+  var c=FL.calc.cells[lane+'|'+typ],m=c.miles*(1+(typ==='AI'?FS.util/100:0)),
+      maint=Math.max(0.03,c.maint_pm+FL.calc.slope[typ]*(age-c.mean_age));
+  return m*(c.rev_pm-c.gal_pm*FS.diesel-c.driver_pm-c.other_pm-maint)-c.ins-(typ==='AI'?FS.soft:c.software);
+}
+function flProject(){
+  var T=['AI','Conventional'],life=FL.calc.life_months,r=FL.calc.rate/12,acq={},cum={},npv={},lane=FS.p;
+  T.forEach(function(t){var c=FL.calc.cells[lane+'|'+t];acq[t]=c.acq+(t==='AI'?FS.prem-FL.fleet.premium:0);cum[t]=[-acq[t]];npv[t]=-acq[t];});
+  for(var m=1;m<=life;m++){T.forEach(function(t){var cash=flUnit(lane,t,m);cum[t].push(cum[t][m-1]+cash);npv[t]+=cash/Math.pow(1+r,m);});}
+  T.forEach(function(t){var res=FL.calc.cells[lane+'|'+t].resid*acq[t];cum[t][life]+=res;npv[t]+=res/Math.pow(1+r,life);});
+  var diff=cum.AI.map(function(v,i){return v-cum.Conventional[i];}),pay=-1;
+  for(var i=0;i<diff.length;i++){if(diff[i]>=0){pay=i;break;}}
+  return {diff:diff,pay:pay,npv:npv.AI-npv.Conventional};
+}
+function buildFlPay(){
+  var P=flProject(),labels=P.diff.map(function(_,i){return i;});
+  mk('c-fl-pay',{type:'line',data:{labels:labels,datasets:[{label:'AI minus conventional, cumulative cash per truck',data:P.diff,borderColor:css('--c1'),backgroundColor:rgba(css('--c1').indexOf('#')===0?css('--c1'):'#2a78d6',.12),fill:{target:{value:0},above:rgba('#2a78d6',.14),below:rgba('#d95926',.14)},pointRadius:0,borderWidth:2.5,tension:0}]},
+   options:Object.assign(base(),{layout:{padding:{top:8,right:8}},interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:tip({title:function(i){return 'Month '+i[0].label;},label:function(c){return usd0(c.parsed.y)+' cumulative advantage';}})},
+    scales:{x:ax('Months in service',{grid:{display:false},ticks:{maxTicksLimit:8}}),y:ax('Cumulative cash advantage',{ticks:{callback:function(v){return usdK(v);}}})}})});
+}
+function flPayRead(){
+  var P=flProject();
+  $('fl-diesel-out').textContent='$'+FS.diesel.toFixed(2);$('fl-prem-out').textContent=usd0(FS.prem);$('fl-util-out').textContent=(FS.util>0?'+':'')+FS.util+'%';$('fl-soft-out').textContent=usd0(FS.soft);
+  $('fl-npv').textContent=(P.npv>=0?'+':'-')+usd0(Math.abs(P.npv))+' per truck';
+  $('fl-pay').textContent=P.pay<0?'No payback within the 7-year life on '+FS.p+' lanes.':'Payback after '+P.pay+' months on '+FS.p+' lanes.';
+}
+
+/* ---------- controls ---------- */
+function on(id,ev,fn){var el=$(id);if(el)el.addEventListener(ev,fn);}
+function wire(){
+  on('thr','input',function(){state.thr=+$('thr').value;$('thr-out').textContent=state.thr+'%';supRead();buildSup();});
+  Array.prototype.forEach.call(document.querySelectorAll('#svc-seg button'),function(b){
+    b.addEventListener('click',function(){state.target=b.getAttribute('data-t');svcRead();buildSvc();});});
+  on('bu-sel','change',function(){state.bu=$('bu-sel').value;bridgeRead();buildBridge();});
+  [['sl-p','p'],['sl-v','v'],['sl-c','c'],['sl-m','m']].forEach(function(pair){
+    on(pair[0],'input',function(){state[pair[1]]=+$(pair[0]).value;$(pair[0]+'-out').textContent=fmtPct(state[pair[1]]);scenRead();});});
+  on('sc-reset','click',function(){[['sl-p','p'],['sl-v','v'],['sl-c','c'],['sl-m','m']].forEach(function(pair){state[pair[1]]=0;$(pair[0]).value=0;$(pair[0]+'-out').textContent=fmtPct(0);});scenRead();});
+  on('seg-sel','change',function(){state.dim=$('seg-sel').value;churnRead();buildChurn();});
+  on('copy-email','click',function(){
+    var btn=$('copy-email');
+    function fallback(){var r=document.createRange();r.selectNodeContents($('email-text'));var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);btn.textContent='Selected, now copy';}
+    function ok(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email';},1800);}
+    try{navigator.clipboard.writeText($('email-text').textContent).then(ok,fallback);}catch(e){fallback();}
+  });
+  function segWire(id,attr,key,after){Array.prototype.forEach.call(document.querySelectorAll('#'+id+' button'),function(b){b.addEventListener('click',function(){
+    FS[key]=b.getAttribute(attr);Array.prototype.forEach.call(document.querySelectorAll('#'+id+' button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});after();});});}
+  segWire('fl-lane','data-l','lane',function(){flCpmRead();buildFlCpm();});
+  segWire('fl-m','data-m','m',function(){flMaintRead();buildFlMaint();});
+  segWire('fl-s','data-s','s',function(){flScatRead();buildFlScat();});
+  segWire('fl-p','data-p','p',function(){flPayRead();buildFlPay();});
+  [['fl-diesel','diesel',1],['fl-prem','prem',1],['fl-util','util',1],['fl-soft','soft',1]].forEach(function(a){on(a[0],'input',function(){FS[a[1]]=parseFloat($(a[0]).value);flPayRead();buildFlPay();});});
+  on('fl-reset','click',function(){FS.diesel=FL.calc.defaults.diesel;FS.prem=FL.calc.defaults.premium;FS.util=0;FS.soft=FL.calc.defaults.software;
+    $('fl-diesel').value=FS.diesel.toFixed(2);$('fl-prem').value=FS.prem;$('fl-util').value=0;$('fl-soft').value=FS.soft;flPayRead();buildFlPay();});
+  /* theme toggle */
+  var tb=$('theme-btn');
+  function effective(){var t=document.documentElement.getAttribute('data-theme');if(t)return t;return (window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}
+  function label(){if(tb)tb.textContent=effective()==='dark'?'Light mode':'Dark mode';}
+  if(tb){tb.addEventListener('click',function(){document.documentElement.setAttribute('data-theme',effective()==='dark'?'light':'dark');label();});}
+  label();
+  try{window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){label();if(window.Chart)build();});}catch(e){}
+  new MutationObserver(function(){label();if(window.Chart)build();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+}
+
+supRead();svcRead();bridgeRead();scenRead();churnRead();flCpmRead();flMaintRead();flScatRead();flPayRead();wire();
+function boot(){if(!window.Chart){setTimeout(boot,100);return;}build();}
+boot();
+})();
+
+</script>
+
+</body></html>

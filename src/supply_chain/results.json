@@ -1,0 +1,1812 @@
+{
+ "kpis": {
+  "purchase_orders": 2722.0,
+  "total_spend": 49359572.0,
+  "on_time_pct": 80.7,
+  "in_full_pct": 91.3,
+  "otif_pct": 73.6,
+  "avg_delay_days": 0.34,
+  "expedite_premium_paid": 194549.0
+ },
+ "monthly_otif": [
+  {
+   "month": "2024-02",
+   "pos": 107,
+   "otif_pct": 79.4,
+   "otif_3mo_avg": 79.4
+  },
+  {
+   "month": "2024-03",
+   "pos": 117,
+   "otif_pct": 70.9,
+   "otif_3mo_avg": 75.2
+  },
+  {
+   "month": "2024-04",
+   "pos": 113,
+   "otif_pct": 75.2,
+   "otif_3mo_avg": 75.2
+  },
+  {
+   "month": "2024-05",
+   "pos": 117,
+   "otif_pct": 71.8,
+   "otif_3mo_avg": 72.6
+  },
+  {
+   "month": "2024-06",
+   "pos": 118,
+   "otif_pct": 72.9,
+   "otif_3mo_avg": 73.3
+  },
+  {
+   "month": "2024-07",
+   "pos": 116,
+   "otif_pct": 69.8,
+   "otif_3mo_avg": 71.5
+  },
+  {
+   "month": "2024-08",
+   "pos": 122,
+   "otif_pct": 69.7,
+   "otif_3mo_avg": 70.8
+  },
+  {
+   "month": "2024-09",
+   "pos": 110,
+   "otif_pct": 70.0,
+   "otif_3mo_avg": 69.8
+  },
+  {
+   "month": "2024-10",
+   "pos": 127,
+   "otif_pct": 76.4,
+   "otif_3mo_avg": 72.0
+  },
+  {
+   "month": "2024-11",
+   "pos": 119,
+   "otif_pct": 74.8,
+   "otif_3mo_avg": 73.7
+  },
+  {
+   "month": "2024-12",
+   "pos": 115,
+   "otif_pct": 83.5,
+   "otif_3mo_avg": 78.2
+  },
+  {
+   "month": "2025-01",
+   "pos": 117,
+   "otif_pct": 72.6,
+   "otif_3mo_avg": 77.0
+  },
+  {
+   "month": "2025-02",
+   "pos": 117,
+   "otif_pct": 76.1,
+   "otif_3mo_avg": 77.4
+  },
+  {
+   "month": "2025-03",
+   "pos": 121,
+   "otif_pct": 70.2,
+   "otif_3mo_avg": 73.0
+  },
+  {
+   "month": "2025-04",
+   "pos": 108,
+   "otif_pct": 67.6,
+   "otif_3mo_avg": 71.3
+  },
+  {
+   "month": "2025-05",
+   "pos": 120,
+   "otif_pct": 71.7,
+   "otif_3mo_avg": 69.8
+  },
+  {
+   "month": "2025-06",
+   "pos": 121,
+   "otif_pct": 70.2,
+   "otif_3mo_avg": 69.8
+  },
+  {
+   "month": "2025-07",
+   "pos": 120,
+   "otif_pct": 74.2,
+   "otif_3mo_avg": 72.0
+  },
+  {
+   "month": "2025-08",
+   "pos": 119,
+   "otif_pct": 73.9,
+   "otif_3mo_avg": 72.8
+  },
+  {
+   "month": "2025-09",
+   "pos": 119,
+   "otif_pct": 77.3,
+   "otif_3mo_avg": 75.1
+  },
+  {
+   "month": "2025-10",
+   "pos": 106,
+   "otif_pct": 71.7,
+   "otif_3mo_avg": 74.3
+  },
+  {
+   "month": "2025-11",
+   "pos": 119,
+   "otif_pct": 72.3,
+   "otif_3mo_avg": 73.8
+  },
+  {
+   "month": "2025-12",
+   "pos": 124,
+   "otif_pct": 78.2,
+   "otif_3mo_avg": 74.1
+  }
+ ],
+ "scorecard": [
+  {
+   "supplier_id": 5,
+   "supplier_name": "Supplier 05",
+   "country": "USA",
+   "pos": 30,
+   "spend": 735102.0,
+   "on_time_pct": 60.0,
+   "in_full_pct": 66.7,
+   "otif_pct": 36.7,
+   "avg_delay_days": 3.97,
+   "avg_lead_days": 11.0,
+   "expedited_pos": 2,
+   "otif_rank": 24,
+   "spend_share_pct": 1.5,
+   "lt_mean": 10.97,
+   "lt_std": 7.88
+  },
+  {
+   "supplier_id": 11,
+   "supplier_name": "Supplier 11",
+   "country": "India",
+   "pos": 65,
+   "spend": 1409979.0,
+   "on_time_pct": 55.4,
+   "in_full_pct": 78.5,
+   "otif_pct": 43.1,
+   "avg_delay_days": 3.46,
+   "avg_lead_days": 45.5,
+   "expedited_pos": 5,
+   "otif_rank": 23,
+   "spend_share_pct": 2.9,
+   "lt_mean": 45.46,
+   "lt_std": 6.02
+  },
+  {
+   "supplier_id": 18,
+   "supplier_name": "Supplier 18",
+   "country": "Vietnam",
+   "pos": 104,
+   "spend": 3974743.0,
+   "on_time_pct": 61.5,
+   "in_full_pct": 86.5,
+   "otif_pct": 53.8,
+   "avg_delay_days": 4.91,
+   "avg_lead_days": 39.9,
+   "expedited_pos": 9,
+   "otif_rank": 22,
+   "spend_share_pct": 8.1,
+   "lt_mean": 39.91,
+   "lt_std": 8.99
+  },
+  {
+   "supplier_id": 6,
+   "supplier_name": "Supplier 06",
+   "country": "Germany",
+   "pos": 63,
+   "spend": 549419.0,
+   "on_time_pct": 76.2,
+   "in_full_pct": 85.7,
+   "otif_pct": 66.7,
+   "avg_delay_days": 0.44,
+   "avg_lead_days": 21.4,
+   "expedited_pos": 2,
+   "otif_rank": 21,
+   "spend_share_pct": 1.1,
+   "lt_mean": 21.44,
+   "lt_std": 3.19
+  },
+  {
+   "supplier_id": 13,
+   "supplier_name": "Supplier 13",
+   "country": "USA",
+   "pos": 96,
+   "spend": 3135231.0,
+   "on_time_pct": 77.1,
+   "in_full_pct": 89.6,
+   "otif_pct": 68.8,
+   "avg_delay_days": 0.24,
+   "avg_lead_days": 9.2,
+   "expedited_pos": 4,
+   "otif_rank": 20,
+   "spend_share_pct": 6.4,
+   "lt_mean": 9.24,
+   "lt_std": 2.82
+  },
+  {
+   "supplier_id": 4,
+   "supplier_name": "Supplier 04",
+   "country": "Mexico",
+   "pos": 132,
+   "spend": 2071646.0,
+   "on_time_pct": 78.0,
+   "in_full_pct": 89.4,
+   "otif_pct": 68.9,
+   "avg_delay_days": 0.15,
+   "avg_lead_days": 12.2,
+   "expedited_pos": 5,
+   "otif_rank": 19,
+   "spend_share_pct": 4.2,
+   "lt_mean": 12.15,
+   "lt_std": 3.13
+  },
+  {
+   "supplier_id": 7,
+   "supplier_name": "Supplier 07",
+   "country": "Poland",
+   "pos": 105,
+   "spend": 2358223.0,
+   "on_time_pct": 74.3,
+   "in_full_pct": 93.3,
+   "otif_pct": 69.5,
+   "avg_delay_days": 0.42,
+   "avg_lead_days": 19.4,
+   "expedited_pos": 5,
+   "otif_rank": 18,
+   "spend_share_pct": 4.8,
+   "lt_mean": 19.42,
+   "lt_std": 3.15
+  },
+  {
+   "supplier_id": 17,
+   "supplier_name": "Supplier 17",
+   "country": "China",
+   "pos": 72,
+   "spend": 2627106.0,
+   "on_time_pct": 77.8,
+   "in_full_pct": 91.7,
+   "otif_pct": 70.8,
+   "avg_delay_days": -0.15,
+   "avg_lead_days": 31.8,
+   "expedited_pos": 3,
+   "otif_rank": 17,
+   "spend_share_pct": 5.3,
+   "lt_mean": 31.85,
+   "lt_std": 2.51
+  },
+  {
+   "supplier_id": 10,
+   "supplier_name": "Supplier 10",
+   "country": "Vietnam",
+   "pos": 99,
+   "spend": 1473865.0,
+   "on_time_pct": 80.8,
+   "in_full_pct": 90.9,
+   "otif_pct": 71.7,
+   "avg_delay_days": -0.18,
+   "avg_lead_days": 35.8,
+   "expedited_pos": 2,
+   "otif_rank": 16,
+   "spend_share_pct": 3.0,
+   "lt_mean": 35.82,
+   "lt_std": 2.24
+  },
+  {
+   "supplier_id": 3,
+   "supplier_name": "Supplier 03",
+   "country": "India",
+   "pos": 260,
+   "spend": 3542016.0,
+   "on_time_pct": 80.0,
+   "in_full_pct": 90.0,
+   "otif_pct": 71.9,
+   "avg_delay_days": -0.09,
+   "avg_lead_days": 41.9,
+   "expedited_pos": 9,
+   "otif_rank": 15,
+   "spend_share_pct": 7.2,
+   "lt_mean": 41.91,
+   "lt_std": 2.05
+  },
+  {
+   "supplier_id": 12,
+   "supplier_name": "Supplier 12",
+   "country": "Mexico",
+   "pos": 123,
+   "spend": 1946532.0,
+   "on_time_pct": 77.2,
+   "in_full_pct": 93.5,
+   "otif_pct": 72.4,
+   "avg_delay_days": 0.86,
+   "avg_lead_days": 8.9,
+   "expedited_pos": 5,
+   "otif_rank": 14,
+   "spend_share_pct": 3.9,
+   "lt_mean": 8.86,
+   "lt_std": 4.47
+  },
+  {
+   "supplier_id": 15,
+   "supplier_name": "Supplier 15",
+   "country": "Poland",
+   "pos": 110,
+   "spend": 1209487.0,
+   "on_time_pct": 80.0,
+   "in_full_pct": 92.7,
+   "otif_pct": 72.7,
+   "avg_delay_days": 0.53,
+   "avg_lead_days": 20.5,
+   "expedited_pos": 6,
+   "otif_rank": 13,
+   "spend_share_pct": 2.5,
+   "lt_mean": 20.53,
+   "lt_std": 3.96
+  },
+  {
+   "supplier_id": 19,
+   "supplier_name": "Supplier 19",
+   "country": "India",
+   "pos": 136,
+   "spend": 1232235.0,
+   "on_time_pct": 75.7,
+   "in_full_pct": 97.1,
+   "otif_pct": 72.8,
+   "avg_delay_days": 0.33,
+   "avg_lead_days": 40.3,
+   "expedited_pos": 9,
+   "otif_rank": 12,
+   "spend_share_pct": 2.5,
+   "lt_mean": 40.33,
+   "lt_std": 3.05
+  },
+  {
+   "supplier_id": 9,
+   "supplier_name": "Supplier 09",
+   "country": "China",
+   "pos": 115,
+   "spend": 3176660.0,
+   "on_time_pct": 83.5,
+   "in_full_pct": 88.7,
+   "otif_pct": 73.0,
+   "avg_delay_days": 0.6,
+   "avg_lead_days": 35.6,
+   "expedited_pos": 4,
+   "otif_rank": 11,
+   "spend_share_pct": 6.4,
+   "lt_mean": 35.6,
+   "lt_std": 4.17
+  },
+  {
+   "supplier_id": 23,
+   "supplier_name": "Supplier 23",
+   "country": "Poland",
+   "pos": 163,
+   "spend": 3238876.0,
+   "on_time_pct": 77.9,
+   "in_full_pct": 94.5,
+   "otif_pct": 74.8,
+   "avg_delay_days": 0.21,
+   "avg_lead_days": 18.2,
+   "expedited_pos": 10,
+   "otif_rank": 10,
+   "spend_share_pct": 6.6,
+   "lt_mean": 18.21,
+   "lt_std": 2.58
+  },
+  {
+   "supplier_id": 14,
+   "supplier_name": "Supplier 14",
+   "country": "Germany",
+   "pos": 90,
+   "spend": 2180964.0,
+   "on_time_pct": 84.4,
+   "in_full_pct": 88.9,
+   "otif_pct": 75.6,
+   "avg_delay_days": -0.17,
+   "avg_lead_days": 22.8,
+   "expedited_pos": 1,
+   "otif_rank": 9,
+   "spend_share_pct": 4.4,
+   "lt_mean": 22.83,
+   "lt_std": 2.47
+  },
+  {
+   "supplier_id": 8,
+   "supplier_name": "Supplier 08",
+   "country": "Turkey",
+   "pos": 122,
+   "spend": 736110.0,
+   "on_time_pct": 80.3,
+   "in_full_pct": 93.4,
+   "otif_pct": 76.2,
+   "avg_delay_days": 0.09,
+   "avg_lead_days": 23.1,
+   "expedited_pos": 2,
+   "otif_rank": 8,
+   "spend_share_pct": 1.5,
+   "lt_mean": 23.09,
+   "lt_std": 2.84
+  },
+  {
+   "supplier_id": 22,
+   "supplier_name": "Supplier 22",
+   "country": "Germany",
+   "pos": 36,
+   "spend": 71390.0,
+   "on_time_pct": 80.6,
+   "in_full_pct": 97.2,
+   "otif_pct": 77.8,
+   "avg_delay_days": 0.56,
+   "avg_lead_days": 23.6,
+   "expedited_pos": 3,
+   "otif_rank": 7,
+   "spend_share_pct": 0.1,
+   "lt_mean": 23.56,
+   "lt_std": 3.08
+  },
+  {
+   "supplier_id": 16,
+   "supplier_name": "Supplier 16",
+   "country": "Turkey",
+   "pos": 191,
+   "spend": 2338119.0,
+   "on_time_pct": 85.9,
+   "in_full_pct": 94.2,
+   "otif_pct": 81.2,
+   "avg_delay_days": -0.3,
+   "avg_lead_days": 20.7,
+   "expedited_pos": 8,
+   "otif_rank": 5,
+   "spend_share_pct": 4.7,
+   "lt_mean": 20.7,
+   "lt_std": 2.08
+  },
+  {
+   "supplier_id": 20,
+   "supplier_name": "Supplier 20",
+   "country": "Mexico",
+   "pos": 85,
+   "spend": 301000.0,
+   "on_time_pct": 85.9,
+   "in_full_pct": 95.3,
+   "otif_pct": 81.2,
+   "avg_delay_days": 0.06,
+   "avg_lead_days": 10.1,
+   "expedited_pos": 2,
+   "otif_rank": 5,
+   "spend_share_pct": 0.6,
+   "lt_mean": 10.06,
+   "lt_std": 2.68
+  },
+  {
+   "supplier_id": 1,
+   "supplier_name": "Supplier 01",
+   "country": "China",
+   "pos": 160,
+   "spend": 1745629.0,
+   "on_time_pct": 92.5,
+   "in_full_pct": 88.8,
+   "otif_pct": 81.3,
+   "avg_delay_days": -0.33,
+   "avg_lead_days": 31.7,
+   "expedited_pos": 3,
+   "otif_rank": 4,
+   "spend_share_pct": 3.5,
+   "lt_mean": 31.67,
+   "lt_std": 2.93
+  },
+  {
+   "supplier_id": 21,
+   "supplier_name": "Supplier 21",
+   "country": "USA",
+   "pos": 84,
+   "spend": 4016543.0,
+   "on_time_pct": 91.7,
+   "in_full_pct": 91.7,
+   "otif_pct": 83.3,
+   "avg_delay_days": -0.55,
+   "avg_lead_days": 9.5,
+   "expedited_pos": 1,
+   "otif_rank": 3,
+   "spend_share_pct": 8.1,
+   "lt_mean": 9.45,
+   "lt_std": 1.94
+  },
+  {
+   "supplier_id": 24,
+   "supplier_name": "Supplier 24",
+   "country": "Turkey",
+   "pos": 115,
+   "spend": 1946984.0,
+   "on_time_pct": 87.8,
+   "in_full_pct": 96.5,
+   "otif_pct": 85.2,
+   "avg_delay_days": -0.35,
+   "avg_lead_days": 25.7,
+   "expedited_pos": 1,
+   "otif_rank": 2,
+   "spend_share_pct": 3.9,
+   "lt_mean": 25.65,
+   "lt_std": 2.23
+  },
+  {
+   "supplier_id": 2,
+   "supplier_name": "Supplier 02",
+   "country": "Vietnam",
+   "pos": 166,
+   "spend": 3341716.0,
+   "on_time_pct": 94.0,
+   "in_full_pct": 91.6,
+   "otif_pct": 86.1,
+   "avg_delay_days": -0.7,
+   "avg_lead_days": 39.3,
+   "expedited_pos": 0,
+   "otif_rank": 1,
+   "spend_share_pct": 6.8,
+   "lt_mean": 39.3,
+   "lt_std": 2.14
+  }
+ ],
+ "country": [
+  {
+   "country": "India",
+   "pos": 461,
+   "spend": 6184230.0,
+   "otif_pct": 68.1,
+   "avg_delay_days": 0.53
+  },
+  {
+   "country": "USA",
+   "pos": 210,
+   "spend": 7886875.0,
+   "otif_pct": 70.0,
+   "avg_delay_days": 0.46
+  },
+  {
+   "country": "Poland",
+   "pos": 378,
+   "spend": 6806585.0,
+   "otif_pct": 72.8,
+   "avg_delay_days": 0.36
+  },
+  {
+   "country": "Germany",
+   "pos": 189,
+   "spend": 2801772.0,
+   "otif_pct": 73.0,
+   "avg_delay_days": 0.17
+  },
+  {
+   "country": "Mexico",
+   "pos": 340,
+   "spend": 4319178.0,
+   "otif_pct": 73.2,
+   "avg_delay_days": 0.39
+  },
+  {
+   "country": "Vietnam",
+   "pos": 369,
+   "spend": 8790325.0,
+   "otif_pct": 73.2,
+   "avg_delay_days": 1.02
+  },
+  {
+   "country": "China",
+   "pos": 347,
+   "spend": 7549394.0,
+   "otif_pct": 76.4,
+   "avg_delay_days": 0.01
+  },
+  {
+   "country": "Turkey",
+   "pos": 428,
+   "spend": 5021213.0,
+   "otif_pct": 80.8,
+   "avg_delay_days": -0.2
+  }
+ ],
+ "abc": {
+  "counts": [
+   {
+    "abc_class": "A",
+    "skus": 55,
+    "value": 22150979.0,
+    "sku_pct": 36.7,
+    "value_pct": 80.5
+   },
+   {
+    "abc_class": "B",
+    "skus": 39,
+    "value": 3991648.0,
+    "sku_pct": 26.0,
+    "value_pct": 14.5
+   },
+   {
+    "abc_class": "C",
+    "skus": 56,
+    "value": 1359723.0,
+    "sku_pct": 37.3,
+    "value_pct": 4.9
+   }
+  ],
+  "pareto": [
+   {
+    "rnk": 1,
+    "cum_pct": 6.9,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 2,
+    "cum_pct": 11.0,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 3,
+    "cum_pct": 15.0,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 4,
+    "cum_pct": 18.4,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 5,
+    "cum_pct": 21.6,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 6,
+    "cum_pct": 24.6,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 7,
+    "cum_pct": 26.7,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 8,
+    "cum_pct": 28.8,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 9,
+    "cum_pct": 30.6,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 10,
+    "cum_pct": 32.4,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 11,
+    "cum_pct": 34.2,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 12,
+    "cum_pct": 35.9,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 13,
+    "cum_pct": 37.7,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 14,
+    "cum_pct": 39.4,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 15,
+    "cum_pct": 41.1,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 16,
+    "cum_pct": 42.8,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 17,
+    "cum_pct": 44.3,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 18,
+    "cum_pct": 45.9,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 19,
+    "cum_pct": 47.2,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 20,
+    "cum_pct": 48.5,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 21,
+    "cum_pct": 49.7,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 22,
+    "cum_pct": 50.9,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 23,
+    "cum_pct": 52.1,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 24,
+    "cum_pct": 53.2,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 25,
+    "cum_pct": 54.4,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 26,
+    "cum_pct": 55.5,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 27,
+    "cum_pct": 56.5,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 28,
+    "cum_pct": 57.6,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 29,
+    "cum_pct": 58.7,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 30,
+    "cum_pct": 59.7,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 31,
+    "cum_pct": 60.7,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 32,
+    "cum_pct": 61.7,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 33,
+    "cum_pct": 62.6,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 34,
+    "cum_pct": 63.6,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 35,
+    "cum_pct": 64.5,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 36,
+    "cum_pct": 65.5,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 37,
+    "cum_pct": 66.4,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 38,
+    "cum_pct": 67.3,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 39,
+    "cum_pct": 68.2,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 40,
+    "cum_pct": 69.1,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 41,
+    "cum_pct": 70.0,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 42,
+    "cum_pct": 70.8,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 43,
+    "cum_pct": 71.7,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 44,
+    "cum_pct": 72.5,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 45,
+    "cum_pct": 73.3,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 46,
+    "cum_pct": 74.1,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 47,
+    "cum_pct": 74.8,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 48,
+    "cum_pct": 75.6,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 49,
+    "cum_pct": 76.3,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 50,
+    "cum_pct": 77.1,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 51,
+    "cum_pct": 77.8,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 52,
+    "cum_pct": 78.5,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 53,
+    "cum_pct": 79.2,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 54,
+    "cum_pct": 79.9,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 55,
+    "cum_pct": 80.5,
+    "abc_class": "A"
+   },
+   {
+    "rnk": 56,
+    "cum_pct": 81.2,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 57,
+    "cum_pct": 81.7,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 58,
+    "cum_pct": 82.3,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 59,
+    "cum_pct": 82.9,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 60,
+    "cum_pct": 83.4,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 61,
+    "cum_pct": 83.9,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 62,
+    "cum_pct": 84.4,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 63,
+    "cum_pct": 84.9,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 64,
+    "cum_pct": 85.4,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 65,
+    "cum_pct": 85.8,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 66,
+    "cum_pct": 86.3,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 67,
+    "cum_pct": 86.8,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 68,
+    "cum_pct": 87.2,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 69,
+    "cum_pct": 87.6,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 70,
+    "cum_pct": 88.0,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 71,
+    "cum_pct": 88.4,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 72,
+    "cum_pct": 88.8,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 73,
+    "cum_pct": 89.2,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 74,
+    "cum_pct": 89.6,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 75,
+    "cum_pct": 90.0,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 76,
+    "cum_pct": 90.3,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 77,
+    "cum_pct": 90.7,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 78,
+    "cum_pct": 91.0,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 79,
+    "cum_pct": 91.3,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 80,
+    "cum_pct": 91.6,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 81,
+    "cum_pct": 91.9,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 82,
+    "cum_pct": 92.2,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 83,
+    "cum_pct": 92.5,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 84,
+    "cum_pct": 92.8,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 85,
+    "cum_pct": 93.0,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 86,
+    "cum_pct": 93.3,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 87,
+    "cum_pct": 93.5,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 88,
+    "cum_pct": 93.8,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 89,
+    "cum_pct": 94.0,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 90,
+    "cum_pct": 94.2,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 91,
+    "cum_pct": 94.4,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 92,
+    "cum_pct": 94.6,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 93,
+    "cum_pct": 94.9,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 94,
+    "cum_pct": 95.1,
+    "abc_class": "B"
+   },
+   {
+    "rnk": 95,
+    "cum_pct": 95.3,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 96,
+    "cum_pct": 95.5,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 97,
+    "cum_pct": 95.6,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 98,
+    "cum_pct": 95.8,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 99,
+    "cum_pct": 96.0,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 100,
+    "cum_pct": 96.2,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 101,
+    "cum_pct": 96.4,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 102,
+    "cum_pct": 96.5,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 103,
+    "cum_pct": 96.7,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 104,
+    "cum_pct": 96.8,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 105,
+    "cum_pct": 96.9,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 106,
+    "cum_pct": 97.1,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 107,
+    "cum_pct": 97.2,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 108,
+    "cum_pct": 97.3,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 109,
+    "cum_pct": 97.5,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 110,
+    "cum_pct": 97.6,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 111,
+    "cum_pct": 97.7,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 112,
+    "cum_pct": 97.8,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 113,
+    "cum_pct": 97.9,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 114,
+    "cum_pct": 98.1,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 115,
+    "cum_pct": 98.2,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 116,
+    "cum_pct": 98.3,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 117,
+    "cum_pct": 98.4,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 118,
+    "cum_pct": 98.5,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 119,
+    "cum_pct": 98.6,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 120,
+    "cum_pct": 98.6,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 121,
+    "cum_pct": 98.7,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 122,
+    "cum_pct": 98.8,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 123,
+    "cum_pct": 98.9,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 124,
+    "cum_pct": 99.0,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 125,
+    "cum_pct": 99.0,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 126,
+    "cum_pct": 99.1,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 127,
+    "cum_pct": 99.2,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 128,
+    "cum_pct": 99.2,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 129,
+    "cum_pct": 99.3,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 130,
+    "cum_pct": 99.4,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 131,
+    "cum_pct": 99.4,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 132,
+    "cum_pct": 99.5,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 133,
+    "cum_pct": 99.5,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 134,
+    "cum_pct": 99.6,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 135,
+    "cum_pct": 99.6,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 136,
+    "cum_pct": 99.6,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 137,
+    "cum_pct": 99.7,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 138,
+    "cum_pct": 99.7,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 139,
+    "cum_pct": 99.7,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 140,
+    "cum_pct": 99.8,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 141,
+    "cum_pct": 99.8,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 142,
+    "cum_pct": 99.8,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 143,
+    "cum_pct": 99.9,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 144,
+    "cum_pct": 99.9,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 145,
+    "cum_pct": 99.9,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 146,
+    "cum_pct": 99.9,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 147,
+    "cum_pct": 100.0,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 148,
+    "cum_pct": 100.0,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 149,
+    "cum_pct": 100.0,
+    "abc_class": "C"
+   },
+   {
+    "rnk": 150,
+    "cum_pct": 100.0,
+    "abc_class": "C"
+   }
+  ]
+ },
+ "problem": {
+  "ids": [
+   5,
+   11,
+   18
+  ],
+  "names": [
+   "Supplier 05",
+   "Supplier 11",
+   "Supplier 18"
+  ],
+  "n": 3,
+  "of": 24,
+  "spend_share_pct": 12.4,
+  "late_po_share_pct": 15.4,
+  "otif_threshold": 60.0
+ },
+ "sim": {
+  "n_a_skus": 55,
+  "n_a_problem": 6,
+  "n_a_other": 49,
+  "service_now_pct": 83.8,
+  "service_new_pct": 93.9,
+  "service_now_problem_pct": 66.7,
+  "service_new_problem_pct": 93.7,
+  "service_now_other_pct": 85.9,
+  "service_new_other_pct": 94.0,
+  "inventory_increase_pct": 20.3,
+  "inventory_increase_usd": 336438.0,
+  "inventory_now_usd": 1654452.0,
+  "targets": [
+   {
+    "key": "90",
+    "label": "90%",
+    "service_pct": 89.9,
+    "service_problem_pct": 89.5,
+    "service_other_pct": 90.0,
+    "inv_increase_pct": 10.7,
+    "inv_increase_usd": 177025.0
+   },
+   {
+    "key": "95",
+    "label": "95%",
+    "service_pct": 93.9,
+    "service_problem_pct": 93.7,
+    "service_other_pct": 94.0,
+    "inv_increase_pct": 20.3,
+    "inv_increase_usd": 336438.0
+   },
+   {
+    "key": "975",
+    "label": "97.5%",
+    "service_pct": 96.2,
+    "service_problem_pct": 95.9,
+    "service_other_pct": 96.2,
+    "inv_increase_pct": 28.7,
+    "inv_increase_usd": 474620.0
+   },
+   {
+    "key": "99",
+    "label": "99%",
+    "service_pct": 97.8,
+    "service_problem_pct": 97.5,
+    "service_other_pct": 97.9,
+    "inv_increase_pct": 38.4,
+    "inv_increase_usd": 635306.0
+   }
+  ]
+ },
+ "forecast": {
+  "table": [
+   {
+    "method": "Naive (last week)",
+    "key": "naive",
+    "wape_sku_week": 50.6,
+    "wape_class_A": 52.8,
+    "wape_total_demand": 21.5
+   },
+   {
+    "method": "4-week moving avg",
+    "key": "ma4",
+    "wape_sku_week": 40.7,
+    "wape_class_A": 41.0,
+    "wape_total_demand": 22.2
+   },
+   {
+    "method": "Seasonal naive (same week LY)",
+    "key": "seasonal_naive",
+    "wape_sku_week": 44.0,
+    "wape_class_A": 43.3,
+    "wape_total_demand": 7.7
+   },
+   {
+    "method": "Trend + seasonality regression",
+    "key": "trend_season",
+    "wape_sku_week": 35.3,
+    "wape_class_A": 34.9,
+    "wape_total_demand": 5.5
+   }
+  ],
+  "best": "Trend + seasonality regression",
+  "best_key": "trend_season",
+  "improvement_vs_naive_pct": 30.2,
+  "series": {
+   "weeks": [
+    "2025-09-29",
+    "2025-10-06",
+    "2025-10-13",
+    "2025-10-20",
+    "2025-10-27",
+    "2025-11-03",
+    "2025-11-10",
+    "2025-11-17",
+    "2025-11-24",
+    "2025-12-01",
+    "2025-12-08",
+    "2025-12-15",
+    "2025-12-22"
+   ],
+   "actual": [
+    20824,
+    19929,
+    22281,
+    21131,
+    23177,
+    22334,
+    24861,
+    24967,
+    23441,
+    23981,
+    25949,
+    27099,
+    28501
+   ],
+   "naive": [
+    17403,
+    17403,
+    17403,
+    17403,
+    17403,
+    17403,
+    17403,
+    17403,
+    17403,
+    17403,
+    17403,
+    17403,
+    17403
+   ],
+   "ma4": [
+    17516,
+    17516,
+    17516,
+    17516,
+    17516,
+    17516,
+    17516,
+    17516,
+    17516,
+    17516,
+    17516,
+    17516,
+    17516
+   ],
+   "seasonal_naive": [
+    18918,
+    20287,
+    19295,
+    23277,
+    24605,
+    20420,
+    20661,
+    23861,
+    23506,
+    24808,
+    22603,
+    23607,
+    29357
+   ],
+   "trend_season": [
+    19807,
+    20533,
+    21252,
+    21953,
+    22621,
+    23244,
+    23811,
+    24312,
+    24737,
+    25082,
+    25340,
+    25509,
+    25588
+   ]
+  },
+  "history": {
+   "weeks": [
+    "2024-01-01",
+    "2024-01-08",
+    "2024-01-15",
+    "2024-01-22",
+    "2024-01-29",
+    "2024-02-05",
+    "2024-02-12",
+    "2024-02-19",
+    "2024-02-26",
+    "2024-03-04",
+    "2024-03-11",
+    "2024-03-18",
+    "2024-03-25",
+    "2024-04-01",
+    "2024-04-08",
+    "2024-04-15",
+    "2024-04-22",
+    "2024-04-29",
+    "2024-05-06",
+    "2024-05-13",
+    "2024-05-20",
+    "2024-05-27",
+    "2024-06-03",
+    "2024-06-10",
+    "2024-06-17",
+    "2024-06-24",
+    "2024-07-01",
+    "2024-07-08",
+    "2024-07-15",
+    "2024-07-22",
+    "2024-07-29",
+    "2024-08-05",
+    "2024-08-12",
+    "2024-08-19",
+    "2024-08-26",
+    "2024-09-02",
+    "2024-09-09",
+    "2024-09-16",
+    "2024-09-23",
+    "2024-09-30",
+    "2024-10-07",
+    "2024-10-14",
+    "2024-10-21",
+    "2024-10-28",
+    "2024-11-04",
+    "2024-11-11",
+    "2024-11-18",
+    "2024-11-25",
+    "2024-12-02",
+    "2024-12-09",
+    "2024-12-16",
+    "2024-12-23",
+    "2024-12-30",
+    "2025-01-06",
+    "2025-01-13",
+    "2025-01-20",
+    "2025-01-27",
+    "2025-02-03",
+    "2025-02-10",
+    "2025-02-17",
+    "2025-02-24",
+    "2025-03-03",
+    "2025-03-10",
+    "2025-03-17",
+    "2025-03-24",
+    "2025-03-31",
+    "2025-04-07",
+    "2025-04-14",
+    "2025-04-21",
+    "2025-04-28",
+    "2025-05-05",
+    "2025-05-12",
+    "2025-05-19",
+    "2025-05-26",
+    "2025-06-02",
+    "2025-06-09",
+    "2025-06-16",
+    "2025-06-23",
+    "2025-06-30",
+    "2025-07-07",
+    "2025-07-14",
+    "2025-07-21",
+    "2025-07-28",
+    "2025-08-04",
+    "2025-08-11",
+    "2025-08-18",
+    "2025-08-25",
+    "2025-09-01",
+    "2025-09-08",
+    "2025-09-15",
+    "2025-09-22",
+    "2025-09-29",
+    "2025-10-06",
+    "2025-10-13",
+    "2025-10-20",
+    "2025-10-27",
+    "2025-11-03",
+    "2025-11-10",
+    "2025-11-17",
+    "2025-11-24",
+    "2025-12-01",
+    "2025-12-08",
+    "2025-12-15",
+    "2025-12-22"
+   ],
+   "total": [
+    25335,
+    22147,
+    22976,
+    22954,
+    21057,
+    21120,
+    24990,
+    22131,
+    21865,
+    18268,
+    16349,
+    18514,
+    18401,
+    18371,
+    19306,
+    16785,
+    15039,
+    16722,
+    15636,
+    14637,
+    14775,
+    14317,
+    15509,
+    14163,
+    12007,
+    13424,
+    12139,
+    12835,
+    14688,
+    12473,
+    13938,
+    14513,
+    15700,
+    14764,
+    16564,
+    14701,
+    17200,
+    17605,
+    15974,
+    18918,
+    20287,
+    19295,
+    23277,
+    24605,
+    20420,
+    20661,
+    23861,
+    23506,
+    24808,
+    22603,
+    23607,
+    29357,
+    26092,
+    24687,
+    22333,
+    23725,
+    24350,
+    21313,
+    22405,
+    22982,
+    22231,
+    24243,
+    20539,
+    20505,
+    19431,
+    21003,
+    19012,
+    16795,
+    17141,
+    18010,
+    16176,
+    15187,
+    15138,
+    16898,
+    15688,
+    14260,
+    14285,
+    13084,
+    13438,
+    14271,
+    14218,
+    14046,
+    15041,
+    16938,
+    17493,
+    16208,
+    14689,
+    17697,
+    17083,
+    17884,
+    17403,
+    20824,
+    19929,
+    22281,
+    21131,
+    23177,
+    22334,
+    24861,
+    24967,
+    23441,
+    23981,
+    25949,
+    27099,
+    28501
+   ]
+  },
+  "labels": {
+   "naive": "Naive (last week)",
+   "ma4": "4-week moving avg",
+   "seasonal_naive": "Seasonal naive (same week LY)",
+   "trend_season": "Trend + seasonality regression"
+  }
+ }
+}
